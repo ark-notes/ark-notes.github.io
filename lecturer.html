@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>讲师板块 · ARK 学习指南</title><link rel="stylesheet" href="assets/main.css?v=13">
+<style>
+.lcard{display:block;padding:30px 28px;background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;transition:.22s;position:relative;overflow:hidden}
+.lcard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.lcard::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent)}
+.ltime{font-size:32px;font-weight:700;color:var(--gold);letter-spacing:-.02em;line-height:1}
+.ltime small{font-size:14px;font-weight:500;color:var(--text-mute);margin-left:6px}
+.lcard h3{font-size:18px;font-weight:650;margin:14px 0 10px}
+.lcard p{font-size:14px;color:var(--text-dim);margin-bottom:16px;line-height:1.8}
+.ltags{display:flex;gap:6px;flex-wrap:wrap}
+.ltag{font-size:11.5px;padding:3px 10px;border-radius:20px;
+  background:rgba(255,255,255,.06);color:var(--text-mute)}
+.lgrid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+</style></head>
+<body>
+<header class="site-header"><div class="wrap">
+<a href="index.html" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/>
+          <circle cx="16" cy="21" r="1.8" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+<nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html">学习路径</a>
+      <a href="lecturer.html" class="active">讲师板块</a>
+      <a href="soul-five.html">灵魂五问</a>
+      <a href="query-guide.html">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="handbook.html">手册</a>
+    </nav>
+</div></header>
+<main class="page"><div class="wrap">
+<div class="page-head" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+<div style="flex:1;min-width:280px">
+<p class="eyebrow">讲师专用</p><h1>讲师板块</h1>
+<p>四个场景，四份稿子。每份都可以直接照着念。按你的场合挑一份。</p>
+</div>
+<div style="width:160px;flex:none;animation:floatY 5.5s ease-in-out infinite">
+<img src="assets/arkie.png" alt="阿奇" style="width:100%;display:block">
+</div>
+</div>
+<div class="content">
+
+<div class="note"><div class="note-title">怎么用</div>
+<p>每份稿子都标了【】的动作提示和互动点。第一次讲建议先熟悉结构，讲三次以后就可以脱稿用自己的话说了。</p>
+<p>所有收益数字必须带「预估」二字。任何时候不承诺保本、不保证收益。</p></div>
+
+<h2 style="margin-top:44px">四个场景</h2>
+<div class="lgrid">
+
+<a class="lcard" href="lecturer-15.html">
+  <div class="ltime">15<small>分钟</small></div>
+  <h3>快讲版</h3>
+  <p>适合：茶会、一对一聊完加微信后、简短介绍。<br>只讲核心四步：痛点 → 解法 → 安全 → 参与。</p>
+  <div class="ltags"><span class="ltag">最轻</span><span class="ltag">随时能用</span></div>
+</a>
+
+<a class="lcard" href="lecturer-30.html">
+  <div class="ltime">30<small>分钟</small></div>
+  <h3>标准版 ★常用</h3>
+  <p>适合：线下小型会议、社群分享。<br>加上收益和生态，结构完整，节奏舒服。</p>
+  <div class="ltags"><span class="ltag">最常用</span><span class="ltag">线下小会</span></div>
+</a>
+
+<a class="lcard" href="lecturer-60.html">
+  <div class="ltime">60<small>分钟</small></div>
+  <h3>完整版</h3>
+  <p>适合：正式会议、招商会、多人大场。<br>全部内容 + 现场查询演示 + 答疑环节。</p>
+  <div class="ltags"><span class="ltag">最完整</span><span class="ltag">大场专用</span></div>
+</a>
+
+<a class="lcard" href="lecturer-online.html">
+  <div class="ltime">45<small>分钟</small></div>
+  <h3>空课版</h3>
+  <p>适合：腾讯会议、直播、线上分享。<br>一个人对着屏幕讲，节奏放慢，互动点加密。</p>
+  <div class="ltags"><span class="ltag">线上</span><span class="ltag">要互动</span></div>
+</a>
+
+</div>
+
+<h2 style="margin-top:56px">配套工具</h2>
+<div class="lgrid">
+<a class="lcard" href="qa.html">
+  <h3>疑难问答库</h3>
+  <p>对方会问什么、怎么答。六类常见问题 + 三类人群的调整。</p>
+</a>
+<a class="lcard" href="scripts.html">
+  <h3>金句话术库</h3>
+  <p>12 条可以直接借用的句子 + 比喻 + 应对质疑。</p>
+</a>
+<a class="lcard" href="query-guide.html">
+  <h3>链上查询教程</h3>
+  <p>现场演示用。教你怎么当众查给人看。</p>
+</a>
+</div>
+
+<h2 style="margin-top:56px">选哪一份？</h2>
+<table>
+<thead><tr><th>你的场合</th><th>选这份</th><th>时间</th></tr></thead>
+<tbody>
+<tr><td>跟朋友喝茶，聊到这事</td><td>快讲版</td><td>15 分钟</td></tr>
+<tr><td>几个人围一桌，我主讲</td><td>标准版</td><td>30 分钟</td></tr>
+<tr><td>社区沙龙，二三十人</td><td>标准版 +</td><td>30–40 分钟</td></tr>
+<tr><td>正式会议，上百人</td><td>完整版</td><td>60 分钟</td></tr>
+<tr><td>腾讯会议，线上讲</td><td>空课版</td><td>45 分钟</td></tr>
+<tr><td>讲师考核</td><td>标准版（练熟）</td><td>30 分钟</td></tr>
+</tbody>
+</table>
+
+</div></div></main>
+<footer class="site-footer"><div class="wrap">
+<p>ARK 学习指南 · 讲师板块</p>
+<p class="muted">所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+</div></footer>
+<script src="assets/float.js"></script>
+<script src="assets/app.js?v=13"></script>
+</body></html>

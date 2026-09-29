@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灵魂五问 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=13">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/>
+          <circle cx="16" cy="21" r="1.8" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html">学习路径</a>
+      <a href="lecturer.html">讲师板块</a>
+      <a href="soul-five.html" class="active">灵魂五问</a>
+      <a href="query-guide.html">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="handbook.html">手册</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+<div class="wrap">
+
+  <div class="page-head">
+    <p class="eyebrow">核心知识</p>
+    <h1>灵魂五问</h1>
+    <p>判断一个 DeFi 项目值不值得参与的五道检验。它不教你赚钱，它告诉你——这个项目会不会出问题、能不能做得长。</p>
+  </div>
+
+  <div class="content">
+
+    <div class="quote">
+      <p>参与任何 DeFi 项目之前，先问两个问题：<strong>它安全吗？</strong><strong>它长久吗？</strong></p>
+    </div>
+
+    <h2>五问总览</h2>
+
+    <table>
+      <thead><tr><th>分类</th><th>问题</th><th>ARK 的答案</th></tr></thead>
+      <tbody>
+        <tr><td>安全</td><td>① 底池（LP）锁死了吗？</td><td>完全锁死，权限已丢弃</td></tr>
+        <tr><td>安全</td><td>② 发币合约开源吗？</td><td>开源可查，核心权限已丢弃</td></tr>
+        <tr><td>安全</td><td>③ 国库谁说了算？</td><td>Gnosis Safe 多签 + Tally 治理投票</td></tr>
+        <tr><td>长久</td><td>④ 有 EM 智能发币模组？</td><td>有，先有资产才允许发币</td></tr>
+        <tr><td>长久</td><td>⑤ 有 RBS 市值稳定模组？</td><td>有，LP 池 + 国库池双池联动</td></tr>
+      </tbody>
+    </table>
+
+    <h2>第一问｜底池锁死了吗？</h2>
+    <p><strong>为什么要问：</strong>如果底池没锁，项目方随时可以把池子里的钱抽走跑路（这叫 Rug Pull）。</p>
+    <p><strong>ARK 的做法：</strong>LP 合约权限已丢弃，底池永久锁定。</p>
+
+    <div class="note">
+      <div class="note-title">✅ 一句话讲清楚</div>
+      <p>「它的资金池，等于锁在一个没有钥匙的保险箱里——连项目方自己都打不开。」</p>
+    </div>
+
+    <h2>第二问｜发币合约开源吗？</h2>
+    <p><strong>为什么要问：</strong>如果代码不公开，项目方可以偷偷无限增发，把你手上的币稀释成一堆废纸。</p>
+    <p><strong>ARK 的做法：</strong>铸币合约完全开源，且核心权限已丢弃。</p>
+
+    <div class="note">
+      <div class="note-title">✅ 一句话讲清楚</div>
+      <p>「它的印钞机是玻璃做的——所有人都看得见它印了多少。而且印钞的钥匙已经扔了。」</p>
+    </div>
+
+    <h2>第三问｜国库谁说了算？</h2>
+    <p><strong>为什么要问：</strong>国库的钱如果一个人就能提走，那这个项目就是黑箱。</p>
+    <p><strong>ARK 的做法：</strong>Gnosis Safe 多签 + Tally 治理投票。</p>
+    <ul>
+      <li>多签合约：9 人签名，需要 5 人通过才能动钱</li>
+      <li>治理投票：持币者投票决定，使用 Tally 平台</li>
+      <li>关键：多签只是执行者，不是决策者。权力来自社区</li>
+    </ul>
+
+    <div class="note">
+      <div class="note-title">✅ 一句话讲清楚</div>
+      <p>「国库的钱要动，得 9 个人里至少 5 个人签名，而且先要社区投票通过。没有一个人能单独把钱拿走。」</p>
+    </div>
+
+    <h2>第四问｜有 EM 智能发币模组吗？</h2>
+    <p><strong>为什么要问：</strong>很多项目是「先发币、再造需求」——先印一堆币，然后靠叙事撑著，本质上是通膨。</p>
+    <p><strong>ARK 的逻辑是反过来的：先有资产，才允许发币。</strong></p>
+    <p>发币必须同时满足：</p>
+    <ol>
+      <li>债券被真实售出</li>
+      <li>POL 协议把真实资产注入 LP 池</li>
+      <li>资产被黑洞机制永久锁定</li>
+      <li>到这一步，系统才允许产生新代币</li>
+    </ol>
+    <p><strong>没有资产 → 就没有发币。债券关闭 → 发币即停止。</strong></p>
+
+    <div class="note">
+      <div class="note-title">✅ 一句话讲清楚</div>
+      <p>「别人先印币再找理由；它是先有真金白银进池子、锁死，才允许印币。发币是结果，不是起点。」</p>
+    </div>
+
+    <h2>第五问｜有 RBS 市值稳定模组吗？</h2>
+    <p><strong>为什么要问：</strong>老项目常吹「1U 托底」，但国库是死的不动，暴跌照样腰斩。</p>
+    <p><strong>ARK 的 RBS：</strong>像一个「链上央行」，双池联动。</p>
+    <ul>
+      <li>币价过热 → 卖币回收 USDT，抑制泡沫，储备国库</li>
+      <li>币价暴跌 → 动用资金回购，且买回的币直接销毁</li>
+      <li>设有「缓冲区（Cushion）」和「价格墙区（Wall）」</li>
+      <li>每个 Epoch（12 小时）自动更新目标价，实时监控</li>
+    </ul>
+
+    <div class="note">
+      <div class="note-title">✅ 一句话讲清楚</div>
+      <p>「它像一个自动运转的央行：米价暴涨就开仓放粮，米价暴跌就拿钱收购、还把收回来的直接烧掉。目的是把断崖式暴跌，变成平滑的曲线。」</p>
+    </div>
+
+    <div class="warn">
+      <div class="warn-title">⚠️ 措辞红线</div>
+      <p>要说「最大程度降低极端暴跌的风险」，不能说「保证不跌」、「保本」。</p>
+      <p>设计目标 ≠ 保证。机制能降低风险，但不能消灭风险。</p>
+    </div>
+
+    <h2>加分项｜权威背书</h2>
+    <table>
+      <thead><tr><th>项目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>安全审计</td><td>CertiK 审计通过 · 代币扫描 95.01/100 · 代码安全 22 项全通过</td></tr>
+        <tr><td>机构投资</td><td>摩根格雷基金投资 3,000 万美元</td></tr>
+        <tr><td>核心人物</td><td>卡梅洛博士（Carmelo Ippolito）— 参与 Olympus DAO 初代架构、DAI 债券机制原创、3,3 博弈论提出者</td></tr>
+        <tr><td>平台收录</td><td>CoinMarketCap、CoinGecko、Apple Stocks、Yahoo Finance、RootData</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <div class="note-title">✅ 整章的一句话总结（背下来）</div>
+      <p>「判断一个项目会不会跑路，就看四件事：底池锁没锁、合约开不开源、国库谁说了算、有没有机构审计。这四条 ARK 全过了，而且是链上可查的——不是我说的。」</p>
+    </div>
+
+    <h2>下一步</h2>
+    <p>光会讲不够，要会查。<a href="query-guide.html" style="color:var(--accent)">去看链上查询教程 →</a></p>
+
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+    <p class="muted">所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+  </div>
+</footer>
+
+<script src="assets/float.js"></script>
+<script src="assets/app.js?v=13"></script>
+</body>
+</html>

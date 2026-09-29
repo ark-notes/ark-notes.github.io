@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>逐字稿库 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=13">
+<style>
+.toolbar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  margin:28px 0 20px;padding:16px 18px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+}
+.toolbar input{
+  flex:1;min-width:180px;padding:10px 14px;border-radius:10px;
+  background:var(--bg);border:1px solid var(--line-2);
+  color:var(--text);font-size:14.5px;font-family:inherit;
+  transition:.2s;
+}
+.toolbar input:focus{outline:none;border-color:var(--cyan-line)}
+.toolbar input::placeholder{color:var(--text-3)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.fbtn{
+  padding:7px 14px;border-radius:20px;font-size:13px;cursor:pointer;
+  background:transparent;border:1px solid var(--line-2);color:var(--text-2);
+  font-family:inherit;transition:.2s;
+}
+.fbtn:hover{border-color:var(--cyan-line);color:var(--text)}
+.fbtn.on{background:var(--cyan-soft);border-color:var(--cyan-line);color:var(--cyan)}
+
+/* 列表 */
+.tlist{display:grid;gap:10px}
+.titem{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:18px 22px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);cursor:pointer;transition:.24s var(--ease);
+}
+.titem:hover{border-color:var(--cyan-line);background:var(--surface-2);transform:translateX(3px)}
+.titem-main{min-width:0}
+.titem-title{font-size:15.5px;font-weight:640;margin-bottom:4px;color:var(--text)}
+.titem-meta{font-size:12.5px;color:var(--text-3)}
+.titem-badge{
+  font-size:12px;padding:4px 11px;border-radius:16px;white-space:nowrap;flex:none;
+  background:rgba(255,255,255,.05);color:var(--text-3);
+}
+
+/* 阅读区 */
+.reader{display:none}
+.reader.on{display:block}
+.reader-bar{
+  position:sticky;top:64px;z-index:80;
+  display:flex;align-items:center;gap:12px;
+  padding:12px 18px;margin-bottom:22px;
+  background:rgba(12,14,23,.96);backdrop-filter:blur(18px);
+  border:1px solid var(--line);border-radius:var(--radius);
+}
+.rback{
+  display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  padding:8px 15px;border-radius:9px;font-size:13.5px;
+  background:transparent;border:1px solid var(--line-2);color:var(--text-2);
+  font-family:inherit;transition:.2s;flex:none;
+}
+.rback:hover{border-color:var(--cyan-line);color:var(--text)}
+.rback svg{width:15px;height:15px}
+.r-title{font-size:14.5px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r-meta{font-size:12.5px;color:var(--text-3);margin-left:auto;flex:none}
+@media(max-width:640px){
+  .reader-bar{top:0;flex-wrap:wrap;gap:8px}
+  .r-meta{display:none}
+}
+.transcript{font-size:16px;line-height:2.1;max-width:760px}
+.transcript p{margin-bottom:8px;color:var(--text-2)}
+.ts-line{display:flex;gap:16px;align-items:flex-start}
+.ts-line .ts{
+  flex:none;font-size:12.5px;color:var(--cyan);
+  font-family:"SF Mono",Menlo,Consolas,monospace;
+  padding-top:5px;min-width:54px;opacity:.75;
+}
+.ts-line:hover .ts{opacity:1}
+.loading{padding:60px 0;text-align:center;color:var(--text-3);font-size:14.5px}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/>
+          <circle cx="16" cy="21" r="1.8" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html">学习路径</a>
+      <a href="lecturer.html">讲师板块</a>
+      <a href="soul-five.html">灵魂五问</a>
+      <a href="query-guide.html">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="handbook.html">手册</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+<div class="wrap">
+
+  <!-- 列表视图 -->
+  <div id="listView">
+    <div class="page-head">
+      <span class="eyebrow">原始素材</span>
+      <h1>逐字稿库</h1>
+      <p>社群课程的完整逐字稿。持续更新。</p>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="搜索标题或日期…">
+      <div class="filters" id="filters">
+        <button class="fbtn on" data-k="all">全部</button>
+        <button class="fbtn" data-k="晚间 AMA">晚间 AMA</button>
+        <button class="fbtn" data-k="晨间">晨间</button>
+        <button class="fbtn" data-k="夜聊">夜聊</button>
+        <button class="fbtn" data-k="午课">午课</button>
+      </div>
+    </div>
+
+    <div id="tbody" class="tlist"></div>
+    <div id="tempty" class="empty" style="display:none">没有找到匹配的逐字稿。</div>
+  </div>
+
+  <!-- 阅读视图 -->
+  <div id="readView" class="reader">
+    <div class="reader-bar">
+      <button class="rback" id="rBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        返回列表
+      </button>
+      <span class="r-title" id="rTitle"></span>
+      <span class="r-meta" id="rMeta"></span>
+    </div>
+    <div class="content">
+      <div class="warn"><div class="warn-title">机器识别初稿</div>
+      <p>关键词可能有误（如「阿奇」被识为「阿起」）。引用前请对照正确说法。时间戳为视频时间。</p></div>
+      <div class="transcript" id="rBody"></div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>ARK 学习指南 · 逐字稿库</p>
+    <p>所有收益数字均为官方标示之参考／预估值。</p>
+  </div>
+</footer>
+
+<script src="assets/app.js?v=13"></script>
+<script>
+(function(){
+  const DATA = 'data/';
+  let index = [];
+  let cache = {};          // {月份: [items]}
+  let curFilter = 'all';
+
+  const listView = document.getElementById('listView');
+  const readView = document.getElementById('readView');
+  const tbody = document.getElementById('tbody');
+  const tempty = document.getElementById('tempty');
+  const search = document.getElementById('search');
+
+  // ---- 加载索引 ----
+  fetch(DATA + 'index.json')
+    .then(r => r.json())
+    .then(d => { index = d; render(); })
+    .catch(e => { tbody.innerHTML = '<div class="loading">加载失败：' + e.message + '</div>'; });
+
+  // ---- 渲染列表 ----
+  function render(){
+    const q = (search.value || '').trim().toLowerCase();
+    const rows = index.filter(it => {
+      if(curFilter !== 'all' && it.kind !== curFilter) return false;
+      if(!q) return true;
+      return (it.title + ' ' + it.date).toLowerCase().includes(q);
+    });
+
+    if(!rows.length){
+      tbody.innerHTML = ''; tempty.style.display = 'block'; return;
+    }
+    tempty.style.display = 'none';
+    tbody.innerHTML = rows.map(it => `
+      <div class="titem" data-id="${it.id}" data-date="${it.date}">
+        <div class="titem-main">
+          <div class="titem-title">${it.title}</div>
+          <div class="titem-meta">${it.date} · ${it.lines} 行 · 约 ${(it.chars/10000).toFixed(1)} 万字</div>
+        </div>
+        <span class="titem-badge">${it.kind}</span>
+      </div>`).join('');
+  }
+
+  // ---- 事件 ----
+  search.addEventListener('input', render);
+
+  document.getElementById('filters').addEventListener('click', e => {
+    const b = e.target.closest('.fbtn'); if(!b) return;
+    document.querySelectorAll('.fbtn').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    curFilter = b.dataset.k;
+    render();
+  });
+
+  tbody.addEventListener('click', e => {
+    const el = e.target.closest('.titem'); if(!el) return;
+    openTranscript(el.dataset.id, el.dataset.date);
+  });
+
+  document.getElementById('rBack').addEventListener('click', () => {
+    readView.classList.remove('on');
+    listView.style.display = '';
+    window.scrollTo({top:0});
+  });
+
+  // ---- 打开某支 ----
+  function openTranscript(id, date){
+    const ym = (date||'').slice(0,7);
+    listView.style.display = 'none';
+    readView.classList.add('on');
+    document.getElementById('rTitle').textContent = id.replace(/_/g,' ');
+    document.getElementById('rBody').innerHTML = '<div class="loading">加载中…</div>';
+    window.scrollTo({top:0});
+
+    const paint = items => {
+      const it = items.find(x => x.id === id);
+      if(!it){ document.getElementById('rBody').innerHTML = '<div class="loading">找不到这支逐字稿。</div>'; return; }
+      document.getElementById('rMeta').textContent = `${it.date} · ${it.lines} 行`;
+      document.getElementById('rBody').innerHTML = it.body.map(([ts,txt]) =>
+        ts ? `<p class="ts-line"><span class="ts">${ts}</span>${esc(txt)}</p>`
+           : `<p>${esc(txt)}</p>`
+      ).join('');
+    };
+
+    if(cache[ym]) { paint(cache[ym]); return; }
+    fetch(DATA + ym + '.json')
+      .then(r => r.json())
+      .then(d => { cache[ym] = d; paint(d); })
+      .catch(e => { document.getElementById('rBody').innerHTML = '<div class="loading">加载失败：'+e.message+'</div>'; });
+  }
+
+  function esc(s){ return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+  // 支持 URL 锚点直达：transcripts.html#2026-09-27_晚间AMA
+  if(location.hash){
+    const id = decodeURIComponent(location.hash.slice(1));
+    const found = index.find(x => x.id === id);
+    if(found) setTimeout(()=>openTranscript(found.id, found.date), 300);
+  }
+})();
+</script>
+</body>
+</html>

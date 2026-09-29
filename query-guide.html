@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>链上查询图文教程 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=13">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/>
+          <circle cx="16" cy="21" r="1.8" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html">学习路径</a>
+      <a href="lecturer.html">讲师板块</a>
+      <a href="soul-five.html">灵魂五问</a>
+      <a href="query-guide.html" class="active">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="handbook.html">手册</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+<div class="wrap">
+
+  <div class="page-head">
+    <p class="eyebrow">实操</p>
+    <h1>链上查询图文教程</h1>
+    <p>灵魂五问不是口号，是可以自己上网查证的。这份教程教你：每一问去哪里查、点哪里、看到什么代表「通过」。</p>
+  </div>
+
+  <div class="content">
+
+    <div class="warn">
+      <div class="warn-title">先读这段</div>
+      <p>① 所有查询都是公开的，任何人（包括客户）都能自己查。</p>
+      <p>② 链上数据会变动（例如国库余额），看的是「机制」不是「数字」。</p>
+      <p>③ 图片是介面示意，实际数据请以你查到的为准。</p>
+    </div>
+
+    <h2>查询总览</h2>
+    <table>
+      <thead><tr><th>查什么</th><th>去哪查</th><th>教程</th></tr></thead>
+      <tbody>
+        <tr><td>① 底池（LP）是否上锁</td><td>BscScan</td><td>下方文字指引</td></tr>
+        <tr><td>② 铸币合约是否开源 / 权限是否丢弃</td><td>BscScan</td><td>下方文字指引</td></tr>
+        <tr><td>③ 国库是否多签</td><td>Gnosis Safe</td><td>★ 图文</td></tr>
+        <tr><td>④ EM 智能发币模组</td><td>BscScan + GitHub</td><td>下方文字指引</td></tr>
+        <tr><td>⑤ RBS 市值稳定模组</td><td>ACG Tools</td><td>★ 图文</td></tr>
+        <tr><td>加分｜CertiK 安全审计</td><td>CertiK Skynet</td><td>下方文字指引</td></tr>
+        <tr><td>加分｜合约安全扫描</td><td>GoPlus</td><td>★ 图文</td></tr>
+      </tbody>
+    </table>
+
+    <h2>第一问｜底池（LP）是否上锁？</h2>
+
+    <h3>查询步骤</h3>
+    <div class="step"><span class="step-num">1</span><span class="step-title">打开 BscScan</span></div>
+    <p>网址：<code>bscscan.com</code></p>
+
+    <div class="step"><span class="step-num">2</span><span class="step-title">搜索 LP 合约地址</span></div>
+    <p><code>0xCAaF3c41a40103a23Eeaa4BbA468AF3cF5b0e0D8</code></p>
+
+    <div class="step"><span class="step-num">3</span><span class="step-title">点选「Holders」（持有者）标签</span></div>
+    <p>查看 LP 代币的持有者分布。</p>
+
+    <h3>要看什么</h3>
+    <p>你要找的是这两个地址：</p>
+    <table>
+      <thead><tr><th>地址</th><th>名称</th><th>代表什么</th></tr></thead>
+      <tbody>
+        <tr><td><code>0x000...0000</code></td><td>黑洞地址（零地址）</td><td>最初随系统而生的销毁地址</td></tr>
+        <tr><td><code>0x000...dEaD</code></td><td>死亡地址</td><td>人为创造的销毁地址</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <div class="note-title">✅ 怎么判断「已上锁」</div>
+      <p>如果这两个地址（黑洞 / 死亡地址）持有绝大部分 LP 代币 → 就是已上锁。</p>
+      <p>因为这两个地址没有私钥，谁都无法取出里面的资产，包括项目方。</p>
+      <p>→ 结论：任何人（含项目方）都无法撤池跑路。</p>
+    </div>
+
+    <div class="warn">
+      <div class="warn-title">❌ 看到什么代表「没上锁」</div>
+      <p>如果 LP 代币主要在某个普通钱包地址（有私钥的地址）手上 → 没上锁。</p>
+      <p>那意味著那个钱包的主人随时可以撤走所有流动性 → 极大风险。</p>
+    </div>
+
+    <h2>第二问｜铸币合约是否开源 & 权限是否丢弃？</h2>
+
+    <h3>查开源</h3>
+    <div class="step"><span class="step-num">1</span><span class="step-title">打开 BscScan，搜索铸币合约</span></div>
+    <p><code>0x615a2a799c49AF74E91b4C3Ca5eaD68897c07A81</code></p>
+
+    <div class="step"><span class="step-num">2</span><span class="step-title">点选「Contract」标签</span></div>
+
+    <div class="step"><span class="step-num">3</span><span class="step-title">看有没有 Read Contract / Write Contract</span></div>
+
+    <div class="note">
+      <div class="note-title">✅ 已开源</div>
+      <p>看到 Read Contract / Write Contract 两个子标签 → 代码已开源。点进去能看到完整函数列表，任何人都能审计。</p>
+    </div>
+
+    <div class="warn">
+      <div class="warn-title">❌ 没开源</div>
+      <p>只显示：「Are you the contract creator? Verify and Publish your contract source code」→ 代码没公开，有黑箱风险。</p>
+    </div>
+
+    <h3>查权限是否丢弃</h3>
+    <p>在 Contract 页面搜寻以下关键词：</p>
+    <ul>
+      <li><code>owner</code></li>
+      <li><code>renounceOwnership</code></li>
+      <li><code>onlyOwner</code></li>
+      <li><code>getOwner</code></li>
+    </ul>
+    <p>找到「Read Contract」里的 owner 函数，点击查询。</p>
+
+    <div class="note">
+      <div class="note-title">✅ 权限已丢弃</div>
+      <p>如果查出来的 owner 地址是 <code>0x0000000000000000000000000000000000000000</code>（零地址）</p>
+      <p>→ 表示「没有人是 owner」→ 权限已被丢弃，无法再增发、无法再改参数。</p>
+    </div>
+
+    <div class="warn">
+      <div class="warn-title">❌ 权限还在</div>
+      <p>如果 owner 显示的是某个真实的钱包地址 → 那个钱包还有控制权，可以增发、可以改规则 → 有风险。</p>
+    </div>
+
+    <h2>第三问｜国库是否多签？</h2>
+
+    <h3>查询网址</h3>
+    <p><code>app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b</code></p>
+
+    <div class="img-block">
+      <img src="assets/shot-safe.png" alt="Gnosis Safe 国库多签页面">
+      <p class="img-cap">图：ARK 国库的 Gnosis Safe 页面。标注 ① 多签门槛 ② 国库余额 ③ 资产明细</p>
+    </div>
+
+    <p>图中三个标注点：</p>
+    <ol>
+      <li>顶部显示 <strong>5/9</strong> → 意思是「9 位签名者，需要 5 人通过才能动钱」</li>
+      <li>国库总余额（链上公开可查）</li>
+      <li>资产明细：USDT / BNB / ARK 等</li>
+    </ol>
+
+    <div class="note">
+      <div class="note-title">✅ 国库是多签</div>
+      <p>看到 X/Y 的标记（如 5/9）→ 这是多签钱包。</p>
+      <p>意思是：任何人（包括项目方）想动国库的钱，都要至少 5 个人签名同意。一个人无法独自转走资金。</p>
+    </div>
+
+    <div class="warn">
+      <div class="warn-title">❌ 不是多签</div>
+      <p>如果是一个普通钱包（没有 X/Y 标记）→ 单签，一个人就能提走所有钱 → 黑箱风险。</p>
+    </div>
+
+    <p>补充：多签只是「执行者」，不是「决策者」。真正的决策还要经过 ARK DAO 社区投票（用 Tally 平台）。</p>
+
+    <h2>第四问｜EM 智能发币模组</h2>
+
+    <h3>查什么</h3>
+    <ol>
+      <li>查铸币合约是否开源（见第二问）</li>
+      <li>查发币逻辑：债券售出 → 资产注入 LP → 黑洞锁定 → 才允许发币</li>
+      <li>到 ARK 官方 GitHub 查看合约代码：</li>
+    </ol>
+    <p><code>github.com/ark-defai/ark-code</code></p>
+
+    <div class="note">
+      <div class="note-title">✅ EM 是真的</div>
+      <p>开源可查 → 发币逻辑写死在链上，不能临时改。</p>
+      <p>债券关闭 → 发币即停止，无法凭空印币。</p>
+      <p>每一枚产出都有真实资产对应（MCL 铸币上限监控）。</p>
+    </div>
+
+    <h2>第五问｜RBS 市值稳定模组</h2>
+
+    <h3>查询步骤</h3>
+    <div class="step"><span class="step-num">1</span><span class="step-title">打开工具网站</span></div>
+    <p><code>www.acg.tools</code>，点击「Connect Wallet」连接钱包</p>
+
+    <div class="step"><span class="step-num">2</span><span class="step-title">设定 RBS 合约地址</span></div>
+    <p><code>0x23876D9F06F8290F119Fb39B7FDCf93A08e2D616</code></p>
+
+    <div class="step"><span class="step-num">3</span><span class="step-title">设定 RBS 的 ABI</span></div>
+    <p>从 GitHub 复制：<code>github.com/ark-defai/ark-code/tree/main/modules/RBS</code></p>
+
+    <div class="step"><span class="step-num">4</span><span class="step-title">选择函数「To Address」并执行</span></div>
+    <p>在 Contract Function Call 下拉选单选「To Address」，点击 Execute。</p>
+
+    <div class="img-block">
+      <img src="assets/shot-acg.png" alt="ACG Tools 操作介面">
+      <p class="img-cap">图：ACG Tools 操作介面。① 连接钱包 ② 贴合约地址 ③ 贴 ABI</p>
+    </div>
+
+    <div class="note">
+      <div class="note-title">✅ 会看到什么结果</div>
+      <p>系统返回 RBS 所有去向地址的列表——结果只有一个：</p>
+      <p><code>0x1b9f458773d18B4e1AAf5b896721697215C4a68b</code>（就是国库地址）</p>
+      <p>→ 意思是：RBS 的钱唯一去向 = 国库，没有第二条路径、没有隐藏地址。</p>
+    </div>
+
+    <h2>加分项｜CertiK 安全审计</h2>
+
+    <div class="step"><span class="step-num">1</span><span class="step-title">打开 CertiK Skynet</span></div>
+    <p><code>skynet.certik.com</code>，搜索「ARK」，点进正确的代币页面</p>
+
+    <div class="note">
+      <div class="note-title">✅ 看这三个数字</div>
+      <p>① 代币综合分：87.4 分 + 2A（仅作参考）</p>
+      <p>② 代币扫描分（Token Scan）：95.01 / 100 ← 这才是安全指标</p>
+      <p>③ 代码安全：100 分（22 项安全问题全部通过）</p>
+      <p>另看三个勾：通过审计、官方悬赏白帽、审计代码与部署代码一致。</p>
+    </div>
+
+    <div class="quote">
+      <p>为什么要看「代币扫描分」而不是「综合分」？<br>很多项目利用认知差，让你只看综合分就说「安全」。但真正的安全指标是代币扫描分——95% 以上项目在这里是不合格的。</p>
+    </div>
+
+    <h2>加分项｜GoPlus 合约安全扫描</h2>
+
+    <p>网址：<code>gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D</code></p>
+
+    <div class="img-block">
+      <img src="assets/shot-goplus.png" alt="GoPlus 安全扫描页面">
+      <p class="img-cap">图：GoPlus 安全扫描。① 风险/注意项目 ② 合约源码已验证 ③ 合约拥有者资讯</p>
+    </div>
+
+    <ul>
+      <li>Risky item（风险项目）：0 → 没有高风险</li>
+      <li>Attention item（注意项目）：3 → 有 3 项需留意</li>
+      <li>Contract source code verified → 绿勾，源码已验证</li>
+      <li>No proxy → 绿勾，无代理合约</li>
+    </ul>
+
+    <h2>最后｜一句万能话术</h2>
+
+    <div class="note">
+      <div class="note-title">面对质疑，你就说这句</div>
+      <p>「妳不信我说的没关系，我们现在就查。」</p>
+      <p>——然后打开上面的网址，一步一步查给她看。这一句话的杀伤力，比任何话术都大。</p>
+    </div>
+
+    <h2>附录｜官方怎么教查询</h2>
+    <p>以下是社群分享者提到的：</p>
+    <div class="quote">
+      <p>「建议大家可以来到我们下午三点钟的小狐狸微课堂，我们每周的 1、3、5 有专门老师来教大家怎么样进行链上数据的查询。」</p>
+    </div>
+    <p><strong>→ 查询课在「小狐狸午课」（15:00–15:40）。</strong></p>
+    <ul>
+      <li>周一 / 三 / 五：链上查询 + AMA 访谈</li>
+      <li>周二 / 四 / 六：阿奇 AI 实战教学 + ARKIE 币系统操作</li>
+    </ul>
+
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+    <p class="muted">所有网址与地址均为 ARK 官方公示。数据以链上实时为准。</p>
+  </div>
+</footer>
+
+<script src="assets/float.js"></script>
+<script src="assets/app.js?v=13"></script>
+</body>
+</html>

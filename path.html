@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习路径 · ARK 学习指南</title><link rel="stylesheet" href="assets/main.css?v=13">
+<style>
+.road{position:relative;margin:40px 0;padding-left:38px}
+.road::before{
+  content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,var(--gold),var(--accent),rgba(120,90,255,.4));
+  border-radius:2px;
+}
+.stage{position:relative;margin-bottom:26px}
+.stage::before{
+  content:"";position:absolute;left:-33px;top:22px;width:12px;height:12px;
+  border-radius:50%;background:var(--panel-solid);border:2px solid var(--gold);
+  box-shadow:0 0 0 4px rgba(216,178,106,.1);
+}
+.stage-box{
+  padding:24px 26px;border-radius:16px;
+  background:linear-gradient(160deg,rgba(24,23,36,.85),rgba(13,12,20,.9));
+  border:1px solid var(--line);transition:.3s var(--ease);
+}
+.stage-box:hover{border-color:rgba(216,178,106,.4);transform:translateX(4px)}
+.stage-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.stage-day{
+  font-size:12px;letter-spacing:.1em;color:var(--gold);font-weight:600;
+  padding:3px 10px;border-radius:6px;background:var(--gold-soft);
+  border:1px solid rgba(216,178,106,.2);
+}
+.stage-title{font-size:18px;font-weight:680;margin:0}
+.stage-goal{
+  font-size:13.5px;color:var(--text-dim);margin-bottom:16px;
+  padding-left:2px;line-height:1.8;
+}
+.stage-goal b{color:var(--green)}
+.task-list{list-style:none;margin:0;padding:0}
+.task-list li{
+  position:relative;padding-left:24px;margin-bottom:11px;
+  font-size:14.5px;color:var(--text-dim);line-height:1.8;
+}
+.task-list li::before{
+  content:"";position:absolute;left:5px;top:10px;width:7px;height:7px;
+  border-radius:2px;background:var(--line-strong);
+  transition:.2s;
+}
+.task-list li:hover::before{background:var(--accent)}
+.task-list li b{color:var(--text);font-weight:640}
+.milestone{
+  margin-top:16px;padding:12px 16px;border-radius:10px;
+  background:rgba(62,207,142,.07);border-left:2px solid var(--green);
+  font-size:13.5px;color:var(--text-dim);
+}
+.milestone b{color:var(--green)}
+</style></head>
+<body>
+<header class="site-header"><div class="wrap">
+<a href="index.html" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/>
+          <circle cx="16" cy="21" r="1.8" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+<nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html" class="active">学习路径</a>
+      <a href="lecturer.html">讲师板块</a>
+      <a href="soul-five.html">灵魂五问</a>
+      <a href="query-guide.html">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="handbook.html">手册</a>
+    </nav>
+</div></header>
+<main class="page"><div class="wrap">
+<div class="page-head">
+<p class="eyebrow">新人入门</p>
+<h1>30 天学习路径</h1>
+<p>刚加入 ARK，不知道从哪学起？跟着这条线走。每天花一到两小时，三十天后你就能独立讲清楚这套东西。</p>
+</div>
+<div class="content">
+
+<div class="note"><div class="note-title">这条路径的设计逻辑</div>
+<p>先「搞懂」，再「会查」，然后「能讲」，最后「能带人」。<br>
+不要跳步。跳过「搞懂」直接去讲，别人一问就露底；跳过「会查」去讲安全，你只能背，不能证。</p></div>
+
+<div class="road">
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 1–3 天</span><h3 class="stage-title">第一阶段｜先搞懂这是什么</h3></div>
+  <div class="stage-goal">目标：<b>能用三句话向别人说清 ARK 是什么</b>。这一步不追求深，追求「说得出口」。</div>
+  <ul class="task-list">
+    <li><b>读「灵魂五问」页</b>，先看总览，再看每一问</li>
+    <li><b>读「学习手册」第一章</b>：什么叫复利、静态收益、动态收益</li>
+    <li><b>看首页的七个板块</b>，知道都有什么内容</li>
+    <li><b>练一件事</b>：用你自己的话，讲一遍「ARK 是什么」——讲给家人听也行</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>你能不看稿，用三句话说清「这是一个 AI + 区块链的项目，核心产品是阿奇 AI，用 ARK 代币把生态串起来」。</div>
+</div></div>
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 4–7 天</span><h3 class="stage-title">第二阶段｜搞懂安全性</h3></div>
+  <div class="stage-goal">目标：<b>这阶段最重要</b>。别人问「是不是资金盘」，你得答得上来，而且答得让人信。</div>
+  <ul class="task-list">
+    <li><b>精读「灵魂五问」</b>：每一问的「为什么问」「怎么答」「一句人话版本」</li>
+    <li><b>记住五个关键点</b>：底池锁死、合约开源、国库多签、EM 先资产后发币、RBS 稳价</li>
+    <li><b>找一场官方「小狐狸午课」</b>（周一/三/五 15:00，讲链上查询）旁听</li>
+    <li><b>练一件事</b>：对着镜子讲一遍灵魂五问，计时，控制在 8 分钟内</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>有人问你「这会不会跑路」，你能一口气说出四条判断标准，并说「我们可以现在就查」。</div>
+</div></div>
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 8–12 天</span><h3 class="stage-title">第三阶段｜学会自己查</h3></div>
+  <div class="stage-goal">目标：<b>把「听我说」变成「你自己看」</b>。这是你最能加分的地方。</div>
+  <ul class="task-list">
+    <li><b>跟着「链上查询」页操作一遍</b>：底池、合约、国库、RBS、审计</li>
+    <li><b>手机里存好这几个网址</b>：BscScan、Gnosis Safe、ACG Tools、CertiK、GoPlus</li>
+    <li><b>自己动手查 3 次</b>，熟练到不用看教程</li>
+    <li><b>练一件事</b>：假装给朋友演示，边说边点手机</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>对方不信你的时候，你能掏出手机说「我们现在就查」，然后当场查出来给他看。</div>
+</div></div>
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 13–17 天</span><h3 class="stage-title">第四阶段｜搞懂钱从哪来</h3></div>
+  <div class="stage-goal">目标：<b>回答「凭什么有价值」</b>。这是能不能成交的关键。</div>
+  <ul class="task-list">
+    <li><b>读「学习手册」第三章</b>：三层收入结构（质押复利 / 生态收入 / 支付落地）</li>
+    <li><b>搞懂「静态收益 vs 动态收益」</b>——这两个词你自己要分得清</li>
+    <li><b>搞懂解鎖燃烧规则</b>：立即扣 20%，60 天不扣</li>
+    <li><b>练一件事</b>：用「加油站」的比喻讲一遍（腾讯云是炼油厂，阿奇是加油站，你是开车的人）</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>能说清「它的钱是用出来的，不是下一个人接盘出来的」。</div>
+</div></div>
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 18–22 天</span><h3 class="stage-title">第五阶段｜学会面对质疑</h3></div>
+  <div class="stage-goal">目标：<b>不被问倒</b>。这一步练的是「心态」，不是「话术」。</div>
+  <ul class="task-list">
+    <li><b>通读「疑难问答库」</b>，六类问题全部过一遍</li>
+    <li><b>重点背三题</b>：是不是资金盘 / 你自己投了多少 / 要投多少钱</li>
+    <li><b>看「金句话术库」</b>，挑 3 句最顺口的记下来</li>
+    <li><b>练一件事</b>：找一个人（家人朋友都行），让他随便问你，你现场答</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>被问到「你是不是想拿提成」时，你能坦然承认，然后说「我自己也在里面，你亏我也亏」。</div>
+</div></div>
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 23–27 天</span><h3 class="stage-title">第六阶段｜能完整讲一场</h3></div>
+  <div class="stage-goal">目标：<b>从「会答问题」到「能主讲」</b>。</div>
+  <ul class="task-list">
+    <li><b>拿「15 分钟快讲版」练手</b>——短，容易上手</li>
+    <li><b>练熟后换「30 分钟标准版」</b>——这是考核和线下的主力稿</li>
+    <li><b>计时练习至少 3 遍</b>，录音回听，找卡壳的地方</li>
+    <li><b>把讲不顺的句子改成你自己的说法</b>——这很重要，照念会很假</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>30 分钟的内容，你能不看稿讲完 25 分钟以上，中途不卡。</div>
+</div></div>
+
+<div class="stage"><div class="stage-box">
+  <div class="stage-head"><span class="stage-day">第 28–30 天</span><h3 class="stage-title">第七阶段｜上场</h3></div>
+  <div class="stage-goal">目标：<b>真的讲一次</b>。讲了才算数。</div>
+  <ul class="task-list">
+    <li><b>找 3–5 个人</b>，在家 / 咖啡厅 / 线上，讲一次完整的</li>
+    <li><b>讲完复盘</b>：哪里卡了、哪里对方走神了、哪里被问倒了</li>
+    <li><b>把卡壳的地方补进你的稿子</b></li>
+    <li><b>再讲一次</b>，这次会顺很多</li>
+  </ul>
+  <div class="milestone"><b>过关标准：</b>你有了第一次实战，并且知道下次哪里要改。</div>
+</div></div>
+
+</div>
+
+<h2>之后的路</h2>
+<p>30 天之后，你就进入「持续迭代」阶段。官方体系里，往上有两条线：</p>
+
+<table>
+<thead><tr><th>方向</th><th>要求</th><th>做什么</th></tr></thead>
+<tbody>
+<tr><td><b>讲师线</b></td><td>月度考核 130 分，80 分续任<br>（空课 30 + 业绩 40 + 活跃 30 + 汇报 30）</td><td>空课分享、带团队、社群运营</td></tr>
+<tr><td><b>领袖线</b></td><td>质押价值 ≥ 1000 USDT<br>（AI 链上秩序营 · 领袖启动会）</td><td>组织内训（50 人起）、办会议</td></tr>
+</tbody>
+</table>
+
+<h2>每天该花多少时间</h2>
+<table>
+<thead><tr><th>阶段</th><th>每天</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>第 1–12 天（学 + 查）</td><td><b>1–2 小时</b></td><td>主要是读和练</td></tr>
+<tr><td>第 13–22 天（钱 + 质疑）</td><td><b>1–2 小时</b></td><td>理解为主</td></tr>
+<tr><td>第 23–30 天（讲 + 上场）</td><td><b>2–3 小时</b></td><td>要反复练、录音复盘</td></tr>
+</tbody>
+</table>
+
+<h2>三个提醒</h2>
+<div class="warn"><div class="warn-title">① 不要跳步</div>
+<p>最常见的失败是：看了两天就急着去讲，结果被人问两句就露底，然后就不敢讲了。<b>前面十二天是地基。</b></p></div>
+
+<div class="warn"><div class="warn-title">② 不要照念稿子</div>
+<p>稿子是给你「知道该怎么讲」，不是给你「背」。讲到第三遍，一定要换成你自己的话。<b>照念的稿子，别人听得出来。</b></p></div>
+
+<div class="warn"><div class="warn-title">③ 所有收益数字必须带「预估」</div>
+<p>官方给的倍数都是参考值。<b>任何时候不要承诺保本、不要保证收益。</b>这是底线，也是保护你自己。</p></div>
+
+<div class="note" style="margin-top:40px"><div class="note-title">配套资料</div>
+<p>这条路径用到的所有内容都在站内：<a href="soul-five.html" style="color:var(--accent)">灵魂五问</a> ·
+<a href="query-guide.html" style="color:var(--accent)">链上查询</a> ·
+<a href="scripts.html" style="color:var(--accent)">话术库</a> ·
+<a href="qa.html" style="color:var(--accent)">问答库</a> ·
+<a href="handbook.html" style="color:var(--accent)">学习手册</a> ·
+<a href="lecturer.html" style="color:var(--accent)">讲师板块</a></p></div>
+
+</div></div></main>
+<footer class="site-footer"><div class="wrap">
+<p>ARK 学习指南 · 学习路径</p>
+<p class="muted">所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+</div></footer>
+<script src="assets/app.js?v=13"></script>
+</body></html>
