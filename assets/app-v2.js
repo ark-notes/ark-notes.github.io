@@ -29,10 +29,6 @@
       <a class="dm-item" href="${P}transcripts.html">逐字稿库</a>
     </div>
     <div class="dock-stack">
-      <a class="dock-pill dock-back" id="dockBack" href="${P}index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
-        <span>返回</span>
-      </a>
       <button class="dock-pill dock-top" id="dockTop" aria-label="返回顶部">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 18V7"/><path d="M6.5 12.5L12 7l5.5 5.5"/></svg>
         <span>顶部</span>
