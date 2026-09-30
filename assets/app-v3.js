@@ -1,5 +1,5 @@
 /* ============================================================
-   ARK 学习指南 — 页面增强 v3
+   ARK 学习指南 - 页面增强 v3
    一个可拖动的阿奇球，点开包含所有功能
    ============================================================ */
 (function(){
@@ -22,10 +22,6 @@
         <span class="af-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span>
         <span>提个建议</span>
       </a>
-      <button class="af-item" id="afTop" type="button">
-        <span class="af-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 18V7"/><path d="M6.5 12.5L12 7l5.5 5.5"/></svg></span>
-        <span>回到顶部</span>
-      </button>
       <a class="af-item" href="${P}transcripts.html">
         <span class="af-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9.5h8M8 13.5h5"/></svg></span>
         <span>看逐字稿</span>
@@ -43,6 +39,10 @@
       <a class="af-nav" href="${P}query-guide.html">链上查询</a>
       <a class="af-nav" href="${P}qa.html">疑难问答</a>
     </div>
+    <button class="af-top-btn" id="afTopBtn" aria-label="回到顶部" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 18V7"/><path d="M6.5 12.5L12 7l5.5 5.5"/></svg>
+      <span>顶部</span>
+    </button>
     <button class="af-ball" id="afBall" aria-label="阿奇助手">
       <img src="${ARKIE_SM}" alt="阿奇">
       <span class="af-tip" id="afTip">点我</span>
@@ -68,9 +68,8 @@
       open = false; menu.classList.remove('show'); ball.classList.remove('active');
     }
   });
-  document.getElementById('afTop').addEventListener('click', () => {
+  document.getElementById('afTopBtn').addEventListener('click', () => {
     window.scrollTo({top:0, behavior:'smooth'});
-    open = false; menu.classList.remove('show'); ball.classList.remove('active');
   });
 
   /* ---------- 拖动（鼠标 + 触摸） ---------- */
@@ -144,6 +143,9 @@
     const h = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = (h>0 ? (y/h*100) : 0) + '%';
     if(header) header.classList.toggle('scrolled', y > 20);
+    const tb = document.getElementById('afTopBtn');
+    if(tb) tb.classList.toggle('show', y > 400);
+    dock.classList.toggle('compact', y > 300);
     ticking=false;
   }
   window.addEventListener('scroll', () => {
