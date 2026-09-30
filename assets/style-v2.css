@@ -969,10 +969,11 @@ body.is-home .back-top-btn{ display:none; }
    阿奇悬浮球（可拖动，含全部功能）
    ============================================================ */
 .arkie-fab{
-  position:fixed; right:20px; bottom:20px; z-index:500;
-  display:flex; flex-direction:column; align-items:flex-end; gap:12px;
-  touch-action:none;
+  position:fixed; right:20px; bottom:78px; z-index:500;
+  display:flex; flex-direction:column; align-items:flex-end; gap:10px;
+  pointer-events:none;              /* 容器不挡触摸 */
 }
+.arkie-fab > *{ pointer-events:auto; }  /* 只有子元素可点 */
 .arkie-fab.dragging{ transition:none; }
 
 /* 悬浮球 */
@@ -1001,6 +1002,7 @@ body.is-home .back-top-btn{ display:none; }
 
 /* 菜单 */
 .af-menu{
+  position:absolute; bottom:calc(100% + 12px); right:0; z-index:2;
   display:flex; flex-direction:column; gap:4px;
   min-width:180px; padding:12px 10px;
   border-radius:16px;
@@ -1040,7 +1042,7 @@ body.is-home .back-top-btn{ display:none; }
 .af-nav:hover{ background:rgba(255,255,255,.05); color:var(--text); padding-left:16px; }
 
 @media(max-width:640px){
-  .arkie-fab{ right:14px; bottom:14px; }
+  .arkie-fab{ right:14px; bottom:72px; }
   .af-ball{ width:56px; height:56px; }
   .af-ball img{ width:38px; }
   .af-menu{ min-width:170px; }
@@ -1080,3 +1082,30 @@ body{ padding-bottom: 0; }
 .arkie-fab.compact .af-ball{ width:52px !important; height:52px !important; }
 .arkie-fab.compact .af-ball img{ width:34px !important; }
 .arkie-fab.compact .af-top-btn{ opacity:1; visibility:visible; transform:translateY(0); }
+
+
+/* ============================================================
+   悬浮球：可拖拽的视觉提示 + 默认在底部条上方
+   ============================================================ */
+.af-ball{
+  cursor:grab;
+  animation:fabFloat 3.5s ease-in-out infinite;
+}
+.af-ball:active{ cursor:grabbing; }
+@keyframes fabFloat{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-4px); }
+}
+.af-ball.dragging,.arkie-fab.dragging .af-ball{ animation:none; }
+
+/* 拖拽提示：小球上有个「可拖动」的提示点 */
+.af-ball::after{
+  content:""; position:absolute; top:4px; left:50%; transform:translateX(-50%);
+  width:14px; height:3px; border-radius:2px;
+  background:rgba(34,211,238,.5);
+  animation:fabHint 2.5s ease-in-out infinite;
+}
+@keyframes fabHint{
+  0%,100%{ opacity:.4; }
+  50%{ opacity:1; }
+}
