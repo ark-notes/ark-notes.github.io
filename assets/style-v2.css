@@ -852,42 +852,6 @@ body.has-bottombar .bottom-bar{
 .see-list span{ font-size:12.5px; color:var(--text-3); }
 @media(max-width:640px){ .see-list{ grid-template-columns:1fr; } }
 
-/* ============ 左上角返回按钮（中国用户习惯） ============ */
-/* 桌面端：绝对定位，固定在导航栏最左 */
-@media(min-width:901px){
-  .site-header .wrap{ position:relative; padding-left:130px; }
-  .back-top-btn{
-    position:absolute; left:0; top:50%; transform:translateY(-50%);
-  }
-}
-.back-top-btn{
-  display:inline-flex; align-items:center; gap:6px;
-  padding:8px 14px; margin-right:14px;
-  border-radius:9px; flex:none;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.12);
-  color:var(--text-2); font-size:14px; font-weight:560;
-  transition:.22s var(--ease);
-  text-decoration:none;
-}
-.back-top-btn:hover{
-  background:rgba(34,211,238,.12);
-  border-color:var(--cyan-line);
-  color:var(--cyan);
-}
-.back-top-btn svg{ width:16px; height:16px; }
-.back-top-btn span{ line-height:1; }
-
-/* 手机端：更紧凑 */
-@media(max-width:900px){
-  .site-header .wrap{ padding-left:20px; padding-right:20px; }
-  .back-top-btn{ padding:7px 12px; font-size:13px; margin-right:10px; position:static; transform:none; }
-  .back-top-btn svg{ width:15px; height:15px; }
-}
-/* 首页不显示返回 */
-body.is-home .back-top-btn{ display:none; }
-
-
 /* ============================================================
    全局修复：表格在手机上可横滑（不撑破页面）
    ============================================================ */
@@ -900,3 +864,42 @@ body.is-home .back-top-btn{ display:none; }
 /* 保险：所有宽元素不溢出 */
 img, video, pre, code, table { max-width: 100%; }
 * { min-width: 0; }
+
+
+/* ============ 左上角返回按钮（精致版） ============ */
+.back-top-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px;
+  border-radius:50%;
+  background:transparent;
+  border:none;
+  color:var(--text-2);
+  transition:.22s var(--ease);
+  text-decoration:none;
+  flex:none;
+  cursor:pointer;
+}
+.back-top-btn svg{
+  width:20px; height:20px;
+  stroke-linecap:round; stroke-linejoin:round;
+  transition:.22s var(--ease);
+}
+.back-top-btn:hover{
+  background:rgba(34,211,238,.12);
+  color:var(--cyan);
+}
+.back-top-btn:hover svg{ transform:translateX(-2px); }
+.back-top-btn span{ display:none; }   /* 只显示图标，更简洁 */
+
+/* 桌面端：绝对定位在最左 */
+@media(min-width:901px){
+  .site-header .wrap{ position:relative; padding-left:60px; }
+  .back-top-btn{ position:absolute; left:12px; top:50%; transform:translateY(-50%); }
+}
+/* 手机端 */
+@media(max-width:900px){
+  .site-header .wrap{ padding-left:16px; padding-right:16px; }
+  .back-top-btn{ position:static; transform:none; width:34px; height:34px; }
+  .back-top-btn svg{ width:19px; height:19px; }
+}
+body.is-home .back-top-btn{ display:none; }
