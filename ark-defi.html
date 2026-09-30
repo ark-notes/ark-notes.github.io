@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>基础概念：流动性篇 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/style-v2.css?v=1">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav"><a href="index.html">首页</a><a href="path.html">学习路径</a><a href="guest.html">客户版</a><a href="lecturer.html">讲师</a><a href="ark-defi.html">基础概念</a><a href="ark-ai.html">产品</a><a href="ark-safety.html">安全</a><a href="tools.html">工具</a><a href="howto.html">怎么讲</a><a href="videos.html">视频</a></nav>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+<div class="page-head">
+  <span class="eyebrow">概念 · 入门</span>
+  <h1>流动性 · LP · AMM · POL</h1>
+  <p>DeFi 的四个基础概念。每一个都配了生活比喻，直接能讲。</p>
+</div>
+
+<div class="note"><div class="note-title">这一页讲什么</div>
+<p>DeFi 的四个基础概念：流动性、LP、AMM、POL。<br>
+内容全部来自<b>官方概念课视频</b>，每一个都配了生活比喻，直接能讲。</p></div>
+
+<h2>一、什么是「流动性」</h2>
+
+<div class="talk">
+<p>「你有没有去过超市，想买牛奶，结果货架空了？</p>
+<p><strong>你有想买的，但市面上没东西卖——这就叫「缺乏流动性」。</strong></p>
+<p>在币圈也一样。你想买币，但没人卖；你想卖币，但没人买。这就是流动性不够。</p>
+<p>以前股票市场有「做市商」专门帮你撮合，但在区块链上没有中介。所以有了去中心化的解法——<strong>让大家自己把币放进池子里，市场就能自动运转。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方概念课 01）</div>
+<p>「你走进一间超市，想买牛奶，结果一整排货架都空了，你会怎么做？大概转身就走了吧。这种有想买的、但市场上没东西可买的情况，在币圈就叫缺乏流动性。」</p>
+</div>
+
+<h2>二、什么是「LP」（流动性提供者）</h2>
+
+<div class="talk">
+<p>「你把币放进那个池子里，别人就能在里面自由兑换交易。平台会把手续费的一部分分给你。</p>
+<p><strong>这些人就叫 LP——流动性提供者。</strong></p>
+<p>你可以把他们想象成——<strong>在去中心化交易所「开店备货」的人。</strong>他们让超市永远有东西卖，交易越热络，他们分到的收益越多。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方概念课 01）</div>
+<p>「你可以把他们想象成，在去中心化交易所开店、备货，让超市永远有东西卖的人。而这些人也会因为交易热络而分到收益。」</p>
+</div>
+
+<h2>三、什么是「AMM」（自动做市商）</h2>
+
+<div class="talk">
+<p>「区块链上没有做市商帮你报价，怎么办？</p>
+<p>有个自动机制，叫 <strong>AMM——自动做市商</strong>。</p>
+<p><strong>它不靠人报价，而是用数学公式自动定价。</strong>只要有人交易，价格就根据池子里两种币的比例自动变化。</p>
+<p>整个过程不靠人，只靠数学。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方概念课 02）</div>
+<p>「它不靠人报价，而是用数学公式自动定价。只要有人交易，价格就会根据池子里两种币的比例自动变动。整个过程不靠人，只靠数学公式。」</p>
+</div>
+
+<h2>四、LP 到底怎么运作（自动贩卖机的例子）</h2>
+
+<div class="talk">
+<p>「我用一个自动贩卖机的例子，你一下就懂了。</p>
+<p>你有一台贩卖机，里面放两种东西：<strong>10 罐可乐 + 100 元现金</strong>。这时候一罐是 10 元。</p>
+<p>有人买了 1 罐，池子变成 <strong>9 罐 + 110 元</strong>。这时候一罐算下来就是 12.2 元了。</p>
+<p><strong>你看，价格变了——因为池子里的比例变了。</strong></p>
+<p>这就是 AMM 的原理：<strong>不需要人报价，池子里的比例自动决定价格。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方概念课 03）</div>
+<p>「你开了一台贩卖机，里面放了两种东西：10 罐可乐代表某种加密货币，100 元现金代表稳定币 USDT。这时候，每罐可乐的价格是 10 元。」</p>
+</div>
+
+<h2>五、POL 是什么（一句话）</h2>
+
+<div class="talk">
+<p>「传统模式是「找别人来开市集摆摊」，但别人随时会走。</p>
+<p><strong>POL 是「协议自己买下整条街」——自己当摊主，也当地主。</strong></p>
+<p>与其租市场，不如自己买下整个市场。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方概念课 04）</div>
+<p>详见「POL 是什么」页。</p>
+</div>
+
+<h2>六、一次完整的「基础概念讲解」（2 分钟版）</h2>
+
+<div class="talk">
+<p>「我讲三个词，你听完就懂 DeFi 了。</p>
+<p><strong>第一个，流动性。</strong>就是「想买能买到、想卖能卖掉」。超市货架空了，就叫没流动性。</p>
+<p><strong>第二个，LP。</strong>就是把币放进池子、让市场能运转的人。你可以理解成「交易所里开店备货的人」，交易越热，他分得越多。</p>
+<p><strong>第三个，POL。</strong>以前是求别人来摆摊，现在是自己买下整条街——谁都拿不走。</p>
+<p>这三个词搞懂了，你看 DeFi 项目就不会懵了。」</p>
+</div>
+
+<div class="see">
+  <div class="see-t">🎬 看完整概念课</div>
+  <div class="see-list">
+    <a href="videos.html"><b>什么是流动性</b><span>官方第 1 集</span></a>
+    <a href="videos.html"><b>LP 怎么运作</b><span>官方第 2-3 集</span></a>
+    <a href="ark-pol.html"><b>POL 是什么</b><span>已整理成页</span></a>
+    <a href="videos.html"><b>POL + RBS 智能做市</b><span>官方第 5 集</span></a>
+  </div>
+</div>
+
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<p>ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+<p>所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+</div></footer>
+<script src="assets/app-v2.js?v=1"></script>
+
+</body>
+</html>
