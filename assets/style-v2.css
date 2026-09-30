@@ -1046,3 +1046,37 @@ body.is-home .back-top-btn{ display:none; }
   .af-menu{ min-width:170px; }
   .af-tip{ right:64px; font-size:12px; padding:7px 12px; }
 }
+
+/* 独立的「回到顶部」按钮（滚动时出现，独立于阿奇球） */
+.af-top-btn{
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  padding:10px 16px; border-radius:24px;
+  background:rgba(12,14,23,.94); border:1px solid rgba(255,255,255,.14);
+  color:var(--text-2); font-size:13px; font-family:inherit; cursor:pointer;
+  backdrop-filter:blur(14px);
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:.26s var(--ease);
+}
+.af-top-btn.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.af-top-btn:hover{ border-color:rgba(34,211,238,.5); color:var(--cyan); transform:translateY(-2px); }
+.af-top-btn svg{ width:16px; height:16px; }
+@media(max-width:640px){
+  .af-top-btn{ padding:9px 14px; font-size:12.5px; }
+  .af-top-btn span{ display:none; }   /* 手机上只显示图标 */
+}
+
+/* ============================================================
+   修复：悬浮球不遮挡底部内容
+   ============================================================ */
+/* 给 body 底部留空间，避免球挡住最后的内容 */
+body{ padding-bottom: 0; }
+@media(max-width:900px){
+  /* 给页面底部留出球的空间 */
+  .page, .content, main{ padding-bottom: 0; }
+  .site-footer{ padding-bottom: 110px; }  /* 页脚留空间给球 */
+}
+/* 滚动时球缩小，少挡内容 */
+.arkie-fab.compact .af-ball{ width:52px !important; height:52px !important; }
+.arkie-fab.compact .af-ball img{ width:34px !important; }
+.arkie-fab.compact .af-top-btn{ opacity:1; visibility:visible; transform:translateY(0); }
