@@ -886,3 +886,17 @@ body.has-bottombar .bottom-bar{
 }
 /* 首页不显示返回 */
 body.is-home .back-top-btn{ display:none; }
+
+
+/* ============================================================
+   全局修复：表格在手机上可横滑（不撑破页面）
+   ============================================================ */
+/* 全局：所有表格在手机上可横滑 */
+@media(max-width:640px){
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  table thead, table tbody { display: table; width: 100%; min-width: 480px; }
+  .wrap, main, .page { max-width: 100%; overflow-x: clip; }
+}
+/* 保险：所有宽元素不溢出 */
+img, video, pre, code, table { max-width: 100%; }
+* { min-width: 0; }
