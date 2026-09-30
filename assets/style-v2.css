@@ -1129,3 +1129,99 @@ body{ padding-bottom: 0; }
 /* 拖动时停动画 */
 .af-ball.dragging{ animation:none !important; transform:scale(1.05) !important; }
 .arkie-fab.dragging .af-menu{ display:none; }  /* 拖动时收起菜单 */
+
+/* ============================================================
+   按钮体系重构（2026 现代质感）
+   主行动=青色实心光泽 | 次行动=玻璃质感 | 弱行动=金色描边
+   ============================================================ */
+
+/* ---------- ① 主行动按钮：青色实心 + 光泽 ---------- */
+.btn-main,
+.rstep-cta,
+.bb-btn,
+.wb-btn,
+.guest .cta{
+  position:relative;
+  background:linear-gradient(180deg, #35dcf0 0%, #22d3ee 45%, #0fb8d4 100%) !important;
+  border:none !important;
+  color:#03181d !important;
+  font-weight:700 !important;
+  letter-spacing:.01em;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.5) inset,
+    0 -1px 0 rgba(0,0,0,.15) inset,
+    0 6px 18px rgba(34,211,238,.28) !important;
+  transition:.24s var(--ease);
+  overflow:hidden;
+}
+/* 顶部高光 */
+.btn-main::before,
+.rstep-cta::before,
+.bb-btn::before,
+.wb-btn::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:45%;
+  background:linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,0));
+  border-radius:inherit; pointer-events:none;
+}
+/* 悬停扫光 */
+.btn-main::after,
+.rstep-cta::after,
+.bb-btn::after,
+.wb-btn::after{
+  content:""; position:absolute; top:0; left:-120%; width:55%; height:100%;
+  background:linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+  transition:left .6s var(--ease); pointer-events:none;
+}
+.btn-main:hover::after,
+.rstep-cta:hover::after,
+.bb-btn:hover::after,
+.wb-btn:hover::after{ left:140%; }
+.btn-main:hover,
+.rstep-cta:hover,
+.bb-btn:hover,
+.wb-btn:hover,
+.guest .cta:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.55) inset,
+    0 -1px 0 rgba(0,0,0,.15) inset,
+    0 10px 28px rgba(34,211,238,.45) !important;
+}
+.btn-main svg,.rstep-cta svg,.bb-btn svg,.wb-btn svg{ position:relative; z-index:1; }
+.btn-main span,.rstep-cta span,.bb-btn span,.wb-btn span{ position:relative; z-index:1; }
+
+/* ---------- ② 次行动按钮：玻璃质感 ---------- */
+.pn,
+.dock-pill,
+.af-item,
+.mark-done{
+  background:rgba(255,255,255,.045) !important;
+  border:1px solid rgba(255,255,255,.13) !important;
+  backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset !important;
+  transition:.24s var(--ease);
+}
+.pn:hover,
+.dock-pill:hover,
+.af-item:hover{
+  background:rgba(34,211,238,.1) !important;
+  border-color:rgba(34,211,238,.45) !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.1) inset, 0 6px 20px rgba(34,211,238,.14) !important;
+}
+
+/* ---------- ③ 弱行动按钮：金色描边 ---------- */
+.learn-btn-2,
+.see-list a{
+  background:rgba(224,185,106,.06) !important;
+  border:1px solid rgba(224,185,106,.3) !important;
+  transition:.24s var(--ease);
+}
+.learn-btn-2:hover,
+.see-list a:hover{
+  background:rgba(224,185,106,.14) !important;
+  border-color:rgba(224,185,106,.6) !important;
+  transform:translateY(-2px);
+}
+
+/* 旧蓝色彻底移除 */
+.dock-cta,.cta-2{ background:unset; }
