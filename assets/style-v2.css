@@ -903,3 +903,45 @@ img, video, pre, code, table { max-width: 100%; }
   .back-top-btn svg{ width:19px; height:19px; }
 }
 body.is-home .back-top-btn{ display:none; }
+
+/* ============ 链接复制 + 梯子提示 ============ */
+.link-wrap{
+  display:inline-flex; align-items:center; gap:6px;
+  flex-wrap:wrap; max-width:100%;
+}
+.copy-link-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:26px; height:26px; flex:none;
+  border-radius:7px; cursor:pointer;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--text-3); padding:0;
+  transition:.2s var(--ease);
+}
+.copy-link-btn svg{ width:13px; height:13px; }
+.copy-link-btn:hover{
+  background:rgba(34,211,238,.14);
+  border-color:var(--cyan-line); color:var(--cyan);
+}
+.copy-link-btn.copied{
+  background:rgba(62,207,142,.2);
+  border-color:rgba(62,207,142,.5); color:var(--green);
+  font-size:11px; width:auto; padding:0 8px;
+}
+.need-vpn{
+  display:inline-flex; align-items:center;
+  font-size:11px; padding:2px 8px; flex:none;
+  border-radius:9px; cursor:pointer;
+  background:rgba(240,180,41,.12);
+  border:1px solid rgba(240,180,41,.3);
+  color:var(--amber); white-space:nowrap;
+  transition:.2s;
+}
+.need-vpn:hover{ background:rgba(240,180,41,.22); }
+.need-vpn.copied{
+  background:rgba(62,207,142,.2);
+  border-color:rgba(62,207,142,.5); color:var(--green);
+}
+@media(max-width:640px){
+  .copy-link-btn{ width:28px; height:28px; }
+}
