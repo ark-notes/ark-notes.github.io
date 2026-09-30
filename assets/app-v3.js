@@ -59,6 +59,7 @@
   ball.addEventListener('click', e => {
     e.stopPropagation();
     open = !open;
+    if(open && window.updateMenuDirection) window.updateMenuDirection();
     menu.classList.toggle('show', open);
     ball.classList.toggle('active', open);
     tip.classList.remove('show');
@@ -72,9 +73,11 @@
     window.scrollTo({top:0, behavior:'smooth'});
   });
 
-  /* ---------- 拖动（鼠标 + 触摸） ---------- */
+  /* ---------- 拖动（鼠标 + 触摸）+ 菜单自适应 ---------- */
   (function drag(){
     let dragging=false, moved=false, sx=0, sy=0, ox=0, oy=0;
+
+    function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
 
     function start(x,y){
       dragging=true; moved=false; sx=x; sy=y;
@@ -83,32 +86,38 @@
       dock.style.left=ox+'px'; dock.style.top=oy+'px';
       dock.style.right='auto'; dock.style.bottom='auto';
       dock.classList.add('dragging');
+      ball.classList.add('dragging');
     }
     function move(x,y){
       if(!dragging) return;
       const dx=x-sx, dy=y-sy;
       if(Math.abs(dx)>6||Math.abs(dy)>6) moved=true;
-      let nx=Math.max(8, Math.min(window.innerWidth-dock.offsetWidth-8, ox+dx));
-      let ny=Math.max(8, Math.min(window.innerHeight-dock.offsetHeight-8, oy+dy));
-      dock.style.left=nx+'px'; dock.style.top=ny+'px';
+      const nx = clamp(ox+dx, 8, window.innerWidth - dock.offsetWidth - 8);
+      const ny = clamp(oy+dy, 8, window.innerHeight - dock.offsetHeight - 8);
+      dock.style.left = nx+'px';
+      dock.style.top  = ny+'px';
     }
     function end(){
       if(!dragging) return;
-      dragging=false; dock.classList.remove('dragging');
+      dragging=false; dock.classList.remove('dragging'); ball.classList.remove('dragging');
+      updateMenuDirection();
       try{ localStorage.setItem('arkieFabPos', JSON.stringify({l:dock.style.left,t:dock.style.top})); }catch(e){}
     }
 
-    ball.addEventListener('mousedown', e => { if(e.button===0){ start(e.clientX,e.clientY); e.preventDefault(); } });
+    ball.addEventListener('mousedown', e => { if(e.button===0){ start(e.clientX,e.clientY); } });
     document.addEventListener('mousemove', e => move(e.clientX,e.clientY));
     document.addEventListener('mouseup', end);
 
     ball.addEventListener('touchstart', e => {
       const t=e.touches[0]; start(t.clientX,t.clientY);
-    }, {passive:true});
+      e.preventDefault();
+    }, {passive:false});
     document.addEventListener('touchmove', e => {
       if(!dragging) return;
-      const t=e.touches[0]; move(t.clientX,t.clientY);
-    }, {passive:true});
+      const t=e.touches[0];
+      move(t.clientX,t.clientY);
+      e.preventDefault();     // 拖动时阻止页面滚动
+    }, {passive:false});
     document.addEventListener('touchend', end);
 
     // 拖动后抑制点击
@@ -124,6 +133,20 @@
         dock.style.right='auto'; dock.style.bottom='auto';
       }
     }catch(e){}
+
+    // 菜单方向自适应
+    window.updateMenuDirection = updateMenuDirection;
+    function updateMenuDirection(){
+      const r = dock.getBoundingClientRect();
+      // 上方空间不够 → 菜单往下弹
+      const above = r.top;
+      const below = window.innerHeight - r.bottom;
+      menu.classList.toggle('down', above < 320 && below > above);
+      // 靠近左边 → 菜单靠左对齐
+      menu.classList.toggle('align-left', r.left < window.innerWidth/2);
+    }
+    window.addEventListener('resize', updateMenuDirection);
+    setTimeout(updateMenuDirection, 100);
   })();
 
   /* ---------- 首次提示 ---------- */
