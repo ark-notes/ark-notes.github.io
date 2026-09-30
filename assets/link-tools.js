@@ -16,6 +16,8 @@
   document.querySelectorAll('a[target="_blank"]').forEach(a => {
     const url = a.getAttribute('href') || '';
     if(!url.startsWith('http')) return;
+    // 表单/提建议类不加复制按钮
+    if(url.includes('wj.qq.com') || url.includes('form') || a.classList.contains('dock-cta')) return;
     if(a.dataset.tooled) return;
     a.dataset.tooled = '1';
 
