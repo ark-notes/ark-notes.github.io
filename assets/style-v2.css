@@ -1003,6 +1003,7 @@ body.is-home .back-top-btn{ display:none; }
 /* 菜单 */
 .af-menu{
   position:absolute; bottom:calc(100% + 12px); right:0; z-index:2;
+  transform-origin:bottom right;
   display:flex; flex-direction:column; gap:4px;
   min-width:180px; padding:12px 10px;
   border-radius:16px;
@@ -1109,3 +1110,22 @@ body{ padding-bottom: 0; }
   0%,100%{ opacity:.4; }
   50%{ opacity:1; }
 }
+
+
+/* 菜单方向自适应 */
+.af-menu.down{
+  bottom:auto; top:calc(100% + 12px);
+  transform-origin:top right;
+}
+.af-menu.align-left{
+  right:auto; left:0;
+  transform-origin:bottom left;
+}
+.af-menu.down.align-left{ transform-origin:top left; }
+/* 打开时的变换 */
+.af-menu.down{ transform:translateY(-10px) scale(.96); }
+.af-menu.down.show{ transform:translateY(0) scale(1); }
+
+/* 拖动时停动画 */
+.af-ball.dragging{ animation:none !important; transform:scale(1.05) !important; }
+.arkie-fab.dragging .af-menu{ display:none; }  /* 拖动时收起菜单 */
