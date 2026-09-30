@@ -14,6 +14,26 @@
     .catch(()=>{});
 
   function init(steps){
+    /* ---------- 0. 左上角返回按钮（中国用户习惯） ---------- */
+    const header = document.querySelector('.site-header .wrap');
+    if(header && !document.querySelector('.back-top-btn')){
+      const backBtn = document.createElement('a');
+      backBtn.className = 'back-top-btn';
+      backBtn.href = 'javascript:void(0)';
+      backBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg><span>返回</span>';
+      backBtn.addEventListener('click', ()=>{
+        // 优先回浏览器历史；没有历史就回首页
+        if(document.referrer && history.length > 1){
+          history.back();
+        } else {
+          location.href = 'index.html';
+        }
+      });
+      const cur = location.pathname.split('/').pop() || 'index.html';
+      if(cur === 'index.html'){ document.body.classList.add('is-home'); }
+      header.insertBefore(backBtn, header.firstChild);
+    }
+
     const idx = steps.findIndex(s => s.file === page);
     if(idx < 0) return;
     const cur = steps[idx];
