@@ -964,3 +964,85 @@ body.is-home .back-top-btn{ display:none; }
 @media(max-width:640px){
   .foot-nav{ grid-template-columns:1fr; gap:20px; }
 }
+
+/* ============================================================
+   阿奇悬浮球（可拖动，含全部功能）
+   ============================================================ */
+.arkie-fab{
+  position:fixed; right:20px; bottom:20px; z-index:500;
+  display:flex; flex-direction:column; align-items:flex-end; gap:12px;
+  touch-action:none;
+}
+.arkie-fab.dragging{ transition:none; }
+
+/* 悬浮球 */
+.af-ball{
+  position:relative; width:64px; height:64px; border-radius:50%;
+  border:1px solid rgba(34,211,238,.32);
+  background:radial-gradient(circle at 50% 34%, rgba(34,211,238,.14), transparent 66%), rgba(12,14,23,.94);
+  display:flex; align-items:center; justify-content:center;
+  cursor:grab; padding:0;
+  box-shadow:0 10px 30px rgba(0,0,0,.5), 0 0 20px rgba(34,211,238,.14);
+  transition:.28s var(--ease);
+  backdrop-filter:blur(12px);
+}
+.af-ball:hover{ transform:scale(1.06); border-color:rgba(34,211,238,.6); }
+.af-ball:active{ cursor:grabbing; }
+.af-ball img{ width:42px; height:auto; border-radius:50%; pointer-events:none; }
+.af-ball.active{ transform:scale(.94); }
+.af-tip{
+  position:absolute; right:74px; top:50%; transform:translateY(-50%) translateX(6px);
+  padding:8px 14px; border-radius:12px 12px 3px 12px; white-space:nowrap;
+  background:rgba(18,20,30,.97); border:1px solid rgba(255,255,255,.14);
+  font-size:12.5px; color:var(--text); opacity:0; pointer-events:none;
+  transition:.3s var(--ease); box-shadow:0 8px 24px rgba(0,0,0,.5);
+}
+.af-tip.show{ opacity:1; transform:translateY(-50%) translateX(0); }
+
+/* 菜单 */
+.af-menu{
+  display:flex; flex-direction:column; gap:4px;
+  min-width:180px; padding:12px 10px;
+  border-radius:16px;
+  background:rgba(12,14,23,.98);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(24px);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  opacity:0; visibility:hidden; transform:translateY(10px) scale(.96);
+  transition:.26s var(--ease); transform-origin:bottom right;
+  max-height:70vh; overflow-y:auto;
+}
+.af-menu.show{ opacity:1; visibility:visible; transform:translateY(0) scale(1); }
+.af-item{
+  display:flex; align-items:center; gap:11px;
+  padding:10px 12px; border-radius:10px;
+  background:transparent; border:none; cursor:pointer;
+  font-size:14.5px; color:var(--text-2); font-family:inherit;
+  text-align:left; transition:.2s var(--ease);
+  width:100%;
+}
+.af-item:hover{ background:rgba(34,211,238,.1); color:var(--text); }
+.af-ico{
+  width:28px; height:28px; border-radius:8px; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(34,211,238,.12); color:var(--cyan);
+}
+.af-ico svg{ width:15px; height:15px; }
+.af-sep{ height:1px; background:rgba(255,255,255,.08); margin:6px 4px; }
+.af-title{
+  font-size:11px; letter-spacing:.1em; color:var(--text-3);
+  padding:2px 12px 6px; font-weight:600;
+}
+.af-nav{
+  display:block; padding:7px 12px; border-radius:8px;
+  font-size:13.5px; color:var(--text-3); transition:.18s;
+}
+.af-nav:hover{ background:rgba(255,255,255,.05); color:var(--text); padding-left:16px; }
+
+@media(max-width:640px){
+  .arkie-fab{ right:14px; bottom:14px; }
+  .af-ball{ width:56px; height:56px; }
+  .af-ball img{ width:38px; }
+  .af-menu{ min-width:170px; }
+  .af-tip{ right:64px; font-size:12px; padding:7px 12px; }
+}
