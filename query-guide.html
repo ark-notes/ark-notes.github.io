@@ -117,27 +117,71 @@
 
 <p><strong>打开后看什么：</strong>能看到每一轮提案的内容和投票结果。<b>到现在已经有多轮提案了。</b></p>
 
-<h2>五、第四次：查安全审计（用 CertiK）</h2>
+<h2>五、查安全审计（用 CertiK）——中文怎么看</h2>
 
 <div class="talk">
 <p>「最后查一个——<strong>代码有没有被专业机构审计过。</strong></p>
-<p>CertiK 是全球顶级的区块链安全机构。」</p>
+<p>CertiK 是全球顶级的区块链安全机构。但它是<strong>英文页面</strong>，很多人看不懂，就被人忽悠了。</p>
+<p>我教你看几个地方就行。」</p>
 </div>
 
 <div class="see">
-  <div class="see-t">🛡️ 点这里打开审计报告</div>
+  <div class="see-t">🛡️ 点这里打开（中文页面）</div>
   <div class="see-list">
+    <a href="https://skynet.certik.com/zh-CN/projects/ark-defai" target="_blank" rel="noopener">
+      <b>CertiK 中文页面 →</b><span>skynet.certik.com/zh-CN</span>
+    </a>
     <a href="https://skynet.certik.com/projects/ark-defai" target="_blank" rel="noopener">
-      <b>打开 ARK 的 CertiK 页面 →</b><span>skynet.certik.com</span>
+      <b>CertiK 英文页面 →</b><span>中文没加载出来时用</span>
     </a>
   </div>
 </div>
 
-<p><strong>打开后看什么：</strong></p>
-<ol>
-<li><b>代币扫描分</b>（安全指标）— 95.01 / 100</li>
-<li><b>代码安全</b>——22 项全部通过</li>
-</ol>
+<div class="img-block">
+  <img src="assets/img/certik-marked.png" alt="CertiK 页面标注">
+  <p class="img-cap">CertiK 中文页面 · 我已标注关键位置</p>
+</div>
+
+<h3>① 综合安全分（右上角）</h3>
+<div class="talk">
+<p>「右上角这个分数是综合评分——<strong>它只是参考，不是最重要的。</strong></p>
+<p>很多项目就拿这个说『你看我审计通过了』——但那不够。」</p>
+</div>
+
+<h3>② 代币扫描分（左下）— 真正的安全指标</h3>
+<div class="talk">
+<p>「<strong>这个才是最重要的——代币扫描分。</strong></p>
+<p>官方教程里说，<strong>95% 以上的项目在这里是不合格的。</strong></p>
+<p>ARK 这个分数是天花板级别。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方 CK 审计教程）</div>
+<p>「这是代币综合分数，但仅作为参考之一。其实更重要的是代币的扫描分数，因为那是代币的安全指标。」</p>
+<p>「很多项目就是利用这种认知差，反正用户看不懂英文，不知道怎么详细看，有了审计报告就忽悠说安全了。」</p>
+</div>
+
+<h3>③ 三个勾选标记</h3>
+<div class="talk">
+<p>「你会看到几个勾——每个意义不一样：</p>
+<p><strong>第一个：通过 CK 审计。</strong></p>
+<p><strong>第二个：官方把代码挂在 CK 这里，悬赏白帽找漏洞，最高奖励 10 万美金。</strong>敢这么做，说明对代码有信心。</p>
+<p><strong>第三个：审计的代码和实际部署的代码一致。</strong></p>
+<p>尤其第三个——<strong>如果没打勾，说明审计用的代码和实际跑的不一样，那是巨大风险。</strong>」</p>
+</div>
+
+<h3>④ 代码安全 22 项（看三项关键的）</h3>
+<div class="talk">
+<p>「往下拉，能看到 22 项安全检查，全部通过。其中三项最关键：</p>
+<p><strong>第一个，能不能改税率。</strong>打勾 = 项目方没权限改手续费。</p>
+<p><strong>第二个，能不能增发。</strong>要确认铸币合约开源、增发机制写死了。没有开源代码，就算 LP 锁了也没意义。</p>
+<p><strong>第三个，有没有隐藏的所有者。</strong>这项最危险——如果没通过，说明项目方保留了管理员权限，还能改规则、无限增发。<strong>ARK 这项是通过的。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方 CK 审计教程）</div>
+<p>「有隐藏的所有者：这个就是管理员权限的意思。说明项目方保留了管理员权限，还有权利更改代币的所有规则，包括无限增发、更改手续费等。<b>这是巨大的安全隐患。</b>」</p>
+</div>
 
 <h2>六、第五次：查合约开源（用 BscScan）</h2>
 
