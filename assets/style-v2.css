@@ -1225,3 +1225,34 @@ body{ padding-bottom: 0; }
 
 /* 旧蓝色彻底移除 */
 .dock-cta,.cta-2{ background:unset; }
+
+/* ============ 链上实测数据表（可核验区块） ============ */
+.facts{
+  margin:16px 0 26px;
+  background:linear-gradient(180deg, rgba(34,211,238,.055), rgba(34,211,238,.018));
+  border:1px solid rgba(34,211,238,.22);
+  border-left:3px solid var(--cyan);
+  border-radius:12px;
+  padding:16px 18px;
+}
+.facts-t{
+  font-size:12.5px; font-weight:700; letter-spacing:.06em;
+  color:var(--cyan); text-transform:uppercase;
+  margin-bottom:12px; display:flex; align-items:center; gap:7px;
+}
+.facts-t::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); }
+.facts table{ width:100%; border-collapse:collapse; font-size:14.5px; }
+.facts th{
+  text-align:left; color:#8e9aae; font-weight:600; font-size:12.5px;
+  letter-spacing:.04em; padding:7px 10px 7px 0; border-bottom:1px solid rgba(255,255,255,.09);
+}
+.facts td{ padding:10px 10px 10px 0; border-bottom:1px solid rgba(255,255,255,.05); color:#cdd3dd; line-height:1.65; vertical-align:top; }
+.facts tr:last-child td{ border-bottom:none; }
+.facts td:first-child{ color:#fff; font-weight:600; white-space:nowrap; }
+.facts b{ color:var(--cyan); font-weight:700; }
+@media(max-width:520px){
+  .facts{ padding:13px 13px; }
+  .facts table{ font-size:13.5px; }
+  .facts th{ font-size:11.5px; }
+  .facts td:first-child{ white-space:normal; }
+}
