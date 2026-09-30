@@ -1,217 +1,117 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>15分钟快讲版 · ARK 学习指南</title><link rel="stylesheet" href="assets/main.css?v=13">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15分钟快讲版 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=10">
 <style>
-.speak{margin:18px 0;padding:20px 24px;background:rgba(79,140,255,.07);
-  border-left:3px solid var(--accent);border-radius:0 10px 10px 0;
+.speak{margin:18px 0;padding:20px 24px;background:rgba(34,211,238,.06);
+  border-left:3px solid var(--cyan);border-radius:0 10px 10px 0;
   color:var(--text);font-size:15.5px;line-height:2}
+.speak::before{content:"▲ 可以这样说";display:block;font-size:11.5px;color:var(--cyan);letter-spacing:.08em;margin-bottom:8px}
 .act{margin:16px 0;padding:12px 18px;background:rgba(240,180,41,.08);
   border-radius:8px;font-size:13.5px;color:var(--amber);font-weight:500}
 .act::before{content:"【动作】";font-weight:700;margin-right:6px}
-.pause{margin:14px 0;text-align:center;font-size:13px;color:var(--text-mute);letter-spacing:.3em}
-.sec{display:flex;align-items:baseline;gap:14px;margin:52px 0 20px;
+.pause{margin:14px 0;text-align:center;font-size:13px;color:var(--text-3);letter-spacing:.3em}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin:52px 0 20px;
   padding-bottom:12px;border-bottom:1px solid var(--line)}
-.sec .n{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.1em;flex:none;padding-top:4px}
-.sec h2{margin:0;border:none;padding:0;font-size:22px;font-weight:680}
-.sec .t{margin-left:auto;font-size:12.5px;color:var(--text-mute);flex:none;padding-top:6px}
-</style></head>
+.sec-h .n{font-size:13px;color:var(--cyan);font-weight:700;letter-spacing:.1em;flex:none;padding-top:4px}
+.sec-h h2{margin:0;border:none;padding:0;font-size:22px;font-weight:680}
+.sec-h .t{margin-left:auto;font-size:12.5px;color:var(--text-3);flex:none;padding-top:6px}
+</style>
+</head>
 <body>
-<header class="site-header"><div class="wrap">
-<a href="index.html" class="brand">
-      <span class="brand-logo">
-        <svg viewBox="0 0 32 32" fill="none">
-          <path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-          <path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/>
-          <circle cx="16" cy="21" r="1.8" fill="currentColor"/>
-        </svg>
-      </span>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
       <span class="brand-text"><b>ARK</b> 学习指南</span>
     </a>
-<nav class="site-nav">
-      <a href="index.html">首页</a>
-      <a href="path.html">学习路径</a>
-      <a href="lecturer.html" class="active">讲师板块</a>
-      <a href="soul-five.html">灵魂五问</a>
-      <a href="query-guide.html">链上查询</a>
-      <a href="qa.html">问答库</a>
-      <a href="handbook.html">手册</a>
-    </nav>
-</div></header>
+    <nav class="site-nav"><a href="index.html">首页</a><a href="path.html">学习路径</a><a href="guest.html">客户版</a><a href="lecturer.html" class="active">讲师板块</a><a href="ark-ai.html">产品</a><a href="ark-compare.html">差异</a><a href="ark-pay.html">支付卡</a><a href="ark-safety.html">安全</a><a href="ark-level.html">等级</a><a href="howto.html">怎么讲</a><a href="tools.html">工具</a><a href="transcripts.html">逐字稿</a></nav>
+  </div>
+</header>
 <main class="page"><div class="wrap">
-<div class="page-head"><p class="eyebrow">讲师板块 · 快讲版</p><h1>15 分钟快讲版</h1>
-<p>适合：茶会、朋友聊天、一对一沟通。只讲核心四步，全程 15 分钟。</p></div>
-<div class="content">
+<div class="page-head">
+  <span class="eyebrow">讲师板块 · 快讲版</span>
+  <h1>15 分钟快讲版</h1>
+  <p>适合：茶会、朋友聊天、一对一沟通。只讲核心四步，全程 15 分钟。</p>
+</div>
 
 <div class="note"><div class="note-title">什么场合用这个</div>
-<p>茶桌上聊到、朋友问起、临时被拉去讲两句。<b>不需要 PPT，不需要设备，坐着就能讲。</b></p>
-<p>蓝色段落直接念。橙色【动作】是提示你做什么。</p></div>
+<p>茶桌上聊到、朋友问起、临时被拉去讲两句。<b>不需要 PPT，不需要设备，坐着就能讲。</b></p></div>
 
-<div class="sec"><span class="n">0:00</span><h2>开场</h2><span class="t">1 分钟</span></div>
-
-<div class="speak">
-「我最近在研究一个东西，挺有意思的，跟你聊两句。」
-</div>
-
+<div class="sec-h"><span class="n">0:00</span><h2>开场</h2><span class="t">1 分钟</span></div>
+<div class="speak">「我最近在研究一个东西，挺有意思的，跟你聊两句。」</div>
 <div class="act">语气要随意，像分享发现，不是推销。</div>
+<div class="speak">「不是让你做什么决定啊，就是聊聊天。你要是觉得有意思，多了解了解；觉得没劲，就当我随便说说。」</div>
 
-<div class="speak">
-「不是让你做什么决定啊，就是聊聊天。你要是觉得有意思，多了解了解；觉得没劲，就当我随便说说。」
-</div>
-
-<div class="sec"><span class="n">1:00</span><h2>第一步｜先说个你可能没注意到的事</h2><span class="t">3 分钟</span></div>
-
-<div class="speak">
-「你平时用不用 AI？比如让它帮你写个东西、做个图？」
-</div>
-
+<div class="sec-h"><span class="n">1:00</span><h2>第一步｜先说个你可能没注意到的事</h2><span class="t">3 分钟</span></div>
+<div class="speak">「你平时用不用 AI？比如让它帮你写个东西、做个图？」</div>
 <div class="act">等他回答。哪怕他说「很少用」也行。</div>
-
-<div class="speak">
-「那我问你个事——你用 AI 的时候，想过没有，这些钱最后被谁赚走了？」
-</div>
-
+<div class="speak">「那我问你个事——你用 AI 的时候，想过没有，这些钱最后被谁赚走了？」</div>
 <div class="pause">◆ 停 两 秒 ◆</div>
-
-<div class="speak">
-「我给你说说这个结构。<br><br>
+<div class="speak">「我给你说说这个结构。<br><br>
 AI 这个产业，一年产值四五万亿美元，比汽车行业还大。<br><br>
-但这笔钱分三层：<br>
-第一层，卖算力的——英伟达、微软、亚马逊这些，一年赚几千亿美金；<br>
-第二层，做模型的——OpenAI、Anthropic，一年几百亿；<br>
-第三层，用 AI 的人——就是你，就是我。<br><br>
+但这笔钱分三层：第一层，卖算力的——英伟达、微软、亚马逊这些；第二层，做模型的——OpenAI 这些；第三层，用 AI 的人——就是你，就是我。<br><br>
 我们这一层，收益是多少？<br><br>
-<strong>零。</strong>」
-</div>
-
+<strong>零。</strong>」</div>
 <div class="pause">◆ 停 两 秒 ◆</div>
+<div class="speak">「你天天用，你贡献了数据，你帮它变聪明。但这个蛋糕做大的过程中，刀从来没往我们这边切过。你说这公不公平？」</div>
 
-<div class="speak">
-「你天天用，你贡献了数据，你帮它变聪明。但这个蛋糕做大的过程中，刀从来没往我们这边切过。<br><br>
-你说这公不公平？」
-</div>
-
-<div class="sec"><span class="n">4:00</span><h2>第二步｜有群人在解决这个问题</h2><span class="t">3 分钟</span></div>
-
-<div class="speak">
-「有群人盯上了这个事，做了个东西叫 ARK。<br><br>
+<div class="sec-h"><span class="n">4:00</span><h2>第二步｜有群人在解决这个问题</h2><span class="t">3 分钟</span></div>
+<div class="speak">「有群人盯上了这个事，做了个东西叫 ARK。<br><br>
 核心产品叫阿奇 AI，也是个 AI 平台。但它跟别的 AI 最大的不一样在哪儿？<br><br>
-<strong>在别的 AI，你是消费者；在这里，你是共同所有者。</strong>」
-</div>
-
+<strong>在别的 AI，你是消费者；在这里，你是共同所有者。</strong>」</div>
 <div class="act">这句话讲慢，加重语气。</div>
-
-<div class="speak">
-「说白点——你在别的 AI 上用，用得越多，平台越值钱，跟你一毛钱关系没有。<br><br>
-在这个上面，你用它、你贡献、你反馈，你也能分到生态成长的那一份。<br><br>
-它想让用户从「打工的」变成「股东」。」
-</div>
-
+<div class="speak">「说白点——你在别的 AI 上用，用得越多，平台越值钱，跟你一毛钱关系没有。在这个上面，你用它、你贡献、你反馈，你也能分到生态成长的那一份。它想让用户从「打工的」变成「股东」。」</div>
 <div class="pause">◆ 停 两 秒 ◆</div>
-
-<div class="speak">
-「但我第一次听到，第一反应是——<strong>这不会又是画饼的吧？</strong>」
-</div>
-
+<div class="speak">「但我第一次听到，第一反应是——<strong>这不会又是画饼的吧？</strong>」</div>
 <div class="act">笑一下。这个「自我怀疑」很关键，能让对方觉得你不是盲目相信。</div>
 
-<div class="sec"><span class="n">7:00</span><h2>第三步｜我自己去查了四件事 ★核心</h2><span class="t">5 分钟</span></div>
-
-<div class="speak">
-「所以我没听别人说，我自己去查了。<br><br>
-我总结了四个问题。这四个问题，你以后看任何项目都能用——一问就知道靠不靠谱。」
-</div>
-
-<div class="speak">
-「<strong>第一，底池锁死了没有？</strong><br>
-如果没锁，项目方随时能把钱抽走跑路。<br>
-这个的底池，<strong>权限已经丢掉了</strong>，永久锁定。<strong>连项目方自己都拿不走。</strong>这个不是我说的，链上公开能查。」
-</div>
-
-<div class="speak">
-「<strong>第二，代码开源了没有？</strong><br>
-不开源就能偷偷印币，今天印十万个，你手里的币就变废纸。<br>
-这个的铸币合约是<strong>开源的</strong>，谁都能看。而且关键——<strong>印币的权限也丢掉了。</strong>」
-</div>
-
-<div class="speak">
-「<strong>第三，国库谁说了算？</strong><br>
-一个人说了算，那就是黑箱。<br>
-这个是<strong>9 个人一起管，要 5 个人签字才能动钱</strong>，还要先过社区投票。<strong>一个人拿不走一分钱。</strong>」
-</div>
-
-<div class="speak">
-「<strong>第四，有没有真的能赚钱的东西？</strong><br>
-这条最重要。要是没有任何真实收入，只靠后面的人投钱付前面人的利息，那就是资金盘。<br>
-阿奇 AI 是真能干活的产品，有企业付费用的。<strong>这就是它的造血来源。</strong>」
-</div>
-
+<div class="sec-h"><span class="n">7:00</span><h2>第三步｜我自己去查了四件事 ★核心</h2><span class="t">5 分钟</span></div>
+<div class="speak">「所以我没听别人说，我自己去查了。我总结了四个问题。这四个问题，你以后看任何项目都能用——一问就知道靠不靠谱。」</div>
+<div class="speak">「<strong>第一，底池锁死了没有？</strong>如果没锁，项目方随时能把钱抽走跑路。这个的底池，<strong>权限已经丢掉了</strong>，永久锁定。<strong>连项目方自己都拿不走。</strong>链上公开能查。」</div>
+<div class="speak">「<strong>第二，代码开源了没有？</strong>不开源就能偷偷印币，你手里的币就变废纸。这个的铸币合约是<strong>开源的</strong>，而且<strong>印币的权限也丢掉了。</strong>」</div>
+<div class="speak">「<strong>第三，国库谁说了算？</strong>一个人说了算，那就是黑箱。这个是<strong>9 个人一起管，要 5 个人签字才能动钱</strong>，还要先过社区投票。」</div>
+<div class="speak">「<strong>第四，有没有真的能赚钱的东西？</strong>这条最重要。要是没有任何真实收入，只靠后面的人投钱付前面人的利息，那就是资金盘。阿奇 AI 是真能干活的产品，有企业付费用的。」</div>
 <div class="act">如果有手机，这里可以掏出来：「不信我现在就查给你看。」</div>
-
 <div class="pause">◆ 停 三 秒 ◆</div>
+<div class="speak">「我特别想说的是——<strong>这四条谁都能自己查，不用信我说的。</strong>包括我在内，任何人都别信，自己查。」</div>
 
-<div class="speak">
-「我特别想说的是——<strong>这四条谁都能自己查，不用信我说的。</strong>包括我在内，任何人都别信，自己查。」
-</div>
-
-<div class="sec"><span class="n">12:00</span><h2>第四步｜钱怎么来的 + 怎么参与</h2><span class="t">2 分钟</span></div>
-
-<div class="speak">
-「钱从哪来，分三层：<br><br>
-<strong>一是质押复利</strong>——币放进去，每 12 小时自动结算一次，币的数量自己涨。<br>
-<strong>二是生态收入</strong>——阿奇 AI 卖服务赚的钱，一部分回购销毁，币越用越少。<br>
-<strong>三是能落地花</strong>——他们有支付卡，赚到的币能消费、能取现。」
-</div>
-
+<div class="sec-h"><span class="n">12:00</span><h2>第四步｜钱怎么来的 + 怎么参与</h2><span class="t">2 分钟</span></div>
+<div class="speak">「钱从哪来，分三层：<strong>一是质押复利</strong>——币放进去，每 12 小时自动结算一次，币的数量自己涨。<strong>二是生态收入</strong>——阿奇 AI 卖服务赚的钱，一部分回购销毁。<strong>三是能落地花</strong>——有支付卡，能消费、能取现。」</div>
 <div class="act">接下来这段必须讲，是诚信的关键。</div>
+<div class="speak">「但是我要跟你说清楚——<strong>官方给的回报数字是「预估」，不是固定收益。</strong>市场有波动，币价是会跌的。它有稳价机制，能把大暴跌变平缓，但不能保证不亏。<strong>所以这事得用闲钱做，不能拿生活费做。</strong>」</div>
+<div class="speak">「想参与的话，100 美金等值就能开始。但我的建议是——<strong>第一次千万别投多</strong>。先小额试一下，把查询的方法学会，自己看明白了再加。」</div>
 
-<div class="speak">
-「但是我要跟你说清楚——<strong>官方给的回报数字是「预估」，不是固定收益。</strong><br><br>
-市场有波动，币价是会跌的。它有稳价机制，能把大暴跌变平缓，但不能保证不亏。<br><br>
-<strong>所以这事得用闲钱做，不能拿生活费做。</strong>这是我的一贯态度。」
-</div>
+<div class="sec-h"><span class="n">14:00</span><h2>收尾</h2><span class="t">1 分钟</span></div>
+<div class="speak">「我今天就是跟你分享，不是让你做什么决定。你回去可以自己查，自己判断。<br><br>
+觉得有意思的，回头我教你怎么查——<strong>就算最后你不做，多学一个「怎么看项目」的方法，也不亏。</strong>」</div>
+<div class="act">说完就停，别追问。给他消化时间。</div>
 
-<div class="speak">
-「想参与的话，100 美金等值就能开始。<br><br>
-但我的建议是——<strong>第一次千万别投多</strong>。先小额试一下，把查询的方法学会，自己看明白了再加。」
-</div>
-
-<div class="sec"><span class="n">14:00</span><h2>收尾</h2><span class="t">1 分钟</span></div>
-
-<div class="speak">
-「我今天就是跟你分享，不是让你做什么决定。<br><br>
-你回去可以自己查，自己判断。<br><br>
-觉得有意思的，回头我教你怎么查——<strong>就算最后你不做，多学一个「怎么看项目」的方法，也不亏。</strong>」
-</div>
-
-<div class="act">说完就停，别追问。给他消化时间。想继续聊的，他自己会问。</div>
-
-<h2 style="margin-top:56px">讲完可能被问到的</h2>
-<table>
-<thead><tr><th>对方问</th><th>你答（对应段落）</th></tr></thead>
-<tbody>
+<h2>讲完可能被问到的</h2>
+<table><thead><tr><th>对方问</th><th>你答（对应段落）</th></tr></thead><tbody>
 <tr><td>「是不是资金盘？」</td><td>把第三步的四个问题再讲一遍</td></tr>
 <tr><td>「你自己投了多少？」</td><td><b>直接说数字</b>，老实最有力</td></tr>
 <tr><td>「会不会亏？」</td><td>第四步那段「我要跟你说清楚」</td></tr>
 <tr><td>「要投多少钱？」</td><td>100 美金起，但量力而行</td></tr>
 <tr><td>「我考虑一下」</td><td>「应该的，别冲动。资料我发你，随时问我」</td></tr>
-</tbody>
-</table>
+</tbody></table>
 
 <div class="note" style="margin-top:40px"><div class="note-title">快讲版的三个要点</div>
 <p><b>① 随时可以停。</b>15 分钟不是必须讲满，对方没兴趣就自然收住。<br>
 <b>② 重点在第三步。</b>如果只有 5 分钟，就只讲那四个问题。<br>
 <b>③ 不要背。</b>记住「痛点 → 解法 → 四问 → 收益」这个骨架，用自己的话。</p></div>
 
-<div class="note" style="margin-top:20px"><div class="note-title">其他版本</div>
-<p><a href="lecturer-30.html" style="color:var(--accent)">30 分钟标准版</a> ·
-<a href="lecturer-60.html" style="color:var(--accent)">60 分钟完整版</a> ·
-<a href="lecturer-online.html" style="color:var(--accent)">空课版</a></p></div>
-
-</div></div></main>
+</div></main>
 <footer class="site-footer"><div class="wrap">
-<p>ARK 学习指南 · 讲师板块 · 15 分钟快讲版</p>
-<p class="muted">所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+<p>ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+<p>所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
 </div></footer>
-<script src="assets/app.js?v=13"></script>
-</body></html>
+<script src="assets/app.js?v=10"></script>
+<script src="assets/nav.js?v=10"></script>
+<script src="assets/progress.js?v=10"></script>
+
+</body>
+</html>

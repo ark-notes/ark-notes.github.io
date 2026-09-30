@@ -1,0 +1,134 @@
+{
+ "steps": [
+  {
+   "file": "index.html",
+   "title": "首页",
+   "group": "开始"
+  },
+  {
+   "file": "guest.html",
+   "title": "客户版（3分钟）",
+   "group": "开始"
+  },
+  {
+   "file": "path.html",
+   "title": "30 天学习路径",
+   "group": "学习路径"
+  },
+  {
+   "file": "ark-what.html",
+   "title": "ARK 是什么",
+   "group": "学习路径 · 第 1 步"
+  },
+  {
+   "file": "ark-web4.html",
+   "title": "Web4 是什么",
+   "group": "学习路径 · 第 1 步"
+  },
+  {
+   "file": "ark-ai.html",
+   "title": "阿奇 AI 能做什么",
+   "group": "学习路径 · 第 1 步"
+  },
+  {
+   "file": "ark-safety.html",
+   "title": "安全性怎么讲",
+   "group": "学习路径 · 第 2 步"
+  },
+  {
+   "file": "ark-whyquery.html",
+   "title": "为什么要自己查",
+   "group": "学习路径 · 第 3 步"
+  },
+  {
+   "file": "query-guide.html",
+   "title": "链上查询教程",
+   "group": "学习路径 · 第 3 步"
+  },
+  {
+   "file": "tools.html",
+   "title": "查询工具",
+   "group": "学习路径 · 第 3 步"
+  },
+  {
+   "file": "ark-money.html",
+   "title": "钱从哪来",
+   "group": "学习路径 · 第 4 步"
+  },
+  {
+   "file": "ark-pay.html",
+   "title": "阿奇支付卡",
+   "group": "学习路径 · 第 4 步"
+  },
+  {
+   "file": "ark-level.html",
+   "title": "等级与补贴",
+   "group": "学习路径 · 第 4 步"
+  },
+  {
+   "file": "qa.html",
+   "title": "疑难问答库",
+   "group": "学习路径 · 第 5 步"
+  },
+  {
+   "file": "ark-compare.html",
+   "title": "跟别的有什么不同",
+   "group": "学习路径 · 第 5 步"
+  },
+  {
+   "file": "lecturer.html",
+   "title": "讲师板块",
+   "group": "学习路径 · 第 6 步"
+  },
+  {
+   "file": "lecturer-15.html",
+   "title": "15 分钟快讲版",
+   "group": "讲师 · 快讲"
+  },
+  {
+   "file": "lecturer-30.html",
+   "title": "30 分钟标准版",
+   "group": "讲师 · 标准"
+  },
+  {
+   "file": "ark-real.html",
+   "title": "实战怎么打",
+   "group": "学习路径 · 第 7 步"
+  },
+  {
+   "file": "ark-newbie.html",
+   "title": "新人怎么做",
+   "group": "工具"
+  },
+  {
+   "file": "howto.html",
+   "title": "怎么讲",
+   "group": "工具"
+  },
+  {
+   "file": "soul-five.html",
+   "title": "灵魂五问速查",
+   "group": "工具"
+  },
+  {
+   "file": "handbook.html",
+   "title": "学习手册",
+   "group": "工具"
+  },
+  {
+   "file": "transcripts.html",
+   "title": "逐字稿库",
+   "group": "资料"
+  },
+  {
+   "file": "videos.html",
+   "title": "视频库（225个）",
+   "group": "资料"
+  },
+  {
+   "file": "lecturer-online.html",
+   "title": "空课版（线上）",
+   "group": "讲师 · 空课"
+  }
+ ]
+}

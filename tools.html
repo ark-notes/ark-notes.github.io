@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>查询工具 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=10">
+<style>
+.tool{
+  display:block; padding:22px 24px; margin-bottom:14px;
+  border-radius:16px; text-decoration:none;
+  background:linear-gradient(135deg,rgba(18,20,30,.9),rgba(12,14,22,.95));
+  border:1px solid var(--line);
+  transition:.26s var(--ease);
+}
+.tool:hover{
+  border-color:var(--cyan-line); transform:translateX(4px);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.tool-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.tool-ico{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(34,211,238,.12);color:var(--cyan);
+  font-size:19px;font-weight:800;
+}
+.tool-name{font-size:17px;font-weight:680;color:var(--text)}
+.tool-url{font-size:12.5px;color:var(--cyan);word-break:break-all;line-height:1.6;margin-top:3px}
+.tool-use{font-size:14.5px;color:var(--text-2);line-height:1.85;margin-bottom:10px}
+.tool-how{
+  font-size:13.5px;color:var(--text-3);padding:12px 16px;
+  border-radius:10px;background:rgba(255,255,255,.025);
+  border-left:2px solid rgba(34,211,238,.3);line-height:1.8;
+}
+.tool-how b{color:var(--cyan);font-weight:600}
+.copy-btn{
+  float:right;padding:5px 12px;border-radius:8px;cursor:pointer;
+  background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);
+  color:var(--cyan);font-size:12px;font-family:inherit;
+  transition:.2s;
+}
+.copy-btn:hover{background:rgba(34,211,238,.2)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav"><a href="index.html">首页</a><a href="path.html">学习路径</a><a href="guest.html">客户版</a><a href="lecturer.html">讲师板块</a><a href="ark-ai.html">产品</a><a href="ark-compare.html">差异</a><a href="ark-pay.html">支付卡</a><a href="ark-safety.html">安全</a><a href="ark-level.html">等级</a><a href="howto.html">怎么讲</a><a href="tools.html" class="active">工具</a><a href="transcripts.html">逐字稿</a></nav>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+<div class="page-head">
+  <span class="eyebrow">随手可查</span>
+  <h1>查询工具</h1>
+  <p>别人说「不信我查给你看」的时候，查的就是这些。<br>包括大公司背书、链上数据、产品本身——全部可以直接打开给他看。</p>
+</div>
+
+<div class="note"><div class="note-title">怎么用这一页</div>
+<p>每个工具都写清了：<b>它是什么、用来查什么、点哪里、看什么</b>。<br>
+建议先收藏这一页，需要的时候直接点。</p></div>
+
+<h2>零、先搜这几个「大公司背书」</h2>
+<p style="color:var(--text-2);font-size:15px;margin-bottom:20px">
+别人问「这项目靠谱吗」，最有说服力的不是我们说，是<b>这些大公司的官网自己写着</b>。</p>
+
+<a class="tool" href="https://www.tencentcloud.com/zh/partners/details/3575" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">TC</span>
+    <div>
+      <div class="tool-name">腾讯云国际 · 合作伙伴页</div>
+      <div class="tool-url">tencentcloud.com/zh/partners/details/3575</div>
+    </div>
+  </div>
+  <div class="tool-use">2026 年 5 月曼谷大会，阿奇 AI 与<b>腾讯云国际</b>达成深度技术合作。腾讯云官网的合作伙伴页上，<b>写着阿奇 AI</b>。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开链接 → 页面上能看到 ARKIE AI 与腾讯云的合作信息<br>
+    <b>现场演示：</b>「这是腾讯云自己的官网，不是我做的图。」
+  </div>
+</a>
+
+<a class="tool" href="https://coinmarketcap.com/currencies/ark-defai/" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">CMC</span>
+    <div>
+      <div class="tool-name">CoinMarketCap 收录</div>
+      <div class="tool-url">coinmarketcap.com/currencies/ark-defai</div>
+    </div>
+  </div>
+  <div class="tool-use">全球最大的加密数据平台。<b>能上这个平台，说明经过了审核</b>，不是随便发的空气币。</div>
+  <div class="tool-how"><b>怎么用：</b>打开就能看到 ARK 的市值、价格、排名</div>
+</a>
+
+<a class="tool" href="https://www.coingecko.com/en/coins/ark-3" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">CG</span>
+    <div>
+      <div class="tool-name">CoinGecko 收录</div>
+      <div class="tool-url">coingecko.com</div>
+    </div>
+  </div>
+  <div class="tool-use">另一个主流数据平台。<b>两个平台都收录 = 双重背书。</b></div>
+  <div class="tool-how"><b>怎么用：</b>同上</div>
+</a>
+
+<a class="tool" href="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">RD</span>
+    <div>
+      <div class="tool-name">RootData 项目收录</div>
+      <div class="tool-url">rootdata.com</div>
+    </div>
+  </div>
+  <div class="tool-use">区块链项目的「天眼查」。<b>团队、投融资、项目背景都在上面</b>，机构做投研用的。</div>
+  <div class="tool-how"><b>怎么用：</b>打开看 ARK 的项目档案</div>
+</a>
+
+<a class="tool" href="https://stocks.apple.com/symbol/ARK38246-USD" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">🍎</span>
+    <div>
+      <div class="tool-name">苹果股票 App 收录</div>
+      <div class="tool-url">stocks.apple.com</div>
+    </div>
+  </div>
+  <div class="tool-use"><b>苹果手机自带的「股票」App 里，能搜到 ARK。</b>这个最有说服力——因为这是苹果官方的。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>iPhone 打开「股票」App → 搜索「ARK」→ 找到 ARK38246-USD<br>
+    <b>或点链接直接看</b>
+  </div>
+</a>
+
+<a class="tool" href="https://finance.yahoo.com/quote/ARK38246-USD/" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">YF</span>
+    <div>
+      <div class="tool-name">雅虎财经收录</div>
+      <div class="tool-url">finance.yahoo.com</div>
+    </div>
+  </div>
+  <div class="tool-use">全球最具影响力的财经门户。<b>传统金融界看报价的地方。</b></div>
+  <div class="tool-how"><b>怎么用：</b>打开直接看</div>
+</a>
+
+<a class="tool" href="https://cointelegraph.com/press-releases/morgan-crest-web3-foundation-leads-strategic-investment-in-ark-defai" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">CT</span>
+    <div>
+      <div class="tool-name">CoinTelegraph 报道</div>
+      <div class="tool-url">cointelegraph.com</div>
+    </div>
+  </div>
+  <div class="tool-use"><b>摩根格雷基金战略投资 ARK</b>，由 CoinTelegraph 全球首发报道。这是外媒的报道，不是我们自己发的。</div>
+  <div class="tool-how"><b>怎么用：</b>打开看报道原文</div>
+</a>
+
+<a class="tool" href="https://arkieai.io" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">AI</span>
+    <div>
+      <div class="tool-name">阿奇 AI 官网 + App</div>
+      <div class="tool-url">arkieai.io</div>
+    </div>
+  </div>
+  <div class="tool-use">阿奇 AI 已<b>上架谷歌商店和苹果商店</b>，开放 60 多个国家下载。<b>让他自己下载来用</b>，比说一百句都强。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开官网看介绍，或直接在 Google Play / App Store 搜「Arkie AI」下载
+  </div>
+</a>
+
+<h2>① 查底池和权限 —— AVE</h2>
+<a class="tool" href="https://ave.ai/token/0xcae117ca6bc8a341d2e7207f30e180f0e1a" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">AVE</span>
+    <div>
+      <div class="tool-name">AVE 链上查询</div>
+      <div class="tool-url">ave.ai</div>
+    </div>
+  </div>
+  <div class="tool-use">查一件最要紧的事：<b>底池有没有上锁、铸币权限有没有丢</b>。这两个决定了项目方能不能跑路、能不能偷偷印币。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开 → 上方放大镜 → 搜「ARK」→ 看底池状态 → 点「风险」看权限评估
+  </div>
+</a>
+
+<h2>② 查合约和持币 —— BscScan</h2>
+<a class="tool" href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">BSC</span>
+    <div>
+      <div class="tool-name">BscScan</div>
+      <div class="tool-url">bscscan.com</div>
+    </div>
+  </div>
+  <div class="tool-use">币安链官方浏览器。<b>所有链上数据都能在这里查</b>——合约代码、持仓分布、每笔交易。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>搜合约地址 → 点「Contract」看代码有没有开源 → 点「Holders」看持币分布
+  </div>
+</a>
+
+<h2>③ 查国库多签 —— Gnosis Safe</h2>
+<a class="tool" href="https://app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">SAFE</span>
+    <div>
+      <div class="tool-name">Gnosis Safe（国库）</div>
+      <div class="tool-url">app.safe.global</div>
+    </div>
+  </div>
+  <div class="tool-use">看<b>项目的钱由谁管、要几个人签字</b>。这里能看到国库余额和签名门槛。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开就是 ARK 国库 → 看顶部 <b>「5/9」</b>→ 意思是 9 个人管，要 5 个人同意
+  </div>
+</a>
+
+<h2>④ 查治理提案 —— Tally</h2>
+<a class="tool" href="https://www.tally.xyz/gov/ark" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">TALLY</span>
+    <div>
+      <div class="tool-name">Tally（治理投票）</div>
+      <div class="tool-url">tally.xyz/gov/ark</div>
+    </div>
+  </div>
+  <div class="tool-use">看<b>社区投票记录</b>。项目任何调整都要在这里提案、投票，全部公开。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开 → 能看到 ARK 的所有提案和投票记录（目前已有多轮提案）
+  </div>
+</a>
+
+<h2>⑤ 查安全审计 —— CertiK</h2>
+<a class="tool" href="https://skynet.certik.com/projects/ark-defai" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">CK</span>
+    <div>
+      <div class="tool-name">CertiK 安全审计</div>
+      <div class="tool-url">skynet.certik.com</div>
+    </div>
+  </div>
+  <div class="tool-use">全球顶级区块链安全机构。<b>看代码有没有被审计过、有没有漏洞</b>。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开 → 搜 ARK → 看「代币扫描分」（安全指标）和「代码安全」的检测项
+  </div>
+</a>
+
+<h2>⑥ 查价格和底池 —— DexScreener</h2>
+<a class="tool" href="https://dexscreener.com/bsc/0xcaaf3c41a40103a23eeaa4bba468af3cf5b0e0d8" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">DEX</span>
+    <div>
+      <div class="tool-name">DexScreener</div>
+      <div class="tool-url">dexscreener.com</div>
+    </div>
+  </div>
+  <div class="tool-use">看<b>实时币价和底池规模</b>。数据直接来自链上交易对，不经过交易所。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开就是 ARK/USDT 交易对 → 看价格、底池、交易量
+  </div>
+</a>
+
+<h2>⑦ 查合约安全 —— GoPlus</h2>
+<a class="tool" href="https://gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">GP</span>
+    <div>
+      <div class="tool-name">GoPlus 合约安全扫描</div>
+      <div class="tool-url">gopluslabs.io</div>
+    </div>
+  </div>
+  <div class="tool-use">一键扫描合约风险。<b>看有没有高风险项、源码有没有验证</b>。</div>
+  <div class="tool-how">
+    <b>怎么用：</b>打开就是 ARK 的扫描结果 → 看「Risky item」（风险项）是不是 0
+  </div>
+</a>
+
+<h2>⑧ 查行情数据 —— CoinMarketCap / CoinGecko</h2>
+<a class="tool" href="https://coinmarketcap.com/currencies/ark-defai/" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">CMC</span>
+    <div>
+      <div class="tool-name">CoinMarketCap</div>
+      <div class="tool-url">coinmarketcap.com/currencies/ark-defai</div>
+    </div>
+  </div>
+  <div class="tool-use">全球最大的加密数据平台。<b>证明这个币是被主流收录的</b>，不是空气币。</div>
+  <div class="tool-how"><b>怎么用：</b>打开就能看到 ARK 的市值、价格、交易量</div>
+</a>
+<a class="tool" href="https://www.coingecko.com/en/coins/ark-3" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">CG</span>
+    <div>
+      <div class="tool-name">CoinGecko</div>
+      <div class="tool-url">coingecko.com</div>
+    </div>
+  </div>
+  <div class="tool-use">另一个主流数据平台。两个平台都收录 = 双重背书。</div>
+  <div class="tool-how"><b>怎么用：</b>同上</div>
+</a>
+
+<h2>⑨ 查项目资料 —— RootData</h2>
+<a class="tool" href="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">RD</span>
+    <div>
+      <div class="tool-name">RootData（项目数据库）</div>
+      <div class="tool-url">rootdata.com</div>
+    </div>
+  </div>
+  <div class="tool-use">区块链项目的「天眼查」。<b>看团队、投融资、项目背景</b>。</div>
+  <div class="tool-how"><b>怎么用：</b>打开就是 ARK 的项目页，可以看到官方收录信息</div>
+</a>
+
+<h2>⑩ 看产品 —— 阿奇 AI 官网</h2>
+<a class="tool" href="https://arkieai.io" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">AI</span>
+    <div>
+      <div class="tool-name">阿奇 AI 官网</div>
+      <div class="tool-url">arkieai.io</div>
+    </div>
+  </div>
+  <div class="tool-use">直接看产品本身。<b>别人问「这产品真能干活吗」，打开给他看</b>。</div>
+  <div class="tool-how"><b>怎么用：</b>打开就是阿奇 AI 的介绍和入口</div>
+</a>
+
+<h2>⑪ 查 ARK 官网 —— 官方入口</h2>
+<a class="tool" href="https://www.arkdefai.com" target="_blank" rel="noopener">
+  <div class="tool-head">
+    <span class="tool-ico">ARK</span>
+    <div>
+      <div class="tool-name">ARK 官网</div>
+      <div class="tool-url">arkdefai.com</div>
+    </div>
+  </div>
+  <div class="tool-use">项目方官方站点。</div>
+  <div class="tool-how"><b>怎么用：</b>打开看官方介绍</div>
+</a>
+
+<div class="note" style="margin-top:44px">
+<div class="note-title">现场演示的顺序（记这四步就够）</div>
+<p><b>① 查底池</b> → AVE，搜 ARK，看有没有上锁<br>
+<b>② 查权限</b> → AVE，点「风险」，看铸币权限<br>
+<b>③ 查国库</b> → Gnosis Safe，看 5/9 多签<br>
+<b>④ 查审计</b> → CertiK，看分数</p>
+<p>四步走完，对方基本就没话说了。<b>因为全都是链上公开的，不是我们说的。</b></p></div>
+
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<p>ARK 学习指南 · 查询工具</p>
+<p>所有链接均来自 ARK 官方公示资料。数据以链上实时为准。</p>
+</div></footer>
+<script src="assets/app.js?v=10"></script>
+<script src="assets/nav.js?v=10"></script>
+</body>
+</html>

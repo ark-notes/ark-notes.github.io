@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视频库 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=1">
+<style>
+.vlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:20px 0 36px}
+.vcard{display:flex;gap:13px;align-items:flex-start;padding:14px 16px;border-radius:13px;
+  background:var(--surface);border:1px solid var(--line);cursor:pointer;transition:.24s var(--ease)}
+.vcard:hover{border-color:var(--cyan-line);background:var(--surface-2);transform:translateY(-2px)}
+.vico{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  background:rgba(34,211,238,.14);color:var(--cyan)}
+.vico svg{width:16px;height:16px;margin-left:2px}
+.vbody{min-width:0}
+.vtitle{font-size:14.5px;font-weight:620;color:var(--text);margin-bottom:4px;line-height:1.4;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.vdesc{font-size:12.5px;color:var(--text-3);line-height:1.5;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.player{position:sticky;top:70px;z-index:80;margin-bottom:24px;padding:16px;
+  background:rgba(12,14,23,.97);border:1px solid var(--cyan-line);border-radius:16px;
+  backdrop-filter:blur(20px);box-shadow:0 16px 48px rgba(0,0,0,.6)}
+.player-title{font-size:14px;color:var(--cyan);margin-top:12px;font-weight:600}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html">学习路径</a>
+      <a href="lecturer.html">讲师板块</a>
+      <a href="howto.html">怎么讲</a>
+      <a href="soul-five.html">灵魂五问</a>
+      <a href="query-guide.html">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="transcripts.html">逐字稿</a>
+    </nav>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+<div class="page-head">
+  <span class="eyebrow">资料</span>
+  <h1>视频库</h1>
+  <p>ARK 官方资料库里的全部视频，点开就能播。</p>
+</div>
+
+<div class="note"><div class="note-title">这一页是什么</div>
+<p>ARK 官方资料库里的全部视频（共 225 个）。<b>点封面就能直接播放</b>，不用跳转。<br>
+分六类：概念讲解 / 教学查询 / 产品演示 / 大会活动 / 社区活动 / 其他。</p></div>
+
+<div class="player" id="player" style="display:none">
+  <video id="vid" controls playsinline style="width:100%;border-radius:14px;background:#000"></video>
+  <div class="player-title" id="ptitle"></div>
+</div>
+
+<h2>概念讲解（28）</h2>
+<div class="vlist">
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/d50f1ef8-fe77-49e5-85ed-cadfe5d6694a.mp4','2.流动性LP运作說明')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">2.流动性LP运作說明</div>
+    <div class="vdesc">1、什麼是流動性 2.流动性LP运作說明 3.流动性LP怎么运作举例 4、什麼是POL 5、如何結合POL和RBS實現智能做市 6.POL对参与者有什么好处</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/0d1392b7-0751-47ad-883d-6efd75a7e806.mp4','3.流动性LP怎么运作举例')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">3.流动性LP怎么运作举例</div>
+    <div class="vdesc">1、什麼是流動性 2.流动性LP运作說明 3.流动性LP怎么运作举例 4、什麼是POL 5、如何結合POL和RBS實現智能做市 6.POL对参与者有什么好处</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/935682a5-cdc1-4ecd-a5ee-e36b1a84e2e7.mp4','4.什么是POL')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">4.什么是POL</div>
+    <div class="vdesc">1、什麼是流動性 2.流动性LP运作說明 3.流动性LP怎么运作举例 4、什麼是POL 5、如何結合POL和RBS實現智能做市 6.POL对参与者有什么好处</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/d32f6efa-78ab-44fa-88ee-9c211c8b773e.mp4','5.如何结合POL和RBS实现智能做市')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">5.如何结合POL和RBS实现智能做市</div>
+    <div class="vdesc">1、什麼是流動性 2.流动性LP运作說明 3.流动性LP怎么运作举例 4、什麼是POL 5、如何結合POL和RBS實現智能做市 6.POL对参与者有什么好处</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/c8dbac44-a8c0-43ad-9eef-d8f63c60cbf0.mp4','6.POL对参与者有什么好处')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">6.POL对参与者有什么好处</div>
+    <div class="vdesc">1、什麼是流動性 2.流动性LP运作說明 3.流动性LP怎么运作举例 4、什麼是POL 5、如何結合POL和RBS實現智能做市 6.POL对参与者有什么好处</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/2b08754e-260f-4b2b-9ef3-5e001c47a443.mp4','1.什么是流动性')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1.什么是流动性</div>
+    <div class="vdesc">1、什麼是流動性 2.流动性LP运作說明 3.流动性LP怎么运作举例 4、什麼是POL 5、如何結合POL和RBS實現智能做市 6.POL对参与者有什么好处</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/10790e9e-5d63-455a-b88c-954bb2d0182a.mp4','bc415352-f8f8-4d7d-a663-fd7c18c82597 (1)')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">bc415352-f8f8-4d7d-a663-fd7c18c82597 (1)</div>
+    <div class="vdesc">ARK灵魂五问完整视频</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/c76f53a6-dde7-407b-a931-7c12e5eb2f28.mp4','2.流动性LP运作說明')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">2.流动性LP运作說明</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/5cc74420-18ae-4c46-84d0-ba2024d463d3.mp4','3.流动性LP怎么运作举例')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">3.流动性LP怎么运作举例</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/60494803-28ae-4829-b033-0e786b098a97.mp4','4.什么是POL')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">4.什么是POL</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/cd0d1aae-2522-4985-92ff-41a570b14787.mp4','5.如何结合POL和RBS实现智能做市')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">5.如何结合POL和RBS实现智能做市</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/f3bf1879-40e2-45de-8419-94f2fb4b1dcc.mp4','6.POL对参与者有什么好处')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">6.POL对参与者有什么好处</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/77bb81b8-54a3-4801-afa9-27c8303d766e.mp4','250812_001_CN_ARK_Infographic_Amend_V8')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">250812_001_CN_ARK_Infographic_Amend_V8</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/f905c0ee-8aff-42a5-9990-115397de650b.mp4','251003_01_CN_ARK_Infographic_02_V6')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">251003_01_CN_ARK_Infographic_02_V6</div>
+    <div class="vdesc">2.流动性LP运作說明.mp4</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/0f8f0dd6-0629-4892-9984-fe91b12cd336.mp4','1.什么是流动性')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1.什么是流动性</div>
+    <div class="vdesc">1、什麼是流動性</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/73e4f2fe-0fb4-406f-b6c0-16842b45597d.mp4','第六段 - 链上央行与安全性')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第六段 - 链上央行与安全性</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/2ee43d6f-f0ad-4729-9739-1bc2084a2dd8.mp4','第六段 - 链上央行与安全性')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第六段 - 链上央行与安全性</div>
+    <div class="vdesc"></div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/14d6ad3d-c903-4e02-8dc4-c99f783cf260.mp4','什么是算法非稳定币')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">什么是算法非稳定币</div>
+    <div class="vdesc">详细解说 什么是算法非稳定币?</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/fd249bf4-27a7-4a91-a233-e03619f80c6b.mp4','video__eeb33343d7__part000')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">video__eeb33343d7__part000</div>
+    <div class="vdesc">V3灵魂五问 &amp; ARK讲解  完整版 - V3灵魂五问 &amp; ARK讲解</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/1953966e-6523-44a9-9519-0769645222af.mp4','video__eeb33343d7__part001')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">video__eeb33343d7__part001</div>
+    <div class="vdesc">V3灵魂五问 &amp; ARK讲解  完整版 - V3灵魂五问 &amp; ARK讲解</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/bb13eccb-feee-4a51-8f98-f34544d42777.mp4','video__eeb33343d7__part002')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">video__eeb33343d7__part002</div>
+    <div class="vdesc">V3灵魂五问 &amp; ARK讲解  完整版 - V3灵魂五问 &amp; ARK讲解</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/425458ef-cb5b-4b10-b89b-382329ae78a0.mp4','(1)灵魂五问前言')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">(1)灵魂五问前言</div>
+    <div class="vdesc">V3灵魂五问 &amp; ARK讲解  完整版 - V3灵魂五问 &amp; ARK讲解</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/7b2dc8d4-af41-4bfc-85b7-df41fe2e13b9.mp4','(2)灵魂五问前三问 ')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">(2)灵魂五问前三问 </div>
+    <div class="vdesc">V3灵魂五问 &amp; ARK讲解  完整版 - V3灵魂五问 &amp; ARK讲解</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/ea222a55-e64e-471c-849c-ec4850a6ef47.mp4','(3)长久性拆解三步')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">(3)长久性拆解三步</div>
+    <div class="vdesc">V3灵魂五问 &amp; ARK讲解  完整版 - V3灵魂五问 &amp; ARK讲解</div>
+  </div>
+</div>
+</div>
+<h2>教学与查询（36）</h2>
+<div class="vlist">
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/ccd5073b-9ce9-4c99-8d48-d972ce455e49.mp4','-7343438929025862927')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">-7343438929025862927</div>
+    <div class="vdesc">🔥吉隆坡特别场 AI实战营 · 下午实操课程🔥  下午课程火热开启   现场伙伴亲自上手实操   从工具应用到场景演练   一步步把AI能力转化为实战经验   </div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/42546a5b-c9ec-48af-b679-d531f8d3f33e.mp4','ARK奖励再质押教程 (1)')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK奖励再质押教程 (1)</div>
+    <div class="vdesc">ARK奖励再质押，获得ARKIE币奖励教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/a27e6a1f-2674-4767-8c87-771f1ebb4844.mp4','ARKIE销毁认购教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARKIE销毁认购教程</div>
+    <div class="vdesc">ARKIE销毁认购教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/a056ef1b-3765-4d46-9ed3-513f9b989981.mp4','线上实时查询ARKIE NFT 权重与信息教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">线上实时查询ARKIE NFT 权重与信息教程</div>
+    <div class="vdesc">如何通过链上工具查询永久配套（阿奇NFT）权重视频教程  第三方币安链NFT查询工具：https://bnb.nftscan.com 币安链官方区块浏览器：ht</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/71c10d52-bb51-423b-b71f-1c91cae5110c.mp4','永久配套（阿奇NFT）升级操作指南')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">永久配套（阿奇NFT）升级操作指南</div>
+    <div class="vdesc">永久配套（阿奇NFT）升级操作指南</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/5a647c13-b528-4eb9-8cd8-b0c2a8df9087.mp4','ARK质押配套一键升级机制教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK质押配套一键升级机制教程</div>
+    <div class="vdesc">ARK质押配套一键升级机制教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/9c284132-3ec7-42e1-88e0-dcef5c84f85b.mp4','Arkie AI xTaskOn 任务教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">Arkie AI xTaskOn 任务教程</div>
+    <div class="vdesc">Arkie AI xTaskOn 任务教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/64b4c424-06e7-4fac-926f-49599b103720.mp4','ARKIE AIAPP智能体使用教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARKIE AIAPP智能体使用教程</div>
+    <div class="vdesc">ARKIE AIAPP智能体使用教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/ff2937b5-153d-45e9-8431-3870b1077a07.mp4','会议报名系统操作教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">会议报名系统操作教程</div>
+    <div class="vdesc">会议报名系统操作教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/00691a16-8f32-423b-9d9c-a1c47ec6bf0c.mp4','ARK飞机使用教学安全防骗(安卓）')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK飞机使用教学安全防骗(安卓）</div>
+    <div class="vdesc">ARK飞机使用教学安全防骗(安卓) / ARK飞机使用教学群分组(安卓) (+1 more)</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/0be01313-2b9b-4543-bc2b-ed57737b6c67.mp4','ARK飞机使用教学群分组(安卓）')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK飞机使用教学群分组(安卓）</div>
+    <div class="vdesc">ARK飞机使用教学安全防骗(安卓) / ARK飞机使用教学群分组(安卓) (+1 more)</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/dd4b2719-a5c0-4a0d-9ace-1095da889518.mp4','ARK飞机使用教学收藏夹(安卓）')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK飞机使用教学收藏夹(安卓）</div>
+    <div class="vdesc">ARK飞机使用教学安全防骗(安卓) / ARK飞机使用教学群分组(安卓) (+1 more)</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/e7bc32e5-1c02-4d8f-a4de-b4ea79ad272b.mp4','ARK飞机使用教学｜清内存+分组（苹果）')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK飞机使用教学｜清内存+分组（苹果）</div>
+    <div class="vdesc">ARK飞机使用教学｜清内存+分组(苹果) / ARK飞机使用教学｜安全防骗 (苹果) (+1 more)</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/4b65fb4c-54be-4d0c-be4b-467e67661431.mp4','ARK飞机使用教学｜安全防骗 （苹果）')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK飞机使用教学｜安全防骗 （苹果）</div>
+    <div class="vdesc">ARK飞机使用教学｜清内存+分组(苹果) / ARK飞机使用教学｜安全防骗 (苹果) (+1 more)</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/0c9a6a04-839c-4635-b50d-5cc95445fa4b.mp4','ARK飞机使用教学｜收藏夹 （苹果）')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK飞机使用教学｜收藏夹 （苹果）</div>
+    <div class="vdesc">ARK飞机使用教学｜清内存+分组(苹果) / ARK飞机使用教学｜安全防骗 (苹果) (+1 more)</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/97c1e727-de1c-4825-b0bb-3042ffea40c5.MOV','如何加入官方中文共识群')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">如何加入官方中文共识群</div>
+    <div class="vdesc">ARK如何加入官方中文共识群教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/2f4d497f-0f9f-4302-88aa-8ae9037cbd93.mp4','如何在链上查询ARK的LP是否销毁')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">如何在链上查询ARK的LP是否销毁</div>
+    <div class="vdesc">如何在链上查询ARK的LP是否销毁</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/40a79ce9-9177-46df-a556-4f6cb4aeea67.mp4','ARK债券购买教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK债券购买教程</div>
+    <div class="vdesc">ARK債券購買教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/4dc82f7f-0938-453b-b46f-fea38f4a1270.mp4','ARK我的帳戶查看教程')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK我的帳戶查看教程</div>
+    <div class="vdesc">ARK我的賬戶查看教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/7a4d098c-4304-43ca-a847-5d34d83af6fe.mp4','如何查询铸币合约是否开源和是否放弃权限？')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">如何查询铸币合约是否开源和是否放弃权限？</div>
+    <div class="vdesc">铸币合约是否开源&amp;代币权限是否丢弃查询教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/0c92eef6-3120-4b1e-95d6-ec37d3db1e41.mp4','如何不依赖第三方软件查询权限丢弃状态')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">如何不依赖第三方软件查询权限丢弃状态</div>
+    <div class="vdesc">代币权限是否丢弃查询教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/07aaae31-82d2-44c0-8977-7a3fc24d7258.mp4','如何查询国库是否多签管理')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">如何查询国库是否多签管理</div>
+    <div class="vdesc">国库是否多签查询教程</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/ef894e5d-93e1-4109-8632-ef9471276cd7.mp4','如何在链上查询LP是否销毁以及LP的计算方式')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">如何在链上查询LP是否销毁以及LP的计算方式</div>
+    <div class="vdesc">如何在链上查询LP是否销毁以及LP的计算方式</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/517e32e3-deb5-4f08-a159-284ecf9f406c.mp4','ARK CK审计报告解读')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">ARK CK审计报告解读</div>
+    <div class="vdesc">ARK CK审计报告解读</div>
+  </div>
+</div>
+</div>
+<h2>产品演示（28）</h2>
+<div class="vlist">
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/621a124d-f804-4d56-b4a4-b7fcaa37cdcc.mp4','阿奇AI Ultra测试画面宣传片')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">阿奇AI Ultra测试画面宣传片</div>
+    <div class="vdesc"></div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/987f250f-cd3b-4cac-a974-97e272165861.MP4','IMG_1827')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_1827</div>
+    <div class="vdesc">ARKIE AI 破局未来·全球共创培训营】  🎬 【ARKIE AI 破局未来·全球共创培训营】 🔥 跨国集结，顶峰相见！ 来自印度、印尼等各国的全球Orde</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/0e33cd0e-4125-4f05-b969-2bbfff3388be.MP4','IMG_1828')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_1828</div>
+    <div class="vdesc">ARKIE AI 破局未来·全球共创培训营】  🎬 【ARKIE AI 破局未来·全球共创培训营】 🔥 跨国集结，顶峰相见！ 来自印度、印尼等各国的全球Orde</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/805bf36e-8846-44be-b3e8-1e4e215646e3.MP4','IMG_1829')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_1829</div>
+    <div class="vdesc">ARKIE AI 破局未来·全球共创培训营】  🎬 【ARKIE AI 破局未来·全球共创培训营】 🔥 跨国集结，顶峰相见！ 来自印度、印尼等各国的全球Orde</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/797bce1a-902e-484d-8b75-bf01ec8fd703.MP4','IMG_1830')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_1830</div>
+    <div class="vdesc">ARKIE AI 破局未来·全球共创培训营】  🎬 【ARKIE AI 破局未来·全球共创培训营】 🔥 跨国集结，顶峰相见！ 来自印度、印尼等各国的全球Orde</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/71b7b702-2846-4148-b2c6-5b3451a4eb63.MP4','IMG_1832')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_1832</div>
+    <div class="vdesc">ARKIE AI 破局未来·全球共创培训营】  🎬 【ARKIE AI 破局未来·全球共创培训营】 🔥 跨国集结，顶峰相见！ 来自印度、印尼等各国的全球Orde</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/93d5beba-b7fe-46be-9f99-0e3b77296bbb.mp4','2月22日')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">2月22日</div>
+    <div class="vdesc">视频汇总｜2026-03-18  🎵🐙【正式发布｜《阿奇陪你飞》】🐙🎵  这是属于 阿奇 的小小主题曲 💛 “我是阿奇，小聪明～ 夜空航行找光明～” 在生态爆发</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/a90a49db-6449-43c0-ab5c-5d03c067423f.mp4','1月20日(1)')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1月20日(1)</div>
+    <div class="vdesc">BGM  阿奇登场 BGM</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/85234c3e-cca7-4b76-a9f2-62b25b57ec0b.mp4','IMG_2454')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2454</div>
+    <div class="vdesc">BGM  阿奇登场 BGM</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/86e88cf6-753f-48ae-94d7-f08217196cf2.mp4','阿奇·马年新年之歌')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">阿奇·马年新年之歌</div>
+    <div class="vdesc">ARK阿奇 - 马年新年之歌</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/024d1916-4e0b-4e6a-8a35-aea3dbf35059.MOV','IMG_1009')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_1009</div>
+    <div class="vdesc">ARK阿奇 - 马年新年之歌</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/eec25ef7-703d-43d6-9473-00329fc162fd.MOV','IMG_9798')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_9798</div>
+    <div class="vdesc">ARK阿奇 - 马年新年之歌</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/ffb5414c-1de9-4916-aac3-d284c82b978d.mp4','卡梅羅馬年致詞')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">卡梅羅馬年致詞</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/1816a12e-24a1-423e-afa5-88d0e9196035.mp4','阿奇AI x ARK板书-0618 (1)')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">阿奇AI x ARK板书-0618 (1)</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/4276fc5f-3300-42bf-a374-dc2360d07701.mp4','第八段 - ARK参与方式')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第八段 - ARK参与方式</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/2e6a33b3-c2df-4242-bced-b4314576a23a.mp4','第七段 - 机构验证')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第七段 - 机构验证</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/1fd79cae-5ac6-4aae-9e38-53af2ae46dc4.mp4','第五段 - ARK DeFAI是什么')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第五段 - ARK DeFAI是什么</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/e4c6f644-8e70-4c29-b270-0e212915bc5a.mp4','第四段 - 阿奇AI扩张策略')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第四段 - 阿奇AI扩张策略</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/c8fd8d3b-1e9e-4e1c-ad0e-07289efb231e.mp4','第三段 - 阿奇AI算力底座')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第三段 - 阿奇AI算力底座</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/87211881-9dfb-4da2-b2b6-c160eadcf428.mp4','第二段 - 阿奇AI是什么')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第二段 - 阿奇AI是什么</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/441c0bd2-b504-4293-931d-c8696b08a0f2.mp4','第一段 - 当前AI痛点')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第一段 - 当前AI痛点</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/a27c390b-bf9f-4831-bdbd-53e47aa04357.mp4','第九段 - 十大总结')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第九段 - 十大总结</div>
+    <div class="vdesc">阿奇AI x ARK板书-0618</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/b909044d-9394-4a9a-a1f7-9e39a1361fd6.mp4','第二段 - 阿奇AI是什么')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第二段 - 阿奇AI是什么</div>
+    <div class="vdesc"></div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/8440bbee-4344-4c86-bb64-7bda81d2b9c5.mp4','第三段 - 阿奇AI算力底座')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">第三段 - 阿奇AI算力底座</div>
+    <div class="vdesc"></div>
+  </div>
+</div>
+</div>
+<h2>大会与活动（52）</h2>
+<div class="vlist">
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/7e9bd0d6-35fb-4df4-9a23-a9a8ed9b02b4.mp4','413905138765367550')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">413905138765367550</div>
+    <div class="vdesc">✨ ARKIE AI 2026 全球周年盛典｜精彩回顾 「万智共生・智见未来」，全球建设者齐聚吉隆坡。  一年的同行，一年的付出， 在这一刻，化作属于每一位建设</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/e1f82473-92a4-4465-9a06-00ee2a287dbd.mp4','-1884831303175877272')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">-1884831303175877272</div>
+    <div class="vdesc">🎂 ARK，一周年生日快乐！ 这一年，我们因为信念相聚， 从一个想法出发，一步一步，把“不可能”变成正在发生。  吉隆坡周年庆圆满落幕， 但属于阿奇的故事，才刚</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/830f0144-dcb7-4755-a9e6-c40aa69800fc.mp4','-7140188108976366230')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">-7140188108976366230</div>
+    <div class="vdesc">✨ ARKIE AI 2026 全球周年盛典｜精彩回顾 「万智共生・智见未来」，全球建设者齐聚吉隆坡。  AWS 马来西亚 Partner Territory </div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/c0a65558-2dfd-4098-a77f-60557c98e026.mp4','-8251989546068447718')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">-8251989546068447718</div>
+    <div class="vdesc">🔥吉隆坡特别场 AI实战营 · 互动现场🔥  思想交汇，热度不减   现场互动热烈，回应积极   在交流中打开思路   在实操中沉淀方法    让AI不止被看见</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/6c9a4516-3e2c-4bfa-bcf0-8141677fb648.mp4','233986349039522337')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">233986349039522337</div>
+    <div class="vdesc">🔥吉隆坡特别场 AI实战营 · 下午现场🔥  从理解到上手   从认知到应用   现场积极互动，实操持续推进    每一次亲自实操 都是把AI能力转化为真实生产</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/79ba8120-9180-44ac-88e0-82dc1a9eb633.mp4','7717392040250363477')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">7717392040250363477</div>
+    <div class="vdesc">🔥吉隆坡特别场 AI实战营 · 惊喜时刻🔥  从学习收获到活动奖励   每一份惊喜都让现场热度再升    精彩不止于课程   也藏在每一个欢呼与掌声里。</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/53bbd3a4-cb12-4b81-96ec-db68093b0cc4.mp4','IMG_3211')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_3211</div>
+    <div class="vdesc">😄ARK | DeFAI x Arkie AI😄 🌍2026年 5月份 阿奇AI点燃未来 🌍 🔥🔥🔥全球千人会议🔥🔥🔥  泰国曼谷 x 芭提雅 x 马来西亚吉隆</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/1bdb3eae-6a19-4df3-bdf5-af4ba0dee8f0.mp4','4')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">4</div>
+    <div class="vdesc">🎬 【ARK DeFAI 全球爆发·生态共创会】 🌍 跨国集结，顶峰相见！ 来自中国、日本、印尼、马来、印度等多国精英与九紫社区齐聚吉隆坡。现场直击全球火爆采访</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/fa2905b1-132d-46fb-8da6-1f9d022ecc3e.mp4','IMG_2143')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2143</div>
+    <div class="vdesc">【ARKIE AI 点燃未来·全球生态共创会】 🌍 国际视野，顶峰相见！ 在 ARKIE AI 的强力号召下，九紫社区 汇聚全球硬核力量！ 来自 中国、日本、马</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/d5d0cbc0-d760-4962-9d3d-3cdac5baf132.MP4','IMG_2143')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2143</div>
+    <div class="vdesc">🎬 【ARK DeFAI 全球爆发·生态共创会】 🎤 大咖论道，共视未来！ 在博士AMA的精彩硬核分享下，来自中国、日本、印尼、马来、印度等多国精英与九紫社区全</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/ecdbf1ce-1328-43a8-b787-4c9fe33c3309.MP4','IMG_2141')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2141</div>
+    <div class="vdesc">ARKIE AI 点燃未来·全球生态共创会】  🎬 【ARKIE AI 点燃未来·全球生态共创会】 🌏 五国联动，顶峰相见！ 来自中国、马来西亚、印尼、印度、日</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/f2c0586a-6f4c-4f1a-b4a6-1167c90af196.MP4','IMG_2142')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2142</div>
+    <div class="vdesc">ARKIE AI 点燃未来·全球生态共创会】  🎬 【ARKIE AI 点燃未来·全球生态共创会】 🌏 五国联动，顶峰相见！ 来自中国、马来西亚、印尼、印度、日</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/484d4f21-38d8-441d-8fe8-a7d35a7d9f72.MP4','IMG_2143')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2143</div>
+    <div class="vdesc">ARKIE AI 点燃未来·全球生态共创会】  🎬 【ARKIE AI 点燃未来·全球生态共创会】 🌏 五国联动，顶峰相见！ 来自中国、马来西亚、印尼、印度、日</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/2678d9ac-3e94-4564-bd62-c17425a47ed3.MP4','IMG_2144')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_2144</div>
+    <div class="vdesc">ARKIE AI 点燃未来·全球生态共创会】  🎬 【ARKIE AI 点燃未来·全球生态共创会】 🌏 五国联动，顶峰相见！ 来自中国、马来西亚、印尼、印度、日</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/c598672a-1424-42cc-bcee-db6c614a53a5.mov','_1e9891acd9__part000')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">_1e9891acd9__part000</div>
+    <div class="vdesc">Arkie AI 点燃未来·生态共创会】圆满成功！  🎬 【Arkie AI 点燃未来·生态共创会】圆满成功！ 🔥 从荣耀集结到全天峰会，全面引爆全球生态！ 热</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/85176ef4-849c-4ac7-8447-f512e6f8b4e3.mov','_1e9891acd9__part001')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">_1e9891acd9__part001</div>
+    <div class="vdesc">Arkie AI 点燃未来·生态共创会】圆满成功！  🎬 【Arkie AI 点燃未来·生态共创会】圆满成功！ 🔥 从荣耀集结到全天峰会，全面引爆全球生态！ 热</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/c275687b-6fa6-417f-b1b2-975e46fe7c30.MOV','IMG_4820')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_4820</div>
+    <div class="vdesc">Arkie AI 点燃未来·生态共创会】  🎬 【Arkie AI 点燃未来·生态共创会】 🔥 领导人闭门会议：定心定位，誓师定江山！ ⚡ 直面责任，全场领袖集</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/542db37c-daad-454e-81e9-eef257794eed.MOV','IMG_0017')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_0017</div>
+    <div class="vdesc">Arkie AI 点燃未来·生态共创会】  🎬 【Arkie AI 点燃未来·生态共创会】 🙏 庄严出行，正心正念！ 全体 ARK 领袖齐聚泰国神圣寺庙，虔诚祈</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/e3ebb464-eba3-4496-9a88-7254a81c2a15.MOV','IMG_0016')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_0016</div>
+    <div class="vdesc">Arkie AI 点燃未来·生态共创会】  🎬 【Arkie AI 点燃未来·生态共创会】 🔥 国际媒体全面聚焦，海内外专访重磅轰炸！  * 卡梅洛·伊玻利托博</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/4f5f4db9-5909-452c-b9e2-7cadfa647214.MP4','IMG_4702')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_4702</div>
+    <div class="vdesc">Arkie AI 点燃未来 · 生态共创会】  🎬【Arkie AI 点燃未来 · 生态共创会】  🔥 腾讯云国际团队到场支持 • 资深解决方案架构师｜Dany</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/9f48f3b2-609c-4cce-8cd5-c4208bfac7b9.mp4','5月16日-曼谷共创会-ARKIE APP 产品介绍')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">5月16日-曼谷共创会-ARKIE APP 产品介绍</div>
+    <div class="vdesc">视频汇总｜2026-05-18</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/66f29f11-78c8-4def-9b5c-0bd509b5cab5.mp4','5月16日-曼谷共创会-阿奇开场 影片')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">5月16日-曼谷共创会-阿奇开场 影片</div>
+    <div class="vdesc">视频汇总｜2026-05-18</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/0b0affbe-4ff3-4efa-98bc-2c9ad1ad1bbb.MOV','IMG_4666')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_4666</div>
+    <div class="vdesc">视频汇总｜2026-05-17  【曼谷峰会·首日进场】超燃高光时刻！ ​🇹🇭 曼谷集结，铁军会师！ARKIE AI 2.0 生态共创会今日震撼开幕！ 🔥 全球</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/b19d2e1d-427e-4e09-8f38-b4d5e24660dd.MOV','IMG_4677')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_4677</div>
+    <div class="vdesc">视频汇总｜2026-05-17  【曼谷峰会·首日进场】超燃高光时刻！ ​🇹🇭 曼谷集结，铁军会师！ARKIE AI 2.0 生态共创会今日震撼开幕！ 🔥 全球</div>
+  </div>
+</div>
+</div>
+<h2>社区活动（25）</h2>
+<div class="vlist">
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/0b1900e2-0417-4371-8f2a-b504a9802062.mp4','13')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">13</div>
+    <div class="vdesc">ARK DeFai 越南社区🔥现场气氛热烈，信念共振，社区力量无穷！让我们一起拥抱ARK生态，创造未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/6b9eb19e-6216-49ab-8c81-158c8460e407.mp4','12')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">12</div>
+    <div class="vdesc">ARK DeFai 韩国社区🔥现场热烈，信念共振，社区力量无穷，携手共创ARK生态辉煌未来，激励每一位参与者，共同迈向成功！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/b94ab810-8c6f-4847-9c9d-e29a03ff64d2.mp4','11')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">11</div>
+    <div class="vdesc">ARK DeFai 印度社区🔥激情四溢，信念共振，见证社区力量的强大。让我们一起开启ARK生态的新篇章！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/e8fe5a3a-20ab-4a08-87e4-a54b01cdb3cf.mp4','10')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">10</div>
+    <div class="vdesc">ARK DeFai 马来西亚社区🔥现场氛围热烈，信念共振，社区力量无限！共同书写未来，关注ARK生态，成就非凡！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/4693a96d-a1dc-41b4-99f7-5d4ca414822b.mp4','8')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">8</div>
+    <div class="vdesc">ARK DeFai 大连社区🔥实战营回顾！团队合作、技术提升，战斗力彻底爆发！让我们共同精进，迈向更高的巅峰！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/7546cc74-83d7-4f1d-9a2f-51d2219d7182.mp4','3')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">3</div>
+    <div class="vdesc">ARK DeFai 葫芦岛社区🔥机遇就在眼前，财富风口震撼来袭！现场能量爆棚，资源对接势不可挡，抓住这次链上机遇，成就未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/bd7c03b4-5afc-4b25-9028-434e6db58fd4.mp4','1')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1</div>
+    <div class="vdesc">ARK DeFai 中国各大社区🔥共聚中秋沙龙现场，信念共振，社区力量激荡，携手共创ARK生态的辉煌未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/8054d2fb-8a74-4d60-9e2a-b6b7031023dd.mp4','14')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">14</div>
+    <div class="vdesc">ARK DeFai 马来西亚社区🔥现场能量爆棚，商机无限！链上财富风口，资源对接，抓住机会，成就未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/fa3dfcab-ce6d-4af9-8e01-da2319028c20.mp4','13')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">13</div>
+    <div class="vdesc">ARK DeFai 马来西亚社区🔥实战营回顾！团队携手奋进，认知升级，战斗力爆发！一起激发潜能，共同精进，迎接下一个巅峰时刻！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/889c62cb-c6ac-42d4-b292-51bffcc8e21c.mp4','9')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9</div>
+    <div class="vdesc">ARK DeFai 河北社区🔥现场能量爆棚，商机无限！链上财富风口来临，抓住这次资源对接机会，成就非凡未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/99dbf472-9787-4d42-87ce-036999aeeaff.mp4','7')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">7</div>
+    <div class="vdesc">ARK DeFai 广西社区🔥现场能量爆棚，商机无限！抓住链上财富风口，资源对接成就未来，机会就在眼前，勇敢前行！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/8420a0db-4ca4-45e6-a046-243e8790bf75.mp4','4')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">4</div>
+    <div class="vdesc">ARK DeFai 长沙社区🔥商机无限，财富风口已至！现场能量爆棚，资源对接火热进行，抓住链上机遇，成就未来，成就自我！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/3cf37299-57ad-4e26-842f-bf3ff3a60734.MOV','13')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">13</div>
+    <div class="vdesc">ARK DeFai 中国各大社区🔥共聚中秋沙龙现场，信念共振，社区力量激荡，携手共创ARK生态的辉煌未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/f3ffea5a-8603-432b-aaaa-731ca842f04b.mp4','12')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">12</div>
+    <div class="vdesc">ARK DeFai 大连社区🔥 实战营震撼回顾！团队凝聚力爆发，认知飞跃，战斗力提升！让我们携手共进，攀登更高峰！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/8d251d8a-fdae-4e40-9976-9605e4c8ecf8.mp4','8')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">8</div>
+    <div class="vdesc">ARK DeFai 江苏社区🔥现场能量爆棚，商机无限！抓住链上财富风口，资源对接助你腾飞，未来属于行动者！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/e2bd20c7-9937-4a3f-9ac9-0f1e0db3c827.mp4','7')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">7</div>
+    <div class="vdesc">ARK DeFai 焦作社区🔥商机无限，财富风口正盛！现场能量爆棚，资源对接让你不容错过！抓住链上机遇，成就未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/04896c5f-c9f0-46fe-949f-10c8a06b4d2c.mp4','3')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">3</div>
+    <div class="vdesc">ARK DeFai 重庆社区🔥现场能量爆棚，商机无限！抓住链上财富风口，资源对接，未来属于有准备的你！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/4c18287f-55c7-45bd-bd79-e37399363145.mp4','1')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1</div>
+    <div class="vdesc">ARK DeFai 河北社区🔥聚焦财富风口，现场能量爆棚，资源对接，商机无限！抓住链上机会，共创辉煌未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/3cff3689-9b34-454f-9241-17e28676496f.mp4','9')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9</div>
+    <div class="vdesc">ARK DeFai 马来西亚社区🔥现场热烈，信念共振，团结一心，共同探索ARK生态的无限可能！让我们一起引领未来，迈向新的辉煌！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/2bacc814-34cd-4ba4-b827-692d4f2ebb53.MOV','10')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">10</div>
+    <div class="vdesc">ARK DeFai 中国各大社区🔥共聚中秋沙龙现场，信念共振，社区力量激荡，携手共创ARK生态的辉煌未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/cc23211b-b314-4f6b-815d-57a29dffcb15.mp4','6')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">6</div>
+    <div class="vdesc">ARK DeFai 韩国社区🔥现场热烈，信念共振，社区的力量让我们团结一心，共同迈向未来！关注ARK生态，携手共进！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/d8147e56-8abc-4dba-89f1-026b5cc5ae0d.mp4','7')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">7</div>
+    <div class="vdesc">ARK DeFai 印度社区🔥我们在办公室的聚会上激发了无穷的热情与信念，共同见证了社区的强大力量！让我们携手迈向ARK生态的辉煌未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/57528823-7706-4bf3-a679-5e984219f15c.mp4','8')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">8</div>
+    <div class="vdesc">ARK DeFai 越南社区🔥现场气氛热烈，信念共振，团结一心，展现社区力量！让我们一起关注ARK生态，开启更辉煌的未来！🚀</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/8737a5dc-a25d-4091-a168-ec3ee394f083.mp4','3')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">3</div>
+    <div class="vdesc">ARK DeFai 郑州社区🔥激情共振，信念汇聚！现场氛围热烈，携手共进，赋能未来，激励每一位成员关注ARK生态，共创辉煌！🚀</div>
+  </div>
+</div>
+</div>
+<h2>其他（56）</h2>
+<div class="vlist">
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/desktop/fc5063f4-02a0-4b2d-9292-b0e4104fd068.mp4','-7343438929025862927')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">-7343438929025862927</div>
+    <div class="vdesc">🔥ARK 荣耀时刻 · 市场共振🔥  精英领航，未来可期 卓越会议，标杆绽放  从个人突破到团队共创   奖项属于今天的优秀者 榜样激励明天的奋斗者 ARK市场</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/535b43d5-f01e-4655-a1e7-61abf2614247.MOV','IMG_0921')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_0921</div>
+    <div class="vdesc">2026年3、4月讲师训合辑</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/738709c3-f3fc-4590-aed3-aecf8a9a6064.mp4','video')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">video</div>
+    <div class="vdesc">2026年3、4月讲师训合辑</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/42fd4a53-34bf-4f19-82a3-15ab046d0180.MOV','IMG_0674')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_0674</div>
+    <div class="vdesc">2026年 4月 线下会议合集 420场会议</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/9bd63bbb-ad66-43f1-9d5e-79b2d46c02ca.MOV','IMG_0923__b909856260__part000')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_0923__b909856260__part000</div>
+    <div class="vdesc">2026年 4月 线下会议合集 420场会议</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/ad7e9f78-5b9d-40b2-8829-72437cd95840.MOV','IMG_0923__b909856260__part001')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_0923__b909856260__part001</div>
+    <div class="vdesc">2026年 4月 线下会议合集 420场会议</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/7fac8690-03e5-4f44-b8a2-0a70c47b8537.mp4','1月长沙领袖密训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1月长沙领袖密训</div>
+    <div class="vdesc">2026年1月 引爆生命力 领袖密训 长沙站</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/f503327b-f6b9-47d4-b1ad-2eda3bca8152.MOV','IMG_8836')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_8836</div>
+    <div class="vdesc">2026 3月 新春启动会 全球开门红 海外市场视频合集</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/627c218e-aeba-46b2-88d8-d06922745bef.MOV','IMG_8698')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">IMG_8698</div>
+    <div class="vdesc">2026 3月 新春启动会 全球开门红 视频合辑</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/618e0665-0640-4ab7-a49e-83cc0fb10338.MOV','12月内训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">12月内训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/66ef91ea-2b46-4058-939b-5f08f26613af.MOV','9月北京讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9月北京讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/d609c817-8946-45c5-af7f-773dde601ddc.MOV','9月厦门讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9月厦门讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/adf484cf-fe93-4b99-b98a-348f19638470.MOV','9月合肥讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9月合肥讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/cc5d0da1-3b3c-4210-8579-7d72554c3c8f.MOV','9月成都讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9月成都讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/45d029ad-6d77-42e4-bfe1-39a003348d26.MOV','9月长沙讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">9月长沙讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/ed92ea7d-d524-4a55-9b95-3b9ca9af41b2.MOV','10月郑州讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">10月郑州讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/bfadd770-13c9-44b0-82b1-9f39475bf81a.MOV','11月广州讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">11月广州讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/e4905d84-3199-40cc-8a86-91928ffd89ee.MOV','11月济南讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">11月济南讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/26e2f126-a9e0-4bf3-903c-56d9c5db4b8a.MOV','1月石家庄讲师训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">1月石家庄讲师训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/e900665f-d244-4f6a-9483-1da9e17925a1.mp4','11月 郑州领袖密训 1')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">11月 郑州领袖密训 1</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/19c10622-e560-49cc-990b-f648fb2afb50.mp4','12月合肥 领袖密训')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">12月合肥 领袖密训</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/15215c78-5f15-4482-b666-84dda85cfa85.mp4','12月合肥 领袖密训 1')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">12月合肥 领袖密训 1</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/d26ca357-a564-4074-a885-07e59f734102.MP4','海外内训8-10月份')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">海外内训8-10月份</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+<div class="vcard" onclick="playVid('https://ark-library.com/uploads/eee1ff4d-0d3d-408b-800a-8bb6da710275.MOV','海外11-12 月份')">
+  <div class="vico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="vbody">
+    <div class="vtitle">海外11-12 月份</div>
+    <div class="vdesc">2025年12月内训会合輯</div>
+  </div>
+</div>
+</div>
+
+<div class="note" style="margin-top:44px">
+<div class="note-title">怎么用</div>
+<p>· 学概念 → 看「概念讲解」<br>
+· 学怎么查 → 看「教学与查询」<br>
+· 给客户看产品 → 看「产品演示」<br>
+· 了解项目实力 → 看「大会与活动」</p></div>
+
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<p>ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+<p>所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+</div></footer>
+<script src="assets/app.js?v=1"></script>
+<script>
+function playVid(url, title){
+  const p=document.getElementById('player');
+  const v=document.getElementById('vid');
+  p.style.display='block';
+  v.src=url; v.play();
+  document.getElementById('ptitle').textContent=title;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
