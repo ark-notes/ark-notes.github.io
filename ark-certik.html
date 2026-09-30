@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CK 审计怎么看 · ARK 学习指南</title>
+<link rel="stylesheet" href="assets/main.css?v=1">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="path.html">学习路径</a>
+      <a href="lecturer.html">讲师板块</a>
+      <a href="howto.html">怎么讲</a>
+      <a href="soul-five.html">灵魂五问</a>
+      <a href="query-guide.html">链上查询</a>
+      <a href="qa.html">问答库</a>
+      <a href="transcripts.html">逐字稿</a>
+    </nav>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+<div class="page-head">
+  <span class="eyebrow">学习路径 · 第 3 步补充</span>
+  <h1>CK 审计怎么看（中文解读）</h1>
+  <p>CertiK 是英文页面，普通人看不懂。这页教你——看哪个数字、看什么标记、哪些是坑。</p>
+</div>
+
+<div class="note"><div class="note-title">这一页解决什么</div>
+<p>CertiK 审计是<b>英文页面</b>，普通人看不懂，很容易被忽悠。<br>
+这页教你——<b>看哪个数字、看什么标记、哪些地方是坑</b>。</p></div>
+
+<h2>一、先看官方怎么教你查</h2>
+
+<div class="talk">
+<p>「我教你看 CertiK——它是全球顶级的区块链安全机构。</p>
+<p>但有个问题：<strong>它是英文的，很多人看不懂，就被人忽悠了。</strong></p>
+<p>其实你只要看几个地方就行，我一个个指给你看。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方 CK 审计教程）</div>
+<p>「很多项目就是利用这种认知差，反正用户看不懂英文，不知道怎么详细看，有了审计报告就忽悠说安全了。实际审计内容就是不合格，用户也根本不知道怎么辨别。」——ARK 官方《CK 审计查询教程》</p>
+</div>
+
+<h2>二、打开页面，看这三个地方</h2>
+
+<div class="img-block">
+  <img src="assets/img/certik-marked.png" alt="CertiK 页面标注">
+  <p class="img-cap">CertiK 中文页面 · 我已标注三个关键位置</p>
+</div>
+
+<h3>① 综合安全分（右上角）</h3>
+<div class="talk">
+<p>「右上角这个分数，是综合评分——虽然高，但<strong>它只是参考，不是最重要的。</strong></p>
+<p>很多项目就拿这个分数说『你看我审计通过了』——但那不够。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">官方教程原话</div>
+<p>「这是代币综合分数，但<b>仅作为参考之一</b>。其实更重要的是代币的扫描分数，因为那是代币的安全指标。」</p>
+</div>
+
+<h3>② 审计分 / 代币扫描分（左下）</h3>
+<div class="talk">
+<p>「<strong>这个才是真正重要的——代币扫描分。</strong></p>
+<p>官方教程里说，95% 以上的项目在这里是不合格的。</p>
+<p>ARK 这个分数是 <strong>95.01</strong>，属于天花板级别。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">官方教程原话</div>
+<p>「而我们看 CK 审计，其实最主要看的就是这个代币分数，这是安全性指标，也是最重要的指标。很多项目只让用户看综合分数，然后安全分数根本就是不及格。」</p>
+</div>
+
+<h3>③ 三个勾选标记</h3>
+<div class="talk">
+<p>「你会看到几个勾——每个勾的意义不一样：</p>
+<p><strong>第一个勾：通过 CK 审计。</strong></p>
+<p><strong>第二个勾：官方把代码挂在 CK 这里，悬赏白帽来攻击找漏洞，最高奖励 10 万美金。</strong>敢这么做，说明对代码有信心。</p>
+<p><strong>第三个勾：审计的代码和实际部署的代码是一致的。</strong></p>
+<p>尤其是第三个——<strong>如果这里没打勾，说明审计用的代码和实际跑的代码不一样，那是巨大风险。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">官方教程原话</div>
+<p>「第一个就是通过 CK 审计的意思；第二个是表示官方这边把代码挂在 CK 这里，悬赏白帽来攻击发现漏洞，最高奖励 10 万美金；第三个是说审计的代码和提交的代码是一致的。<b>如果这里没有打钩，有可能就是审计的代码和实际部署用的代码是不同的，这会是很大风险。</b>」</p>
+</div>
+
+<h2>三、代码安全详情（22 项检查）</h2>
+
+<div class="talk">
+<p>「往下拉，能看到『代码安全』的详情——<strong>22 项安全检查，全部通过。</strong></p>
+<p>这里面有几项特别关键，我给你讲：」</p>
+</div>
+
+<h3>关键项一：能不能改税率</h3>
+<div class="talk">
+<p>「第一项——<strong>『可修改税率』。</strong></p>
+<p>如果这个打勾（通过），说明<strong>项目方没有权限改手续费</strong>。</p>
+<p>如果他保留了改税率的权限，他随时能把手续费调到很高，把你的钱吃掉。」</p>
+</div>
+
+<h3>关键项二：能不能增发</h3>
+<div class="talk">
+<p>「第二项——<strong>能不能增发。</strong></p>
+<p>如果是可增发的项目，一定要确认——<strong>铸币合约有没有开源、增发机制是不是写死了。</strong></p>
+<p><strong>没有铸币合约的开源代码，就算LP锁定了也毫无意义</strong>，因为项目方随时能增发币，把底池掏空。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">官方教程原话</div>
+<p>「如果是可增发的项目，一定要明确有没开源铸币合约，增发机制是不是写死，没有作恶的机制。没有铸币合约的开源代码，就算 LP 锁定了也毫无意义，因为项目方有可能随时增发币掏空底池。ARK 这里也打勾，是因为开源了铸币合约代码，CK 官方审计过后确定没有恶意增发的可能。」</p>
+</div>
+
+<h3>关键项三：隐藏的所有者</h3>
+<div class="talk">
+<p>「第三项——<strong>『有隐藏的所有者』。</strong></p>
+<p>这个最危险。<strong>如果这项没通过，说明项目方还保留了管理员权限</strong>——他还能改代币的所有规则，包括无限增发、改手续费。</p>
+<p><strong>这是巨大的安全隐患。</strong>这一项 ARK 是通过的。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">官方教程原话</div>
+<p>「有隐藏的所有者：这个就是管理员权限的意思。也就是说这个没有通过审计，说明项目方保留了管理员权限，还有权利更改代币的所有规则。包括无限增发、更改手续费等。<b>这是巨大的安全隐患。</b>」</p>
+</div>
+
+<h2>四、一次完整的「审计讲解」（1 分钟版）</h2>
+
+<div class="talk">
+<p>「我教你一个看审计报告的方法，三十秒就够。</p>
+<p>打开 CertiK，搜 ARK，你重点看两个地方：</p>
+<p><strong>第一，代币扫描分。</strong>不要看综合分，那是参考——<strong>看代币扫描分</strong>。95% 以上的项目在这里不合格，它这个分数是很高的。</p>
+<p><strong>第二，看那三个勾。</strong>尤其是第三个——<strong>审计代码和实际代码一致。</strong>这个勾要是不亮，说明审计是假的。</p>
+<p>再往下看代码安全——22 项全通过。</p>
+<p><strong>这些都是公开的，你自己也能查。</strong>」</p>
+</div>
+
+<div class="see">
+  <div class="see-t">🔗 点这里直接打开</div>
+  <div class="see-list">
+    <a href="https://skynet.certik.com/zh-CN/projects/ark-defai" target="_blank" rel="noopener">
+      <b>CertiK 中文页面 →</b><span>skynet.certik.com/zh-CN</span>
+    </a>
+    <a href="https://skynet.certik.com/projects/ark-defai" target="_blank" rel="noopener">
+      <b>CertiK 英文页面 →</b><span>如果中文没加载出来</span>
+    </a>
+    <a href="videos.html"><b>官方 CK 审计讲解视频</b><span>看老师怎么查</span></a>
+    <a href="query-guide.html"><b>完整查询教程</b><span>五个步骤</span></a>
+  </div>
+</div>
+
+<div class="note" style="margin-top:40px">
+<div class="note-title">为什么这一页重要</div>
+<p>官方教程里有句话——<b>「95% 以上的项目在这里是不合格的」</b>。<br>
+学会看这个，你就有了<b>一个能筛掉大部分坑的工具</b>。</p></div>
+
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<p>ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+<p>所有收益数字均为官方标示之参考／预估值，不构成投资建议或收益承诺。</p>
+</div></footer>
+<script src="assets/app.js?v=1"></script>
+
+</body>
+</html>
