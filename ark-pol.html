@@ -41,6 +41,30 @@
 <p>「传统流动性挖矿有两大问题：1. LP 承担无常损失风险；2. 协议无法掌握市场流动性，一有风险就被抽干。」——官方概念课《什么是 POL》</p>
 </div>
 
+<div class="facts">
+<div class="facts-t">LP 运算实例（自动贩卖机 · 讲师原例）</div>
+<table>
+<tr><th>步骤</th><th>池子状态</th><th>单价</th></tr>
+<tr><td>起始</td><td>10 罐可乐 + 100 USDT</td><td>10 元/罐</td></tr>
+<tr><td>杰克买走 1 罐</td><td>9 罐 + 110 USDT</td><td><b>≈12.2 元</b>（涨）</td></tr>
+<tr><td>杰克加池（1罐+12.2U）</td><td>10 罐 + 12.2 USDT</td><td>12.2 元</td></tr>
+<tr><td>汤姆买走 1 罐</td><td>9 罐 + 134.4 USDT</td><td><b>≈14.93 元</b>（再涨）</td></tr>
+<tr><td>汤姆加池（1罐+14.93U）</td><td>10 罐 + 149.37 USDT</td><td>≈14.94 元</td></tr>
+</table>
+<p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">→ 价格成「螺旋式增长」；人人加池子 = 联合作庄，池子厚了抗跌、交易量大赚手续费。</p>
+</div>
+
+<div class="facts">
+<div class="facts-t">无常损失实例（为什么传统模式会亏）</div>
+<table>
+<tr><th>情形</th><th>结果</th></tr>
+<tr><td>初始</td><td>50 代币 + 1000 USDT（币价 20U，总值 <b>2000U</b>）</td></tr>
+<tr><td>币价腰斩到 10U 后，做 LP</td><td>约 70 代币 + 707 USDT = <b>1400 USDT</b></td></tr>
+<tr><td>什么都不做，单纯持有</td><td>50×10 + 1000 = <b>1500 USDT</b></td></tr>
+<tr><td>差额</td><td><b>少 100 USDT —— 这就是无常损失</b></td></tr>
+</table>
+</div>
+
 <h2>二、POL 是什么（这个比喻太好了）</h2>
 
 <div class="talk">
