@@ -159,7 +159,11 @@
 <div class="src-t">出处（官方 CK 审计教程）</div>
 <p>「这是代币综合分数，但仅作为参考之一。其实更重要的是代币的扫描分数，因为那是代币的安全指标。」</p>
 <p>「很多项目就是利用这种认知差，反正用户看不懂英文，不知道怎么详细看，有了审计报告就忽悠说安全了。」</p>
+<p>「按教程方式去查看，<b>95% 以上的项目都是不合格的</b>。」——官方《如何查询 ARK 的 CK 审计报告》</p>
 </div>
+
+<div class="warn"><div class="warn-title">⚠️ 重要：分数会变</div>
+<p>综合分数是会变动的（不同时间查到 87.97、89.21 都有可能）。<b>你不要记具体数字，要记「看哪个指标」</b>——代币扫描分才是安全指标。</p></div>
 
 <h3>③ 三个勾选标记</h3>
 <div class="talk">
@@ -212,7 +216,58 @@
 <tr><td>5</td><td>合约开源</td><td><a href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" style="color:var(--cyan)">BscScan</a></td><td>源码 + owner</td></tr>
 </tbody></table>
 
-<h2>八、现场演示怎么说（1 分钟版）</h2>
+<h2>八、进阶：怎么查「铸币权限」的完整记录</h2>
+
+<div class="note"><div class="note-title">这一节给谁看</div>
+<p>给想「查得更深」的人。前面第五步教你查 <code>owner</code> 是不是零地址——<b>这里教你看完整的权限变更记录</b>。</p></div>
+
+<div class="talk">
+<p>「你要查得更彻底，就打开铸币合约的<b>调用记录</b>。</p>
+<p>为什么？因为<b>一个地址调用过铸币合约，说明它曾经有过管理员权限</b>。</p>
+<p>你要做的，是<b>把每一条调用记录都打开看一遍</b>，找出所有出现过的地址。</p>
+<p>然后把每个地址都去查一遍——<b>看它们现在还有没有权限</b>。</p>
+<p>如果所有地址都没权限了，那才叫『权限真的丢了』。」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方操作教程）</div>
+<p>「第一步我们要查看铸币合约的调用记录。这些调用记录是哪些地址调用的？如果说有地址调用铸币合约，那么说明这个地址曾经拥有管理员权限。」</p>
+<p>「我们每一个区块哈希都要点进去看一下，是否有新的地址被添加为管理员。我们需要点击进入每一个哈希，来检查它的调用情况。」——官方《如何查询铸币合约是否开源和是否放弃权限》</p>
+</div>
+
+<div class="see">
+  <div class="see-t">📄 点这里开始查</div>
+  <div class="see-list">
+    <a href="https://bscscan.com/address/0x615a2a799c49AF74E91b4C3Ca5eaD68897c07A81#readProxyContract" target="_blank" rel="noopener">
+      <b>打开铸币合约 →</b><span>BscScan · 看 Contract 页</span>
+    </a>
+  </div>
+</div>
+
+<h2>九、进阶：怎么验证「铸币逻辑」</h2>
+
+<div class="talk">
+<p>「还有个更硬核的验证方法——<b>看什么行为会触发铸币</b>。</p>
+<p>官方的验证结论是：</p>
+<p><strong>单纯质押，不会触发铸币。</strong>你把币转进质押合约，它就是转了个地方存着，没有新币产生。</p>
+<p><strong>只有买债券，才会触发铸币。</strong>而且流程是——债券售出 → 资产注入 LP → 黑洞锁定 → 才允许铸币。</p>
+<p>这就印证了那句：<strong>先有资产，才允许发币。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处（官方操作教程）</div>
+<p>「今天我们来验证 ARK 的铸币逻辑，主要从两个方面来验证：第一，单币质押会不会触发铸币；第二，买债券是否会触发铸币。」</p>
+<p>「单币质押不会产生铸币行为……奖金池里面的都是买债券触发铸币而转进来的。」——官方《链上验证 ARK 的铸币逻辑》</p>
+</div>
+
+<div class="see">
+  <div class="see-t">🎬 看完整教程</div>
+  <div class="see-list">
+    <a href="videos.html"><b>官方操作教程视频</b><span>36 个</span></a>
+  </div>
+</div>
+
+<h2>十、现场演示怎么说（1 分钟版）</h2>
 
 <div class="talk">
 <p>「你不用信我说的，我打开给你看。</p>
