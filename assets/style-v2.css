@@ -2221,3 +2221,29 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .tour-title{ font-size:15.5px; }
   .tour-desc{ font-size:14px; }
 }
+
+/* ============ 返回顶部（独立定位，不跟悬浮球拖拽） ============ */
+.af-top-btn{
+  position:fixed;
+  right:18px;
+  bottom:150px;              /* 固定在悬浮球上方 */
+  z-index:499;               /* 低于悬浮球，避免遮挡 */
+  width:44px; height:44px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(12,14,23,.85);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(16px);
+  color:#8e9aae;
+  cursor:pointer;
+  opacity:0; visibility:hidden;
+  transform:translateY(8px);
+  transition:.28s var(--ease);
+  box-shadow:0 8px 24px rgba(0,0,0,.45);
+}
+.af-top-btn.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.af-top-btn:hover{ color:var(--gold); border-color:rgba(224,185,106,.45); background:rgba(224,185,106,.1); }
+.af-top-btn svg{ width:19px; height:19px; }
+@media(max-width:640px){
+  .af-top-btn{ right:14px; bottom:140px; width:40px; height:40px; }
+}
