@@ -171,3 +171,30 @@
     }
   }).catch(()=>{});
 })();
+
+
+  /* ---------- 新人引导卡（首次访问显示） ---------- */
+  try{
+    var page = location.pathname.split('/').pop() || 'index.html';
+    if(page === 'index.html' && !localStorage.getItem('ark_firsttime_done')){
+      var hero = document.querySelector('.hero .wrap') || document.querySelector('.hero');
+      if(hero){
+        var card = document.createElement('div');
+        card.className = 'first-time-card';
+        card.innerHTML = '<div class="ftc-t">第一次来？</div>'
+          + '<p class="ftc-d">这个网站把 ARK 需要懂的东西都整理好了 —— <b>每一块都有能直接照念的话</b>。</p>'
+          + '<div class="ftc-acts">'
+          + '  <a href="path.html" class="ftc-btn">从第 1 步开始 →</a>'
+          + '  <button class="ftc-skip" type="button">我先随便看看</button>'
+          + '</div>';
+        hero.appendChild(card);
+        card.querySelector('.ftc-skip').addEventListener('click', function(){
+          try{ localStorage.setItem('ark_firsttime_done','1'); }catch(e){}
+          card.remove();
+        });
+        card.querySelector('.ftc-btn').addEventListener('click', function(){
+          try{ localStorage.setItem('ark_firsttime_done','1'); }catch(e){}
+        });
+      }
+    }
+  }catch(e){}
