@@ -1913,3 +1913,78 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .log-title{ font-size:14.5px; }
   .log-body p{ font-size:13.5px; }
 }
+
+/* ============ 首页五大板块 ============ */
+.block-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:12px; margin-top:8px;
+}
+.block-card{
+  display:flex; align-items:center; gap:14px;
+  padding:18px 20px; border-radius:14px;
+  background:linear-gradient(135deg,rgba(18,20,30,.9),rgba(12,14,22,.95));
+  border:1px solid rgba(255,255,255,.08);
+  text-decoration:none;
+  transition:.26s var(--ease);
+  position:relative; overflow:hidden;
+}
+.block-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(224,185,106,.4);
+  box-shadow:0 12px 32px rgba(0,0,0,.45);
+}
+.bc-num{
+  flex:none; font-size:12px; font-weight:800; letter-spacing:.08em;
+  color:rgba(224,185,106,.55);
+  font-variant-numeric:tabular-nums;
+}
+.bc-body{ flex:1; min-width:0; }
+.bc-t{ font-size:16.5px; font-weight:700; color:#fff; margin-bottom:5px; }
+.bc-d{ font-size:13.5px; color:#8e9aae; line-height:1.65; }
+.bc-arrow{
+  flex:none; font-size:18px; color:rgba(224,185,106,.5);
+  transition:.26s var(--ease);
+}
+.block-card:hover .bc-arrow{ color:var(--gold); transform:translateX(4px); }
+.block-guest{ border-color:rgba(224,185,106,.28); background:linear-gradient(135deg,rgba(224,185,106,.06),rgba(12,14,22,.95)); }
+
+@media(max-width:640px){
+  .block-grid{ grid-template-columns:1fr; gap:10px; }
+  .block-card{ padding:15px 16px; }
+  .bc-t{ font-size:15.5px; }
+  .bc-d{ font-size:13px; }
+}
+
+/* 新人引导卡 */
+.first-time-card{
+  margin:22px 0 0; padding:18px 20px;
+  border-radius:14px;
+  background:linear-gradient(135deg, rgba(224,185,106,.08), rgba(34,211,238,.03));
+  border:1px solid rgba(224,185,106,.26);
+}
+.ftc-t{ font-size:16px; font-weight:700; color:var(--gold); margin-bottom:8px; }
+.ftc-d{ font-size:15px; color:#b9c2d0; line-height:1.8; margin:0 0 14px; }
+.ftc-d b{ color:#fff; }
+.ftc-acts{ display:flex; gap:9px; flex-wrap:wrap; align-items:center; }
+.ftc-btn{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:11px 20px; border-radius:10px;
+  background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
+  color:#241a06; font-size:14.5px; font-weight:700;
+  text-decoration:none; transition:.22s var(--ease);
+  box-shadow:0 1px 0 rgba(255,255,255,.42) inset, 0 4px 16px rgba(224,185,106,.26);
+}
+.ftc-btn:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 8px 22px rgba(224,185,106,.4); }
+.ftc-skip{
+  padding:11px 16px; border-radius:10px;
+  background:transparent; border:1px solid rgba(255,255,255,.12);
+  color:#8e9aae; font-size:14px; font-family:inherit;
+  cursor:pointer; transition:.22s var(--ease);
+}
+.ftc-skip:hover{ color:#cdd3dd; border-color:rgba(255,255,255,.25); }
+@media(max-width:520px){
+  .first-time-card{ padding:15px 16px; margin-top:18px; }
+  .ftc-t{ font-size:15.5px; }
+  .ftc-d{ font-size:14.5px; }
+  .ftc-btn, .ftc-skip{ width:100%; justify-content:center; }
+}
