@@ -39,16 +39,21 @@
       <a class="af-nav" href="${P}query-guide.html">链上查询</a>
       <a class="af-nav" href="${P}qa.html">疑难问答</a>
     </div>
-    <button class="af-top-btn" id="afTopBtn" aria-label="回到顶部" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 18V7"/><path d="M6.5 12.5L12 7l5.5 5.5"/></svg>
-      <span>顶部</span>
-    </button>
     <button class="af-ball" id="afBall" aria-label="阿奇助手">
       <img src="${ARKIE_SM}" alt="阿奇">
       <span class="af-tip" id="afTip">点我</span>
     </button>
   `;
   document.body.appendChild(dock);
+
+  /* ---------- 返回顶部按钮（独立于 dock，不跟拖拽） ---------- */
+  const topBtn = document.createElement('button');
+  topBtn.className = 'af-top-btn';
+  topBtn.id = 'afTopBtn';
+  topBtn.type = 'button';
+  topBtn.setAttribute('aria-label','回到顶部');
+  topBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 18V7"/><path d="M6.5 12.5L12 7l5.5 5.5"/></svg>';
+  document.body.appendChild(topBtn);
 
   const ball = document.getElementById('afBall');
   const menu = document.getElementById('afMenu');
@@ -72,6 +77,19 @@
   document.getElementById('afTopBtn').addEventListener('click', () => {
     window.scrollTo({top:0, behavior:'smooth'});
   });
+  // 滚动超过 400px 才显示返回顶部
+  (function(){
+    var show = false;
+    function onScroll(){
+      var should = window.scrollY > 400;
+      if(should !== show){
+        show = should;
+        topBtn.classList.toggle('show', should);
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
 
   /* ---------- 拖动（鼠标 + 触摸）+ 菜单自适应 ---------- */
   (function drag(){
