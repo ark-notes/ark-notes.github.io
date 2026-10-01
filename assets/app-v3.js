@@ -125,14 +125,40 @@
       if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; }
     }, true);
 
-    // 还原位置
+    // 还原位置（带有效性校验 —— 防止旧位置跑出可视区/被底部条遮挡）
     try{
       const p=JSON.parse(localStorage.getItem('arkieFabPos')||'null');
       if(p && p.l){
-        dock.style.left=p.l; dock.style.top=p.t;
-        dock.style.right='auto'; dock.style.bottom='auto';
+        const nx = parseFloat(p.l), ny = parseFloat(p.t);
+        const vh = window.innerHeight, vw = window.innerWidth;
+        // 有效性：必须在可视区内，且不贴边（留出安全区）
+        const marginBottom = 120;   // 底部留 120px（避开底部条）
+        const valid = !isNaN(nx) && !isNaN(ny)
+                   && nx >= 8 && nx <= vw - 72
+                   && ny >= 80 && ny <= vh - marginBottom;
+        if(valid){
+          dock.style.left=nx+'px'; dock.style.top=ny+'px';
+          dock.style.right='auto'; dock.style.bottom='auto';
+        }else{
+          // 位置失效 → 清掉，用默认（右侧中间偏下）
+          localStorage.removeItem('arkieFabPos');
+        }
       }
     }catch(e){}
+
+    // 每次加载后校验一次当前实际位置
+    function validatePos(){
+      const r = dock.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const invisible = r.top < 0 || r.bottom > vh - 8;
+      if(invisible){
+        // 位置不可见 → 重置为默认
+        dock.style.left=''; dock.style.top='';
+        dock.style.right=''; dock.style.bottom='';
+        try{ localStorage.removeItem('arkieFabPos'); }catch(e){}
+      }
+    }
+    setTimeout(validatePos, 200);
 
     // 菜单方向自适应
     window.updateMenuDirection = updateMenuDirection;
