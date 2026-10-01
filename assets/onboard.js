@@ -43,7 +43,7 @@
       action:'end' }
   ];
 
-  var idx = -1;
+  var idx = -1, currentStep = -1;
   var mask, hole, card, arrow;
   var guard;   // 阻止非目标区域点击
 
@@ -94,6 +94,7 @@
     var s = FLOW[i];
     if(!s){ endAll(); return; }
     idx = i;
+    currentStep = i;
     setS(i,false);
     ensureUI();
 
@@ -113,16 +114,38 @@
     var el = document.querySelector(s.sel.split(',')[0].trim());
     if(!el){ next(); return; }
 
-    // 滚动到目标
-    var r0 = el.getBoundingClientRect();
-    if(r0.top < 110 || r0.bottom > window.innerHeight - 130){
-      el.scrollIntoView({behavior:'smooth', block:'center'});
-      setTimeout(function(){ place(el, s); }, 450);
-    } else {
-      place(el, s);
-    }
+    // 先清掉旧位置
+    if(hole) hole.style.display='none';
+    if(card) card.style.display='none';
+    if(arrow) arrow.style.display='none';
+
+    // 用「绝对滚动」直达目标（避免 scroll-behavior:smooth 干扰）
+    var targetY = window.scrollY + el.getBoundingClientRect().top
+                  - (window.innerHeight / 2) + (el.getBoundingClientRect().height / 2);
+    targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
+
+    var prevBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';   // 临时禁用平滑
+    window.scrollTo(0, targetY);
+    document.documentElement.style.scrollBehavior = prevBehavior;
+
+    // 等一帧，确保滚动与布局完成
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        // 再校正一次（元素可能因图片加载位移）
+        var r2 = el.getBoundingClientRect();
+        if(r2.top < 70 || r2.bottom > window.innerHeight - 90){
+          var abs2 = window.scrollY + r2.top - (window.innerHeight/2) + (r2.height/2);
+          window.scrollTo(0, Math.max(0, Math.min(abs2, document.body.scrollHeight - window.innerHeight)));
+        }
+        setTimeout(function(){ 
+          if(idx === i) place(el, s);   // 防竞态
+        }, 60);
+      });
+    });
   }
 
+  /* ---------- 定位（挖洞 + 箭头 + 卡片） ---------- */
   function setBox(top, left, w, h){
     var pad = 8;
     mask.querySelector('.tm-top').style.cssText = 'top:0;left:0;right:0;height:'+Math.max(0,top-pad)+'px';
@@ -132,52 +155,63 @@
   }
 
   function place(el, s){
+    if(!el || !mask || !hole || !card) return;
     var r = el.getBoundingClientRect();
     var pad = 8;
-    var top = r.top - pad, left = r.left - pad, w = r.width + pad*2, h = r.height + pad*2;
+    var top = Math.max(0, r.top - pad);
+    var left = r.left - pad;
+    var w = r.width + pad*2;
+    var h = r.height + pad*2;
 
-    // 挖洞：高亮区（可点）
+    // 挖洞
     mask.style.display='block';
     setBox(top, left, w, h);
-
     hole.style.display='';
     hole.style.left = left+'px'; hole.style.top = top+'px';
     hole.style.width = w+'px'; hole.style.height = h+'px';
 
     // 箭头
-    arrow.style.display='';
-    var acx = left + w/2, acy = top + h/2;
-    if(s.pos==='right'){ arrow.className='tour-arrow tour-arrow-r'; arrow.style.left=(left+w+4)+'px'; arrow.style.top=acy+'px'; }
-    else if(s.pos==='left'){ arrow.className='tour-arrow tour-arrow-l'; arrow.style.left=(left-18)+'px'; arrow.style.top=acy+'px'; }
-    else if(s.pos==='top'){ arrow.className='tour-arrow tour-arrow-u'; arrow.style.left=acx+'px'; arrow.style.top=(top-18)+'px'; }
-    else { arrow.className='tour-arrow tour-arrow-d'; arrow.style.left=acx+'px'; arrow.style.top=(top+h+4)+'px'; }
+    if(arrow){
+      arrow.style.display='';
+      var acx = left + w/2, acy = top + h/2;
+      if(s.pos==='right'){ arrow.className='tour-arrow tour-arrow-r'; arrow.style.left=(left+w+4)+'px'; arrow.style.top=acy+'px'; }
+      else if(s.pos==='left'){ arrow.className='tour-arrow tour-arrow-l'; arrow.style.left=(left-18)+'px'; arrow.style.top=acy+'px'; }
+      else if(s.pos==='top'){ arrow.className='tour-arrow tour-arrow-u'; arrow.style.left=acx+'px'; arrow.style.top=(top-18)+'px'; }
+      else { arrow.className='tour-arrow tour-arrow-d'; arrow.style.left=acx+'px'; arrow.style.top=(top+h+4)+'px'; }
+    }
 
     // 卡片
     renderCard(s, false);
     var cw = Math.min(320, window.innerWidth - 24);
     card.className='tour-card';
+    card.style.display='';
     card.style.width = cw+'px';
+    card.style.transform='none';
+
     var spaceR = window.innerWidth - (left+w) - 12;
     var spaceL = left - 12;
     var spaceB = window.innerHeight - (top+h) - 12;
     var ch = card.offsetHeight || 190;
-    card.style.transform='none';
 
-    if(spaceR >= cw){        // 放右边
+    if(spaceR >= cw){
       card.style.left=(left+w+14)+'px';
       card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
-    } else if(spaceL >= cw){ // 放左边
+    } else if(spaceL >= cw){
       card.style.left=(left-cw-14)+'px';
       card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
-    } else if(spaceB >= ch){ // 放下边
+    } else if(spaceB >= ch){
       card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
       card.style.top=(top+h+14)+'px';
-    } else {                 // 放上面
+    } else {
       card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
       card.style.top=Math.max(12, top-ch-14)+'px';
     }
 
-    // 绑定：只有点击【目标区域】才算
+    // 兜底：卡片不出屏
+    var cRect = card.getBoundingClientRect();
+    if(cRect.bottom > window.innerHeight - 8){ card.style.top = Math.max(8, window.innerHeight - ch - 10)+'px'; }
+    if(cRect.top < 8){ card.style.top = '10px'; }
+
     document.body.style.overflow='hidden';
     bindTarget(el, s);
   }
@@ -210,7 +244,7 @@
       + '<div class="tour-desc">'+s.desc+'</div>'
       + (isCenter
           ? '<div class="tour-acts"><button class="tour-btn tour-finish" type="button">开始学习 →</button></div>'
-          : '<div class="tour-acts"><span class="tour-hint">↑ 点高亮区域继续</span><button class="tour-skip" type="button">跳过</button></div>');
+          : '<div class="tour-acts"><span class="tour-hint">↑ 点这里继续</span><button class="tour-skip" type="button">跳过</button></div>');
 
     card.querySelector('.tour-x').addEventListener('click', endAll);
     var sk = card.querySelector('.tour-skip');
@@ -241,12 +275,20 @@
     var st = getS();
     if(st.done) return;
 
-    var here = -1;
-    for(var i=0;i<FLOW.length;i++){ if(FLOW[i].page === page){ here = i; break; } }
-    if(here < 0) return;
+    // 找出「当前页面」在流程中对应的所有步骤
+    var stepsHere = [];
+    for(var i=0;i<FLOW.length;i++){ if(FLOW[i].page === page) stepsHere.push(i); }
+    if(!stepsHere.length) return;      // 当前页不在流程中 → 不启动
 
+    // 首页首次 → 从第 1 步开始
     if(page === 'index.html' && st.step === 0){ startAt(0); return; }
-    if(st.step === here || st.step === here - 1){ startAt(here); }
+
+    // 存档步骤是否落在当前页的步骤里 → 从这里继续
+    if(stepsHere.indexOf(st.step) > -1){ startAt(st.step); return; }
+
+    // 存档步骤正好是"上一页的最后一步"（刚跳过来）→ 从当前页第一步继续
+    if(st.step > 0 && stepsHere[0] === st.step + 1){ startAt(stepsHere[0]); return; }
+    if(stepsHere[0] === st.step){ startAt(stepsHere[0]); }
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init,700); });
