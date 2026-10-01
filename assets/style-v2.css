@@ -1363,3 +1363,25 @@ body{ padding-bottom: 0; }
   .wb-prog{ font-size:11.5px; }
   .wb-btn{ padding:8px 14px; font-size:13px; }
 }
+
+/* ============ 页脚署名 ============ */
+.foot-sign{
+  margin-top:26px; padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.055);
+  text-align:center;
+}
+.fs-line{
+  display:block; width:34px; height:2px; margin:0 auto 14px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  border-radius:2px;
+}
+.fs-main{
+  font-size:14.5px; color:#8e9aae; margin:0 0 5px; letter-spacing:.01em;
+}
+.fs-main b{
+  color:var(--gold); font-weight:700;
+  padding:0 2px;
+}
+.fs-sub{
+  font-size:12.5px; color:#5a6478; margin:0;
+}
