@@ -1844,3 +1844,20 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   border:1px solid rgba(255,255,255,.1);
   cursor:zoom-in;
 }
+
+/* ============ 导航重构（5 大板块 + 客户版按钮） ============ */
+.nav-guest{
+  display:inline-flex; align-items:center;
+  padding:8px 16px; border-radius:9px;
+  background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
+  color:#241a06 !important; font-weight:700; font-size:13.5px;
+  text-decoration:none; white-space:nowrap;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 3px 12px rgba(224,185,106,.25);
+  transition:.22s var(--ease);
+  margin-left:8px;
+}
+.nav-guest:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 6px 18px rgba(224,185,106,.38); }
+@media(max-width:640px){
+  .site-nav a{ font-size:13px; padding:6px 8px; }
+  .nav-guest{ padding:6px 11px; font-size:12.5px; margin-left:4px; }
+}
