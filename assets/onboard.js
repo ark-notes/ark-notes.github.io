@@ -4,20 +4,46 @@
    条件：无登录体系 → 用 localStorage 判定"是否来过"
    ============================================================ */
 (function () {
-  var KEY = 'ark_onboard_v1';          // 看过就记
+  var KEY = 'ark_onboard_v2';          // 存"看到第几步"
   var KEY_VISIT = 'ark_first_visit';   // 首次访问时间
+  var KEY_DONE_AT = 'ark_onboard_done'; // 看完的时间戳
+
+  // 读取状态
+  function getState(){
+    try {
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return {seen:0, done:false};
+      var o = JSON.parse(raw);
+      return {seen: o.seen || 0, done: !!o.done};
+    } catch(e){ return {seen:0, done:false}; }
+  }
+  function setState(seen, done){
+    try { localStorage.setItem(KEY, JSON.stringify({seen:seen, done:done})); } catch(e){}
+    if(done){ try{ localStorage.setItem(KEY_DONE_AT, String(Date.now())); }catch(e){} }
+  }
+  // 看完多久了（天）
+  function daysSinceDone(){
+    try {
+      var t = parseInt(localStorage.getItem(KEY_DONE_AT) || '0', 10);
+      if(!t) return 999;
+      return (Date.now() - t) / 86400000;
+    } catch(e){ return 999; }
+  }
 
   // 只在首页显示
   var page = location.pathname.split('/').pop() || 'index.html';
   if (page !== 'index.html') return;
 
+  var st = getState();
+  // ① 完整看完过 → 不自动弹；但 >7 天给"下一步"提示
+  if (st.done) {
+    addReplayEntry();
+    if (daysSinceDone() > 7) { setTimeout(showNextHint, 1200); }
+    return;
+  }
+  // ② 看到一半 → 记录断点，稍后 start 时用
+  var RESUME_AT = st.seen > 0 ? st.seen : 0;
   try {
-    // 已看过 → 不再自动显示（但可手动重看）
-    if (localStorage.getItem(KEY)) {
-      // 提供"重新观看"入口（挂到悬浮球菜单 or 页脚）
-      addReplayEntry();
-      return;
-    }
     if (!localStorage.getItem(KEY_VISIT)) {
       localStorage.setItem(KEY_VISIT, String(Date.now()));
     }
@@ -75,6 +101,7 @@
   function render() {
     var s = steps[cur];
     var total = steps.length;
+    setState(cur, false);   // 记录"看到第几步"（未完成）
 
     box.className = 'ob-box ob-' + (s.pos || 'center');
     box.innerHTML = [
@@ -87,10 +114,10 @@
       '</div>'
     ].join('');
 
-    box.querySelector('.ob-skip').addEventListener('click', finish);
+    box.querySelector('.ob-skip').addEventListener('click', function(){ finish(false); });
     box.querySelector('.ob-next').addEventListener('click', function () {
       if (cur === total - 1) {
-        finish();
+        finish(true);
         // 结束后自动滚到主按钮
         var t = document.querySelector('.btn-main');
         if (t) t.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -133,11 +160,25 @@
     spot.style.height = (r.height + pad * 2) + 'px';
   }
 
-  function finish() {
-    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+  function finish(completed) {
+    // completed 明确传 true 才算"看完"
+    if (completed === true) setState(steps.length - 1, true);
+    else setState(cur, false);   // 跳过 = 没看完，下次还弹
     if (box) box.remove();
     if (mask) mask.remove();
     addReplayEntry();
+  }
+
+  // 7 天后回来：温和提示"你的下一步"
+  function showNextHint(){
+    var main = document.querySelector('.btn-main');
+    if(!main) return;
+    if(document.querySelector('.next-hint')) return;
+    var d = document.createElement('div');
+    d.className = 'next-hint';
+    d.innerHTML = '<span>👋 欢迎回来 —— <b>接着上次继续？</b></span>'
+                + '<a href="path.html" class="nh-btn">看学习路径 →</a>';
+    main.parentNode.insertBefore(d, main);
   }
 
   function addReplayEntry() {
@@ -149,7 +190,7 @@
     a.type = 'button';
     a.textContent = '重看新手指引';
     a.addEventListener('click', function () {
-      try { localStorage.removeItem(KEY); } catch (e) {}
+      try { localStorage.removeItem(KEY); localStorage.removeItem(KEY_DONE_AT); } catch (e) {}
       cur = 0;
       build();
       render();
@@ -158,6 +199,7 @@
   }
 
   function start() {
+    cur = RESUME_AT;     // 从断点开始
     build();
     render();
     window.addEventListener('resize', function () {
