@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>钱从哪来 · ARK 学习指南</title>
-<link rel="stylesheet" href="assets/style-v2.css?v=41">
+<link rel="stylesheet" href="assets/style-v2.css?v=42">
 
 </head>
 <body>
@@ -221,6 +221,81 @@
 <div class="note"><div class="note-title">⚠️ 数字表述提醒</div>
 <p>以上补贴额度来自<b>讲师课程中的测算口径</b>，实际以官方当期政策为准。<br>
 讲解时建议表述为<b>「按政策测算」</b>，不要当作固定承诺。</p></div>
+
+<h2>十一、动态收益怎么算（完整公式）</h2>
+
+<div class="note"><div class="note-title">跟「静态提现」的区别</div>
+<p>前面讲的是<b>静态收益提现</b>（按天奖励 50 币举例）。<br>
+这一节是<b>动态收益</b>（推广奖励）的计算 —— <b>同样是扣 20% 贡献值 + 涡轮损耗 + 卖出手续费</b>。</p></div>
+
+<h3>公式（记住这一个就够）</h3>
+
+<div class="facts">
+<div class="facts-t">动态收益计算公式</div>
+<table>
+<tr><th>项目</th><th>公式</th></tr>
+<tr><td><b>每天实际到手币数</b></td><td><b>X ×（0.78 × Y − 0.02）</b></td></tr>
+<tr><td>其中 X</td><td>当天动态奖励币数</td></tr>
+<tr><td>其中 Y</td><td>涡轮系数</td></tr>
+<tr><td><b>实际到手比例</b></td><td><b>0.78 × Y − 0.02</b></td></tr>
+<tr><td><b>可变现价值</b></td><td>X ×（0.78Y − 0.02）× 币价 × U汇率</td></tr>
+</table>
+</div>
+
+<h3>推导过程（四步）</h3>
+
+<div class="facts">
+<div class="facts-t">为什么是 0.78Y − 0.02</div>
+<table>
+<tr><th>步骤</th><th>计算</th><th>结果</th></tr>
+<tr><td><b>① 扣 20% 贡献值</b></td><td>X × (1 − 20%)</td><td><b>0.8X</b></td></tr>
+<tr><td><b>② 涡轮损耗</b></td><td>0.8X × 2.5%</td><td><b>0.02X</b></td></tr>
+<tr><td><b>③ 按系数算得</b></td><td>0.8X × Y</td><td><b>0.8XY</b></td></tr>
+<tr><td><b>④ 卖出损耗</b></td><td>0.8XY × 2.5%</td><td><b>0.02XY</b></td></tr>
+<tr><td colspan="3"><b>最终 = 0.8XY − 0.02X − 0.02XY = X × (0.78Y − 0.02)</b></td></tr>
+</table>
+</div>
+
+<h3>不同系数的到手比例</h3>
+
+<div class="facts">
+<div class="facts-t">系数对照表</div>
+<table>
+<tr><th>涡轮系数 Y</th><th>实际到手比例</th><th>说明</th></tr>
+<tr><td><b>&lt; 0.02564</b></td><td><b>负数</b></td><td><b>⚠️ 币不足以覆盖手续费 → 不要涡轮</b></td></tr>
+<tr><td><b>0.4</b></td><td><b>29.2%</b></td><td>—</td></tr>
+<tr><td><b>0.5</b></td><td><b>37%</b></td><td>—</td></tr>
+<tr><td><b>0.6</b></td><td><b>44.8%</b></td><td>—</td></tr>
+<tr><td><b>0.7</b></td><td><b>52.6%</b></td><td>—</td></tr>
+</table>
+</div>
+
+<div class="callout-warn">
+<p><b>⚠️ 重要提示：</b>如果涡轮系数低于 <b>0.02564</b>，按公式算出来是<b>负数</b> —— 说明<b>拿到手的币不够覆盖手续费</b>，<b>这种情况不要做涡轮</b>。</p>
+</div>
+
+<h3>实测算例（每天 20 ARK，S3 水平）</h3>
+
+<div class="facts">
+<div class="facts-t">按币价 6.5U、汇率 6.7、每月 30 天测算</div>
+<table>
+<tr><th>系数 Y</th><th>实际 ARK</th><th>每日折合</th><th>每月约</th></tr>
+<tr><td><b>0.4</b></td><td>5.84 个</td><td>254.33 元</td><td><b>约 7,630 元</b></td></tr>
+<tr><td><b>0.5</b></td><td>7.4 个</td><td>322.27 元</td><td><b>约 9,668 元</b></td></tr>
+<tr><td><b>0.6</b></td><td>8.96 个</td><td>390.21 元</td><td><b>约 11,706 元</b></td></tr>
+<tr><td><b>0.7</b></td><td>10.52 个</td><td>458.15 元</td><td><b>约 13,745 元</b></td></tr>
+</table>
+</div>
+
+<div class="note"><div class="note-title">⚠️ 数字说明</div>
+<p>以上为<b>按当前币价和汇率的测算</b>，<b>不是承诺</b>。实际收益随<b>币价、系数、汇率</b>变化。<br>
+公式本身是确定的（已验算），但<b>结果会变</b>。</p></div>
+
+<div class="src">
+<div class="src-t">出处</div>
+<p>动态收益计算公式 —— <b>用户提供的计算口径，经我方验算（分步推导与公式一致）</b></p>
+<p>涡轮系数最低门槛（0.02564）—— <b>由公式推导：0.78Y − 0.02 = 0 → Y = 0.02564</b></p>
+</div>
 
 <h2>九、一次完整的「钱从哪来」（1 分钟版）</h2>
 
