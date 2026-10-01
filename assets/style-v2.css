@@ -240,7 +240,7 @@ tbody tr:hover td{background:rgba(34,211,238,.035)}
 /* ============ 图片 ============ */
 .img-block{margin:28px 0}
 .img-block img{width:100%;border-radius:var(--radius);border:1px solid var(--line);display:block}
-.img-cap{font-size:13px;color:var(--text-3);margin-top:12px;text-align:center}
+.img-cap{font-size:14px;color:var(--text-3);margin-top:12px;text-align:center}
 
 /* ============ 逐字稿列表 ============ */
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:28px 0 20px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
@@ -821,7 +821,7 @@ body.has-bottombar .bottom-bar{
   font-weight:600; margin-bottom:9px;
 }
 .src p{
-  margin:0 0 9px; font-size:13.5px; color:var(--text-3);
+  margin:0 0 9px; font-size:14.5px; color:var(--text-3);
   line-height:1.85;
 }
 .src p:last-child{ margin-bottom:0; }
@@ -832,7 +832,7 @@ body.has-bottombar .bottom-bar{
 
 @media(max-width:640px){
   .talk{ padding:24px 20px; }
-  .talk p{ font-size:15.5px; line-height:2; }
+  .talk p{ font-size:16.5px; line-height:2; }
   .src{ padding:14px 16px; }
 }
 
@@ -1253,19 +1253,20 @@ body{ padding-bottom: 0; }
   margin-bottom:12px; display:flex; align-items:center; gap:7px;
 }
 .facts-t::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); }
-.facts table{ width:100%; border-collapse:collapse; font-size:14.5px; }
+.facts table{ width:100%; border-collapse:collapse; font-size:15.5px; }
 .facts th{
-  text-align:left; color:#8e9aae; font-weight:600; font-size:12.5px;
-  letter-spacing:.04em; padding:7px 10px 7px 0; border-bottom:1px solid rgba(255,255,255,.09);
+  text-align:left; color:#8e9aae; font-weight:700; font-size:13.5px;
+  letter-spacing:.04em; padding:9px 10px 9px 0; border-bottom:1px solid rgba(255,255,255,.09);
 }
-.facts td{ padding:10px 10px 10px 0; border-bottom:1px solid rgba(255,255,255,.05); color:#cdd3dd; line-height:1.65; vertical-align:top; }
+.facts td{ padding:12px 10px 12px 0; border-bottom:1px solid rgba(255,255,255,.05); color:#cdd3dd; line-height:1.75; vertical-align:top; }
 .facts tr:last-child td{ border-bottom:none; }
 .facts td:first-child{ color:#fff; font-weight:600; white-space:nowrap; }
 .facts b{ color:var(--cyan); font-weight:700; }
 @media(max-width:520px){
-  .facts{ padding:13px 13px; }
-  .facts table{ font-size:13.5px; }
-  .facts th{ font-size:11.5px; }
+  .facts{ padding:14px 14px; }
+  .facts table{ font-size:15px; }
+  .facts th{ font-size:13px; }
+  .facts td{ padding:11px 8px 11px 0; line-height:1.7; }
   .facts td:first-child{ white-space:normal; }
 }
 
@@ -1522,17 +1523,17 @@ img.zoomable:hover{
   background:#0a0c14;
 }
 .img-cap{
-  font-size:13px; color:#8e9aae; margin:0;
+  font-size:14px; color:#8e9aae; margin:0;
   padding:12px 16px; line-height:1.7;
   border-top:1px solid rgba(255,255,255,.06);
 }
 .img-note{
-  font-size:12.5px; color:#5a6478; margin:0;
+  font-size:13.5px; color:#5a6478; margin:0;
   padding:0 16px 13px; line-height:1.7;
 }
 @media(max-width:520px){
   .img-block{ margin:18px 0 22px; border-radius:11px; }
-  .img-cap{ font-size:12.5px; padding:10px 13px; }
+  .img-cap{ font-size:13.5px; padding:11px 14px; }
 }
 
 /* UI 示意图（不依赖截图） */
@@ -1589,5 +1590,98 @@ img.zoomable:hover{
 }
 @media(max-width:420px){
   .shots-row{ gap:7px; }
-  .shot figcaption{ font-size:10.5px; }
+  .shot figcaption{ font-size:12.5px; }
 }
+
+
+/* ============================================================
+   字号下限规范（2026-10-01 · 用户反馈"字太小看不清"）
+   原则：任何可见文字 ≥ 13px；正文 ≥ 16px
+   ============================================================ */
+.eyebrow{ font-size:13px !important; }          /* 小标签 */
+.link-wrap{ font-size:14px !important; }
+.link-wrap a{ font-size:14px !important; }
+.need-vpn{ font-size:12.5px !important; }        /* 提示类可略小 */
+.pn-label{ font-size:13.5px !important; }        /* 上一页/下一页 */
+.fs-badge{ font-size:13px !important; }
+.fs-tool{ font-size:13.5px !important; }
+.fs-note{ font-size:13px !important; }
+.fs-note-sm{ font-size:13px !important; }
+.hero-step{ font-size:14.5px !important; }
+.tool-url{ font-size:13.5px !important; }
+.tool-use{ font-size:15px !important; }
+.tool-how{ font-size:14.5px !important; }
+.tool-open{ font-size:14px !important; }
+.tool-copy{ font-size:13.5px !important; }
+.rstep-desc{ font-size:15px !important; }
+.rstep-day{ font-size:12.5px !important; }
+.sec-head p{ font-size:15.5px !important; }
+.note p{ font-size:15.5px !important; }
+.warn p{ font-size:15px !important; }
+.src-t{ font-size:12.5px !important; }
+.facts-t{ font-size:13px !important; }
+.img-block .img-cap{ font-size:14px !important; }
+.shot figcaption{ font-size:12.5px !important; }
+.foot-nav a{ font-size:14.5px !important; }
+.fn-t{ font-size:13.5px !important; }
+
+@media(max-width:520px){
+  .hero-step{ font-size:14px !important; }
+  .tool-use{ font-size:14.5px !important; }
+  .tool-how{ font-size:14px !important; }
+  .rstep-desc{ font-size:14.5px !important; }
+}
+
+
+/* 字号补丁 v2：把所有 <13px 的可见文字提到 13px */
+.rstep-day{ font-size:13px !important; }
+.src-t{ font-size:13px !important; }
+.need-vpn{ font-size:13px !important; }
+.shot-note{ font-size:13.5px !important; }
+.ui-mock-t{ font-size:13.5px !important; }
+.shot figcaption{ font-size:13px !important; }
+.tool-pop{ font-size:12.5px !important; }   /* 悬浮气泡，位置受限，略小 */
+.badge{ font-size:13px !important; }
+.ui-desc{ font-size:13px !important; }
+`
+
+
+/* 兜底：main 内任何 <13px 的段落类文字 */
+.wrap small,
+.wrap .mini,
+.wrap .badge,
+.wrap figcaption,
+.wrap .need-vpn,
+.wrap .src-t,
+.wrap .rstep-day,
+.wrap .shot-note,
+.wrap .ui-mock-t,
+.wrap .ui-desc,
+.wrap .ui-mock-note{ font-size:13px !important; }
+
+/* hero 内的小标签 */
+.hero-tag{ font-size:13px !important; }
+
+/* 字号补丁 v3：最后 4 类 */
+.tool-pop{ font-size:13px !important; padding:7px 14px !important; }
+.ui-mock-note{ font-size:13.5px !important; }
+/* 工具卡内的说明 span / 内联小字 */
+.tool-head span, .tool-note, .tool-sub{ font-size:13.5px !important; }
+.wrap span[style]{ font-size:inherit; }
+
+
+/* 全局字号兜底（12.5px → 13px） */
+@media(max-width:640px){
+  main span, main figcaption, main .note span, main .src span{ font-size:max(13px, 1em); }
+}
+
+/* 覆盖内联小字号（用 !important 兜底） */
+.wb-pct, .wb-info, .wb-hi{ font-size:13.5px !important; }
+.wb-streak{ font-size:13px !important; }
+
+/* 字号补丁 v4：最后收尾 */
+.wrap code, .src code, code{ font-size:13.5px !important; }
+.bb-label{ font-size:13px !important; }
+.wrap .tool-url, .tool-url{ font-size:13.5px !important; }
+/* 叶子 span 兜底 */
+.wrap span:not([class]){ font-size:max(13px, 1em); }
