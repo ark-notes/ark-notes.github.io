@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>查询工具 · ARK 学习指南</title>
-<link rel="stylesheet" href="assets/style-v2.css?v=19">
+<link rel="stylesheet" href="assets/style-v2.css?v=20">
 <style>
 .tool{
   display:block; padding:20px 22px; margin-bottom:14px;
@@ -76,6 +76,36 @@
   .tool-act{ flex-wrap:wrap; }
   .tool-hint{ display:none; }
 }
+
+/* 动态提示标签（层级最高，覆盖在卡片上） */
+.tool{ position:relative; overflow:hidden; }
+.tool-pop{
+  position:absolute; top:16px; right:16px; z-index:9;
+  display:inline-flex; align-items:center; gap:5px;
+  padding:6px 13px; border-radius:20px;
+  background:linear-gradient(135deg, rgba(34,211,238,.95), rgba(15,184,212,.95));
+  color:#02191f; font-size:12px; font-weight:700; letter-spacing:.02em;
+  box-shadow:0 4px 16px rgba(34,211,238,.45), 0 0 0 1px rgba(34,211,238,.3);
+  opacity:0; transform:translateY(-6px) scale(.92);
+  transition:.3s cubic-bezier(.22,1,.36,1);
+  pointer-events:none; white-space:nowrap;
+}
+.tool-pop svg{ width:12px; height:12px; }
+/* 悬停浮现 */
+.tool:hover .tool-pop,
+.tool:focus-within .tool-pop{
+  opacity:1; transform:translateY(0) scale(1);
+}
+/* 呼吸光效 */
+@keyframes popPulse{
+  0%,100%{ box-shadow:0 4px 16px rgba(34,211,238,.45), 0 0 0 0 rgba(34,211,238,.4); }
+  50%    { box-shadow:0 4px 22px rgba(34,211,238,.7), 0 0 0 7px rgba(34,211,238,0); }
+}
+.tool:hover .tool-pop{ animation:popPulse 1.8s ease-in-out infinite; }
+
+@media(max-width:640px){
+  .tool-pop{ top:12px; right:12px; font-size:11px; padding:5px 11px; }
+}
 </style></head>
 <body>
 <header class="site-header">
@@ -84,7 +114,7 @@
       <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
       <span class="brand-text"><b>ARK</b> 学习指南</span>
     </a>
-    <nav class="site-nav"><a href="index.html">首页</a><a href="path.html">学习路径</a><a href="guest.html">客户版</a><a href="lecturer.html">讲师</a><a href="ark-defi.html">基础概念</a><a href="ark-ai.html">产品</a><a href="ark-safety.html">安全</a><a href="tools.html">工具</a><a href="howto.html">怎么讲</a><a href="howto-download.html">下载</a><a href="videos.html">视频</a></nav>
+    <nav class="site-nav"><a href="index.html">首页</a><a href="path.html">学习路径</a><a href="guest.html">客户版</a><a href="lecturer.html">讲师</a><a href="ark-defi.html">基础概念</a><a href="ark-ai.html">产品</a><a href="ark-safety.html">安全</a><a href="tools.html">查询</a><a href="howto.html">怎么讲</a><a href="howto-download.html">下载</a><a href="videos.html">视频</a></nav>
   </div>
 </header>
 <main class="page"><div class="wrap">
@@ -122,7 +152,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.tencentcloud.com/zh/partners/details/3575" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -143,7 +173,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://coinmarketcap.com/currencies/ark-defai/" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -164,7 +194,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.coingecko.com/en/coins/ark-3" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -185,7 +215,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -209,7 +239,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://stocks.apple.com/symbol/ARK38246-USD" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -230,7 +260,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://finance.yahoo.com/quote/ARK38246-USD/" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -251,7 +281,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://cointelegraph.com/press-releases/morgan-crest-web3-foundation-leads-strategic-investment-in-ark-defai" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -274,7 +304,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://arkieai.io" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -298,7 +328,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://ave.ai" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -322,7 +352,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -346,7 +376,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -370,7 +400,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.tally.xyz/gov/ark" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -394,7 +424,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://skynet.certik.com/projects/ark-defai" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -418,7 +448,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://dexscreener.com/bsc/0xcaaf3c41a40103a23eeaa4bba468af3cf5b0e0d8" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -442,7 +472,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -464,7 +494,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://coinmarketcap.com/currencies/ark-defai/" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 <div class="tool">
@@ -484,7 +514,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.coingecko.com/en/coins/ark-3" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -506,7 +536,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -528,7 +558,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://arkieai.io" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
@@ -550,7 +580,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
     </a>
     <button class="tool-copy" data-url="https://www.arkdefai.com" type="button">复制链接</button>
-    <span class="tool-hint">在新窗口打开 · 可复制</span>
+    <span class="tool-pop">点击查询 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
   </div>
 </div>
 
