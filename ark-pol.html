@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POL 是什么 · ARK 学习指南</title>
-<link rel="stylesheet" href="assets/style-v2.css?v=26">
+<link rel="stylesheet" href="assets/style-v2.css?v=27">
 
 </head>
 <body>
@@ -124,7 +124,34 @@
 <p>「当价格往上突破，RBS 就会启动卖出策略，利用 POL 把代币卖出换成稳定币，防止币价过热。当价格往下跌破区间，RBS 就会启动买入策略，拿协议国库的稳定币从市场回购，托住价格。这一切都由合约自动执行，无需人为操作。」——官方概念课《如何结合 POL 和 RBS 实现智能做市》</p>
 </div>
 
-<h2>六、一次完整的「POL 讲解」（1 分钟版）</h2>
+<h2>八、RBS 的三个区间（价格守门员怎么工作）</h2>
+
+<div class="facts">
+<div class="facts-t">RBS 区间机制 · 价格自动调控</div>
+<table>
+<tr><th>区间</th><th>位置</th><th>RBS 的动作</th></tr>
+<tr><td><b>强区（Wall）</b></td><td>上限</td><td>启动<b>卖出策略</b>，把代币换成稳定币，防止过热</td></tr>
+<tr><td><b>缓冲区（Cushion）</b></td><td>中间</td><td>正常波动，不干预</td></tr>
+<tr><td><b>信任区</b></td><td>下限</td><td>启动<b>买入策略</b>，用国库稳定币回购，托住价格</td></tr>
+</table>
+<p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">价格依据：<b>代币过去 30 天的平均价格</b>计算目标区间。每个 Epoch（12 小时）自动更新。</p>
+</div>
+
+<div class="talk">
+<p>「<strong>RBS 就是这样的机制：它会根据代币过去 30 天的平均价格，计算一个目标区间。</strong>」</p>
+<p>「<strong>上线叫强区，中间是缓冲区，底下是协议不允许跌破的信任区。</strong>」</p>
+<p>「<strong>当价格往上突破，RBS 启动卖出策略，利用 POL 的 LP 把代币卖出换成稳定币，防止币价过热。</strong>」</p>
+<p>「<strong>当价格往下跌破区间，RBS 启动买入策略，拿协议国库的稳定币从市场回购，托住价格不崩。</strong>」</p>
+<p>「<strong>这一切都由合约自动执行，无需人为操作 —— 涨太多我卖，跌太深我买。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处</div>
+<p>RBS 三区间机制 —— <b>概念课 05《如何结合 POL 和 RBS 实现智能做市》</b></p>
+<p>「RBS 是系统的价格守门员，POL 是提供火力的弹药库与做市机器。」——<b>概念课 05</b></p>
+</div>
+
+<h2>九、一次完整的「POL 讲解」（1 分钟版）</h2>
 
 <div class="talk">
 <p>「你知道项目最怕什么吗？<b>怕池子里的钱被抽走。</b></p>
