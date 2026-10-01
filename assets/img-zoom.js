@@ -9,7 +9,7 @@
   // 收集所有内容图片（排除图标、logo）
   function collectImages(){
     const imgs = [];
-    document.querySelectorAll('main img, .img-block img, article img').forEach(im => {
+    document.querySelectorAll('main img, .img-block img, article img, .screen img, .g-shot img, .g-shot-inline img, body img').forEach(im => {
       const src = im.getAttribute('src') || '';
       if(!src) return;
       if(/logo|icon|favicon|avatar|mascot/i.test(src)) return;
