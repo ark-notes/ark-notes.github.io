@@ -1728,17 +1728,32 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
    ============================================================ */
 .ob-mask{
   position:fixed; inset:0; z-index:9980;
-  background:rgba(3,4,9,.82);
-  backdrop-filter:blur(3px);
+  background:rgba(3,4,9,.42);          /* 浅遮罩：能看清下面内容 */
+  backdrop-filter:blur(1.5px);          /* 轻微模糊，不糊死 */
   transition:opacity .3s var(--ease);
 }
 .ob-spot{
+  /*
+   * 高亮区：不用 box-shadow 挖洞（不可靠），
+   * 改成「亮边框 + 外发光 + 内部透明」——
+   * 因为遮罩已经很浅，高亮区自然能看清
+   */
   position:fixed; z-index:9981;
   border-radius:14px;
-  box-shadow:0 0 0 9999px rgba(3,4,9,.82), 0 0 0 2px var(--gold), 0 0 28px rgba(224,185,106,.5);
+  border:2.5px solid var(--gold);
+  background:rgba(224,185,106,.06);
+  box-shadow:
+    0 0 0 4px rgba(224,185,106,.18),
+    0 0 28px 6px rgba(224,185,106,.35);
   transition:all .38s cubic-bezier(.22,1,.36,1);
   pointer-events:none;
+  animation:obPulse 1.9s ease-in-out infinite;
 }
+@keyframes obPulse{
+  0%,100%{ box-shadow:0 0 0 4px rgba(224,185,106,.18), 0 0 24px 4px rgba(224,185,106,.3); }
+  50%    { box-shadow:0 0 0 7px rgba(224,185,106,.1), 0 0 36px 10px rgba(224,185,106,.5); }
+}
+
 .ob-box{
   position:fixed; z-index:9990;
   left:50%; transform:translateX(-50%);
@@ -2081,3 +2096,11 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   ::view-transition-old(root),
   ::view-transition-new(root){ animation:none; }
 }
+
+/* 引导卡片（浅遮罩版：加强对比） */
+.ob-box{
+  background:linear-gradient(160deg, #1a1d28, #0e1018) !important;
+  border:1px solid rgba(224,185,106,.42) !important;
+  box-shadow:0 26px 70px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.06) inset !important;
+}
+.ob-title{ text-shadow:0 1px 8px rgba(0,0,0,.5); }
