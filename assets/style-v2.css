@@ -1685,3 +1685,37 @@ img.zoomable:hover{
 .wrap .tool-url, .tool-url{ font-size:13.5px !important; }
 /* 叶子 span 兜底 */
 .wrap span:not([class]){ font-size:max(13px, 1em); }
+
+/* 字号补丁 v5 */
+.tip{ font-size:13px !important; }
+.wb-prog{ font-size:13.5px !important; }
+.titem-meta, .titem-badge{ font-size:13px !important; }
+
+/* ============================================================
+   字号保险（用户反馈"字太小"· 2026-10-01）
+   原则：宁可大一点 —— 用户群体偏中老年
+   ============================================================ */
+
+/* ① 尊重系统字体设置 */
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+
+/* ② 整体再放大一档 */
+@media(max-width:640px){
+  html{ font-size:17px; }           /* 基准从 16 提到 17 */
+  .wrap{ font-size:17px; }
+  .talk p{ font-size:17px !important; line-height:1.85 !important; }
+  .wrap > p{ font-size:17px !important; }
+  .facts table{ font-size:16px !important; }
+  .facts td{ font-size:16px !important; line-height:1.75 !important; }
+  .facts th{ font-size:13.5px !important; }
+  .src p{ font-size:15px !important; }
+  .img-cap{ font-size:14.5px !important; }
+  .note p{ font-size:16.5px !important; }
+  .warn p, .callout-warn{ font-size:16px !important; }
+}
+
+/* ③ 大屏也微调 */
+@media(min-width:641px){
+  .facts td{ font-size:15.5px; }
+  .talk p{ font-size:17px; }
+}
