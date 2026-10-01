@@ -2121,3 +2121,88 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .ob-entry{ padding:7px 11px; font-size:12.5px; margin-right:6px; }
   .ob-entry span{ display:none; }   /* 手机只留图标，省空间 */
 }
+
+/* ============================================================
+   游戏式引导（v4）
+   特点：不遮罩、可操作、提示浮动在旁边
+   ============================================================ */
+.tour-ring{
+  position:fixed; z-index:9970;
+  border-radius:12px;
+  border:2.5px solid var(--gold);
+  background:rgba(224,185,106,.07);
+  box-shadow:0 0 0 4px rgba(224,185,106,.16), 0 0 26px 5px rgba(224,185,106,.34);
+  pointer-events:none;
+  animation:tourPulse 1.9s ease-in-out infinite;
+  transition:all .32s cubic-bezier(.22,1,.36,1);
+}
+@keyframes tourPulse{
+  0%,100%{ box-shadow:0 0 0 4px rgba(224,185,106,.16), 0 0 22px 4px rgba(224,185,106,.3); }
+  50%    { box-shadow:0 0 0 8px rgba(224,185,106,.08), 0 0 34px 10px rgba(224,185,106,.5); }
+}
+
+/* 指向箭头 */
+.tour-arrow{
+  position:fixed; z-index:9971; width:0; height:0; pointer-events:none;
+  animation:tourBob 1.3s ease-in-out infinite;
+}
+.tour-arrow-r{ border-top:9px solid transparent; border-bottom:9px solid transparent; border-left:13px solid var(--gold); transform:translateY(-50%); }
+.tour-arrow-l{ border-top:9px solid transparent; border-bottom:9px solid transparent; border-right:13px solid var(--gold); transform:translateY(-50%); }
+.tour-arrow-d{ border-left:9px solid transparent; border-right:9px solid transparent; border-top:13px solid var(--gold); transform:translateX(-50%); }
+.tour-arrow-u{ border-left:9px solid transparent; border-right:9px solid transparent; border-bottom:13px solid var(--gold); transform:translateX(-50%); }
+@keyframes tourBob{
+  0%,100%{ opacity:.7; } 50%{ opacity:1; }
+}
+
+/* 提示卡（浮动，不挡内容） */
+.tour-card{
+  position:fixed; z-index:9975;
+  background:linear-gradient(160deg,#1a1d28,#0e1018);
+  border:1px solid rgba(224,185,106,.4);
+  border-radius:14px;
+  padding:15px 17px 14px;
+  box-shadow:0 22px 60px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05) inset;
+  animation:tourIn .3s cubic-bezier(.22,1,.36,1);
+  max-height:calc(100vh - 24px); overflow-y:auto;
+}
+@keyframes tourIn{ from{opacity:0; transform:translateY(8px) scale(.97);} to{opacity:1;} }
+
+.tour-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
+.tour-step{ font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--gold); }
+.tour-x{
+  width:26px; height:26px; border-radius:50%;
+  background:rgba(255,255,255,.06); border:none;
+  color:#7d8798; font-size:13px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:.2s;
+}
+.tour-x:hover{ background:rgba(255,255,255,.14); color:#fff; }
+
+.tour-title{ font-size:16.5px; font-weight:700; color:#fff; line-height:1.45; margin-bottom:8px; }
+.tour-desc{ font-size:14.5px; color:#b9c2d0; line-height:1.8; margin-bottom:14px; }
+.tour-desc b{ color:var(--gold); }
+.tour-acts{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.tour-btn{
+  flex:1; min-width:120px;
+  padding:12px 18px; border-radius:10px;
+  background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
+  border:none; color:#241a06;
+  font-size:14.5px; font-weight:700; font-family:inherit;
+  cursor:pointer; transition:.22s var(--ease);
+  box-shadow:0 1px 0 rgba(255,255,255,.42) inset, 0 4px 16px rgba(224,185,106,.26);
+}
+.tour-btn:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 8px 22px rgba(224,185,106,.4); }
+.tour-skip{
+  flex:none; padding:12px 14px; border-radius:10px;
+  background:transparent; border:1px solid rgba(255,255,255,.12);
+  color:#7d8798; font-size:13.5px; font-family:inherit; cursor:pointer;
+  transition:.2s;
+}
+.tour-skip:hover{ color:#cdd3dd; border-color:rgba(255,255,255,.25); }
+
+@media(max-width:520px){
+  .tour-card{ padding:13px 14px 12px; }
+  .tour-title{ font-size:15.5px; }
+  .tour-desc{ font-size:14px; }
+  .tour-btn{ padding:11px 15px; font-size:14px; }
+}
