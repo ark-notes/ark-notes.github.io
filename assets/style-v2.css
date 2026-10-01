@@ -1567,3 +1567,27 @@ img.zoomable:hover{
   .ui-name{ font-size:13px; }
   .ui-desc{ font-size:11px; }
 }
+
+/* 手机截图横排 */
+.shots-row{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+  margin:20px 0 8px;
+}
+.shot{ margin:0; }
+.shot img{
+  display:block; width:100%; height:auto;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.1);
+  background:#0a0c14;
+}
+.shot figcaption{
+  font-size:11.5px; color:#7d8798; margin-top:7px;
+  text-align:center; line-height:1.5;
+}
+.shot-note{
+  font-size:12px; color:#5a6478; margin:0 0 24px; line-height:1.7;
+}
+@media(max-width:420px){
+  .shots-row{ gap:7px; }
+  .shot figcaption{ font-size:10.5px; }
+}
