@@ -18,33 +18,23 @@
   /* ---------- 流程 ---------- */
   var FLOW = [
     { page:'index.html', sel:'.btn-main', pos:'right',
-      title:'点这里，开始第 1 课',
-      desc:'<b>点一下这个按钮</b>，就进入第 1 课 —— 我跟着你走。',
-      action:'navigate', next:'path.html' },
+      title:'欢迎！先点这里',
+      desc:'点这个金色按钮，我带你走一遍。',
+      action:'navigate' },
 
     { page:'path.html', sel:'.rstep', pos:'right',
-      title:'点第一课，开始学习',
-      desc:'七步走完，你就能独立讲清楚。<b>点第一个「开始学习」。</b>',
-      action:'navigate', next:'ark-what.html' },
+      title:'这是七步学习路径',
+      desc:'点第一个开始 —— 走完七步，你就能独立讲清楚。',
+      action:'navigate' },
 
     { page:'ark-what.html', sel:'.talk', pos:'right',
-      title:'看到这个蓝色框了吗',
-      desc:'<b>里面的话可以直接照念</b>，不用自己组织语言。<br>灰色的是出处，核实的时候看。',
-      action:'next' },
-
-    { page:'ark-what.html', sel:'.page-nav, .pn', pos:'top',
-      title:'看完一页，点这里继续',
-      desc:'「下一步」带你到下一课。<b>一直点下去就走完整条路。</b>',
-      action:'next' },
-
-    { page:'', sel:'', pos:'center',
-      title:'🎉 你学会了！',
-      desc:'以后想重看，<b>点顶栏「新手指引」</b>就行。<br>现在开始你的学习吧！',
-      action:'end' }
+      title:'这里的话可以直接照念',
+      desc:'蓝色框里的话，照着念就行，不用自己组织语言。<br>看完了点底部的「下一步」。',
+      action:'finish' }
   ];
 
   var idx = -1, currentStep = -1;
-  var mask, hole, card, arrow;
+  var mask, hole, card;
   var guard;   // 阻止非目标区域点击
 
   /* ---------- 顶栏入口 ---------- */
@@ -62,6 +52,11 @@
   /* ---------- 构建 UI ---------- */
   function ensureUI(){
     if(mask) return;
+    // 引导期间隐藏悬浮球（避免冲突）
+    var dock=document.querySelector('.arkie-fab');
+    if(dock) dock.style.display='none';
+    var topBtn=document.querySelector('.af-top-btn');
+    if(topBtn) topBtn.style.display='none';
     // 遮罩（用 4 个块围出洞 —— 更可靠，且不依赖 CSS 新特性）
     mask = document.createElement('div');
     mask.className='tour-mask';
@@ -73,9 +68,6 @@
     hole.className='tour-hole';
     document.body.appendChild(hole);
 
-    arrow = document.createElement('div');
-    arrow.className='tour-arrow';
-    document.body.appendChild(arrow);
 
     card = document.createElement('div');
     card.className='tour-card';
@@ -83,8 +75,13 @@
   }
 
   function destroy(){
-    [mask,hole,arrow,card].forEach(function(e){ if(e) e.remove(); });
-    mask=hole=arrow=card=null;
+    [mask,hole,card].forEach(function(e){ if(e) e.remove(); });
+    mask=hole=card=null;
+    // 恢复悬浮球
+    var dock=document.querySelector('.arkie-fab');
+    if(dock) dock.style.display='';
+    var topBtn=document.querySelector('.af-top-btn');
+    if(topBtn) topBtn.style.display='';
     if(guard){ document.removeEventListener('click', guard, true); guard=null; }
     document.body.style.overflow='';
   }
@@ -103,7 +100,6 @@
       mask.style.display='block';
       setBox(0,0,window.innerWidth,window.innerHeight);
       hole.style.display='none';
-      arrow.style.display='none';
       renderCard(s, true);
       card.className='tour-card tour-center';
       card.style.left='50%'; card.style.top='50%';
@@ -117,7 +113,6 @@
     // 先清掉旧位置
     if(hole) hole.style.display='none';
     if(card) card.style.display='none';
-    if(arrow) arrow.style.display='none';
 
     // 用「绝对滚动」直达目标（避免 scroll-behavior:smooth 干扰）
     var targetY = window.scrollY + el.getBoundingClientRect().top
@@ -170,15 +165,6 @@
     hole.style.left = left+'px'; hole.style.top = top+'px';
     hole.style.width = w+'px'; hole.style.height = h+'px';
 
-    // 箭头
-    if(arrow){
-      arrow.style.display='';
-      var acx = left + w/2, acy = top + h/2;
-      if(s.pos==='right'){ arrow.className='tour-arrow tour-arrow-r'; arrow.style.left=(left+w+4)+'px'; arrow.style.top=acy+'px'; }
-      else if(s.pos==='left'){ arrow.className='tour-arrow tour-arrow-l'; arrow.style.left=(left-18)+'px'; arrow.style.top=acy+'px'; }
-      else if(s.pos==='top'){ arrow.className='tour-arrow tour-arrow-u'; arrow.style.left=acx+'px'; arrow.style.top=(top-18)+'px'; }
-      else { arrow.className='tour-arrow tour-arrow-d'; arrow.style.left=acx+'px'; arrow.style.top=(top+h+4)+'px'; }
-    }
 
     // 卡片
     renderCard(s, false);
