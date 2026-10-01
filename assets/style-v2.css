@@ -1804,3 +1804,22 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .ob-desc{ font-size:14.5px; line-height:1.8; }
   .ob-box.ob-left{ right:12px; left:12px; transform:translateY(-50%); width:auto; }
 }
+
+/* 7 天后回来提示 */
+.next-hint{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  margin:16px 0 18px; padding:13px 16px;
+  border-radius:12px;
+  background:linear-gradient(135deg, rgba(224,185,106,.09), rgba(34,211,238,.04));
+  border:1px solid rgba(224,185,106,.24);
+  font-size:15px; color:#dfe4ec;
+}
+.next-hint b{ color:var(--gold); }
+.nh-btn{
+  margin-left:auto; padding:8px 15px; border-radius:9px;
+  background:rgba(224,185,106,.14);
+  border:1px solid rgba(224,185,106,.38);
+  color:var(--gold); font-size:13.5px; font-weight:600;
+  text-decoration:none; white-space:nowrap;
+}
+.nh-btn:hover{ background:rgba(224,185,106,.24); }
