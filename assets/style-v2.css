@@ -1988,3 +1988,93 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .ftc-d{ font-size:14.5px; }
   .ftc-btn, .ftc-skip{ width:100%; justify-content:center; }
 }
+
+/* ============================================================
+   UI 统一（2026-10-01 · 统一间距/圆角/过渡）
+   原则：所有内容块用同一套间距尺度
+   ============================================================ */
+
+/* 统一间距尺度（8px 基准） */
+:root{
+  --sp-1:8px; --sp-2:12px; --sp-3:16px; --sp-4:22px; --sp-5:28px; --sp-6:36px;
+  --r-sm:9px; --r-md:12px; --r-lg:16px;
+}
+
+/* 统一内容块间距 */
+.wrap > h2{ margin-top:38px; margin-bottom:16px; }
+.wrap > h2:first-child{ margin-top:0; }
+.wrap > h3{ margin-top:26px; margin-bottom:12px; }
+.wrap > p{ margin-bottom:16px; }
+
+/* 统一卡片圆角 */
+.facts, .talk, .src, .note, .warn, .callout-warn, .img-block,
+.tool, .card, .rstep, .block-card, .ui-mock, .shots-row .shot img{
+  border-radius:var(--r-lg);
+}
+.tool-open, .tool-copy, .btn, .nav-guest, .ftc-btn, .ob-next, .lbox-btn{
+  border-radius:var(--r-sm);
+}
+
+/* 统一过渡曲线 */
+*, *::before, *::after{ --ease:cubic-bezier(.22,1,.36,1); }
+
+/* 统一 section 间距 */
+.sec{ padding:44px 0; }
+.sec-head{ margin-bottom:24px; }
+@media(max-width:640px){
+  .sec{ padding:32px 0; }
+  .sec-head{ margin-bottom:18px; }
+  .wrap > h2{ margin-top:30px; margin-bottom:13px; }
+}
+
+/* 统一标题字重/字距 */
+.wrap h2{ letter-spacing:-.01em; }
+.wrap h3{ letter-spacing:-.005em; }
+
+/* 统一链接下划线样式 */
+.wrap a:not([class]){ color:var(--cyan); text-decoration:none; border-bottom:1px solid rgba(34,211,238,.3); transition:.2s; }
+.wrap a:not([class]):hover{ border-bottom-color:var(--cyan); }
+
+/* 统一代码块 */
+.wrap code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.92em; padding:2px 6px; border-radius:5px;
+  background:rgba(34,211,238,.08); color:var(--cyan);
+  border:1px solid rgba(34,211,238,.18);
+}
+
+/* ============================================================
+   页面转场（View Transitions API · 浏览器原生）
+   作用：页面跳转时平滑过渡，不再白屏
+   兼容：Chrome 111+ / Safari 18+ / Edge；不支持的浏览器自动忽略
+   ============================================================ */
+@view-transition{
+  navigation:auto;
+}
+
+/* 默认淡入淡出 */
+::view-transition-old(root){
+  animation:vtOut .22s cubic-bezier(.22,1,.36,1) both;
+}
+::view-transition-new(root){
+  animation:vtIn .28s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes vtOut{
+  from{ opacity:1; }
+  to{ opacity:0; }
+}
+@keyframes vtIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+/* 顶栏固定不动（避免闪） */
+.site-header{ view-transition-name:site-header; }
+::view-transition-old(site-header),
+::view-transition-new(site-header){ animation:none; }
+
+/* 尊重用户的减少动效设置 */
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),
+  ::view-transition-new(root){ animation:none; }
+}
