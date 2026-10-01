@@ -2122,49 +2122,65 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .ob-entry span{ display:none; }   /* 手机只留图标，省空间 */
 }
 
+
 /* ============================================================
-   游戏式引导（v4）
-   特点：不遮罩、可操作、提示浮动在旁边
+   游戏式新手引导 v5（强制聚焦）
+   核心：全屏遮罩 + 只有目标挖洞可点
    ============================================================ */
-.tour-ring{
-  position:fixed; z-index:9970;
+.tour-mask{
+  position:fixed; inset:0; z-index:9960;
+  pointer-events:none;      /* 容器本身不挡 —— 只有 4 块子块挡 */
+}
+.tour-mask > div{
+  position:fixed;
+  background:rgba(4,5,10,.72);
+  backdrop-filter:blur(2px);
+  pointer-events:auto;      /* 子块挡住点击 */
+}
+.tm-top{ top:0; left:0; right:0; }
+.tm-bottom{ left:0; right:0; bottom:0; }
+.tm-left{ left:0; }
+.tm-right{ right:0; }
+
+/* 挖洞区（透明 + 金边，可点） */
+.tour-hole{
+  position:fixed; z-index:9965;
   border-radius:12px;
   border:2.5px solid var(--gold);
-  background:rgba(224,185,106,.07);
-  box-shadow:0 0 0 4px rgba(224,185,106,.16), 0 0 26px 5px rgba(224,185,106,.34);
-  pointer-events:none;
+  background:transparent;
+  box-shadow:0 0 0 3px rgba(224,185,106,.18), 0 0 30px 6px rgba(224,185,106,.4);
+  pointer-events:none;   /* 让下面的真实元素可点 */
   animation:tourPulse 1.9s ease-in-out infinite;
-  transition:all .32s cubic-bezier(.22,1,.36,1);
+  transition:all .3s cubic-bezier(.22,1,.36,1);
 }
 @keyframes tourPulse{
-  0%,100%{ box-shadow:0 0 0 4px rgba(224,185,106,.16), 0 0 22px 4px rgba(224,185,106,.3); }
-  50%    { box-shadow:0 0 0 8px rgba(224,185,106,.08), 0 0 34px 10px rgba(224,185,106,.5); }
+  0%,100%{ box-shadow:0 0 0 3px rgba(224,185,106,.18), 0 0 24px 5px rgba(224,185,106,.34); }
+  50%    { box-shadow:0 0 0 7px rgba(224,185,106,.1), 0 0 38px 11px rgba(224,185,106,.52); }
 }
 
-/* 指向箭头 */
+/* 箭头 */
 .tour-arrow{
-  position:fixed; z-index:9971; width:0; height:0; pointer-events:none;
-  animation:tourBob 1.3s ease-in-out infinite;
+  position:fixed; z-index:9970; width:0; height:0; pointer-events:none;
+  animation:tourBob 1.2s ease-in-out infinite;
 }
-.tour-arrow-r{ border-top:9px solid transparent; border-bottom:9px solid transparent; border-left:13px solid var(--gold); transform:translateY(-50%); }
-.tour-arrow-l{ border-top:9px solid transparent; border-bottom:9px solid transparent; border-right:13px solid var(--gold); transform:translateY(-50%); }
-.tour-arrow-d{ border-left:9px solid transparent; border-right:9px solid transparent; border-top:13px solid var(--gold); transform:translateX(-50%); }
-.tour-arrow-u{ border-left:9px solid transparent; border-right:9px solid transparent; border-bottom:13px solid var(--gold); transform:translateX(-50%); }
-@keyframes tourBob{
-  0%,100%{ opacity:.7; } 50%{ opacity:1; }
-}
+.tour-arrow-r{ border-top:10px solid transparent; border-bottom:10px solid transparent; border-left:14px solid var(--gold); transform:translateY(-50%); }
+.tour-arrow-l{ border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:14px solid var(--gold); transform:translateY(-50%); }
+.tour-arrow-d{ border-left:10px solid transparent; border-right:10px solid transparent; border-top:14px solid var(--gold); transform:translateX(-50%); }
+.tour-arrow-u{ border-left:10px solid transparent; border-right:10px solid transparent; border-bottom:14px solid var(--gold); transform:translateX(-50%); }
+@keyframes tourBob{ 0%,100%{opacity:.65;} 50%{opacity:1;} }
 
-/* 提示卡（浮动，不挡内容） */
+/* 提示卡 */
 .tour-card{
   position:fixed; z-index:9975;
-  background:linear-gradient(160deg,#1a1d28,#0e1018);
-  border:1px solid rgba(224,185,106,.4);
+  background:linear-gradient(160deg,#1c1f2b,#0f1119);
+  border:1px solid rgba(224,185,106,.45);
   border-radius:14px;
   padding:15px 17px 14px;
-  box-shadow:0 22px 60px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05) inset;
-  animation:tourIn .3s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 24px 64px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.05) inset;
+  animation:tourIn .28s cubic-bezier(.22,1,.36,1);
   max-height:calc(100vh - 24px); overflow-y:auto;
 }
+.tour-card.tour-center{ transform:translate(-50%,-50%); }
 @keyframes tourIn{ from{opacity:0; transform:translateY(8px) scale(.97);} to{opacity:1;} }
 
 .tour-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
@@ -2174,35 +2190,34 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   background:rgba(255,255,255,.06); border:none;
   color:#7d8798; font-size:13px; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  transition:.2s;
 }
 .tour-x:hover{ background:rgba(255,255,255,.14); color:#fff; }
 
 .tour-title{ font-size:16.5px; font-weight:700; color:#fff; line-height:1.45; margin-bottom:8px; }
-.tour-desc{ font-size:14.5px; color:#b9c2d0; line-height:1.8; margin-bottom:14px; }
+.tour-desc{ font-size:14.5px; color:#b9c2d0; line-height:1.8; margin-bottom:13px; }
 .tour-desc b{ color:var(--gold); }
-.tour-acts{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.tour-acts{ display:flex; gap:8px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.tour-hint{
+  font-size:13px; color:var(--gold); font-weight:600;
+  display:inline-flex; align-items:center; gap:5px;
+}
 .tour-btn{
-  flex:1; min-width:120px;
+  flex:1; min-width:130px;
   padding:12px 18px; border-radius:10px;
   background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
   border:none; color:#241a06;
-  font-size:14.5px; font-weight:700; font-family:inherit;
-  cursor:pointer; transition:.22s var(--ease);
+  font-size:14.5px; font-weight:700; font-family:inherit; cursor:pointer;
   box-shadow:0 1px 0 rgba(255,255,255,.42) inset, 0 4px 16px rgba(224,185,106,.26);
 }
-.tour-btn:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 8px 22px rgba(224,185,106,.4); }
 .tour-skip{
-  flex:none; padding:12px 14px; border-radius:10px;
-  background:transparent; border:1px solid rgba(255,255,255,.12);
-  color:#7d8798; font-size:13.5px; font-family:inherit; cursor:pointer;
-  transition:.2s;
+  padding:10px 14px; border-radius:9px;
+  background:transparent; border:1px solid rgba(255,255,255,.13);
+  color:#7d8798; font-size:13.5px; font-family:inherit; cursor:pointer; white-space:nowrap;
 }
-.tour-skip:hover{ color:#cdd3dd; border-color:rgba(255,255,255,.25); }
+.tour-skip:hover{ color:#cdd3dd; border-color:rgba(255,255,255,.28); }
 
 @media(max-width:520px){
   .tour-card{ padding:13px 14px 12px; }
   .tour-title{ font-size:15.5px; }
   .tour-desc{ font-size:14px; }
-  .tour-btn{ padding:11px 15px; font-size:14px; }
 }
