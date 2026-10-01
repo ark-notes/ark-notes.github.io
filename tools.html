@@ -7,17 +7,14 @@
 <link rel="stylesheet" href="assets/style-v2.css?v=14">
 <style>
 .tool{
-  display:block; padding:22px 24px; margin-bottom:14px;
-  border-radius:16px; text-decoration:none;
+  display:block; padding:20px 22px; margin-bottom:14px;
+  border-radius:16px;
   background:linear-gradient(135deg,rgba(18,20,30,.9),rgba(12,14,22,.95));
   border:1px solid var(--line);
   transition:.26s var(--ease);
 }
-.tool:hover{
-  border-color:var(--cyan-line); transform:translateX(4px);
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-.tool-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.tool:hover{ border-color:rgba(34,211,238,.35); }
+.tool-head{display:flex;align-items:center;gap:14px;margin-bottom:11px}
 .tool-ico{
   width:42px;height:42px;border-radius:12px;flex:none;
   display:flex;align-items:center;justify-content:center;
@@ -33,15 +30,53 @@
   border-left:2px solid rgba(34,211,238,.3);line-height:1.8;
 }
 .tool-how b{color:var(--cyan);font-weight:600}
-.copy-btn{
-  float:right;padding:5px 12px;border-radius:8px;cursor:pointer;
-  background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);
-  color:var(--cyan);font-size:12px;font-family:inherit;
-  transition:.2s;
+
+/* 操作行：只有按钮可点 */
+.tool-act{
+  display:flex; align-items:center; gap:9px;
+  margin-top:13px; padding-top:13px;
+  border-top:1px solid rgba(255,255,255,.06);
 }
-.copy-btn:hover{background:rgba(34,211,238,.2)}
-</style>
-</head>
+.tool-open{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 17px; border-radius:9px;
+  background:rgba(34,211,238,.1);
+  border:1px solid rgba(34,211,238,.34);
+  color:var(--cyan); font-size:13.5px; font-weight:600;
+  text-decoration:none; transition:.22s var(--ease);
+  cursor:pointer;
+}
+.tool-open:hover{
+  background:rgba(34,211,238,.2);
+  border-color:rgba(34,211,238,.6);
+  transform:translateY(-1px);
+  box-shadow:0 5px 16px rgba(34,211,238,.2);
+}
+.tool-open svg{width:14px;height:14px}
+.tool-copy{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:9px 15px; border-radius:9px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.11);
+  color:var(--text-3); font-size:13px; font-family:inherit;
+  cursor:pointer; transition:.22s var(--ease);
+}
+.tool-copy:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.22);
+  color:var(--text-2);
+}
+.tool-copy.done{ color:#3ecf8e; border-color:rgba(62,207,142,.4); }
+.tool-hint{
+  margin-left:auto; font-size:12px; color:var(--text-4,#5a6478);
+  user-select:none;
+}
+@media(max-width:520px){
+  .tool{ padding:17px 16px; }
+  .tool-act{ flex-wrap:wrap; }
+  .tool-hint{ display:none; }
+}
+</style></head>
 <body>
 <header class="site-header">
   <div class="wrap">
@@ -67,7 +102,7 @@
 <p style="color:var(--text-2);font-size:15px;margin-bottom:20px">
 别人问「这项目靠谱吗」，最有说服力的不是我们说，是<b>这些大公司的官网自己写着</b>。</p>
 
-<a class="tool" href="https://www.tencentcloud.com/zh/partners/details/3575" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">TC</span>
     <div>
@@ -80,9 +115,18 @@
     <b>怎么用：</b>打开链接 → 页面上能看到 ARKIE AI 与腾讯云的合作信息<br>
     <b>现场演示：</b>「这是腾讯云自己的官网，不是我做的图。」
   </div>
-</a>
 
-<a class="tool" href="https://coinmarketcap.com/currencies/ark-defai/" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.tencentcloud.com/zh/partners/details/3575" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.tencentcloud.com/zh/partners/details/3575" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">CMC</span>
     <div>
@@ -92,9 +136,18 @@
   </div>
   <div class="tool-use">全球最大的加密数据平台。<b>能上这个平台，说明经过了审核</b>，不是随便发的空气币。</div>
   <div class="tool-how"><b>怎么用：</b>打开就能看到 ARK 的市值、价格、排名</div>
-</a>
 
-<a class="tool" href="https://www.coingecko.com/en/coins/ark-3" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://coinmarketcap.com/currencies/ark-defai/" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://coinmarketcap.com/currencies/ark-defai/" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">CG</span>
     <div>
@@ -104,9 +157,18 @@
   </div>
   <div class="tool-use">另一个主流数据平台。<b>两个平台都收录 = 双重背书。</b></div>
   <div class="tool-how"><b>怎么用：</b>同上</div>
-</a>
 
-<a class="tool" href="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.coingecko.com/en/coins/ark-3" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.coingecko.com/en/coins/ark-3" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">RD</span>
     <div>
@@ -116,9 +178,18 @@
   </div>
   <div class="tool-use">区块链项目的「天眼查」。<b>团队、投融资、项目背景都在上面</b>，机构做投研用的。</div>
   <div class="tool-how"><b>怎么用：</b>打开看 ARK 的项目档案</div>
-</a>
 
-<a class="tool" href="https://stocks.apple.com/symbol/ARK38246-USD" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">🍎</span>
     <div>
@@ -131,9 +202,18 @@
     <b>怎么用：</b>iPhone 打开「股票」App → 搜索「ARK」→ 找到 ARK38246-USD<br>
     <b>或点链接直接看</b>
   </div>
-</a>
 
-<a class="tool" href="https://finance.yahoo.com/quote/ARK38246-USD/" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://stocks.apple.com/symbol/ARK38246-USD" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://stocks.apple.com/symbol/ARK38246-USD" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">YF</span>
     <div>
@@ -143,9 +223,18 @@
   </div>
   <div class="tool-use">全球最具影响力的财经门户。<b>传统金融界看报价的地方。</b></div>
   <div class="tool-how"><b>怎么用：</b>打开直接看</div>
-</a>
 
-<a class="tool" href="https://cointelegraph.com/press-releases/morgan-crest-web3-foundation-leads-strategic-investment-in-ark-defai" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://finance.yahoo.com/quote/ARK38246-USD/" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://finance.yahoo.com/quote/ARK38246-USD/" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">CT</span>
     <div>
@@ -155,9 +244,18 @@
   </div>
   <div class="tool-use"><b>摩根格雷基金战略投资 ARK</b>，由 CoinTelegraph 全球首发报道。这是外媒的报道，不是我们自己发的。</div>
   <div class="tool-how"><b>怎么用：</b>打开看报道原文</div>
-</a>
 
-<a class="tool" href="https://arkieai.io" target="_blank" rel="noopener">
+  <div class="tool-act">
+    <a class="tool-open" href="https://cointelegraph.com/press-releases/morgan-crest-web3-foundation-leads-strategic-investment-in-ark-defai" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://cointelegraph.com/press-releases/morgan-crest-web3-foundation-leads-strategic-investment-in-ark-defai" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">AI</span>
     <div>
@@ -169,10 +267,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开官网看介绍，或直接在 Google Play / App Store 搜「Arkie AI」下载
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://arkieai.io" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://arkieai.io" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>① 查底池和权限 —— AVE</h2>
-<a class="tool" href="https://ave.ai" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">AVE</span>
     <div>
@@ -184,10 +291,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开 → 上方放大镜 → 搜「ARK」→ 看底池状态 → 点「风险」看权限评估
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://ave.ai" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://ave.ai" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>② 查合约和持币 —— BscScan</h2>
-<a class="tool" href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">BSC</span>
     <div>
@@ -199,10 +315,19 @@
   <div class="tool-how">
     <b>怎么用：</b>搜合约地址 → 点「Contract」看代码有没有开源 → 点「Holders」看持币分布
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>③ 查国库多签 —— Gnosis Safe</h2>
-<a class="tool" href="https://app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">SAFE</span>
     <div>
@@ -214,10 +339,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开就是 ARK 国库 → 看顶部 <b>「5/9」</b>→ 意思是 9 个人管，要 5 个人同意
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>④ 查治理提案 —— Tally</h2>
-<a class="tool" href="https://www.tally.xyz/gov/ark" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">TALLY</span>
     <div>
@@ -229,10 +363,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开 → 能看到 ARK 的所有提案和投票记录（目前已有多轮提案）
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.tally.xyz/gov/ark" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.tally.xyz/gov/ark" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑤ 查安全审计 —— CertiK</h2>
-<a class="tool" href="https://skynet.certik.com/projects/ark-defai" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">CK</span>
     <div>
@@ -244,10 +387,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开 → 搜 ARK → 看「代币扫描分」（安全指标）和「代码安全」的检测项
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://skynet.certik.com/projects/ark-defai" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://skynet.certik.com/projects/ark-defai" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑥ 查价格和底池 —— DexScreener</h2>
-<a class="tool" href="https://dexscreener.com/bsc/0xcaaf3c41a40103a23eeaa4bba468af3cf5b0e0d8" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">DEX</span>
     <div>
@@ -259,10 +411,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开就是 ARK/USDT 交易对 → 看价格、底池、交易量
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://dexscreener.com/bsc/0xcaaf3c41a40103a23eeaa4bba468af3cf5b0e0d8" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://dexscreener.com/bsc/0xcaaf3c41a40103a23eeaa4bba468af3cf5b0e0d8" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑦ 查合约安全 —— GoPlus</h2>
-<a class="tool" href="https://gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">GP</span>
     <div>
@@ -274,10 +435,19 @@
   <div class="tool-how">
     <b>怎么用：</b>打开就是 ARK 的扫描结果 → 看「Risky item」（风险项）是不是 0
   </div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑧ 查行情数据 —— CoinMarketCap / CoinGecko</h2>
-<a class="tool" href="https://coinmarketcap.com/currencies/ark-defai/" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">CMC</span>
     <div>
@@ -287,8 +457,17 @@
   </div>
   <div class="tool-use">全球最大的加密数据平台。<b>证明这个币是被主流收录的</b>，不是空气币。</div>
   <div class="tool-how"><b>怎么用：</b>打开就能看到 ARK 的市值、价格、交易量</div>
-</a>
-<a class="tool" href="https://www.coingecko.com/en/coins/ark-3" target="_blank" rel="noopener">
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://coinmarketcap.com/currencies/ark-defai/" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://coinmarketcap.com/currencies/ark-defai/" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">CG</span>
     <div>
@@ -298,10 +477,19 @@
   </div>
   <div class="tool-use">另一个主流数据平台。两个平台都收录 = 双重背书。</div>
   <div class="tool-how"><b>怎么用：</b>同上</div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.coingecko.com/en/coins/ark-3" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.coingecko.com/en/coins/ark-3" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑨ 查项目资料 —— RootData</h2>
-<a class="tool" href="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">RD</span>
     <div>
@@ -311,10 +499,19 @@
   </div>
   <div class="tool-use">区块链项目的「天眼查」。<b>看团队、投融资、项目背景</b>。</div>
   <div class="tool-how"><b>怎么用：</b>打开就是 ARK 的项目页，可以看到官方收录信息</div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.rootdata.com/Projects/detail/Ark?k=MTk0MTc%3D" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑩ 看产品 —— 阿奇 AI 官网</h2>
-<a class="tool" href="https://arkieai.io" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">AI</span>
     <div>
@@ -324,10 +521,19 @@
   </div>
   <div class="tool-use">直接看产品本身。<b>别人问「这产品真能干活吗」，打开给他看</b>。</div>
   <div class="tool-how"><b>怎么用：</b>打开就是阿奇 AI 的介绍和入口</div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://arkieai.io" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://arkieai.io" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <h2>⑪ 查 ARK 官网 —— 官方入口</h2>
-<a class="tool" href="https://www.arkdefai.com" target="_blank" rel="noopener">
+<div class="tool">
   <div class="tool-head">
     <span class="tool-ico">ARK</span>
     <div>
@@ -337,7 +543,16 @@
   </div>
   <div class="tool-use">项目方官方站点。</div>
   <div class="tool-how"><b>怎么用：</b>打开看官方介绍</div>
-</a>
+
+  <div class="tool-act">
+    <a class="tool-open" href="https://www.arkdefai.com" target="_blank" rel="noopener">
+      打开网站
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+    </a>
+    <button class="tool-copy" data-url="https://www.arkdefai.com" type="button">复制链接</button>
+    <span class="tool-hint">在新窗口打开 · 可复制</span>
+  </div>
+</div>
 
 <div class="note" style="margin-top:44px">
 <div class="note-title">现场演示的顺序（记这四步就够）</div>
@@ -382,5 +597,28 @@
 <script src="assets/nav-v2.js?v=13"></script>
 <script src="assets/progress-v2.js?v=13"></script>
 <script src="assets/link-tools.js?v=13"></script>
+<script>
+document.querySelectorAll('.tool-copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var url = btn.getAttribute('data-url');
+    var done = function(){
+      btn.textContent = '✓ 已复制';
+      btn.classList.add('done');
+      setTimeout(function(){ btn.textContent='复制链接'; btn.classList.remove('done'); }, 1600);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done).catch(function(){
+        var ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta);
+        ta.select(); try{document.execCommand('copy');}catch(e){}
+        document.body.removeChild(ta); done();
+      });
+    }else{
+      var ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta);
+      ta.select(); try{document.execCommand('copy');}catch(e){}
+      document.body.removeChild(ta); done();
+    }
+  });
+});
+</script>
 </body>
 </html>
