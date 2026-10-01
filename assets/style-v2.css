@@ -554,12 +554,12 @@ tbody tr:hover td{background:rgba(34,211,238,.035)}
 .rstep-cta{
   display:inline-flex; align-items:center; gap:8px;
   padding:10px 22px; border-radius:10px;
-  background:linear-gradient(135deg,var(--blue),#0fb8d4);
-  color:#fff !important; font-size:14px; font-weight:600;
-  box-shadow:0 4px 16px rgba(34,211,238,.4);
+  background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
+  color:#241a06 !important; font-size:14px; font-weight:700;
+  box-shadow:0 1px 0 rgba(255,255,255,.42) inset, 0 5px 18px rgba(224,185,106,.28);
   transition:.26s var(--ease);
 }
-.rstep-cta:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(34,211,238,.55); }
+.rstep-cta:hover{ transform:translateY(-2px); box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 9px 26px rgba(224,185,106,.42); }
 .rstep-cta svg{ width:15px; height:15px; }
 
 @media(max-width:640px){
