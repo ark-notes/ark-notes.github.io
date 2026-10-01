@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目体检指南 · ARK 学习指南</title>
+<meta name="author" content="阿孙">
+<meta name="description" content="10 分钟判断一个区块链项目安不安全。七层检查清单 + 工具速查，全部基于链上公开数据。">
+<link rel="stylesheet" href="assets/style-v2.css?v=39">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav"><a href="index.html">首页</a><a href="path.html">学习路径</a><a href="guest.html">客户版</a><a href="lecturer.html">讲师</a><a href="ark-defi.html">基础概念</a><a href="ark-ai.html">产品</a><a href="ark-safety.html">安全</a><a href="tools.html">查询</a><a href="check-guide.html">体检</a><a href="howto.html">怎么讲</a><a href="videos.html">视频</a></nav>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+<div class="page-head">
+  <span class="eyebrow">实战工具 · 通用</span>
+  <h1>项目体检指南</h1>
+  <p>给你一个项目，10 分钟判断它安不安全。不只查 ARK —— <b>任何区块链项目都能用这套方法</b>。</p>
+</div>
+
+<div class="note"><div class="note-title">核心原则</div>
+<p><b>不听宣传，只看链上。</b><br>
+项目方说的话可以编，写在链上的数据编不了。<br>
+这一页是「体检表」—— 你拿着它，一个项目一个项目地过。</p></div>
+
+<h2>一、基础信息核验（3 分钟）</h2>
+
+<div class="facts">
+<div class="facts-t">先看这五项</div>
+<table>
+<tr><th>#</th><th>查什么</th><th>怎么查</th><th>危险信号</th></tr>
+<tr><td>1</td><td><b>合约地址</b></td><td>官网 / DexScreener 搜代币名</td><td>搜不到、或多个同名</td></tr>
+<tr><td>2</td><td><b>持币地址数</b></td><td>BscScan → Holders</td><td><b>&lt; 1000</b></td></tr>
+<tr><td>3</td><td><b>上线时间</b></td><td>BscScan → 合约创建时间</td><td>刚上线几天</td></tr>
+<tr><td>4</td><td><b>流动性规模</b></td><td>DexScreener / AVE</td><td><b>&lt; 5 万美金</b></td></tr>
+<tr><td>5</td><td><b>交易所收录</b></td><td>CoinMarketCap / CoinGecko</td><td>未收录 → 谨慎</td></tr>
+</table>
+</div>
+
+<h2>二、安全第一关：LP 底池锁了吗</h2>
+
+<div class="talk">
+<p>「<strong>光锁了还不够，要看锁仓比例 —— 有的项目锁 20%、30%，根本没有意义。</strong>」</p>
+<p>「<strong>必须接近 100% 全部上锁，而且最好是黑洞锁（永久）。</strong>」</p>
+</div>
+
+<div class="facts">
+<div class="facts-t">LP 检查表</div>
+<table>
+<tr><th>检查项</th><th>怎么看</th><th>合格</th><th>危险</th></tr>
+<tr><td><b>是否上锁</b></td><td>AVE → 点 LP → 看锁仓</td><td>已锁</td><td><b>未锁 → 随时撤池跑路</b></td></tr>
+<tr><td><b>锁的类型</b></td><td>看是"时间锁"还是"黑洞锁"</td><td><b>黑洞锁（永久）</b></td><td>时间锁 → 到期可取</td></tr>
+<tr><td><b>锁仓比例</b></td><td>看百分比</td><td><b>≥ 95%</b></td><td>锁 20-50% → 没意义</td></tr>
+<tr><td>剩余未锁部分</td><td>看地址</td><td>交易所地址</td><td><b>项目方地址</b></td></tr>
+</table>
+</div>
+
+<div class="note"><div class="note-title">交叉验证（防第三方造假）</div>
+<p>AVE 看到锁仓 → 去 <b>BscScan</b> 验证 → 打开 LP 合约 → Holders → 看是否黑洞地址（<code>0x000...000</code>）。</p></div>
+
+<h2>三、安全第二关：铸币权限丢了吗</h2>
+
+<div class="talk">
+<p>「<strong>铸币权限决定代币的生死命脉。</strong>」</p>
+<p>「如果项目方保留铸币权限：想拿底池的钱 → 敲代码铸币 → 砸到底池换钱；不想玩了 → 增发十亿百亿 → <strong>把底池全部掏空。</strong>」</p>
+</div>
+
+<div class="facts">
+<div class="facts-t">权限检查表</div>
+<table>
+<tr><th>检查项</th><th>怎么查</th><th>合格</th><th>危险</th></tr>
+<tr><td><b>合约是否开源</b></td><td>BscScan → 看有无绿标 Contract</td><td>已开源</td><td>未开源 → 黑箱</td></tr>
+<tr><td><b>铸币权限</b></td><td>Read Contract → 找 owner / minter</td><td><b>0x000...000</b></td><td>项目方地址 → 可无限增发</td></tr>
+<tr><td><b>权限是否丢弃</b></td><td>看有无 renounceOwnership 记录</td><td>已丢弃</td><td>未丢弃</td></tr>
+<tr><td>有没有后门函数</td><td>看 mint / burn 权限</td><td>无人类可控</td><td><b>有人可调用 → 危险</b></td></tr>
+</table>
+</div>
+
+<h3>进阶：查"隐藏条款"（实战方法）</h3>
+
+<div class="talk">
+<p>「<strong>BscScan → 合约代码 → 代码旁边有个小三角符号 → 点开。</strong>」</p>
+<p>「<strong>如果他真的是光明的，为什么不能直接写在明面上？为什么要藏到隐藏条款里？</strong>」</p>
+</div>
+
+<h2>四、安全第三关：国库的钱谁说了算</h2>
+
+<div class="facts">
+<div class="facts-t">国库检查表</div>
+<table>
+<tr><th>检查项</th><th>怎么看</th><th>合格</th><th>危险</th></tr>
+<tr><td><b>有没有国库</b></td><td>白皮书 / 链上地址</td><td>有明确国库地址</td><td>没有 → 钱在项目方口袋</td></tr>
+<tr><td><b>是否多签</b></td><td>Gnosis Safe 查</td><td><b>多签（如 5/9）</b></td><td>单签 → 一个人能拿走</td></tr>
+<tr><td><b>资金流向</b></td><td>BscScan 查地址流水</td><td>公开可查</td><td><b>转进个人钱包</b></td></tr>
+<tr><td><b>治理是否上链</b></td><td>Tally / Snapshot</td><td>有提案、有投票</td><td>无 → 一言堂</td></tr>
+</table>
+</div>
+
+<h2>五、资金盘特征识别</h2>
+
+<h3>两种崩盘信号</h3>
+
+<div class="facts">
+<div class="facts-t">什么时候会崩</div>
+<table>
+<tr><th>信号</th><th>表现</th></tr>
+<tr><td><b>① 赚够了</b></td><td>老板本打算赚 1 亿，结果突然进来 3 亿 → <b>想尽办法赶你走</b>（惯用手法：贼喊捉贼、黑客背锅）</td></tr>
+<tr><td><b>② 赚不够</b></td><td>底池涨到瓶颈、市场不景气 → <b>想尽办法搞活动刺激</b>（开大会 = 追悼会）</td></tr>
+</table>
+</div>
+
+<h3>链上怎么判断</h3>
+
+<div class="talk">
+<p>「如果一个项目<strong>底池长期存在、没有增长，交易量也很小</strong> → 说明<strong>没有换手率</strong>，做不景气。」</p>
+<p>「如果<strong>底池不怎么变化、但交易量持续在变化</strong> → 说明是<strong>真正的换手率</strong>。」</p>
+</div>
+
+<h3>资金盘 vs 真项目</h3>
+
+<div class="facts">
+<div class="facts-t">对照表</div>
+<table>
+<tr><th>维度</th><th>资金盘</th><th>真项目</th></tr>
+<tr><td><b>钱在哪</b></td><td>打给项目方账户</td><td>链上合约</td></tr>
+<tr><td><b>能不能提</b></td><td>提现要"审核"，被驳回</td><td>随时可提</td></tr>
+<tr><td><b>生态</b></td><td>没有 / 只有概念</td><td>有真实产品、能创收</td></tr>
+<tr><td><b>权限</b></td><td>项目方可随时改规则</td><td>写死在合约里</td></tr>
+<tr><td><b>治理</b></td><td>老板一言堂</td><td>社区投票</td></tr>
+</table>
+</div>
+
+<h2>六、识别假"海外项目"</h2>
+
+<div class="talk">
+<p>「<strong>真项目方你在会议现场才见得到，而且上台一定拿着稿子念 —— 你把稿子抽掉问他几个问题，他就露馅了。</strong>」</p>
+<p>「<strong>真正的海外组织，在 YouTube、推特上能看到他们日常正常工作。</strong>」</p>
+</div>
+
+<div class="facts">
+<div class="facts-t">三个验证点</div>
+<table>
+<tr><th>检查项</th><th>怎么查</th><th>假的特征</th></tr>
+<tr><td>创始人是真的人吗</td><td>谷歌 / 推特 / YouTube 搜</td><td><b>只在会议现场出现，下台就找不到</b></td></tr>
+<tr><td>团队有没有日常活动</td><td>YouTube / Twitter</td><td>没有日常更新</td></tr>
+<tr><td>地址是否中心化</td><td>链上查</td><td>钱能被打到个人账户</td></tr>
+</table>
+</div>
+
+<h2>七、输出风控结论</h2>
+
+<div class="facts">
+<div class="facts-t">风险等级</div>
+<table>
+<tr><th>等级</th><th>特征</th></tr>
+<tr><td>🟢 <b>低风险</b></td><td>LP 黑洞锁 ≥95% + 权限已丢弃 + 多签国库 + 有真实产品</td></tr>
+<tr><td>🟡 <b>中风险</b></td><td>部分条件不满足（如时间锁、权限未丢弃但有说明）</td></tr>
+<tr><td>🔴 <b>高风险</b></td><td>未锁仓 / 权限可人为操作 / 国库单签 / 无生态</td></tr>
+</table>
+</div>
+
+<div class="talk">
+<p>「<strong>我不告诉你这个项目好不好 —— 我给你几个地址，你自己去查。</strong>」</p>
+<p>「<strong>链上数据不会骗人。</strong>」</p>
+</div>
+
+<div class="note"><div class="note-title">⚠️ 边界说明</div>
+<p>本页只做<b>链上事实核查</b>，不做投资建议、不预测价格、不判定"项目一定是骗子"。<br>
+链上数据能证明<b>风险</b>，不能证明<b>意图</b>。<b>最终判断由你自己做。</b></p></div>
+
+<h2>八、工具速查（存这一页）</h2>
+
+<div class="facts">
+<div class="facts-t">10 个必备工具</div>
+<table>
+<tr><th>工具</th><th>网址</th><th>用途</th></tr>
+<tr><td><b>AVE</b></td><td>ave.ai</td><td>LP 锁仓、风险扫描</td></tr>
+<tr><td><b>BscScan</b></td><td>bscscan.com</td><td>合约、权限、交易</td></tr>
+<tr><td><b>DexScreener</b></td><td>dexscreener.com</td><td>价格、流动性</td></tr>
+<tr><td><b>Gnosis Safe</b></td><td>app.safe.global</td><td>多签验证</td></tr>
+<tr><td><b>Tally</b></td><td>tally.xyz</td><td>治理提案</td></tr>
+<tr><td><b>DeBank</b></td><td>debank.com</td><td>地址资产、质押</td></tr>
+<tr><td><b>GoPlus</b></td><td>gopluslabs.io</td><td>安全扫描</td></tr>
+<tr><td><b>CertiK</b></td><td>certik.com</td><td>审计报告</td></tr>
+<tr><td><b>RugCheck</b></td><td>rugcheck.xyz</td><td>Solana 项目检查</td></tr>
+<tr><td><b>Honeypot</b></td><td>honeypot.is</td><td>蜜罐检测</td></tr>
+</table>
+</div>
+
+<h2>九、一次完整的「项目体检」（怎么跟客户说）</h2>
+
+<div class="talk">
+<p>「<strong>有人跟我推荐一个项目，我不会说它好或不好 —— 我会说：把你的地址给我，我查一下。</strong>」</p>
+<p>「<strong>然后我打开手机，当着你的面查三样：</strong>」</p>
+<p>「<strong>① 底池锁了没有、锁多少；② 铸币权限丢没丢；③ 国库谁说了算。</strong>」</p>
+<p>「<strong>三样都过关，我才继续听；有一项不过关，我就不看了。</strong>」</p>
+<p>「<strong>你也可以学着查 —— 学会了，以后谁跟你说项目，你都不怕。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处</div>
+<p>七层检查清单 —— 整合自 <b>9/25 午课（卢克劳老师）、9/28 专场2（莲娅老师）、9/26 夜聊（大香蕉老师）、9/24 晨间（分姐）</b></p>
+<p>「我们不怕大家查，反而怕各位不会查。」—— <b>9/28 专场2</b></p>
+<p>「审计只是作为参考，链上的数据才是真理。」—— <b>AM-022 官方课件</b></p>
+</div>
+
+<div class="page-nav">
+  <a href="query-guide.html">← 上一步 链上查询</a>
+  <a href="tools.html">下一步 查询工具 →</a>
+</div>
+
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<p style="margin-top:28px">ARK 学习指南 · 内容整理自 ARK 官方资料库与社群实战课</p>
+<div class="foot-sign">
+  <span class="fs-line"></span>
+  <p class="fs-main">策划 · 整理 <b>阿孙</b></p>
+  <p class="fs-tool">
+    制作工具 <span class="fs-badge">阿奇 AI</span>
+    <span class="fs-sep">·</span>
+    <span class="fs-note fs-note-full">内容整理自 ARK 官方资料与社群实战课</span><span class="fs-note fs-note-sm">整理自社群实战课</span>
+  </p>
+</div>
+</div></footer>
+<script src="assets/app-v3.js?v=39"></script>
+<script src="assets/nav-v2.js?v=39"></script>
+<script src="assets/progress-v2.js?v=39"></script>
+<script src="assets/link-tools.js?v=39"></script>
+<script src="assets/img-zoom.js?v=1"></script>
+</body>
+</html>
