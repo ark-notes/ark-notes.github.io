@@ -1859,5 +1859,57 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 .nav-guest:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 6px 18px rgba(224,185,106,.38); }
 @media(max-width:640px){
   .site-nav a{ font-size:13px; padding:6px 8px; }
-  .nav-guest{ padding:6px 11px; font-size:12.5px; margin-left:4px; }
+  .nav-guest{ padding:6px 11px; font-size:13px; margin-left:4px; }
+}
+
+/* ============ 更新日志时间线 ============ */
+.log-timeline{ margin:24px 0 32px; }
+.log-day{ margin-bottom:34px; }
+.log-date{
+  font-size:15px; font-weight:700; color:var(--gold);
+  letter-spacing:.04em; margin-bottom:16px;
+  padding-left:14px; position:relative;
+}
+.log-date::before{
+  content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
+  width:6px; height:6px; border-radius:50%; background:var(--gold);
+  box-shadow:0 0 10px var(--gold);
+}
+.log-item{
+  display:flex; gap:12px; align-items:flex-start;
+  padding:15px 17px; margin-bottom:11px;
+  border-radius:12px;
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(255,255,255,.07);
+  border-left:3px solid rgba(255,255,255,.14);
+  transition:.24s var(--ease);
+}
+.log-item:hover{ background:rgba(255,255,255,.04); }
+.log-new{ border-left-color:var(--gold); background:linear-gradient(90deg,rgba(224,185,106,.055),transparent); }
+.log-up{ border-left-color:var(--cyan); }
+.log-fix{ border-left-color:#3ecf8e; }
+.log-content{ border-left-color:#7aa8ff; }
+
+.log-tag{
+  flex:none; padding:3px 10px; border-radius:20px;
+  font-size:12px; font-weight:700; white-space:nowrap;
+  background:linear-gradient(135deg,rgba(224,185,106,.9),rgba(207,158,74,.9));
+  color:#241a06;
+}
+.log-tag-up{ background:rgba(34,211,238,.16); color:var(--cyan); border:1px solid rgba(34,211,238,.3); }
+.log-tag-fix{ background:rgba(62,207,142,.14); color:#3ecf8e; border:1px solid rgba(62,207,142,.3); }
+.log-tag-content{ background:rgba(122,168,255,.14); color:#7aa8ff; border:1px solid rgba(122,168,255,.3); }
+
+.log-body{ flex:1; min-width:0; }
+.log-title{ font-size:15.5px; font-weight:700; color:#fff; margin-bottom:5px; line-height:1.5; }
+.log-title a{ color:#fff; text-decoration:none; border-bottom:1px solid rgba(224,185,106,.4); }
+.log-title a:hover{ color:var(--gold); }
+.log-body p{ font-size:14.5px; color:#a8b2c4; line-height:1.8; margin:0; }
+.log-body b{ color:#dfe4ec; }
+
+@media(max-width:520px){
+  .log-item{ padding:13px 14px; gap:9px; }
+  .log-tag{ font-size:11.5px; padding:3px 8px; }
+  .log-title{ font-size:14.5px; }
+  .log-body p{ font-size:13.5px; }
 }
