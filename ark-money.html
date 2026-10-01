@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>钱从哪来 · ARK 学习指南</title>
-<link rel="stylesheet" href="assets/style-v2.css?v=37">
+<link rel="stylesheet" href="assets/style-v2.css?v=38">
 
 </head>
 <body>
@@ -149,6 +149,80 @@
 <p>两个案例 —— <b>9/26 晨间（讲师亲述）</b></p>
 <p>「做时间的朋友，而不是做行情的奴隶。」——<b>9/26 晨间</b></p>
 </div>
+
+<h2>十、提现怎么算（系数 + 涡轮 + 燃烧）</h2>
+
+<div class="note"><div class="note-title">先理清三个机制</div>
+<p><b>燃烧机制</b>：提现时按解锁周期扣费（立即扣 20%，60 天 0%）。<br>
+<b>涡轮机制</b>：提现时系统用你的 USDT 在 PancakeSwap <b>买入等量 ARK</b>，产生买盘。<br>
+<b>系数</b>：决定当天你能变现的比例，<b>每天变化</b>。</p></div>
+
+<h3>第一步：共同的计算步骤（以每天奖励 50 币、60 天释放为例）</h3>
+
+<div class="facts">
+<div class="facts-t">第一步 · 两个必扣项</div>
+<table>
+<tr><th>项目</th><th>算法</th><th>结果</th></tr>
+<tr><td><b>扣贡献值消耗</b></td><td>50 × 20%（买贡献值的币不参与涡轮）</td><td>50 − 10 = <b>剩 40 币</b></td></tr>
+<tr><td><b>涡轮手续费</b></td><td>40 × 2.5%（用 U 买 40 币→再卖出，收 2.5%）</td><td><b>1 币</b></td></tr>
+</table>
+</div>
+
+<h3>第二步：不同系数下，每天能变现多少</h3>
+
+<div class="facts">
+<div class="facts-t">系数对照表 · 净变现数量</div>
+<table>
+<tr><th>系数</th><th>可卖数量</th><th>涡轮手续费</th><th>最终卖出手续费</th><th>净变现</th></tr>
+<tr><td><b>0.5</b></td><td>40×0.5 = 20</td><td>1</td><td>20×2.5% = 0.5</td><td><b>18.5 币</b></td></tr>
+<tr><td><b>0.6</b></td><td>40×0.6 = 24</td><td>1</td><td>24×2.5% = 0.6</td><td><b>22.4 币</b></td></tr>
+<tr><td><b>0.7</b></td><td>40×0.7 = 28</td><td>1</td><td>28×2.5% = 0.7</td><td><b>26.3 币</b></td></tr>
+</table>
+</div>
+
+<div class="talk">
+<p>「<strong>系数每天会变化，有高也有低。看到某些天系数低，没有必要放大成长期结果。</strong>」</p>
+<p>「<strong>如果当日系数低于 0.5，就可以理解成一种"不建议卖出变现"的信号，可以暂缓变现；对长期主义者来说，可适当延迟满足，选择高系数变现的时机。</strong>」</p>
+<p>「<strong>要庆幸有系数机制 —— 如果没有，假设遇到假期市场疲软、币价大波动，又是什么景象呢？</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处</div>
+<p>系数机制源自 <b>第 11 号提案「延迟奖励模型」</b>（S5 以上按业绩正负数延迟，系数 50/60/70/80，级别越高系数越高）——<b>9/26 夜聊 讲师逐条讲提案</b></p>
+<p>「这个涡轮系数，就像水库大坝的阀门 —— 水不足就关，水充足就开，通过系数来调整，稳定币价。」——<b>9/27 晨间</b></p>
+<p>「以前打造共识全靠喊口号，现在不需要了 —— <b>用机制来达成共识</b>。」——<b>9/27 晨间</b></p>
+</div>
+
+<h2>十一、社区补贴（覆盖日常开销）</h2>
+
+<div class="facts">
+<div class="facts-t">社区运营补贴明细（讲师实测数据）</div>
+<table>
+<tr><th>频率</th><th>补贴类型</th><th>参考额度</th></tr>
+<tr><td><b>每天</b></td><td>餐补 + 新增业绩 3% 相关补贴</td><td>做 10 万/月 → <b>3000~9000U</b></td></tr>
+<tr><td><b>每周</b></td><td>沙龙会议补贴</td><td>—</td></tr>
+<tr><td><b>每月</b></td><td>办公室补贴（工作室最高 10 万业绩封顶 2000U）</td><td><b>2000U</b></td></tr>
+<tr><td><b>活动</b></td><td>招商会（业绩达标 6 万拿 2000 + 基础补贴 1000）</td><td><b>~3000U</b></td></tr>
+<tr><td><b>活动</b></td><td>实战营（需筛选、交押金）</td><td><b>~2300U</b></td></tr>
+</table>
+<p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">讲师算账：工作室 2000 + 餐补 4000 + 招商会 2000 + 实战营 2000 = <b>月做 10 万业绩，保底补贴约 1 万 U</b>。</p>
+</div>
+
+<div class="talk">
+<p>「<strong>正常开展社区工作的伙伴，除了奖励，其实还有各种补贴。</strong>」</p>
+<p>「<strong>只要是正常运作社区，这些补贴基本覆盖开销，甚至有盈余都是没有问题的。</strong>」</p>
+<p>「<strong>如果你还没拿过啥补贴，也许不是你不努力，是你规则没有搞透 —— 建议抓紧把补贴规则吃透。</strong>」</p>
+</div>
+
+<div class="src">
+<div class="src-t">出处</div>
+<p>社区补贴明细 —— <b>9/28 专场3（讲师逐项测算，含餐补考核规则）</b></p>
+<p>「工作室每间都要是活跃工作室，用机制去调控；不符合资格的月底取消权益。」——<b>9/28 专场3</b></p>
+</div>
+
+<div class="note"><div class="note-title">⚠️ 数字表述提醒</div>
+<p>以上补贴额度来自<b>讲师课程中的测算口径</b>，实际以官方当期政策为准。<br>
+讲解时建议表述为<b>「按政策测算」</b>，不要当作固定承诺。</p></div>
 
 <h2>九、一次完整的「钱从哪来」（1 分钟版）</h2>
 
