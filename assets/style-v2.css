@@ -1425,3 +1425,86 @@ body{ padding-bottom: 0; }
   background:linear-gradient(135deg,rgba(34,211,238,.9),rgba(15,184,212,.9));
   color:#02191f;
 }
+
+/* ============================================================
+   图片灯箱（预览 + 下载）
+   ============================================================ */
+img.zoomable{
+  cursor:zoom-in;
+  transition:transform .28s var(--ease), box-shadow .28s var(--ease);
+}
+img.zoomable:hover{
+  transform:scale(1.012);
+  box-shadow:0 12px 38px rgba(0,0,0,.5);
+}
+
+.lbox{
+  position:fixed; inset:0; z-index:9999;
+  display:flex; flex-direction:column;
+  background:rgba(4,5,10,.96);
+  backdrop-filter:blur(14px);
+  opacity:0; visibility:hidden;
+  transition:opacity .26s var(--ease), visibility .26s;
+}
+.lbox.on{ opacity:1; visibility:visible; }
+
+.lbox-top{
+  flex:none; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:14px 18px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.lbox-count{ font-size:13px; color:#8e9aae; font-variant-numeric:tabular-nums; }
+.lbox-acts{ display:flex; gap:9px; margin-left:auto; }
+.lbox-btn{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 16px; border-radius:9px;
+  font-size:13.5px; font-weight:600; font-family:inherit;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05); color:#cdd3dd;
+  cursor:pointer; text-decoration:none; transition:.22s var(--ease);
+}
+.lbox-btn svg{ width:15px; height:15px; }
+.lbox-btn:hover{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.28); color:#fff; }
+.lbox-dl{
+  background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
+  border-color:transparent; color:#241a06 !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 4px 14px rgba(224,185,106,.3);
+}
+.lbox-dl:hover{ background:linear-gradient(180deg,#f7e0ad,#eecd87 42%,#d8a955); color:#1a1203 !important; }
+
+.lbox-stage{
+  flex:1; display:flex; align-items:center; justify-content:center;
+  gap:10px; padding:18px; min-height:0; position:relative;
+}
+.lbox-img{
+  max-width:100%; max-height:100%;
+  object-fit:contain; border-radius:8px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  background:#0a0c14;
+}
+.lbox-nav{
+  flex:none; width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+  color:#cdd3dd; cursor:pointer; transition:.22s var(--ease);
+}
+.lbox-nav svg{ width:20px; height:20px; }
+.lbox-nav:hover{ background:rgba(34,211,238,.16); border-color:rgba(34,211,238,.5); color:var(--cyan); }
+
+.lbox-cap{
+  flex:none; text-align:center; padding:0 20px 10px;
+  font-size:13.5px; color:#8e9aae; line-height:1.7;
+}
+.lbox-hint{
+  flex:none; text-align:center; padding:0 20px 18px;
+  font-size:11.5px; color:#4a5468;
+}
+@media(max-width:640px){
+  .lbox-top{ padding:11px 13px; }
+  .lbox-btn{ padding:8px 13px; font-size:12.5px; }
+  .lbox-btn svg{ width:14px; height:14px; }
+  .lbox-stage{ padding:10px; gap:6px; }
+  .lbox-nav{ width:38px; height:38px; }
+  .lbox-nav svg{ width:17px; height:17px; }
+  .lbox-hint{ display:none; }
+}
