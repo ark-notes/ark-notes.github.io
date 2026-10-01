@@ -1385,3 +1385,17 @@ body{ padding-bottom: 0; }
 .fs-sub{
   font-size:12.5px; color:#5a6478; margin:0;
 }
+
+/* 署名里的工具徽章 */
+.fs-tool{
+  font-size:13.5px; color:#8e9aae; margin:0 0 8px;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.fs-badge{
+  display:inline-flex; align-items:center;
+  padding:3px 11px; border-radius:20px;
+  background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(224,185,106,.1));
+  border:1px solid rgba(34,211,238,.3);
+  color:var(--cyan); font-weight:700; font-size:12.5px;
+  letter-spacing:.02em;
+}
