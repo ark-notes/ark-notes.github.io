@@ -1281,3 +1281,27 @@ body{ padding-bottom: 0; }
   .callout-warn{ padding:13px 13px; font-size:14.5px; }
   .wrap h3{ font-size:15.5px; margin:22px 0 10px; }
 }
+
+/* ============ 网站定位（一句话门面） ============ */
+.site-def{
+  margin:0 0 34px;
+  padding:18px 20px;
+  background:linear-gradient(180deg, rgba(34,211,238,.06), rgba(34,211,238,.015));
+  border:1px solid rgba(34,211,238,.2);
+  border-radius:14px;
+  position:relative;
+}
+.site-def-tag{
+  display:inline-block;
+  font-size:11.5px; font-weight:700; letter-spacing:.1em;
+  color:var(--cyan); text-transform:uppercase;
+  margin-bottom:9px;
+}
+.site-def-text{
+  font-size:16.5px; line-height:1.85; color:#dfe4ec; margin:0;
+}
+.site-def-text b{ color:#fff; font-weight:700; }
+@media(max-width:520px){
+  .site-def{ padding:15px 16px; margin-bottom:26px; }
+  .site-def-text{ font-size:15.5px; line-height:1.8; }
+}
