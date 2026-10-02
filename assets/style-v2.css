@@ -593,7 +593,7 @@ tbody tr:hover td{background:rgba(34,211,238,.035)}
   position:fixed; left:0; right:0; bottom:0; z-index:600;   /* 高于悬浮球(500) */
   display:flex; align-items:center; justify-content:space-between; gap:16px;
   padding:14px 24px;
-  background:rgba(8,10,18,.97);    /* 不透明底（避免合成层残留） */
+  background:#080a12;    /* 全不透明（杜绝透字） */
   border-top:1px solid rgba(34,211,238,.25);
   box-shadow:0 -8px 32px rgba(0,0,0,.5);
   transform:translateY(110%);
@@ -2355,3 +2355,14 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 /* 悬浮球避让底部条（有底部条时上移） */
 body.has-bottombar .arkie-fab{ bottom:110px !important; }
 body.has-bottombar .af-top-btn{ bottom:170px !important; }
+
+
+/* ============ 顶部进度条与导航分隔 ============ */
+.wb-wrap, .wb-card{
+  margin-bottom:20px !important;
+  position:relative;
+  z-index:1;
+}
+/* 顶部导航下方留白 */
+.site-header + main .page-head,
+.site-header + main .hero{ padding-top:16px; }
