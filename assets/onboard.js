@@ -35,6 +35,7 @@
   ];
 
   var idx = -1, currentStep = -1, manualStart = false;
+  var touchedEls = [];   // 记录被改过样式的元素
   var mask, hole, card;
   var guard;   // 阻止非目标区域点击
 
@@ -84,6 +85,16 @@
   }
 
   function destroy(){
+    // ⓪ 恢复被改过样式的元素（关键！否则 z-index 残留会盖住其他元素）
+    touchedEls.forEach(function(t){
+      try{
+        t.el.style.zIndex = t.z || '';
+        t.el.style.position = t.pos || '';
+        delete t.el.__tourBound;
+      }catch(e){}
+    });
+    touchedEls = [];
+
     // ① 先禁用过渡，避免离场动画留残影
     [mask,hole,card].forEach(function(e){
       if(!e) return;
@@ -228,6 +239,8 @@
   function bindTarget(el, s){
     if(el.__tourBound) return;
     el.__tourBound = true;
+    // 记录原值（结束后恢复，避免 z-index 残留盖住其他元素）
+    touchedEls.push({el:el, z:el.style.zIndex||'', pos:el.style.position||''});
     el.style.position = el.style.position || 'relative';
     el.style.zIndex = '9968';    // 高于遮罩(9960)、低于卡片(9975)
     el.addEventListener('click', function(ev){
