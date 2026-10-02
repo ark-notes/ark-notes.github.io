@@ -1274,6 +1274,38 @@ body{ padding-bottom: 0; }
 .facts td{ padding:12px 10px 12px 0; border-bottom:1px solid rgba(255,255,255,.05); color:#cdd3dd; line-height:1.75; vertical-align:top; }
 .facts tr:last-child td{ border-bottom:none; }
 .facts td:first-child{ color:#fff; font-weight:600; white-space:nowrap; }
+
+/* 表格防溢出：宽表格在小屏可横向滚动，不撑破页面 */
+.facts{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.facts table{ min-width:0; }
+/* 小屏：表格改为「卡片式」，避免横向溢出 */
+@media(max-width:640px){
+  .facts{ padding:14px 12px; }
+  .facts table{ font-size:14px; width:100%; }
+  .facts tr{
+    display:block; padding:11px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .facts tr:last-child{ border-bottom:none; }
+  .facts tr:first-child{ display:none; }      /* 隐去表头行 */
+  .facts td{
+    display:block; padding:3px 0 !important;
+    border-bottom:none !important; line-height:1.75;
+  }
+  .facts td:first-child{
+    white-space:normal; color:var(--cyan);
+    font-size:13px; font-weight:700; margin-bottom:2px;
+  }
+  .facts td:not(:first-child){ color:var(--text-2); }
+}
+
+/* 长字符串（哈希/地址）永不撑破容器 */
+code, .a-val, .src code{
+  overflow-wrap:anywhere; word-break:break-all;
+}
+.ni-sum code, .ni-more code, .facts code, .content code{
+  display:inline; max-width:100%;
+}
 .facts b{ color:var(--cyan); font-weight:700; }
 @media(max-width:520px){
   .facts{ padding:14px 14px; }
@@ -2856,4 +2888,12 @@ body.has-bottombar .site-footer{
   .rm-head{ padding:14px 16px; }
   .rm-m{ font-size:15px; }
   .rec-month .rec-wrap{ padding:10px; }
+}
+
+/* 哈希/地址专用：允许任意位置换行 */
+code.hash{
+  display:inline-block; max-width:100%;
+  word-break:break-all; overflow-wrap:anywhere;
+  font-size:.92em; line-height:1.7;
+  vertical-align:middle;
 }
