@@ -202,6 +202,16 @@ body{
   cursor:pointer; transition:.2s;
 }
 .cb-copy:hover{ transform:translateY(-1px); }
+.cb-acts{ display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+.cb-call{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 18px; border-radius:10px;
+  background:rgba(34,211,238,.1);
+  border:1px solid rgba(34,211,238,.34);
+  color:#22d3ee; font-size:14px; font-weight:700;
+  text-decoration:none; transition:.2s;
+}
+.cb-call:hover{ background:rgba(34,211,238,.2); border-color:rgba(34,211,238,.6); }
 .cb-hint{ font-size:13px; color:#5a6478; margin-top:12px; }
 </style>
 <link rel="stylesheet" href="assets/style-v2.css?v=57">
@@ -365,9 +375,12 @@ body{
     <div class="cb-t">加我微信</div>
     <div class="cb-id">
       <span class="cb-num">13592659843</span>
-      <button class="cb-copy" type="button" data-copy="13592659843">复制</button>
     </div>
-    <div class="cb-hint">长按复制 · 或截图保存</div>
+    <div class="cb-acts">
+      <button class="cb-copy" type="button" data-copy="13592659843">复制号码</button>
+      <a class="cb-call" href="tel:13592659843">拨打电话</a>
+    </div>
+    <div class="cb-hint">微信号同手机号 · 长按可复制</div>
   </div>
 
   <a class="cta cta-2" href="tools.html" style="margin-top:20px">我想自己查查看 →</a>
