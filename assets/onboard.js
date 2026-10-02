@@ -164,22 +164,28 @@
     if(hole) hole.style.display='none';
     if(card) card.style.display='none';
 
-    // 用「绝对滚动」直达目标（避免 scroll-behavior:smooth 干扰）
-    var targetY = window.scrollY + el.getBoundingClientRect().top
-                  - (window.innerHeight / 2) + (el.getBoundingClientRect().height / 2);
-    targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
+    /* 只在目标真的不在视口里才滚动。
+       目标本来就在首屏可见时不动 —— 避免把页面推走导致错位。 */
+    var r0 = el.getBoundingClientRect();
+    var SAFE_TOP = 80, SAFE_BOTTOM = window.innerHeight - 120;
+    var needScroll = (r0.top < SAFE_TOP) || (r0.bottom > SAFE_BOTTOM);
 
-    var prevBehavior = document.documentElement.style.scrollBehavior;
-    document.documentElement.style.scrollBehavior = 'auto';   // 临时禁用平滑
-    window.scrollTo(0, targetY);
-    document.documentElement.style.scrollBehavior = prevBehavior;
+    if(needScroll){
+      var targetY = window.scrollY + r0.top
+                    - (window.innerHeight / 2) + (r0.height / 2);
+      targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
+      var prevBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';   // 临时禁用平滑
+      window.scrollTo(0, targetY);
+      document.documentElement.style.scrollBehavior = prevBehavior;
+    }
 
     // 等一帧，确保滚动与布局完成
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
         // 再校正一次（元素可能因图片加载位移）
         var r2 = el.getBoundingClientRect();
-        if(r2.top < 70 || r2.bottom > window.innerHeight - 90){
+        if(r2.top < SAFE_TOP || r2.bottom > SAFE_BOTTOM){
           var abs2 = window.scrollY + r2.top - (window.innerHeight/2) + (r2.height/2);
           window.scrollTo(0, Math.max(0, Math.min(abs2, document.body.scrollHeight - window.innerHeight)));
         }
@@ -191,22 +197,43 @@
   }
 
   /* ---------- 定位（挖洞 + 箭头 + 卡片） ---------- */
+  /* 四块围出矩形洞：
+     top / bottom 负责上下（满宽）
+     left / right 只负责「洞那一行」的左右，因此高度必须等于洞高，
+     且上下边界要与 top 的底、bottom 的顶严丝合缝（否则出现漏光横带）。 */
   function setBox(top, left, w, h){
-    var pad = 6;
-    mask.querySelector('.tm-top').style.cssText = 'top:0;left:0;right:0;height:'+Math.max(0,top-pad)+'px';
-    mask.querySelector('.tm-bottom').style.cssText = 'top:'+(top+h+pad)+'px;left:0;right:0;bottom:0';
-    mask.querySelector('.tm-left').style.cssText = 'top:'+Math.max(0,top-pad)+'px;left:0;width:'+Math.max(0,left-pad)+'px;height:'+(h+pad*2)+'px';
-    mask.querySelector('.tm-right').style.cssText = 'top:'+Math.max(0,top-pad)+'px;left:'+(left+w+pad)+'px;right:0;height:'+(h+pad*2)+'px';
+    var bt = Math.max(0, top);                 // 洞的上边
+    var bb = Math.max(bt, top + h);            // 洞的下边
+    var bl = Math.max(0, left);                // 洞的左边
+    var br = Math.max(bl, left + w);           // 洞的右边
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+
+    bt = Math.min(bt, vh);
+    bb = Math.min(bb, vh);
+    bl = Math.min(bl, vw);
+    br = Math.min(br, vw);
+
+    var midH = bb - bt;                        // 中间行高度（左右块共用）
+
+    mask.querySelector('.tm-top').style.cssText    = 'top:0;left:0;right:0;height:'+bt+'px';
+    mask.querySelector('.tm-bottom').style.cssText = 'top:'+bb+'px;left:0;right:0;bottom:0';
+    mask.querySelector('.tm-left').style.cssText   = 'top:'+bt+'px;left:0;width:'+bl+'px;height:'+midH+'px';
+    mask.querySelector('.tm-right').style.cssText  = 'top:'+bt+'px;left:'+br+'px;right:0;height:'+midH+'px';
   }
 
   function place(el, s){
     if(!el || !mask || !hole || !card) return;
     var r = el.getBoundingClientRect();
     var pad = 6;
-    var top = Math.max(0, r.top - pad);
-    var left = r.left - pad;
-    var w = r.width + pad*2;
-    var h = r.height + pad*2;
+    // 洞的边界（与 setBox 用同一套变量，保证严丝合缝）
+    var top  = Math.max(0, Math.round(r.top  - pad));
+    var left = Math.round(r.left - pad);
+    var w    = Math.round(r.width  + pad*2);
+    var h    = Math.round(r.height + pad*2);
+    // 左右不能戳出视口
+    if(left < 0){ w += left; left = 0; }
+    if(left + w > window.innerWidth){ w = window.innerWidth - left; }
 
     // 挖洞
     mask.style.display='block';
@@ -216,24 +243,40 @@
     hole.style.width = w+'px'; hole.style.height = h+'px';
 
 
-    // 卡片：改为底部固定面板（不覆盖高亮区）
+    /* 卡片：跟随目标就近摆放（上/下），不再永远钉在屏幕底部。
+       只当上下都放不下时，才退回底部固定面板。 */
     renderCard(s, false);
     var cw = Math.min(window.innerWidth - 24, 420);
-    card.className='tour-card tour-bottom';
-    card.style.display='';
-    card.style.width = cw+'px';
+    card.style.display = '';
+    card.style.width = cw + 'px';
     card.style.left = '50%';
     card.style.transform = 'translateX(-50%)';
-    card.style.top = 'auto';
     document.body.style.overflow='hidden';
+
+    var ch = card.offsetHeight || 190;
+    var GAP = 18;                       // 卡片与洞之间的间距
+    var holeBottom = top + h;
+    var spaceBelow = window.innerHeight - holeBottom - GAP;
+    var spaceAbove = top - GAP;
+
+    if(spaceBelow >= ch){
+      // 洞下方放得下 → 放下面
+      card.className = 'tour-card tour-bottom';
+      card.style.top = (holeBottom + GAP) + 'px';
+      card.style.bottom = 'auto';
+    } else if(spaceAbove >= ch){
+      // 洞上方放得下 → 放上面
+      card.className = 'tour-card';
+      card.style.top = (top - ch - GAP) + 'px';
+    } else {
+      // 上下都放不下 → 退回底部固定（小屏兼容）
+      card.className = 'tour-card tour-bottom tour-pinned';
+      card.style.top = 'auto';
+      card.style.bottom = '14px';
+    }
+
     bindTarget(el, s);
     return;
-
-    var spaceR = window.innerWidth - (left+w) - 12;
-    var spaceL = left - 12;
-    var spaceB = window.innerHeight - (top+h) - 12;
-    var ch = card.offsetHeight || 190;
-
   }
 
   function bindTarget(el, s){
@@ -300,7 +343,17 @@
     show(i||0);
   }
 
-  window.addEventListener('resize', function(){ if(idx>=0 && FLOW[idx] && FLOW[idx].sel){ var el=document.querySelector(FLOW[idx].sel.split(',')[0].trim()); if(el) place(el, FLOW[idx]); } });
+  /* 窗口变化 / 图片加载导致位移时，让洞与卡片跟着走（防错位） */
+  function refresh(){
+    if(idx < 0 || !FLOW[idx]) return;
+    var sel = FLOW[idx].sel;
+    if(!sel) return;
+    var el = document.querySelector(sel.split(',')[0].trim());
+    if(el) place(el, FLOW[idx]);
+  }
+  window.addEventListener('resize', refresh);
+  window.addEventListener('orientationchange', function(){ setTimeout(refresh, 260); });
+  window.addEventListener('load', function(){ setTimeout(refresh, 220); });
 
   function init(){
     addEntry();
