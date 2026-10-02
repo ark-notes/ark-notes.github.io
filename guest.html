@@ -181,8 +181,30 @@ body{
 }
 .scroll-next span{ display:inline-block; font-size:15px; }
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+.contact-box{
+  margin:26px 0 0; padding:22px 20px;
+  border-radius:16px; text-align:center;
+  background:linear-gradient(135deg, rgba(224,185,106,.09), rgba(34,211,238,.04));
+  border:1px solid rgba(224,185,106,.3);
+}
+.cb-t{ font-size:14px; color:#8e9aae; margin-bottom:12px; letter-spacing:.04em; }
+.cb-id{ display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+.cb-num{
+  font-size:27px; font-weight:800; color:#e0b96a;
+  letter-spacing:.06em; font-variant-numeric:tabular-nums;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.cb-copy{
+  padding:9px 18px; border-radius:10px;
+  background:linear-gradient(180deg,#f0d597,#e8c37a 42%,#cf9e4a);
+  border:none; color:#241a06; font-size:14px; font-weight:700; font-family:inherit;
+  cursor:pointer; transition:.2s;
+}
+.cb-copy:hover{ transform:translateY(-1px); }
+.cb-hint{ font-size:13px; color:#5a6478; margin-top:12px; }
 </style>
-<link rel="stylesheet" href="assets/style-v2.css?v=56">
+<link rel="stylesheet" href="assets/style-v2.css?v=57">
 </head>
 <body>
 
@@ -331,17 +353,41 @@ body{
 </section>
 
 <!-- 屏7：怎么开始 -->
-<section class="screen"><div class="wrap">
+<section class="screen" id="contact"><div class="wrap">
   <div class="q" style="text-align:center">想了解的话</div>
   <p class="big" style="text-align:center">
     我把资料发你，你慢慢看。<br>
     有不懂的随时问我。<br><br>
     <b>就算最后你不做，<br>多了解一个新东西也不亏。</b>
   </p>
-  <a class="cta" href="#contact">我想了解 →</a>
-  <a class="cta cta-2" href="tools.html">我想自己查查看 →</a>
+
+  <div class="contact-box">
+    <div class="cb-t">加我微信</div>
+    <div class="cb-id">
+      <span class="cb-num">13592659843</span>
+      <button class="cb-copy" type="button" data-copy="13592659843">复制</button>
+    </div>
+    <div class="cb-hint">长按复制 · 或截图保存</div>
+  </div>
+
+  <a class="cta cta-2" href="tools.html" style="margin-top:20px">我想自己查查看 →</a>
 </div><div class="scroll-next">继续下滑 <span>↓</span></div>
 </section>
+
+<script>
+(function(){
+  var btn=document.querySelector('.cb-copy');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    var v=btn.getAttribute('data-copy');
+    var done=function(){ btn.textContent='✓ 已复制'; setTimeout(function(){btn.textContent='复制';},1600); };
+    if(navigator.clipboard){ navigator.clipboard.writeText(v).then(done).catch(function(){
+      var t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}
+      document.body.removeChild(t);done();}); }
+    else { var t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done(); }
+  });
+})();
+</script>
 
 <script>
 (function(){
@@ -370,6 +416,6 @@ body{
 <script src="assets/link-tools.js?v=13"></script>
 <script src="assets/img-zoom.js?v=1"></script>
 <script src="assets/prefetch.js?v=1"></script>
-<script src="assets/onboard.js?v=11"></script>
+<script src="assets/onboard.js?v=12"></script>
 </body>
 </html>
