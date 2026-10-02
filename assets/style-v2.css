@@ -2897,3 +2897,134 @@ code.hash{
   font-size:.92em; line-height:1.7;
   vertical-align:middle;
 }
+
+/* ============================================================
+   术语注释系统 v1（2026-10-03）
+   ------------------------------------------------------------
+   设计依据：WCAG 1.4.13（可关闭/可悬停/持续显示）
+   颜色规则：
+     青色 = 能点，会跳转（链接、按钮、地址）
+     金色 = 能点，会展开（术语解释）
+     白/灰 = 只是文字
+   ============================================================ */
+
+/* 顶部提示条 —— 主动告诉用户"这里能点" */
+.term-hint{
+  display:flex; align-items:flex-start; gap:11px;
+  background:linear-gradient(100deg,rgba(224,185,106,.13),rgba(224,185,106,.03));
+  border:1px solid rgba(224,185,106,.34);
+  border-radius:13px; padding:14px 18px;
+  margin:0 0 30px; font-size:14.5px; line-height:1.75;
+  color:var(--gold-2);
+}
+.term-hint svg{ flex:none; width:19px; height:19px; margin-top:1px; }
+.term-hint b{ color:var(--gold); font-weight:700; }
+
+/* 术语本体：金色 + 虚线 + 问号圆点 */
+.term{
+  position:relative;
+  color:var(--gold);
+  font-weight:600;
+  background:rgba(224,185,106,.09);
+  border-bottom:1.5px dashed rgba(224,185,106,.55);
+  padding:1px 5px 1px 4px;
+  border-radius:5px 5px 0 0;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:.2s var(--ease);
+  -webkit-tap-highlight-color:transparent;
+}
+.term:hover,
+.term.open{
+  background:rgba(224,185,106,.2);
+  border-bottom-style:solid;
+  border-bottom-color:var(--gold);
+}
+/* 问号圆圈 —— 明确"这里能点" */
+.term::after{
+  content:"?"; display:inline-flex;
+  align-items:center; justify-content:center;
+  width:14px; height:14px;
+  margin-left:3px; vertical-align:1px;
+  font-size:9.5px; font-weight:800;
+  font-family:system-ui,-apple-system,sans-serif;
+  line-height:1;
+  color:#0c0e17;
+  background:var(--gold);
+  border-radius:50%;
+  transition:.2s var(--ease);
+}
+.term:hover::after,
+.term.open::after{ transform:scale(1.18); background:var(--gold-2); }
+
+/* 弹出层 */
+.term-pop{
+  position:absolute; left:0; top:calc(100% + 10px);
+  min-width:290px; max-width:min(360px,88vw);
+  background:#141621;
+  border:1.5px solid rgba(224,185,106,.45);
+  border-radius:14px;
+  padding:16px 18px;
+  font-size:14.5px; line-height:1.8;
+  color:var(--text-2);
+  box-shadow:0 22px 54px rgba(0,0,0,.85);
+  opacity:0; visibility:hidden;
+  transform:translateY(-7px);
+  transition:.22s var(--ease);
+  z-index:9970;
+  font-weight:400; white-space:normal;
+  text-align:left; cursor:default;
+}
+.term:hover .term-pop,
+.term.open .term-pop{
+  opacity:1; visibility:visible; transform:translateY(0);
+}
+/* 朝向修正（靠右时向左弹） */
+.term.flip .term-pop{ left:auto; right:0; }
+
+.tp-head{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; margin-bottom:10px; padding-bottom:9px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.tp-head b{ color:var(--gold); font-size:15px; font-weight:700; }
+.tp-x{
+  flex:none; width:22px; height:22px; border-radius:50%;
+  background:rgba(255,255,255,.07); border:none;
+  color:var(--text-3); font-size:12px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:.2s; font-family:inherit;
+}
+.tp-x:hover{ background:rgba(255,255,255,.16); color:var(--text); }
+.term-pop p{ margin:0 0 10px; font-size:14px; line-height:1.8; color:var(--text-2); }
+.term-pop p:last-child{ margin-bottom:0; }
+.term-pop .eg{
+  color:var(--gold-2);
+  background:rgba(224,185,106,.09);
+  border-left:3px solid var(--gold-line);
+  border-radius:0 9px 9px 0;
+  padding:10px 13px; font-size:13.5px; line-height:1.8;
+}
+.term-pop .eg::before{
+  content:"打个比方"; display:block;
+  color:var(--gold); font-weight:700;
+  font-size:11.5px; letter-spacing:.08em;
+  margin-bottom:5px;
+}
+
+@media(max-width:640px){
+  /* 手机端：底部弹层，限高 + 可滚动，保证完整可见 */
+  .term-pop{
+    position:fixed; left:12px !important; right:12px !important;
+    top:auto !important; bottom:12px !important;
+    min-width:0; max-width:none;
+    max-height:min(62vh,440px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    transform:translateY(10px);
+  }
+  .term:hover .term-pop,
+  .term.open .term-pop{ transform:translateY(0); }
+  .term-hint{ font-size:13.5px; padding:12px 14px; }
+  .term-pop .eg{ font-size:13px; }
+}
