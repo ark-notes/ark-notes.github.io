@@ -224,55 +224,120 @@
 
   function place(el, s){
     if(!el || !mask || !hole || !card) return;
-    var r = el.getBoundingClientRect();
-    var pad = 6;
-    // 洞的边界（与 setBox 用同一套变量，保证严丝合缝）
-    var top  = Math.max(0, Math.round(r.top  - pad));
-    var left = Math.round(r.left - pad);
-    var w    = Math.round(r.width  + pad*2);
-    var h    = Math.round(r.height + pad*2);
-    // 左右不能戳出视口
-    if(left < 0){ w += left; left = 0; }
-    if(left + w > window.innerWidth){ w = window.innerWidth - left; }
 
-    // 挖洞
-    mask.style.display='block';
-    setBox(top, left, w, h);
-    hole.style.display='';
-    hole.style.left = left+'px'; hole.style.top = top+'px';
-    hole.style.width = w+'px'; hole.style.height = h+'px';
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var GAP = 16;                                  // 高亮区与卡片之间的间距
+    var PAD = 6;                                   // 高亮区外扩
 
+    /* 顶栏底部：卡片不能盖住顶栏 */
+    var hdrEl = document.querySelector('.site-header');
+    var HDR = hdrEl ? Math.round(hdrEl.getBoundingClientRect().bottom) + 8 : 72;
 
-    /* 卡片：跟随目标就近摆放（上/下），不再永远钉在屏幕底部。
-       只当上下都放不下时，才退回底部固定面板。 */
+    /* ---------- 第一步：先把卡片渲染出来，量它的真实高度 ---------- */
     renderCard(s, false);
-    var cw = Math.min(window.innerWidth - 24, 420);
+    var cw = Math.min(vw - 24, 420);
     card.style.display = '';
     card.style.width = cw + 'px';
     card.style.left = '50%';
     card.style.transform = 'translateX(-50%)';
-    document.body.style.overflow='hidden';
+    card.style.top = '0px';
+    card.style.bottom = 'auto';
+    card.style.maxHeight = 'none';
+    card.style.height = 'auto';
+    var bodyEl = card.querySelector('.tour-body');
+    if(bodyEl) bodyEl.style.maxHeight = 'none';    // 先放开，量完整高度
 
-    var ch = card.offsetHeight || 190;
-    var GAP = 18;                       // 卡片与洞之间的间距
+    /* 卡片最多能占多高：屏幕 - 顶栏 - 上间距 - 下间距 */
+    var cardMax = Math.max(140, vh - HDR - GAP - 16);
+    var cardH  = card.offsetHeight;
+    var cardClipped = false;
+    if(cardH > cardMax){
+      cardH = cardMax;
+      card.style.maxHeight = cardMax + 'px';
+      card.style.height = cardMax + 'px';
+      card.style.overflowY = 'hidden';
+      /* 正文区滚动，操作按钮固定可见 */
+      if(bodyEl) bodyEl.style.maxHeight = Math.max(48, cardMax - 104) + 'px';
+      cardClipped = true;
+    }
+    document.body.style.overflow = 'hidden';
+
+    /* ---------- 第二步：算出高亮区能占多高 ---------- */
+    var r = el.getBoundingClientRect();
+    var top  = Math.max(0, Math.round(r.top  - PAD));
+    var left = Math.round(r.left - PAD);
+    var w    = Math.round(r.width  + PAD*2);
+    var h    = Math.round(r.height + PAD*2);
+    if(left < 0){ w += left; left = 0; }
+    if(left + w > vw){ w = vw - left; }
+
+    /* 高亮区 + 卡片（+ 间距）必须放得进屏幕。
+       关键：这里要按「自然位置」算，并保证 top + h + GAP + cardH <= vh。
+       若放不下，优先压缩高亮区。 */
+    var maxHole = vh - top - GAP - cardH - 8;     // 以当前 top 为基准算可用高度
+    maxHole = Math.max(72, maxHole);
+    if(h > maxHole) h = maxHole;
+    /* 若仍越界（top 太靠下），把 top 往上提 */
+    while(top + h + GAP + cardH > vh - 8 && top > HDR){
+      top = Math.max(HDR, top - 8);
+    }
+    /* 提到顶还是放不下 → 继续压高亮区 */
+    if(top + h + GAP + cardH > vh - 8){
+      h = Math.max(64, vh - 8 - GAP - cardH - top);
+    }
+
+    /* 高亮区不能越出屏幕底部 */
+    if(top + h > vh - 4) top = Math.max(HDR, vh - 4 - h);
+
+    // 挖洞
+    mask.style.display = 'block';
+    setBox(top, left, w, h);
+    hole.style.display = '';
+    hole.style.left = left + 'px'; hole.style.top = top + 'px';
+    hole.style.width = w + 'px'; hole.style.height = h + 'px';
+
+    /* ---------- 第三步：决定卡片放上还是放下 ---------- */
     var holeBottom = top + h;
-    var spaceBelow = window.innerHeight - holeBottom - GAP;
-    var spaceAbove = top - GAP;
+    var spaceBelow = vh - holeBottom - GAP - 8;    // 洞下方可用
+    var spaceAbove = top - GAP - HDR;              // 洞上方可用（扣掉顶栏）
 
-    if(spaceBelow >= ch){
-      // 洞下方放得下 → 放下面
+    if(spaceBelow >= cardH){
+      /* ① 下方放得下 */
       card.className = 'tour-card tour-bottom';
       card.style.top = (holeBottom + GAP) + 'px';
       card.style.bottom = 'auto';
-    } else if(spaceAbove >= ch){
-      // 洞上方放得下 → 放上面
-      card.className = 'tour-card';
-      card.style.top = (top - ch - GAP) + 'px';
+    } else if(spaceAbove >= cardH){
+      /* ② 上方放得下 */
+      card.className = 'tour-card tour-bottom';
+      card.style.top = Math.max(HDR, top - cardH - GAP) + 'px';
+      card.style.bottom = 'auto';
     } else {
-      // 上下都放不下 → 退回底部固定（小屏兼容）
-      card.className = 'tour-card tour-bottom tour-pinned';
-      card.style.top = 'auto';
-      card.style.bottom = '14px';
+      /* ③ 上下都勉强 → 选空间大的一侧，卡片已限高，必定放得下 */
+      var useAbove = spaceAbove > spaceBelow;
+      card.className = 'tour-card tour-bottom';
+      if(useAbove){
+        card.style.top = Math.max(HDR, holeBottom - h - GAP - cardH) + 'px';
+        /* 用「洞上方」作为卡片区：上边缘对齐 */
+        card.style.top = Math.max(HDR, top - GAP - cardH) + 'px';
+      } else {
+        card.style.top = (holeBottom + GAP) + 'px';
+      }
+      card.style.bottom = 'auto';
+    }
+
+    /* ---------- 第四步：最终校验，卡片绝不越界 ---------- */
+    var fr = card.getBoundingClientRect();
+    if(fr.bottom > vh - 6){
+      card.style.top = Math.max(HDR, Math.round(parseFloat(card.style.top) - (fr.bottom - (vh - 6)))) + 'px';
+    }
+    fr = card.getBoundingClientRect();
+    if(fr.top < HDR){
+      var fixH = Math.max(120, Math.round(fr.height - (HDR - fr.top)));
+      card.style.maxHeight = fixH + 'px';
+      card.style.height = fixH + 'px';
+      card.style.top = HDR + 'px';
+      if(bodyEl) bodyEl.style.maxHeight = Math.max(40, fixH - 104) + 'px';
     }
 
     bindTarget(el, s);
@@ -312,11 +377,14 @@
   }
 
   function renderCard(s, isCenter){
+    /* 结构：head / body(可滚动) / acts(固定在底部，永远可见) */
     card.innerHTML =
       '<div class="tour-head"><span class="tour-step">'+(idx+1)+' / '+FLOW.length+'</span>'
       + '<button class="tour-x" type="button">✕</button></div>'
-      + '<div class="tour-title">'+s.title+'</div>'
-      + '<div class="tour-desc">'+s.desc+'</div>'
+      + '<div class="tour-body">'
+        + '<div class="tour-title">'+s.title+'</div>'
+        + '<div class="tour-desc">'+s.desc+'</div>'
+      + '</div>'
       + (isCenter || s.btn
           ? '<div class="tour-acts"><button class="tour-btn tour-finish" type="button">'+(s.btn||'开始学习 →')+'</button></div>'
           : '<div class="tour-acts"><span class="tour-hint">↑ 点这里继续</span><button class="tour-skip" type="button">跳过</button></div>');
