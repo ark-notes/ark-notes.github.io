@@ -79,16 +79,43 @@
   }
 
   function destroy(){
-    [mask,hole,card].forEach(function(e){ if(e) e.remove(); });
+    // ① 先禁用过渡，避免离场动画留残影
+    [mask,hole,card].forEach(function(e){
+      if(!e) return;
+      e.style.transition='none';
+      e.style.animation='none';
+      // 释放可能产生合成层的属性
+      e.style.backdropFilter='none';
+      e.style.webkitBackdropFilter='none';
+      e.style.transform='none';
+      e.style.opacity='0';
+      e.style.visibility='hidden';
+    });
+
+    // ② 下一帧再真正移除（避免同步移除导致合成层残留）
+    var toRemove = [mask, hole, card];
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        toRemove.forEach(function(e){ if(e && e.parentNode) e.parentNode.removeChild(e); });
+        // ③ 强制重排 / 重绘（关键：释放合成层）
+        void document.body.offsetHeight;
+        // ④ 触发一次无意义的滚动抖动，逼浏览器重绘
+        var y = window.scrollY;
+        window.scrollTo(0, y + 1);
+        window.scrollTo(0, y);
+      });
+    });
+
     mask=hole=card=null;
-    // 恢复悬浮球
+
+    // ⑤ 恢复被隐藏的元素
     var dock=document.querySelector('.arkie-fab');
     if(dock) dock.style.display='';
     var topBtn=document.querySelector('.af-top-btn');
     if(topBtn) topBtn.style.display='';
-    // 恢复底部条
     var bb=document.querySelector('.bottom-bar');
     if(bb) bb.style.display='';
+
     if(guard){ document.removeEventListener('click', guard, true); guard=null; }
     document.body.style.overflow='';
   }
