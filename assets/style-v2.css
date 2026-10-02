@@ -483,9 +483,16 @@ tbody tr:hover td{background:rgba(34,211,238,.035)}
 .toc-right a:hover{ color:var(--text); background:rgba(255,255,255,.04); }
 .toc-right a.on{ color:var(--cyan); background:rgba(34,211,238,.08); }
 
-/* 有侧栏时，内容区域留白 */
-@media(min-width:1100px){
+/* 有侧栏时，内容区域留白
+   ⚠️ 原来只要求 min-width:1100px，但侧栏本身 204px 宽，
+   而 .wrap 最大宽 1080px 且居中 —— 1100~1560px 区间侧栏会压到正文。
+   正确门槛：wrap 半宽 + 侧栏宽 + 安全间距，至少 1600px。 */
+@media(min-width:1600px){
   body.has-sidenav .wrap{ padding-left:230px; }
+}
+/* 屏幕不够宽 → 直接隐藏侧栏，避免遮挡正文 */
+@media(max-width:1599px){
+  body.has-sidenav .side-nav{ display:none; }
 }
 @media(min-width:1280px){
   body.has-tocright .wrap{ padding-right:200px; }
