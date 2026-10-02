@@ -20,12 +20,12 @@
     { page:'index.html', sel:'.btn-main', pos:'right',
       title:'欢迎！先点这里',
       desc:'点这个金色按钮，我带你走一遍。',
-      action:'navigate' },
+      action:'navigate', goto:'path.html' },
 
     { page:'path.html', sel:'.rstep', pos:'right',
       title:'这是七步学习路径',
       desc:'点第一个开始 —— 走完七步，你就能独立讲清楚。',
-      action:'navigate' },
+      action:'navigate', goto:'ark-what.html' },
 
     { page:'ark-what.html', sel:'.talk', pos:'bottom',
       title:'这里的话可以直接照念',
@@ -290,11 +290,21 @@
       ev.preventDefault(); ev.stopPropagation();
       if(s.action === 'navigate'){
         setS(idx+1, false);
-        // 允许真实跳转
-        var href = el.getAttribute('href');
-        if(href && href.indexOf('.html') > -1){ location.href = href; }
-        else if(s.next){ location.href = s.next; }
-        else { next(); }
+        // 跳转优先级：本步明确指定的 goto > 元素自身的 .html 链接
+        var dest = s.goto || '';
+        var href = el.getAttribute('href') || '';
+        if(!dest && href.indexOf('.html') > -1) dest = href;
+        if(dest){
+          location.href = dest;
+        } else {
+          /* 目标不是页面链接（例如页内锚点）：
+             不跳页，就地推进到下一步；若已是最后一步则结束。 */
+          if(idx + 1 <= FLOW.length - 1){
+            show(idx + 1);
+          } else {
+            endAll();
+          }
+        }
       } else if(s.action === 'next'){
         next();
       }
