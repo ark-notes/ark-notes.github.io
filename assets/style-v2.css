@@ -2275,3 +2275,16 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .ob-entry{ padding:6px 8px; margin-right:2px; }
 }
 .dim{ color:#6b7484; font-size:.9em; }
+
+/* 引导卡：底部固定面板（不覆盖内容） */
+.tour-card.tour-bottom{
+  position:fixed !important;
+  left:50% !important; right:auto !important; top:auto !important;
+  bottom:14px !important;
+  transform:translateX(-50%) !important;
+  max-width:440px;
+  max-height:none;
+}
+@media(max-width:520px){
+  .tour-card.tour-bottom{ bottom:10px !important; width:calc(100vw - 20px) !important; }
+}
