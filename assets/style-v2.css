@@ -2187,7 +2187,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 @keyframes tourIn{ from{opacity:0; transform:translateY(8px) scale(.97);} to{opacity:1;} }
 
 .tour-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
-.tour-step{ font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--gold); }
+.tour-step{ font-size:13px; font-weight:800; letter-spacing:.1em; color:var(--gold); }
 .tour-x{
   width:26px; height:26px; border-radius:50%;
   background:rgba(255,255,255,.06); border:none;
