@@ -2270,7 +2270,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 @media(max-width:640px){
   .site-header .wrap{ gap:6px; min-height:48px; }
   .brand-text{ display:none; }      /* 手机只留 logo，省空间 */
-  .site-nav a{ font-size:12.5px; padding:6px 7px; }
-  .nav-guest{ padding:6px 10px; font-size:12px; margin-left:2px; }
+  .site-nav a{ font-size:13px; padding:6px 7px; }
+  .nav-guest{ padding:6px 10px; font-size:13px; margin-left:2px; }
   .ob-entry{ padding:6px 8px; margin-right:2px; }
 }
