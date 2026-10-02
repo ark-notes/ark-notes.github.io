@@ -2304,7 +2304,15 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   bottom:14px !important;
 }
 @media(max-width:520px){
-  .tour-card.tour-bottom{ bottom:10px !important; width:calc(100vw - 20px) !important; }
+  /* ⚠️ 不能加 bottom !important —— 会把 JS 算好的 top 顶掉。
+     只约束宽度即可。 */
+  .tour-card.tour-bottom{ width:calc(100vw - 20px) !important; }
+  /* 小屏卡片紧凑化：让「我知道了」按钮一定在首屏可见 */
+  .tour-card{ padding:12px 14px 11px; }
+  .tour-card .tour-title{ font-size:15px; margin-bottom:6px; }
+  .tour-card .tour-desc{ font-size:13.5px; line-height:1.7; margin-bottom:10px; }
+  .tour-card .tour-head{ margin-bottom:7px; }
+  .tour-card .tour-acts{ gap:6px; }
 }
 
 /* ============================================================
@@ -2661,3 +2669,11 @@ body.has-bottombar .site-footer{
   .tier-n{ width:38px; height:38px; border-radius:10px; font-size:13px; }
   .tier-t{ font-size:15.5px; }
 }
+
+/* 引导卡：正文可滚动，操作按钮永远固定在底部可见 */
+.tour-card .tour-body{
+  max-height:calc(100vh - 260px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.tour-card .tour-acts{ flex:none; }
