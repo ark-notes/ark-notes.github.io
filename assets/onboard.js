@@ -58,6 +58,9 @@
     if(dock) dock.style.display='none';
     var topBtn=document.querySelector('.af-top-btn');
     if(topBtn) topBtn.style.display='none';
+    // 隐藏底部条（避免与引导卡重叠）
+    var bb=document.querySelector('.bottom-bar');
+    if(bb) bb.style.display='none';
     // 遮罩（用 4 个块围出洞 —— 更可靠，且不依赖 CSS 新特性）
     mask = document.createElement('div');
     mask.className='tour-mask';
@@ -83,6 +86,9 @@
     if(dock) dock.style.display='';
     var topBtn=document.querySelector('.af-top-btn');
     if(topBtn) topBtn.style.display='';
+    // 恢复底部条
+    var bb=document.querySelector('.bottom-bar');
+    if(bb) bb.style.display='';
     if(guard){ document.removeEventListener('click', guard, true); guard=null; }
     document.body.style.overflow='';
   }
