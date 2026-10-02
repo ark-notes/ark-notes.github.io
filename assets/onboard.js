@@ -167,44 +167,24 @@
     hole.style.width = w+'px'; hole.style.height = h+'px';
 
 
-    // 卡片
+    // 卡片：改为底部固定面板（不覆盖高亮区）
     renderCard(s, false);
-    var cw = Math.min(320, window.innerWidth - 24);
-    card.className='tour-card';
+    var cw = Math.min(window.innerWidth - 24, 420);
+    card.className='tour-card tour-bottom';
     card.style.display='';
     card.style.width = cw+'px';
-    card.style.transform='none';
+    card.style.left = '50%';
+    card.style.transform = 'translateX(-50%)';
+    card.style.top = 'auto';
+    document.body.style.overflow='hidden';
+    bindTarget(el, s);
+    return;
 
     var spaceR = window.innerWidth - (left+w) - 12;
     var spaceL = left - 12;
     var spaceB = window.innerHeight - (top+h) - 12;
     var ch = card.offsetHeight || 190;
 
-    var prefer = s.pos || 'auto';
-    if(prefer==='bottom' && spaceB >= ch+20){
-      card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
-      card.style.top=(top+h+18)+'px';
-    } else if(spaceR >= cw+20){
-      card.style.left=(left+w+18)+'px';
-      card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
-    } else if(spaceB >= ch+20){
-      card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
-      card.style.top=(top+h+18)+'px';
-    } else if(spaceL >= cw+20){
-      card.style.left=(left-cw-18)+'px';
-      card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
-    } else {
-      card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
-      card.style.top=Math.max(12, top-ch-18)+'px';
-    }
-
-    // 兜底：卡片不出屏
-    var cRect = card.getBoundingClientRect();
-    if(cRect.bottom > window.innerHeight - 8){ card.style.top = Math.max(8, window.innerHeight - ch - 10)+'px'; }
-    if(cRect.top < 8){ card.style.top = '10px'; }
-
-    document.body.style.overflow='hidden';
-    bindTarget(el, s);
   }
 
   function bindTarget(el, s){
@@ -241,9 +221,16 @@
     var sk = card.querySelector('.tour-skip');
     if(sk) sk.addEventListener('click', endAll);
     var fin = card.querySelector('.tour-finish');
-    if(fin) fin.addEventListener('click', function(){ endAll(); var t=document.querySelector('.btn-main'); if(t) t.scrollIntoView({behavior:'smooth',block:'center'}); });
-    var fin2 = card.querySelector('.tour-finish2');
-    if(fin2) fin2.addEventListener('click', endAll);
+    if(fin) fin.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var isLast = (idx === FLOW.length - 1);
+      endAll();
+      if(isLast){
+        // 最后一步：如果当前页有主按钮就滚过去
+        var t=document.querySelector('.btn-main');
+        if(t) t.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    });
   }
 
   function next(){
