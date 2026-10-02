@@ -2400,3 +2400,78 @@ body.has-bottombar .site-footer{
   background:#080a12 !important;
   border-top:1px solid rgba(34,211,238,.3) !important;
 }
+
+/* ============================================================
+   悬浮球 v2（重做 · 参考微信/支付宝）
+   特点：菜单紧贴球、朝内侧展开、永不超屏
+   ============================================================ */
+.fab-dock{
+  position:fixed; right:16px; top:64%;
+  z-index:9900;
+  display:flex; flex-direction:column; align-items:flex-end;
+  gap:10px;
+}
+.fab-dock.dragging .fab-menu{ display:none; }
+
+.fab-ball{
+  width:56px; height:56px; border-radius:50%;
+  border:1px solid rgba(224,185,106,.4);
+  background:radial-gradient(circle at 50% 34%, rgba(224,185,106,.2), rgba(12,14,23,.95) 70%);
+  display:flex; align-items:center; justify-content:center;
+  cursor:grab; padding:0;
+  box-shadow:0 6px 20px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+  transition:transform .24s cubic-bezier(.22,1,.36,1), box-shadow .24s;
+  touch-action:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.fab-ball:active{ cursor:grabbing; }
+.fab-ball.active{ transform:scale(1.06); box-shadow:0 8px 26px rgba(224,185,106,.4); }
+.fab-ball img{ width:36px; height:36px; border-radius:50%; pointer-events:none; }
+
+/* 菜单：绝对定位在球旁，紧贴 */
+.fab-menu{
+  position:absolute;
+  bottom:calc(100% + 10px);   /* 默认在球上方 */
+  right:0;
+  min-width:168px;
+  display:flex; flex-direction:column; gap:2px;
+  padding:8px;
+  border-radius:14px;
+  background:rgba(10,12,20,.98);
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 16px 40px rgba(0,0,0,.7);
+  opacity:0; visibility:hidden;
+  transform:translateY(8px) scale(.96);
+  transition:.24s cubic-bezier(.22,1,.36,1);
+  max-height:min(60vh,400px);
+  overflow-y:auto;
+}
+.fab-menu.show{ opacity:1; visibility:visible; transform:translateY(0) scale(1); }
+
+/* 往下弹（球在屏幕上半时） */
+.fab-menu.fab-down{
+  bottom:auto; top:calc(100% + 10px);
+  transform-origin:top right;
+}
+/* 往右展开（球在左半边时） */
+.fab-menu.fab-right{ right:auto; left:0; transform-origin:bottom left; }
+.fab-menu.fab-down.fab-right{ transform-origin:top left; }
+
+.fab-item{
+  display:flex; align-items:center; gap:9px;
+  padding:10px 12px; border-radius:9px;
+  background:transparent; border:none;
+  color:#cdd3dd; font-size:14.5px; font-family:inherit;
+  text-decoration:none; text-align:left; cursor:pointer;
+  transition:.18s; white-space:nowrap; width:100%;
+}
+.fab-item:hover{ background:rgba(224,185,106,.12); color:#fff; }
+.fab-ico{ font-size:15px; width:20px; text-align:center; flex:none; }
+
+@media(max-width:640px){
+  .fab-dock{ right:12px; top:66%; }
+  .fab-ball{ width:52px; height:52px; }
+  .fab-ball img{ width:33px; height:33px; }
+  .fab-menu{ min-width:158px; padding:7px; }
+  .fab-item{ padding:9px 11px; font-size:14px; }
+}
