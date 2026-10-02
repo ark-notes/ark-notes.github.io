@@ -129,8 +129,8 @@
 
     ball.addEventListener('touchstart', e => {
       const t=e.touches[0]; start(t.clientX,t.clientY);
-      e.preventDefault();
-    }, {passive:false});
+      // ⚠️ 不 preventDefault —— 否则会吞掉 click 事件（菜单点不开）
+    }, {passive:true});
     document.addEventListener('touchmove', e => {
       if(!dragging) return;
       const t=e.touches[0];
