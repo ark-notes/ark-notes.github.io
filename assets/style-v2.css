@@ -984,7 +984,7 @@ body.is-home .back-top-btn{ display:none; }
    阿奇悬浮球（可拖动，含全部功能）
    ============================================================ */
 .arkie-fab{
-  position:fixed; right:18px; top:58%; z-index:9900;   /* 高于常规元素(导航900/底部条600)，低于引导(9960) */
+  position:fixed; right:18px; top:64%; z-index:9900;   /* 高于常规元素(导航900/底部条600)，低于引导(9960) */
   display:flex; flex-direction:column; align-items:flex-end; gap:10px;
   pointer-events:none;              /* 容器不挡触摸 */
 }
@@ -1017,7 +1017,7 @@ body.is-home .back-top-btn{ display:none; }
 
 /* 菜单 */
 .af-menu{
-  position:absolute; bottom:calc(100% + 12px); right:0; z-index:2;
+  position:absolute; bottom:calc(100% + 10px); right:0; z-index:2;
   transform-origin:bottom right;
   display:flex; flex-direction:column; gap:3px;
   min-width:172px; padding:10px 9px;
@@ -1028,7 +1028,7 @@ body.is-home .back-top-btn{ display:none; }
   box-shadow:0 20px 50px rgba(0,0,0,.6);
   opacity:0; visibility:hidden; transform:translateY(10px) scale(.96);
   transition:.26s var(--ease); transform-origin:bottom right;
-  max-height:min(58vh, 420px); overflow-y:auto;
+  max-height:min(52vh, 380px); overflow-y:auto;
   overscroll-behavior:contain;
 }
 /* 菜单项更紧凑 */
@@ -1061,7 +1061,7 @@ body.is-home .back-top-btn{ display:none; }
 .af-nav:hover{ background:rgba(255,255,255,.05); color:var(--text); padding-left:16px; }
 
 @media(max-width:640px){
-  .arkie-fab{ right:12px; top:60%; }
+  .arkie-fab{ right:12px; top:66%; }
   .af-ball{ width:56px; height:56px; }
   .af-ball img{ width:38px; }
   .af-menu{ min-width:170px; }
