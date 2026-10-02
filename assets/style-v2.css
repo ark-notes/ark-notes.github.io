@@ -590,16 +590,18 @@ tbody tr:hover td{background:rgba(34,211,238,.035)}
 
 /* ---------- 底部固定「下一步」条 ---------- */
 .bottom-bar{
-  position:fixed; left:0; right:0; bottom:0; z-index:300;
+  position:fixed; left:0; right:0; bottom:0; z-index:600;   /* 高于悬浮球(500) */
   display:flex; align-items:center; justify-content:space-between; gap:16px;
   padding:14px 24px;
-  background:rgba(8,10,18,.94);
-  backdrop-filter:blur(20px) saturate(160%);
-  border-top:1px solid rgba(34,211,238,.2);
+  background:rgba(8,10,18,.97);    /* 不透明底（避免合成层残留） */
+  border-top:1px solid rgba(34,211,238,.25);
   box-shadow:0 -8px 32px rgba(0,0,0,.5);
   transform:translateY(110%);
   transition:transform .35s var(--ease);
+  will-change:transform;
 }
+.bottom-bar.show{ transform:translateY(0) !important; }
+.bottom-bar.hide{ transform:translateY(110%) !important; }
 .bottom-bar.show{ transform:translateY(0); }
 .bottom-bar.hide{ transform:translateY(110%); }
 .bb-info{ display:flex; flex-direction:column; gap:2px; min-width:0; }
@@ -2227,7 +2229,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 .af-top-btn{
   position:fixed;
   right:18px;
-  bottom:150px;              /* 固定在悬浮球上方 */
+  bottom:150px;
   z-index:499;               /* 低于悬浮球，避免遮挡 */
   width:44px; height:44px;
   border-radius:50%;
@@ -2295,20 +2297,24 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
    原则：手机端导航只留 3 项，其他进悬浮球菜单
    ============================================================ */
 @media(max-width:640px){
-  /* 导航不换行、可横滑 */
+  /* 导航：不滚动、不换行、紧凑 */
   .site-nav{
     display:flex !important;
     flex-wrap:nowrap !important;
-    overflow-x:auto !important;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    gap:0;
+    overflow:visible !important;
+    gap:0; justify-content:center; flex:1;
   }
-  .site-nav::-webkit-scrollbar{ display:none; }
   .site-nav a{
-    flex:0 0 auto !important;
+    flex:0 1 auto !important;
     white-space:nowrap !important;
+    padding:5px 5px !important;
+    font-size:12.5px !important;
+    letter-spacing:-.02em;
   }
+  /* 手机端隐藏次要导航项 */
+  .site-nav a:nth-child(3){ display:none !important; }
+  .site-nav a:nth-child(5){ display:none !important; }
+  .ob-entry span{ display:none !important; }
   /* 品牌文字隐藏，只留 logo */
   .brand-text{ display:none !important; }
   /* 缩小内边距 */
@@ -2321,3 +2327,8 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .site-header .wrap{ height:48px !important; min-height:48px !important; }
   .site-header{ height:48px !important; }
 }
+
+
+/* 悬浮球避让底部条（有底部条时上移） */
+body.has-bottombar .arkie-fab{ bottom:110px !important; }
+body.has-bottombar .af-top-btn{ bottom:170px !important; }
