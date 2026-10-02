@@ -34,10 +34,11 @@
       <div class="af-title">去哪看看？</div>
       <a class="af-nav" href="${P}index.html">首页</a>
       <a class="af-nav" href="${P}path.html">学习路径</a>
-      <a class="af-nav" href="${P}lecturer.html">讲师板块</a>
-      <a class="af-nav" href="${P}ark-safety.html">安全性</a>
-      <a class="af-nav" href="${P}query-guide.html">链上查询</a>
-      <a class="af-nav" href="${P}qa.html">疑难问答</a>
+      <a class="af-nav" href="${P}ark-what.html">搞懂 ARK</a>
+      <a class="af-nav" href="${P}tools.html">工具</a>
+      <a class="af-nav" href="${P}lecturer.html">讲师</a>
+      <a class="af-nav" href="${P}guest.html">客户版</a>
+      <a class="af-nav" href="${P}whats-new.html">更新日志</a>
     </div>
     <button class="af-ball" id="afBall" aria-label="阿奇助手">
       <img src="${ARKIE_SM}" alt="阿奇">
