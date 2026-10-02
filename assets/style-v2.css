@@ -2337,9 +2337,9 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   }
   .site-nav a{
     flex:0 0 auto !important; white-space:nowrap !important;
-    padding:7px 10px !important;
-    font-size:14px !important;
-    letter-spacing:0;
+    padding:6px 8px !important;
+    font-size:13.5px !important;
+    letter-spacing:-.02em;
   }
   /* 缩小内边距 */
   .site-nav a{ padding:5px 7px !important; font-size:13px !important; }
@@ -2354,7 +2354,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 
 
 /* 悬浮球避让底部条（有底部条时上移） */
-body.has-bottombar .arkie-fab{ bottom:110px !important; }
+body.has-bottombar .arkie-fab{ bottom:120px !important; }
 body.has-bottombar .af-top-btn{ bottom:170px !important; }
 
 
