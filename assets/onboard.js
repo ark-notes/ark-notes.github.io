@@ -27,10 +27,11 @@
       desc:'点第一个开始 —— 走完七步，你就能独立讲清楚。',
       action:'navigate' },
 
-    { page:'ark-what.html', sel:'.talk', pos:'right',
+    { page:'ark-what.html', sel:'.talk', pos:'bottom',
       title:'这里的话可以直接照念',
       desc:'蓝色框里的话，照着念就行，不用自己组织语言。<br>看完了点底部的「下一步」。',
-      action:'finish' }
+      action:'done',
+      btn:'我知道了 →' }
   ];
 
   var idx = -1, currentStep = -1;
@@ -179,18 +180,22 @@
     var spaceB = window.innerHeight - (top+h) - 12;
     var ch = card.offsetHeight || 190;
 
-    if(spaceR >= cw){
-      card.style.left=(left+w+14)+'px';
-      card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
-    } else if(spaceL >= cw){
-      card.style.left=(left-cw-14)+'px';
-      card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
-    } else if(spaceB >= ch){
+    var prefer = s.pos || 'auto';
+    if(prefer==='bottom' && spaceB >= ch+20){
       card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
-      card.style.top=(top+h+14)+'px';
+      card.style.top=(top+h+18)+'px';
+    } else if(spaceR >= cw+20){
+      card.style.left=(left+w+18)+'px';
+      card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
+    } else if(spaceB >= ch+20){
+      card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
+      card.style.top=(top+h+18)+'px';
+    } else if(spaceL >= cw+20){
+      card.style.left=(left-cw-18)+'px';
+      card.style.top=Math.max(12, Math.min(top, window.innerHeight-ch-12))+'px';
     } else {
       card.style.left=Math.max(12, Math.min(left, window.innerWidth-cw-12))+'px';
-      card.style.top=Math.max(12, top-ch-14)+'px';
+      card.style.top=Math.max(12, top-ch-18)+'px';
     }
 
     // 兜底：卡片不出屏
@@ -237,6 +242,8 @@
     if(sk) sk.addEventListener('click', endAll);
     var fin = card.querySelector('.tour-finish');
     if(fin) fin.addEventListener('click', function(){ endAll(); var t=document.querySelector('.btn-main'); if(t) t.scrollIntoView({behavior:'smooth',block:'center'}); });
+    var fin2 = card.querySelector('.tour-finish2');
+    if(fin2) fin2.addEventListener('click', endAll);
   }
 
   function next(){
