@@ -69,14 +69,14 @@ a:hover{color:var(--cyan)}
 
 /* ============ 导航 ============ */
 .site-header{
-  position:sticky;top:0;z-index:900;height:64px;
+  position:sticky;top:0;z-index:900;min-height:64px;
   background:#05060b;               /* 全不透明 —— 滚动时不会透出内容 */
   border-bottom:1px solid rgba(255,255,255,.09);
   transition:.2s var(--ease);
   box-shadow:0 4px 20px rgba(0,0,0,.4);   /* 加阴影，与内容分层 */
 }
 .site-header.scrolled{background:rgba(5,6,11,.97);box-shadow:0 4px 24px rgba(0,0,0,.5);border-bottom-color:var(--cyan-line)}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:100%;gap:20px}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;gap:20px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16px;flex:none}
 .brand-logo{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--gold);transition:.3s var(--ease)}
 .brand-logo svg{width:100%;height:100%}
@@ -2272,7 +2272,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 .site-nav a{ flex:none; }
 
 @media(max-width:640px){
-  .site-header .wrap{ gap:6px; min-height:48px; }
+  .site-header .wrap{ gap:6px; }
   .brand-text{ display:none; }      /* 手机只留 logo，省空间 */
   .site-nav a{ font-size:13px; padding:6px 7px; }
   .nav-guest{ padding:6px 10px; font-size:13px; margin-left:2px; }
@@ -2302,12 +2302,18 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
      第一行：logo + 新手指引
      第二行：导航（6 项，字号放大）
   */
-  .site-header{ height:auto !important; padding:8px 0 6px !important; }
+  .site-header{
+    height:auto !important;
+    padding:0 !important;
+    overflow:visible !important;
+  }
   .site-header .wrap{
     display:flex !important;
     flex-wrap:wrap !important;
-    height:auto !important; min-height:0 !important;
+    height:auto !important;
     align-items:center; gap:0;
+    overflow:visible !important;
+    padding:8px 0 6px !important;
   }
   .brand{ flex:0 0 auto; order:1; }
   .brand-text{ display:inline !important; font-size:14px !important; }
@@ -2328,18 +2334,24 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
     order:3;
     flex:0 0 100% !important;
     display:flex !important;
-    flex-wrap:wrap !important;
-    overflow:visible !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
     justify-content:flex-start;
-    gap:0; margin-top:6px;
+    gap:0; margin-top:4px;
     border-top:1px solid rgba(255,255,255,.07);
-    padding-top:6px;
+    padding-top:4px;
+    scrollbar-width:none;
+    height:38px !important;      /* 定死高度，不撑 */
+    align-items:center;
   }
+  .site-nav::-webkit-scrollbar{ display:none; }
   .site-nav a{
     flex:0 0 auto !important; white-space:nowrap !important;
-    padding:6px 8px !important;
-    font-size:13.5px !important;
+    padding:6px 9px !important;
+    font-size:13px !important;
     letter-spacing:-.02em;
+    line-height:1.2;
   }
   /* 缩小内边距 */
   .site-nav a{ padding:5px 7px !important; font-size:13px !important; }
@@ -2348,8 +2360,6 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   .ob-entry svg{ width:13px !important; height:13px !important; }
   .ob-entry span{ font-size:13px !important; }
   /* 顶栏固定高度，禁止撑高 */
-  .site-header .wrap{ height:48px !important; min-height:48px !important; }
-  .site-header{ height:48px !important; }
 }
 
 
@@ -2374,8 +2384,7 @@ body.has-bottombar .af-top-btn{ bottom:170px !important; }
    修法：给正文留出底部空间
    ============================================================ */
 body.has-bottombar main,
-body.has-bottombar .page,
-body.has-bottombar .wrap:last-child{
+body.has-bottombar .page{
   padding-bottom:96px !important;   /* 底部条 78px + 间距 */
 }
 body.has-bottombar .site-footer{
