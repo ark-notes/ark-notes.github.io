@@ -2135,8 +2135,8 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 .tour-mask > div{
   position:fixed;
   background:rgba(3,4,9,.88);
-  backdrop-filter:blur(2px);
-  pointer-events:auto;      /* 子块挡住点击 */
+  /* 去掉 backdrop-filter —— 它会创建合成层，移除后可能残留 */
+  pointer-events:auto;
 }
 .tm-top{ top:0; left:0; right:0; }
 .tm-bottom{ left:0; right:0; bottom:0; }
@@ -2150,8 +2150,8 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   border:2.5px solid var(--gold);
   background:transparent;
   box-shadow:0 0 0 3px rgba(224,185,106,.18), 0 0 30px 6px rgba(224,185,106,.4);
-  pointer-events:none;   /* 让下面的真实元素可点 */
-  animation:tourPulse 1.9s ease-in-out infinite;
+  pointer-events:none;
+  will-change:auto;
   transition:all .3s cubic-bezier(.22,1,.36,1);
 }
 @keyframes tourPulse{
