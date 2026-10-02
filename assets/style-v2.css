@@ -2289,3 +2289,35 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 @media(max-width:520px){
   .tour-card.tour-bottom{ bottom:10px !important; width:calc(100vw - 20px) !important; }
 }
+
+/* ============================================================
+   顶栏极简（手机端）—— 解决换行
+   原则：手机端导航只留 3 项，其他进悬浮球菜单
+   ============================================================ */
+@media(max-width:640px){
+  /* 导航不换行、可横滑 */
+  .site-nav{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:0;
+  }
+  .site-nav::-webkit-scrollbar{ display:none; }
+  .site-nav a{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+  /* 品牌文字隐藏，只留 logo */
+  .brand-text{ display:none !important; }
+  /* 缩小内边距 */
+  .site-nav a{ padding:5px 7px !important; font-size:13px !important; }
+  .nav-guest{ padding:5px 8px !important; font-size:13px !important; }
+  .ob-entry{ padding:5px 7px !important; margin-right:2px !important; }
+  .ob-entry svg{ width:13px !important; height:13px !important; }
+  .ob-entry span{ font-size:13px !important; }
+  /* 顶栏固定高度，禁止撑高 */
+  .site-header .wrap{ height:48px !important; min-height:48px !important; }
+  .site-header{ height:48px !important; }
+}
