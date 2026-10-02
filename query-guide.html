@@ -43,11 +43,11 @@
 <div class="facts-t">灵魂五问 ↔ 链上验证方法（一页对照）</div>
 <table>
 <tr><th>灵魂五问</th><th>用什么工具查</th><th>看到什么算过关</th></tr>
-<tr><td>① LP 是否上锁？</td><td>AVE.AI → 搜 ARK → 点 LP</td><td><b>黑洞锁</b>，比例接近 <b>99.99%</b></td></tr>
+<tr><td>① <span class="term" data-t="LP"></span> 是否上锁？</td><td>AVE.AI → 搜 ARK → 点 <span class="term" data-t="LP"></span></td><td><b>黑洞锁</b>，比例接近 <b>99.99%</b></td></tr>
 <tr><td>② 铸币合约是否开源？</td><td>BscScan → Read Contract</td><td>开源（绿标）；第 7 项治理权限 = <b>0x000…000</b></td></tr>
 <tr><td>③ 国库是否多签透明？</td><td>Tally（治理平台）</td><td>有提案记录、投票地址<b>可逐个查</b></td></tr>
 <tr><td>④ 有 EM 智能发币模组？</td><td>BscScan → 铸币合约 → Read as Proxy</td><td>有 <b>EM 模组</b>，且无人类地址持管理员权限</td></tr>
-<tr><td>⑤ 有 RBS 稳定市值模组？</td><td>同上（铸币合约交互地址）</td><td>有 <b>RBS 模组</b></td></tr>
+<tr><td>⑤ 有 <span class="term" data-t="RBS"></span> 稳定市值模组？</td><td>同上（铸币合约交互地址）</td><td>有 <b><span class="term" data-t="RBS"></span> 模组</b></td></tr>
 </table>
 <p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">实测补充：铸币合约共 16 笔交易、涉及 4 个地址 —— <b>4 个地址的管理员/超管/铸币权限全部为 False</b>，仅 EM 与 RBS 具备铸币能力。</p>
 </div>
@@ -195,7 +195,7 @@
 <div class="talk">
 <p>「但我要提醒你——<strong>审计只是参考，链上的数据才是真理。</strong></p>
 <p>为什么？因为行业内确实发现过几起案例：项目有问题，但审计没扫描出来。</p>
-<p>所以查审计是必要的，但<strong>查完之后，还要回到链上看</strong>——底池、权限、国库，这些才是硬证据。」</p>
+<p>所以查审计是必要的，但<strong>查完之后，还要回到链上看</strong>——<span class="term" data-t="底池"></span>、权限、<span class="term" data-t="国库"></span>，这些才是硬证据。」</p>
 </div>
 
 <div class="src">
@@ -250,7 +250,7 @@
 
 <h2>七、完整流程（一页走完）</h2>
 <table><thead><tr><th>#</th><th>查什么</th><th>用什么</th><th>看什么</th></tr></thead><tbody>
-<tr><td>1</td><td>底池 + 权限</td><td><a href="https://ave.ai" target="_blank" style="color:var(--cyan)">AVE</a></td><td>上锁？权限丢没丢？</td></tr>
+<tr><td>1</td><td><span class="term" data-t="底池"></span> + 权限</td><td><a href="https://ave.ai" target="_blank" style="color:var(--cyan)">AVE</a></td><td>上锁？权限丢没丢？</td></tr>
 <tr><td>2</td><td>国库多签</td><td><a href="https://app.safe.global/home?safe=bnb:0x1b9f458773d18B4e1AAf5b896721697215C4a68b" target="_blank" style="color:var(--cyan)">Gnosis Safe</a></td><td>5/9 签名门槛</td></tr>
 <tr><td>3</td><td>治理提案</td><td><a href="https://www.tally.xyz/gov/ark" target="_blank" style="color:var(--cyan)">Tally</a></td><td>提案与投票记录</td></tr>
 <tr><td>4</td><td>安全审计</td><td><a href="https://skynet.certik.com/projects/ark-defai" target="_blank" style="color:var(--cyan)">CertiK</a></td><td>审计分数</td></tr>
@@ -318,7 +318,7 @@
 <p>「你不用信我说的，我打开给你看。</p>
 <p>第一个——<strong>底池。</strong>（打开 AVE）你看，锁住了。</p>
 <p>第二个——<strong>权限。</strong>你看，铸币权限已经放弃了，他印不了币。</p>
-<p>第三个——<strong>国库。</strong>（打开 Safe）你看这个 5/9，9 个人管，要 5 个人签字才能动钱。</p>
+<p>第三个——<strong><span class="term" data-t="国库"></span>。</strong>（打开 Safe）你看这个 5/9，9 个人管，要 5 个人签字才能动钱。</p>
 <p>第四个——<strong>审计。</strong>（打开 CertiK）你看，全球顶级机构审过了。</p>
 <p><strong>这四条，都不是我说的，是链上公开的。你也可以自己查。</strong>」</p>
 </div>
@@ -384,5 +384,6 @@
 <script src="assets/prefetch.js?v=1"></script>
 <script src="assets/onboard.js?v=21"></script>
 <script src="assets/fab.js?v=1"></script>
+<script src="assets/terms.js?v=2"></script>
 </body>
 </html>
