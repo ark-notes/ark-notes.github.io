@@ -44,7 +44,7 @@
     if(!wrap||wrap.querySelector('.ob-entry')) return;
     var b=document.createElement('button');
     b.className='ob-entry'; b.type='button';
-    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg><span>新手指引</span>';
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 4.6 5 .4-3.8 3.3 1.1 4.9L12 13.7 7.8 16.2l1.1-4.9L5.1 8l5-.4z"/></svg><span>新手指引</span>';
     b.addEventListener('click',function(){ startAt(0); });
     var g=wrap.querySelector('.nav-guest');
     if(g) wrap.insertBefore(b,g); else wrap.appendChild(b);
@@ -149,7 +149,7 @@
 
   /* ---------- 定位（挖洞 + 箭头 + 卡片） ---------- */
   function setBox(top, left, w, h){
-    var pad = 8;
+    var pad = 6;
     mask.querySelector('.tm-top').style.cssText = 'top:0;left:0;right:0;height:'+Math.max(0,top-pad)+'px';
     mask.querySelector('.tm-bottom').style.cssText = 'top:'+(top+h+pad)+'px;left:0;right:0;bottom:0';
     mask.querySelector('.tm-left').style.cssText = 'top:'+Math.max(0,top-pad)+'px;left:0;width:'+Math.max(0,left-pad)+'px;height:'+(h+pad*2)+'px';
@@ -159,7 +159,7 @@
   function place(el, s){
     if(!el || !mask || !hole || !card) return;
     var r = el.getBoundingClientRect();
-    var pad = 8;
+    var pad = 6;
     var top = Math.max(0, r.top - pad);
     var left = r.left - pad;
     var w = r.width + pad*2;
