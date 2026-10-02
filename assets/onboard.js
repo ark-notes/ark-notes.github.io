@@ -55,12 +55,12 @@
     if(mask) return;
     // 引导期间隐藏悬浮球（避免冲突）
     var dock=document.querySelector('.arkie-fab');
-    if(dock) dock.style.display='none';
+    if(dock){ dock.dataset.tourHidden='1'; dock.style.setProperty('display','none','important'); }
     var topBtn=document.querySelector('.af-top-btn');
-    if(topBtn) topBtn.style.display='none';
+    if(topBtn){ topBtn.dataset.tourHidden='1'; topBtn.style.setProperty('display','none','important'); }
     // 隐藏底部条（避免与引导卡重叠）
     var bb=document.querySelector('.bottom-bar');
-    if(bb) bb.style.display='none';
+    if(bb){ bb.dataset.tourHidden='1'; bb.style.setProperty('display','none','important'); }
     // 遮罩（用 4 个块围出洞 —— 更可靠，且不依赖 CSS 新特性）
     mask = document.createElement('div');
     mask.className='tour-mask';
@@ -110,11 +110,11 @@
 
     // ⑤ 恢复被隐藏的元素
     var dock=document.querySelector('.arkie-fab');
-    if(dock) dock.style.display='';
+    if(dock && dock.dataset.tourHidden){ dock.style.removeProperty('display'); delete dock.dataset.tourHidden; }
     var topBtn=document.querySelector('.af-top-btn');
-    if(topBtn) topBtn.style.display='';
+    if(topBtn && topBtn.dataset.tourHidden){ topBtn.style.removeProperty('display'); delete topBtn.dataset.tourHidden; }
     var bb=document.querySelector('.bottom-bar');
-    if(bb) bb.style.display='';
+    if(bb && bb.dataset.tourHidden){ bb.style.removeProperty('display'); delete bb.dataset.tourHidden; }
 
     if(guard){ document.removeEventListener('click', guard, true); guard=null; }
     document.body.style.overflow='';
@@ -224,7 +224,7 @@
     if(el.__tourBound) return;
     el.__tourBound = true;
     el.style.position = el.style.position || 'relative';
-    el.style.zIndex = '9980';    // 高于遮罩，可点
+    el.style.zIndex = '9968';    // 高于遮罩(9960)、低于卡片(9975)
     el.addEventListener('click', function(ev){
       ev.preventDefault(); ev.stopPropagation();
       if(s.action === 'navigate'){
