@@ -233,8 +233,8 @@
       + '<button class="tour-x" type="button">✕</button></div>'
       + '<div class="tour-title">'+s.title+'</div>'
       + '<div class="tour-desc">'+s.desc+'</div>'
-      + (isCenter
-          ? '<div class="tour-acts"><button class="tour-btn tour-finish" type="button">开始学习 →</button></div>'
+      + (isCenter || s.btn
+          ? '<div class="tour-acts"><button class="tour-btn tour-finish" type="button">'+(s.btn||'开始学习 →')+'</button></div>'
           : '<div class="tour-acts"><span class="tour-hint">↑ 点这里继续</span><button class="tour-skip" type="button">跳过</button></div>');
 
     card.querySelector('.tour-x').addEventListener('click', endAll);
