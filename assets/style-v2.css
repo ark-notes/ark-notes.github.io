@@ -2297,19 +2297,16 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
    原则：手机端导航只留 3 项，其他进悬浮球菜单
    ============================================================ */
 @media(max-width:640px){
-  /* ===== 手机端顶栏：导航优先 =====
-     第一行：logo + 导航（完整显示）
-     第二行：次要素材（新手指引 / 客户版）
-  */
-  .site-header{ height:auto !important; padding:6px 0 0 !important; }
+  /* ===== 手机端顶栏：一行（导航完整） ===== */
+  .site-header{ height:52px !important; padding:0 !important; }
   .site-header .wrap{
     display:flex !important;
-    flex-wrap:wrap !important;
-    height:auto !important; min-height:0 !important;
-    align-items:center; gap:0;
+    flex-wrap:nowrap !important;
+    height:52px !important; min-height:52px !important;
+    align-items:center; gap:2px;
   }
-  .brand{ flex:0 0 auto; margin-right:8px; }
-  .brand-text{ display:none !important; }   /* 只留 logo */
+  .brand{ flex:0 0 auto; margin-right:4px; }
+  .brand-text{ display:none !important; }
   .site-nav{
     display:flex !important;
     flex-wrap:nowrap !important;
@@ -2318,22 +2315,23 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   }
   .site-nav a{
     flex:0 0 auto !important; white-space:nowrap !important;
-    padding:6px 7px !important; font-size:13px !important;
-    letter-spacing:-.02em;
+    padding:6px 5px !important; font-size:12.5px !important;
+    letter-spacing:-.03em;
   }
-  /* 次要按钮：换到第二行，变小 */
+  /* 手机端隐藏「讲师」「更新」（收进悬浮球菜单） */
+  .site-nav a:nth-child(5),
+  .site-nav a:nth-child(6){ display:none !important; }
+  /* 新手指引：小图标，醒目 */
   .ob-entry{
-    order:10; flex:0 0 auto;
-    padding:5px 9px !important; margin:4px 4px 0 0 !important;
-    font-size:12.5px !important;
+    flex:0 0 auto !important;
+    padding:6px 8px !important; margin:0 !important;
+    background:rgba(224,185,106,.12) !important;
+    border-color:rgba(224,185,106,.35) !important;
+    color:var(--gold) !important;
   }
-  .ob-entry span{ display:inline !important; font-size:12.5px !important; }
-  .ob-entry svg{ width:13px !important; height:13px !important; }
-  .nav-guest{
-    order:11; flex:0 0 auto;
-    padding:5px 10px !important; font-size:12.5px !important;
-    margin:4px 0 0 0 !important;
-  }
+  .ob-entry span{ display:none !important; }
+  .ob-entry svg{ width:16px !important; height:16px !important; }
+  .nav-guest{ display:none !important; }   /* 手机端导航不放客户版 */
   /* 品牌文字隐藏，只留 logo */
   .brand-text{ display:none !important; }
   /* 缩小内边距 */
