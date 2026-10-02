@@ -2475,3 +2475,31 @@ body.has-bottombar .site-footer{
   .fab-menu{ min-width:158px; padding:7px; }
   .fab-item{ padding:9px 11px; font-size:14px; }
 }
+
+/* ============ 核心工具卡（tools 页） ============ */
+.core-tools{ display:flex; flex-direction:column; gap:12px; margin:20px 0 34px; }
+.ct-card{
+  display:flex; align-items:center; gap:16px;
+  padding:20px 22px; border-radius:16px;
+  background:linear-gradient(135deg,rgba(18,20,30,.92),rgba(12,14,22,.96));
+  border:1px solid rgba(224,185,106,.28);
+  text-decoration:none; transition:.26s var(--ease);
+}
+.ct-card:hover{
+  border-color:rgba(224,185,106,.55);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(0,0,0,.5);
+}
+.ct-ico{ font-size:28px; flex:none; width:44px; text-align:center; }
+.ct-card > div{ flex:1; min-width:0; }
+.ct-t{ font-size:17px; font-weight:700; color:#fff; margin-bottom:6px; }
+.ct-d{ font-size:14.5px; color:#8e9aae; line-height:1.7; }
+.ct-d b{ color:#e0b96a; }
+.ct-go{ flex:none; font-size:14px; font-weight:600; color:#e0b96a; white-space:nowrap; }
+@media(max-width:520px){
+  .ct-card{ padding:16px 16px; gap:12px; }
+  .ct-ico{ font-size:24px; width:36px; }
+  .ct-t{ font-size:15.5px; }
+  .ct-d{ font-size:13.5px; }
+  .ct-go{ display:none; }
+}
