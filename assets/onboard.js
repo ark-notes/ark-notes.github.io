@@ -34,7 +34,7 @@
       btn:'我知道了 →' }
   ];
 
-  var idx = -1, currentStep = -1;
+  var idx = -1, currentStep = -1, manualStart = false;
   var mask, hole, card;
   var guard;   // 阻止非目标区域点击
 
@@ -45,7 +45,12 @@
     var b=document.createElement('button');
     b.className='ob-entry'; b.type='button';
     b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 4.6 5 .4-3.8 3.3 1.1 4.9L12 13.7 7.8 16.2l1.1-4.9L5.1 8l5-.4z"/></svg><span>新手指引</span>';
-    b.addEventListener('click',function(){ startAt(0); });
+    b.addEventListener('click',function(){
+      // 手动点 = 强制从头开始（清掉进度）
+      try{ localStorage.removeItem(K); }catch(e){}
+      manualStart = true;
+      startAt(0);
+    });
     var g=wrap.querySelector('.nav-guest');
     if(g) wrap.insertBefore(b,g); else wrap.appendChild(b);
   }
@@ -273,6 +278,7 @@
 
   function endAll(){
     setS(FLOW.length-1, true);
+    manualStart = false;
     destroy();
   }
 
@@ -285,6 +291,7 @@
 
   function init(){
     addEntry();
+    if(manualStart) return;    // 手动点过 → 不自动恢复
     var st = getS();
     if(st.done) return;
 
@@ -304,6 +311,6 @@
     if(stepsHere[0] === st.step){ startAt(stepsHere[0]); }
   }
 
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init,700); });
-  else setTimeout(init,700);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init,120); });
+  else setTimeout(init,120);
 })();
