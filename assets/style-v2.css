@@ -282,7 +282,7 @@ tbody tr:hover td{background:rgba(34,211,238,.035)}
 
 /* ============ 悬浮区 ============ */
 .read-bar{position:fixed;top:0;left:0;height:2px;z-index:99;width:0;background:linear-gradient(90deg,var(--gold),var(--cyan));transition:width .08s linear}
-.dock{position:fixed;right:24px;bottom:24px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:16px;pointer-events:none}
+.dock{position:fixed;right:24px;bottom:24px;z-index:9900;display:flex;flex-direction:column;align-items:flex-end;gap:16px;pointer-events:none}
 .dock > *{pointer-events:auto}
 .dock-stack{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .dock-pill{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:26px;font-size:13.5px;font-weight:560;font-family:inherit;cursor:pointer;border:1px solid var(--line-2);background:rgba(12,14,23,.94);color:var(--text-2);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(0,0,0,.4);transition:.24s var(--ease);white-space:nowrap;position:relative}
@@ -984,7 +984,7 @@ body.is-home .back-top-btn{ display:none; }
    阿奇悬浮球（可拖动，含全部功能）
    ============================================================ */
 .arkie-fab{
-  position:fixed; right:18px; top:58%; z-index:500;
+  position:fixed; right:18px; top:58%; z-index:9900;   /* 高于常规元素(导航900/底部条600)，低于引导(9960) */
   display:flex; flex-direction:column; align-items:flex-end; gap:10px;
   pointer-events:none;              /* 容器不挡触摸 */
 }
@@ -2231,7 +2231,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   position:fixed;
   right:18px;
   bottom:150px;
-  z-index:499;               /* 低于悬浮球，避免遮挡 */
+  z-index:9890;              /* 略低于悬浮球(9900) */
   width:44px; height:44px;
   border-radius:50%;
   display:flex; align-items:center; justify-content:center;
