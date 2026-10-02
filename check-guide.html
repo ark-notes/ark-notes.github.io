@@ -63,10 +63,10 @@
 </div>
 
 <div class="facts">
-<div class="facts-t">LP 检查表</div>
+<div class="facts-t"><span class="term" data-t="LP"></span> 检查表</div>
 <table>
 <tr><th>检查项</th><th>怎么看</th><th>合格</th><th>危险</th></tr>
-<tr><td><b>是否上锁</b></td><td>AVE → 点 LP → 看锁仓</td><td>已锁</td><td><b>未锁 → 随时撤池跑路</b></td></tr>
+<tr><td><b>是否上锁</b></td><td>AVE → 点 <span class="term" data-t="LP"></span> → 看锁仓</td><td>已锁</td><td><b>未锁 → 随时撤池跑路</b></td></tr>
 <tr><td><b>锁的类型</b></td><td>看是"时间锁"还是"黑洞锁"</td><td><b>黑洞锁（永久）</b></td><td>时间锁 → 到期可取</td></tr>
 <tr><td><b>锁仓比例</b></td><td>看百分比</td><td><b>≥ 95%</b></td><td>锁 20-50% → 没意义</td></tr>
 <tr><td>剩余未锁部分</td><td>看地址</td><td>交易所地址</td><td><b>项目方地址</b></td></tr>
@@ -108,7 +108,7 @@
 <table>
 <tr><th>检查项</th><th>怎么看</th><th>合格</th><th>危险</th></tr>
 <tr><td><b>有没有国库</b></td><td>白皮书 / 链上地址</td><td>有明确国库地址</td><td>没有 → 钱在项目方口袋</td></tr>
-<tr><td><b>是否多签</b></td><td>Gnosis Safe 查</td><td><b>多签（如 5/9）</b></td><td>单签 → 一个人能拿走</td></tr>
+<tr><td><b>是否多签</b></td><td>Gnosis Safe 查</td><td><b><span class="term" data-t="多签"></span>（如 5/9）</b></td><td>单签 → 一个人能拿走</td></tr>
 <tr><td><b>资金流向</b></td><td>BscScan 查地址流水</td><td>公开可查</td><td><b>转进个人钱包</b></td></tr>
 <tr><td><b>治理是否上链</b></td><td>Tally / Snapshot</td><td>有提案、有投票</td><td>无 → 一言堂</td></tr>
 </table>
@@ -194,10 +194,10 @@
 <tr><th>工具</th><th>网址</th><th>用途</th></tr>
 <tr><td><b>AVE</b></td><td>ave.ai</td><td>LP 锁仓、风险扫描</td></tr>
 <tr><td><b>BscScan</b></td><td>bscscan.com</td><td>合约、权限、交易</td></tr>
-<tr><td><b>DexScreener</b></td><td>dexscreener.com</td><td>价格、流动性</td></tr>
+<tr><td><b>DexScreener</b></td><td>dexscreener.com</td><td>价格、<span class="term" data-t="流动性"></span></td></tr>
 <tr><td><b>Gnosis Safe</b></td><td>app.safe.global</td><td>多签验证</td></tr>
 <tr><td><b>Tally</b></td><td>tally.xyz</td><td>治理提案</td></tr>
-<tr><td><b>DeBank</b></td><td>debank.com</td><td>地址资产、质押</td></tr>
+<tr><td><b>DeBank</b></td><td>debank.com</td><td>地址资产、<span class="term" data-t="质押"></span></td></tr>
 <tr><td><b>GoPlus</b></td><td>gopluslabs.io</td><td>安全扫描</td></tr>
 <tr><td><b>CertiK</b></td><td>certik.com</td><td>审计报告</td></tr>
 <tr><td><b>RugCheck</b></td><td>rugcheck.xyz</td><td>Solana 项目检查</td></tr>
@@ -247,5 +247,6 @@
 <script src="assets/prefetch.js?v=1"></script>
 <script src="assets/onboard.js?v=21"></script>
 <script src="assets/fab.js?v=1"></script>
+<script src="assets/terms.js?v=2"></script>
 </body>
 </html>
