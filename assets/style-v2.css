@@ -2281,13 +2281,20 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 .dim{ color:#6b7484; font-size:.9em; }
 
 /* 引导卡：底部固定面板（不覆盖内容） */
+/* 底部面板样式：位置由 JS 决定，这里只负责居中与宽度约束。
+   ⚠️ 不能用 top:auto / bottom:14px !important —— 否则 JS 设的 top 会被覆盖，
+   卡片就被钉死在屏幕底部、远离目标。 */
 .tour-card.tour-bottom{
   position:fixed !important;
-  left:50% !important; right:auto !important; top:auto !important;
-  bottom:14px !important;
+  left:50% !important; right:auto !important;
   transform:translateX(-50%) !important;
   max-width:440px;
   max-height:none;
+}
+/* 仅当 JS 显式标记为「真·底部固定」时才钉底 */
+.tour-card.tour-bottom.tour-pinned{
+  top:auto !important;
+  bottom:14px !important;
 }
 @media(max-width:520px){
   .tour-card.tour-bottom{ bottom:10px !important; width:calc(100vw - 20px) !important; }
