@@ -2366,3 +2366,27 @@ body.has-bottombar .af-top-btn{ bottom:170px !important; }
 /* 顶部导航下方留白 */
 .site-header + main .page-head,
 .site-header + main .hero{ padding-top:16px; }
+
+/* ============================================================
+   底部条避让（2026-10-02 修复）
+   问题：固定底部条遮住页面最后的内容
+   修法：给正文留出底部空间
+   ============================================================ */
+body.has-bottombar main,
+body.has-bottombar .page,
+body.has-bottombar .wrap:last-child{
+  padding-bottom:96px !important;   /* 底部条 78px + 间距 */
+}
+body.has-bottombar .site-footer{
+  padding-bottom:110px !important;
+}
+/* 手机上更高一点 */
+@media(max-width:640px){
+  body.has-bottombar main{ padding-bottom:104px !important; }
+}
+
+/* 底部条：不透明 + 清晰边界 */
+.bottom-bar{
+  background:#080a12 !important;
+  border-top:1px solid rgba(34,211,238,.3) !important;
+}
