@@ -183,12 +183,24 @@
     window.updateMenuDirection = updateMenuDirection;
     function updateMenuDirection(){
       const r = dock.getBoundingClientRect();
-      // 上方空间不够 → 菜单往下弹
-      const above = r.top;
-      const below = window.innerHeight - r.bottom;
-      menu.classList.toggle('down', above < 320 && below > above);
-      // 靠近左边 → 菜单靠左对齐
+      const mh = menu.offsetHeight || 380;      // 菜单高度
+      const above = r.top;                      // 球上方空间
+      const below = window.innerHeight - r.bottom;  // 球下方空间
+      // 需要多少空间
+      const need = mh + 16;
+      // 决定方向：优先往上（因为球默认在下方）；上方不够就往下
+      const goDown = (above < need) && (below > above);
+      menu.classList.toggle('down', goDown);
+      // 靠左/右对齐
       menu.classList.toggle('align-left', r.left < window.innerWidth/2);
+
+      // 如果两边都不够 → 限制菜单高度
+      const avail = Math.max(above, below) - 20;
+      if(avail < mh){
+        menu.style.maxHeight = Math.max(200, avail) + 'px';
+      } else {
+        menu.style.maxHeight = '';
+      }
     }
     window.addEventListener('resize', updateMenuDirection);
     setTimeout(updateMenuDirection, 100);
