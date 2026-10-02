@@ -11,6 +11,7 @@
   var ITEMS = [
     {t:'提个建议', href:'https://wj.qq.com/s2/28049534/bw59/', ico:'✏️', ext:true},
     {t:'看逐字稿', href:'transcripts.html', ico:'📄'},
+    {t:'资讯速览', href:'news.html', ico:'📰'},
     {t:'查询工具', href:'tools.html', ico:'🔍'},
     {t:'客户版',   href:'guest.html', ico:'👥'},
     {t:'更新日志', href:'whats-new.html', ico:'🆕'},
