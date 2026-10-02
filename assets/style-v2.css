@@ -2118,8 +2118,9 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 .ob-entry svg{ width:15px; height:15px; flex:none; }
 .ob-entry:hover{ background:rgba(224,185,106,.12); border-color:rgba(224,185,106,.4); color:var(--gold); }
 @media(max-width:640px){
-  .ob-entry{ padding:7px 11px; font-size:12.5px; margin-right:6px; }
-  .ob-entry span{ display:none; }   /* 手机只留图标，省空间 */
+  .ob-entry{ padding:6px 9px; font-size:12.5px; margin-right:4px; }
+  .ob-entry span{ display:inline; font-size:12.5px; }   /* 手机保留文字 */
+  .ob-entry svg{ width:14px; height:14px; }
 }
 
 
@@ -2133,7 +2134,7 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 }
 .tour-mask > div{
   position:fixed;
-  background:rgba(4,5,10,.72);
+  background:rgba(3,4,9,.88);
   backdrop-filter:blur(2px);
   pointer-events:auto;      /* 子块挡住点击 */
 }
