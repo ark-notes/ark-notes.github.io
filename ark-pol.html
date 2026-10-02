@@ -49,11 +49,11 @@
 
 <div class="src">
 <div class="src-t">出处（官方概念课）</div>
-<p>「传统流动性挖矿有两大问题：1. LP 承担无常损失风险；2. 协议无法掌握市场流动性，一有风险就被抽干。」——官方概念课《什么是 POL》</p>
+<p>「传统流动性挖矿有两大问题：1. <span class="term" data-t="LP"></span> 承担无常损失风险；2. 协议无法掌握市场流动性，一有风险就被抽干。」——官方概念课《什么是 POL》</p>
 </div>
 
 <div class="facts">
-<div class="facts-t">LP 运算实例（自动贩卖机 · 讲师原例）</div>
+<div class="facts-t"><span class="term" data-t="LP"></span> 运算实例（自动贩卖机 · 讲师原例）</div>
 <table>
 <tr><th>步骤</th><th>池子状态</th><th>单价</th></tr>
 <tr><td>起始</td><td>10 罐可乐 + 100 USDT</td><td>10 元/罐</td></tr>
@@ -119,10 +119,10 @@
 <h2>五、POL + RBS：两个模组怎么配合</h2>
 
 <div class="talk">
-<p>「POL 让协议拥有流动性。但要让市场稳定，还需要一个<b>自动调控价格</b>的机制——这就是 RBS。</p>
+<p>「POL 让协议拥有流动性。但要让市场稳定，还需要一个<b>自动调控价格</b>的机制——这就是 <span class="term" data-t="RBS"></span>。</p>
 <p>你想象一下，你开了一家超市，但不想让商品价格乱涨乱跌。你会怎么办？</p>
 <p><strong>你会设一个价格范围——超过上限就补货，低于下限就促销。目标就是让价格永远在安全区间里波动。</strong></p>
-<p>RBS 就是这个机制。它根据代币过去 30 天的平均价格，算出一个目标区间：</p>
+<p><span class="term" data-t="RBS"></span> 就是这个机制。它根据代币过去 30 天的平均价格，算出一个目标区间：</p>
 <p><strong>上面是「墙区」、中间是「缓冲区」、下面是「不允许跌破的信任区」。</strong></p>
 <p>价格往上突破 → 它自动卖出换成稳定币，防止过热。<br>
 价格往下跌破 → 它拿国库的稳定币回购，托住价格。</p>
@@ -228,5 +228,6 @@
 <script src="assets/prefetch.js?v=1"></script>
 <script src="assets/onboard.js?v=21"></script>
 <script src="assets/fab.js?v=1"></script>
+<script src="assets/terms.js?v=2"></script>
 </body>
 </html>
