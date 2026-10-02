@@ -70,10 +70,10 @@ a:hover{color:var(--cyan)}
 /* ============ 导航 ============ */
 .site-header{
   position:sticky;top:0;z-index:900;height:64px;
-  background:rgba(5,6,11,.88);
-  backdrop-filter:blur(20px) saturate(160%);
-  border-bottom:1px solid var(--line);
-  transition:.3s var(--ease);
+  background:#05060b;               /* 全不透明 —— 滚动时不会透出内容 */
+  border-bottom:1px solid rgba(255,255,255,.09);
+  transition:.2s var(--ease);
+  box-shadow:0 4px 20px rgba(0,0,0,.4);   /* 加阴影，与内容分层 */
 }
 .site-header.scrolled{background:rgba(5,6,11,.97);box-shadow:0 4px 24px rgba(0,0,0,.5);border-bottom-color:var(--cyan-line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:100%;gap:20px}
@@ -89,6 +89,7 @@ a:hover{color:var(--cyan)}
 .site-nav a.active{color:var(--cyan);background:var(--cyan-soft)}
 @media(max-width:900px){
   .site-header{height:auto;padding:8px 0}
+  .site-header{background:#05060b !important;}
   .site-header .wrap{flex-direction:row;align-items:center;gap:6px}
   .site-nav{width:auto;flex:1;min-width:0}
   .site-nav a{padding:6px 8px;font-size:12.5px}
