@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>资讯速览 · ARK 学习指南</title>
 <meta name="description" content="ARK 官方资料库每日同步：官方公告、补贴政策、生态进展、链上数据。只做摘要与来源标注。">
-<link rel="stylesheet" href="assets/style-v2.css?v=94">
+<link rel="stylesheet" href="assets/style-v2.css?v=96">
 </head>
 <body>
 <header class="site-header">
@@ -355,6 +355,169 @@
     <div class="warn-title">遇到负面消息怎么办</div>
     <p>我们的做法是<b>四步分析</b>：① 看发布时间　② 看发布者是谁　③ 看有没有证据　④ 用链上数据反驳。</p>
     <p>具体话术在 <a href="qa.html">疑难问答库 → 遇到唱衰怎么应对</a>。</p>
+  </div>
+</section>
+
+<!-- ============ 官方渠道 ============ -->
+<section class="sec">
+  <div class="sec-head">
+    <h2>官方渠道（全部在此）</h2>
+    <p>要看官方原话，只从这几个地方看。<b>其他渠道一律只能当参考。</b></p>
+  </div>
+
+  <div class="chan-grid">
+    <a class="chan" href="https://www.ARKdefai.com/" target="_blank" rel="noopener">
+      <span class="chan-t">官网</span><span class="chan-u">ARKdefai.com</span></a>
+    <a class="chan" href="https://arkieai.io" target="_blank" rel="noopener">
+      <span class="chan-t">阿奇 AI 官网</span><span class="chan-u">arkieai.io</span></a>
+    <a class="chan" href="https://ark-library.com/" target="_blank" rel="noopener">
+      <span class="chan-t">官方资料库</span><span class="chan-u">ark-library.com</span></a>
+    <a class="chan" href="https://ARK-defai.gitbook.io/ARK/" target="_blank" rel="noopener">
+      <span class="chan-t">白皮书</span><span class="chan-u">gitbook.io/ARK</span></a>
+    <a class="chan" href="https://t.me/ARKdefai" target="_blank" rel="noopener">
+      <span class="chan-t">Telegram 频道</span><span class="chan-u">t.me/ARKdefai</span></a>
+    <a class="chan" href="https://t.me/arkdefaichat" target="_blank" rel="noopener">
+      <span class="chan-t">Telegram 社群</span><span class="chan-u">t.me/arkdefaichat</span></a>
+    <a class="chan" href="https://t.me/arkdefaidoc" target="_blank" rel="noopener">
+      <span class="chan-t">Telegram 资料馆</span><span class="chan-u">t.me/arkdefaidoc</span></a>
+    <a class="chan" href="https://x.com/ARK_defai" target="_blank" rel="noopener">
+      <span class="chan-t">X（推特）</span><span class="chan-u">@ARK_defai</span></a>
+    <a class="chan" href="https://m.youtube.com/@ARKDEFAI" target="_blank" rel="noopener">
+      <span class="chan-t">YouTube</span><span class="chan-u">@ARKDEFAI</span></a>
+    <a class="chan" href="https://medium.com/@ARKdefai" target="_blank" rel="noopener">
+      <span class="chan-t">Medium 博客</span><span class="chan-u">@ARKdefai</span></a>
+  </div>
+
+  <div class="note" style="margin-top:24px">
+    <div class="note-title">为什么要把渠道列出来</div>
+    <p>因为<b>「官方」两个字最容易被冒用</b>。看到有人自称官方，先回来对一下这张表。</p>
+    <p>对不上 → 就不是官方。就这么简单。</p>
+  </div>
+</section>
+
+<!-- ============ 核心合约地址 ============ -->
+<section class="sec">
+  <div class="sec-head">
+    <h2>核心合约地址（官方公布）</h2>
+    <p>这一张表是<b>整站最硬的证据</b> —— 每个地址都能在区块浏览器上查到。谁说什么都不重要，链上写的是什么才重要。</p>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">基础代币</div>
+    <div class="addr-row"><span class="a-name">ARK 代币（$ARK）</span><code class="a-val">0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D</code><span class="a-d">主代币，协议核心资产</span></div>
+    <div class="addr-row"><span class="a-name">gARK 代币</span><code class="a-val">0x911f12D137D74E5917877f87cf8A8bB2FDde557f</code><span class="a-d">质押收益凭证</span></div>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">流动性与创世</div>
+    <div class="addr-row"><span class="a-name">LP 底池</span><code class="a-val">0xCAaF3c41a40103a23Eeaa4BbA468AF3cF5b0e0D8</code><span class="a-d">ARK/USDT 基础流动性池</span></div>
+    <div class="addr-row"><span class="a-name">创世节点</span><code class="a-val">0x4AdD325c3D83eAbD03878d678734D6418347564d</code><span class="a-d">Genesis Node 专属合约</span></div>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">铸币逻辑</div>
+    <div class="addr-row"><span class="a-name">EM 铸币管理员</span><code class="a-val">0x615a2a799c49AF74E91b4C3Ca5eaD68897c07A81</code><span class="a-d">统一授权与管理所有铸币行为</span></div>
+    <div class="addr-row"><span class="a-name">债券合约执行</span><code class="a-val">0xBA9D88e36475c9f92e830f5D2F52503582048aD0</code><span class="a-d">分配债券购买 U 给予 POL 指令</span></div>
+    <div class="addr-row"><span class="a-name">POL 执行与铸币指令</span><code class="a-val">0xbc9e4BC9f839cE93Aba50b9315F31A9A2CBF7E08</code><span class="a-d">债券组 LP 操作，向 EM 申请铸币</span></div>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">质押与奖励</div>
+    <div class="addr-row"><span class="a-name">质押池执行</span><code class="a-val">0x9C0227570967314C86ed88238bc27eD017F37923</code><span class="a-d">用户质押操作与收益计算</span></div>
+    <div class="addr-row"><span class="a-name">质押池储存</span><code class="a-val">0xd1D95292F450b665566df4c4255615eF4Ed9BD0B</code><span class="a-d">安全存放所有质押资产</span></div>
+    <div class="addr-row"><span class="a-name">奖励池（Rebase）</span><code class="a-val">0x8501168656FcaC4628F6910CcABEA8B64Ebe5BD4</code><span class="a-d">存放协议奖励资源，进行 Rebase 派息</span></div>
+    <div class="addr-row"><span class="a-name">奖励释放与涡轮</span><code class="a-val">0x8366a748E02F730911Cb5AB4fd049d2E1e0414b7</code><span class="a-d">控制奖励线性释放与涡轮解锁</span></div>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">市值平衡（RBS / MBR）</div>
+    <div class="addr-row"><span class="a-name">RBS 稳定模组</span><code class="a-val">0x23876D9F06F8290F119Fb39B7FDCf93A08e2D616</code><span class="a-d">负责价格稳定，需要时向 EM 申请铸币</span></div>
+    <div class="addr-row"><span class="a-name">RBS 执行角色</span><code class="a-val">0xab8FA6ACC5Dc1a4a306fC9B8b807413Cc651C9FA</code><span class="a-d">仅执行者，<b>不持有任何资产</b></span></div>
+    <div class="addr-row"><span class="a-name">MBR 执行</span><code class="a-val">0x100844Ccd4AF887D123c0AC4a9671E0AB5DD9De2</code><span class="a-d">ETH 燃烧回流资金市值平衡储备</span></div>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">国库与回流</div>
+    <div class="addr-row"><span class="a-name">ATS 国库多签</span><code class="a-val">0x1b9f458773d18B4e1AAf5b896721697215C4a68b</code><span class="a-d">方舟国库局，<b>多签</b>管理国库资产</span></div>
+    <div class="addr-row"><span class="a-name">ARK 释放回流</span><code class="a-val">0x7DFAd978e43d47bAe564C2CBBa88F280474a7C24</code><span class="a-d">协议释放后回流的 ARK 接收地址</span></div>
+    <div class="addr-row"><span class="a-name">ETH 释放回流</span><code class="a-val">0x642950B4AF3a3d51f09f2de75444783B1592ae70</code><span class="a-d">协议释放后回流的 ETH 接收地址</span></div>
+  </div>
+
+  <div class="addr-group">
+    <div class="ag-t">手续费与贡献值</div>
+    <div class="addr-row"><span class="a-name">ARK 手续费地址（2.5%）</span><code class="a-val">0xd9D1c7dCf7CB6181A61ed0E70F64fe7Ddd4B9495</code><span class="a-d">收取协议固定 2.5% 手续费</span></div>
+    <div class="addr-row"><span class="a-name">贡献值合约</span><code class="a-val">0x7736b5B84cADDB7661D250D10e60E31F3C905c99</code><span class="a-d">USDT 购买与资金流向管理（通缩销毁 / 储备 RBS）</span></div>
+  </div>
+
+  <div class="src">
+    <div class="src-t">出处</div>
+    <p>「ARK 主网核心合约地址（BSC 链）」—— <b>ARK 官方资料库</b>，分类「合约地址」</p>
+    <p>查法见：<a href="query-guide.html">链上查询教程</a> · 工具见：<a href="tools.html">查询工具</a></p>
+  </div>
+
+  <div class="note">
+    <div class="note-title">怎么用这一页</div>
+    <p>有人质疑的时候，<b>不要跟他吵，直接打开区块浏览器贴地址</b>。</p>
+    <p>底池锁了多少、权限在谁手上、国库是不是多签 —— <b>链上全写着，不是谁说了算。</b></p>
+  </div>
+</section>
+
+<!-- ============ 媒体报道 ============ -->
+<section class="sec">
+  <div class="sec-head">
+    <h2>媒体报道（外部来源）</h2>
+    <p>这些是<b>第三方媒体</b>的报道，不是我们自己说的。可信度比官方公告低一档，但胜在「不是自己夸自己」。</p>
+  </div>
+
+  <div class="news-list">
+    <article class="ni" data-cat="ind">
+      <div class="ni-head"><span class="ni-cat tag-ind">国际媒体</span><span class="ni-date">2026-05</span></div>
+      <h3>路透社 Reuters：ARKIE AI 与腾讯云达成合作</h3>
+      <p class="ni-sum">报道 ARKIE AI 与腾讯云结成战略合作，共同支持可扩展 AI 平台开发。</p>
+      <a class="ni-src-toggle" href="https://www.reuters.com/press-releases/arkie-ai-tencent-cloud-partnership-scalable-platform-2026-05-18/" target="_blank" rel="noopener">看原文 ↗</a>
+    </article>
+
+    <article class="ni" data-cat="ind">
+      <div class="ni-head"><span class="ni-cat tag-ind">国际媒体</span><span class="ni-date">2026-05</span></div>
+      <h3>Yahoo Finance：ARKIE AI 携手腾讯云，推进 AI 商业化基建</h3>
+      <p class="ni-sum">雅虎财经报道此次合作，定位为「夯实 AI 商业化底层基建」。</p>
+      <a class="ni-src-toggle" href="https://finance.yahoo.com/sectors/technology/articles/arkie-ai-partners-tencent-cloud-094100146.html" target="_blank" rel="noopener">看原文 ↗</a>
+    </article>
+
+    <article class="ni" data-cat="ind">
+      <div class="ni-head"><span class="ni-cat tag-ind">国际媒体</span><span class="ni-date">2026-05</span></div>
+      <h3>StreetInsider：ARKIE AI 与腾讯云战略结盟</h3>
+      <p class="ni-sum">华尔街内参报道，指向「吸引国际资本与科技市场目光」。</p>
+      <a class="ni-src-toggle" href="https://www.streetinsider.com/The+Financial+Capital/ARKIE+AI+Partners+with+Tencent+Cloud+to+Support+Scalable+AI+Platform+Development/26509038.html" target="_blank" rel="noopener">看原文 ↗</a>
+    </article>
+
+    <article class="ni" data-cat="ind">
+      <div class="ni-head"><span class="ni-cat tag-ind">国际媒体</span><span class="ni-date">2026-07-28</span></div>
+      <h3>Business Insider / TechBullion：聚焦 ARKIE AI「AI 价值体系」</h3>
+      <p class="ni-sum">两家媒体报道 ARKIE AI 发布 AI Value System 规划 —— 以<b>阿奇支付、阿奇通证、阿奇 NFT 权益</b>构建三大价值架构。报道角度是「下一场竞争是经济性的，不是技术性的」。</p>
+      <a class="ni-src-toggle" href="https://markets.businessinsider.com/news/stocks/arkie-ai-introduces-ai-value-system-framework-arguing-the-industrys-next-contest-is-economic-not-technical-1036366914" target="_blank" rel="noopener">看原文 ↗</a>
+    </article>
+
+    <article class="ni" data-cat="ind">
+      <div class="ni-head"><span class="ni-cat tag-ind">国内媒体</span><span class="ni-date">2026-07-30</span></div>
+      <h3>百度百家号 / 新浪财经：报道 ARKIE AI「AI 价值体系」</h3>
+      <p class="ni-sum">国内主流媒体报道同一主题，聚焦「AI 普及时代的经济模型与价值分配机制」。</p>
+      <a class="ni-src-toggle" href="https://finance.sina.com.cn/jjxw/2026-07-27/doc-inikfsuy8419155.shtml" target="_blank" rel="noopener">看原文 ↗</a>
+    </article>
+
+    <article class="ni" data-cat="ind">
+      <div class="ni-head"><span class="ni-cat tag-ind">国内媒体</span><span class="ni-date">2026-08-03</span></div>
+      <h3>中华网 / 脚本之家：ARKIE AI 全新商业框架登榜</h3>
+      <p class="ni-sum">报道角度：「告别模型内卷，通过<b>支付、流通、权益</b>三大维度重构 AI 时代的价值创造逻辑」。</p>
+      <a class="ni-src-toggle" href="https://digi.china.com/digi/gdxv/2026/0727/1926379.html" target="_blank" rel="noopener">看原文 ↗</a>
+    </article>
+  </div>
+
+  <div class="warn" style="margin-top:22px">
+    <div class="warn-title">怎么用这些报道（别用错）</div>
+    <p><b>可以讲：</b>「这些是第三方媒体的公开报道，可以自己搜标题核对。」</p>
+    <p><b>不要讲：</b>「路透社说我们一定涨」「媒体背书 = 稳赚」。<b>媒体报道 ≠ 收益保证</b>，两者是两回事。</p>
+    <p><b>最稳的用法：</b>把链接给对方，让他自己搜、自己看、自己判断。</p>
   </div>
 </section>
 
