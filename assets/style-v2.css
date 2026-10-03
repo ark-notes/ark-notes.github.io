@@ -3118,3 +3118,10 @@ a[href]:not(.site-nav a):not(.side-nav a):not(.toc-right a):not(.fab-item):not(.
   .tbl-act:active{ transform:scale(.97); }
   .addr-inline:active{ background:rgba(34,211,238,.2); }
 }
+
+/* ---------- fab 菜单 SVG 图标尺寸 ---------- */
+.fab-ico svg{ width:16px; height:16px; display:block; }
+.fab-ico{ width:20px; display:flex; align-items:center; justify-content:center; }
+/* vg-ico（教程视频卡）SVG */
+.vg-ico svg{ width:16px; height:16px; }
+.vg-ico{ color:var(--cyan); }
