@@ -69,9 +69,8 @@
     if(bb){ bb.dataset.tourHidden='1'; bb.style.setProperty('display','none','important'); }
     // 遮罩（用 4 个块围出洞 —— 更可靠，且不依赖 CSS 新特性）
     mask = document.createElement('div');
-    mask.className='tour-mask';
-    mask.innerHTML = '<div class="tm-top"></div><div class="tm-bottom"></div>'
-                   + '<div class="tm-left"></div><div class="tm-right"></div>';
+    mask.className = 'tour-mask';
+    /* 单块遮罩 + 用 clip-path 挖洞（不会出现拼接处的深浅不一） */
     document.body.appendChild(mask);
 
     hole = document.createElement('div');
@@ -201,25 +200,24 @@
      top / bottom 负责上下（满宽）
      left / right 只负责「洞那一行」的左右，因此高度必须等于洞高，
      且上下边界要与 top 的底、bottom 的顶严丝合缝（否则出现漏光横带）。 */
+  /* ---------- 定位（用 clip-path 挖洞，单块遮罩） ---------- */
   function setBox(top, left, w, h){
-    var bt = Math.max(0, top);                 // 洞的上边
-    var bb = Math.max(bt, top + h);            // 洞的下边
-    var bl = Math.max(0, left);                // 洞的左边
-    var br = Math.max(bl, left + w);           // 洞的右边
-    var vw = window.innerWidth;
-    var vh = window.innerHeight;
-
-    bt = Math.min(bt, vh);
-    bb = Math.min(bb, vh);
-    bl = Math.min(bl, vw);
-    br = Math.min(br, vw);
-
-    var midH = bb - bt;                        // 中间行高度（左右块共用）
-
-    mask.querySelector('.tm-top').style.cssText    = 'top:0;left:0;right:0;height:'+bt+'px';
-    mask.querySelector('.tm-bottom').style.cssText = 'top:'+bb+'px;left:0;right:0;bottom:0';
-    mask.querySelector('.tm-left').style.cssText   = 'top:'+bt+'px;left:0;width:'+bl+'px;height:'+midH+'px';
-    mask.querySelector('.tm-right').style.cssText  = 'top:'+bt+'px;left:'+br+'px;right:0;height:'+midH+'px';
+    if(!mask) return;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var bt = Math.max(0, Math.min(Math.round(top), vh));
+    var bl = Math.max(0, Math.min(Math.round(left), vw));
+    var bb = Math.max(bt, Math.min(Math.round(top + h), vh));
+    var br = Math.max(bl, Math.min(Math.round(left + w), vw));
+    /* 用 evenodd 在遮罩里"挖"出一个矩形 */
+    mask.style.clipPath =
+      'polygon(evenodd,' +
+        '0 0,' + vw + 'px 0,' + vw + 'px ' + vh + 'px,0 ' + vh + 'px,0 0,' +
+        bl + 'px ' + bt + 'px,' +
+        bl + 'px ' + bb + 'px,' +
+        br + 'px ' + bb + 'px,' +
+        br + 'px ' + bt + 'px,' +
+        bl + 'px ' + bt + 'px)';
+    mask.style.webkitClipPath = mask.style.clipPath;
   }
 
   function place(el, s){
@@ -227,8 +225,8 @@
 
     var vw = window.innerWidth;
     var vh = window.innerHeight;
-    var GAP = 16;                                  // 高亮区与卡片之间的间距
-    var PAD = 6;                                   // 高亮区外扩
+    var GAP = 12;                                  // 高亮区与卡片之间的间距
+    var PAD = 4;                                   // 高亮区外扩
 
     /* 顶栏底部：卡片不能盖住顶栏 */
     var hdrEl = document.querySelector('.site-header');
