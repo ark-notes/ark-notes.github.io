@@ -2175,28 +2175,21 @@ html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
    游戏式新手引导 v5（强制聚焦）
    核心：全屏遮罩 + 只有目标挖洞可点
    ============================================================ */
+/* 单块遮罩 + clip-path 挖洞 —— 不会出现拼接处深浅不一 */
 .tour-mask{
   position:fixed; inset:0; z-index:9960;
-  pointer-events:none;      /* 容器本身不挡 —— 只有 4 块子块挡 */
-}
-.tour-mask > div{
-  position:fixed;
   background:rgba(3,4,9,.88);
-  /* 去掉 backdrop-filter —— 它会创建合成层，移除后可能残留 */
   pointer-events:auto;
+  /* clip-path 由 JS 设置 */
 }
-.tm-top{ top:0; left:0; right:0; }
-.tm-bottom{ left:0; right:0; bottom:0; }
-.tm-left{ left:0; }
-.tm-right{ right:0; }
 
 /* 挖洞区（透明 + 金边，可点） */
 .tour-hole{
   position:fixed; z-index:9965;
   border-radius:12px;
-  border:2.5px solid var(--gold);
+  border:2px solid var(--gold);
   background:transparent;
-  box-shadow:0 0 0 3px rgba(224,185,106,.18), 0 0 30px 6px rgba(224,185,106,.4);
+  box-shadow:0 0 0 1px rgba(224,185,106,.3), 0 0 0 6px rgba(224,185,106,.12);
   pointer-events:none;
   will-change:auto;
   transition:all .3s cubic-bezier(.22,1,.36,1);
