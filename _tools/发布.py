@@ -51,15 +51,23 @@ def main():
         print("       python3 发布.py --all   （发布全部改动）")
         return 1
 
-    step(1, '自查')
+    step(1, '自查（结构）')
     r = subprocess.run(['python3', f'{WS}/自查.py'], capture_output=True, text=True, timeout=300)
-    out = r.stdout
-    print(out[-1200:])
+    print(r.stdout[-1200:])
     if r.returncode != 0:
-        print("\n🔴 自查未通过，**拒绝发布**")
-        print("   请先修掉上面的问题")
+        print("\n🔴 结构自查未通过，**拒绝发布**")
         return 1
-    print("\n✅ 自查通过")
+    print("\n✅ 结构自查通过")
+
+    step(1.5, '自查（视觉）—— 查漏光/遮挡/溢出/裁切')
+    r2 = subprocess.run(['python3', f'{WS}/视觉审查.py'],
+                        capture_output=True, text=True, timeout=400)
+    print(r2.stdout[-1200:])
+    if r2.returncode != 0:
+        print("\n🔴 视觉审查未通过，**拒绝发布**")
+        print("   请先修掉上面的视觉问题")
+        return 1
+    print("\n✅ 视觉审查通过")
 
     step(2, '发布')
     if files == ['--all']:
