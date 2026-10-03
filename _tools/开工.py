@@ -63,7 +63,39 @@ def sync_workspace():
     sh(f'cp -f {tr}/_tools/需求总表.md {WS}/REQUIREMENTS.md 2>/dev/null')
     # 知识库
     sh(f'cp -rf {tr}/_knowledge/* {WS}/知识库/ 2>/dev/null')
+    # ⭐ 也从网站仓库拉 _tools（逐字稿仓库可能写不了，改存网站仓库）
+    st = '/tmp/_pull/ark-notes'
+    if os.path.isdir(f'{st}/_tools'):
+        sh(f'cp -f {st}/_tools/*.md {WS}/rules/ 2>/dev/null')
+        sh(f'cp -f {st}/_tools/*.py {WS}/ 2>/dev/null')
+    if os.path.isdir(f'{st}/_对话记录'):
+        os.makedirs(f'{WS}/对话记录', exist_ok=True)
+        sh(f'cp -f {st}/_对话记录/*.md {WS}/对话记录/ 2>/dev/null')
+        print("  ✓ 从网站仓库拉回对话记录")
     print("  ✓ 规则 / 深挖 / 对话记录 / 逐字稿 / 知识库 已同步")
+
+def read_capability():
+    """读能力档案 —— 恢复「自己是谁、会什么」"""
+    step('2.5', '读能力档案（恢复能力）')
+    p = f'{WS}/能力档案.md'
+    if not os.path.exists(p):
+        print("  ⚠️ 能力档案不存在（首次运行？）")
+        return
+    s = open(p, encoding='utf-8').read()
+    # 提取最新节点
+    nodes = re.findall(r'## 节点 (\d+) · ([^\n]+)', s)
+    if nodes:
+        last = nodes[-1]
+        print(f"  最新节点：节点 {last[0]} · {last[1]}")
+    # 提取待补能力
+    m = re.search(r'# 待补能力.*?\n(.*?)(?=\n# |\Z)', s, re.S)
+    if m:
+        todos = re.findall(r'\| (\d+) \| \*\*([^*]+)\*\* \| ([^|]+) \|', m.group(1))
+        print(f"  待补能力：{len(todos)} 项")
+        for _, name, st in todos[:5]:
+            print(f"     · {name.strip()}  [{st.strip()}]")
+    print(f"  ✓ 共 {len(nodes)} 个能力节点（沙箱重启后靠这个恢复）")
+
 
 def read_conversations(days=3):
     step(3, f'读对话记录（最近 {days} 天）')
@@ -137,6 +169,7 @@ def main():
     print("=" * 58)
     pull_repos()
     sync_workspace()
+    read_capability()
     read_conversations()
     check_ledger()
     check_missing()
