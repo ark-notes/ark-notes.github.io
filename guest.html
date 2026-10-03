@@ -294,6 +294,15 @@ body{
   .s2-b b,.pf-b b{ font-size:16.5px; }
 }
 
+
+.note-box{
+  padding:20px 24px; border-radius:14px; margin:8px 0 20px;
+  background:linear-gradient(135deg,rgba(224,185,106,.1),rgba(224,185,106,.03));
+  border:1px solid rgba(224,185,106,.3);
+  font-size:16px; line-height:1.9; color:#cdd3dd;
+}
+.note-box b{ color:#e0b96a; }
+@media(max-width:520px){ .note-box{ padding:17px 18px; font-size:15.5px; } }
 </style>
 <link rel="stylesheet" href="assets/style-v2.min.css?v=88">
 </head>
@@ -460,40 +469,15 @@ body{
     <b>就算最后你不做，<br>多了解一个新东西也不亏。</b>
   </p>
 
-  <div class="contact-box">
-    <div class="cb-t">加我微信</div>
-    <div class="cb-id">
-      <span class="cb-num">13592659843</span>
-    </div>
-    <div class="cb-acts">
-      <button class="cb-copy" type="button" data-copy="13592659843">复制号码</button>
-      <a class="cb-call" href="tel:13592659843">拨打电话</a>
-    </div>
-    <div class="cb-hint">微信号同手机号 · 长按可复制</div>
-    <div class="cb-hint" style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);color:#e0b96a">
-      <b>不知道怎么把钱换成 U？</b><br>打给我，我手把手教你第一步。
-    </div>
+  <div class="note-box" style="text-align:center">
+    <b>不知道怎么把钱换成 U？</b><br>
+    找推荐人，他会手把手教你第一步。
   </div>
 
   <a class="cta cta-2" href="tools.html" style="margin-top:20px">我想自己查查看 →</a>
 </div><div class="scroll-next">继续下滑 <span>↓</span></div>
 </section>
 </main>
-
-<script>
-(function(){
-  var btn=document.querySelector('.cb-copy');
-  if(!btn) return;
-  btn.addEventListener('click',function(){
-    var v=btn.getAttribute('data-copy');
-    var done=function(){ btn.textContent='✓ 已复制'; setTimeout(function(){btn.textContent='复制';},1600); };
-    if(navigator.clipboard){ navigator.clipboard.writeText(v).then(done).catch(function(){
-      var t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}
-      document.body.removeChild(t);done();}); }
-    else { var t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done(); }
-  });
-})();
-</script>
 
 <script>
 (function(){
