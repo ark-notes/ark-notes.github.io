@@ -3233,3 +3233,26 @@ a[href]:not(.site-nav a):not(.side-nav a):not(.toc-right a):not(.fab-item):not(.
   .trust-row{ padding:11px 13px; font-size:13.5px; }
   .trust-row .ti{ width:58px; font-size:12px; }
 }
+
+/* ---------- 无障碍：跳转主内容链接（WCAG 2.4.1） ---------- */
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:99999;
+  padding:12px 20px; border-radius:0 0 10px 0;
+  background:var(--cyan); color:#05060b;
+  font-size:15px; font-weight:700; text-decoration:none;
+}
+.skip-link:focus{
+  left:0;
+  outline:3px solid var(--gold);
+  outline-offset:2px;
+}
+/* 键盘焦点可见（WCAG 2.4.7） */
+*:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:2px;
+  border-radius:4px;
+}
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:3px;
+}
