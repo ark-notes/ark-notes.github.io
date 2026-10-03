@@ -3362,3 +3362,80 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 /* 搜索图标 */
 .nav-search{ display:inline-flex; align-items:center; gap:3px; }
 .nav-search::before{ content:"\2315"; font-size:15px; opacity:.8; }
+
+/* ---------- 首页：一句话说清「ARK 是什么」 ---------- */
+.what-is{
+  margin: 0 0 24px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(224,185,106,.11), rgba(224,185,106,.03));
+  border: 1px solid rgba(224,185,106,.3);
+  border-left: 4px solid var(--gold);
+}
+.wi-label{
+  font-size: 12.5px; font-weight: 750; letter-spacing: .1em;
+  color: var(--gold); margin-bottom: 10px;
+}
+.wi-text{
+  font-size: 17.5px; line-height: 1.95; color: var(--text-2);
+  margin: 0 !important; max-width: 640px;
+}
+.wi-text b{ color: var(--text); font-weight: 650; }
+.wi-sub{
+  display: block; margin-top: 8px;
+  font-size: 14.5px; color: var(--text-3);
+}
+@media(max-width:640px){
+  .what-is{ padding: 17px 18px; border-radius: 14px; }
+  .wi-text{ font-size: 16.5px; line-height: 1.9; }
+  .wi-sub{ font-size: 14px; }
+}
+
+/* ============================================================
+   顶栏搜索框（2026-10-03）
+   用户反馈：「搜索栏不清晰」→ 改成常驻可输入
+   ============================================================ */
+.nav-searchbox{
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 14px; margin-left: 6px;
+  border-radius: 22px;
+  /* ⚠️ 提高对比度：用户反馈"搜索栏不清晰" */
+  background: rgba(34,211,238,.09);
+  border: 1.5px solid rgba(34,211,238,.35);
+  transition: .22s var(--ease);
+  flex: 0 1 190px; min-width: 0;
+  box-shadow: 0 0 0 0 rgba(34,211,238,0);
+}
+.nav-searchbox:focus-within{
+  background: rgba(34,211,238,.08);
+  border-color: var(--cyan-line);
+  box-shadow: 0 0 0 3px rgba(34,211,238,.1);
+}
+.nav-searchbox svg{
+  flex: none; width: 16px; height: 16px;
+  color: var(--cyan); opacity:.85; transition: .2s;
+}
+.nav-searchbox:focus-within svg{ color: var(--cyan); }
+.nav-searchbox input{
+  flex: 1; min-width: 0;
+  background: transparent; border: none; outline: none;
+  color: var(--text); font-size: 13.5px; font-family: inherit;
+  padding: 0;
+}
+.nav-searchbox input::placeholder{ color: #9aa6b8; }
+
+/* 手机端：只留图标，点开进搜索页 */
+@media(max-width:900px){
+  .nav-searchbox{ flex: 0 1 120px; padding: 5px 10px; }
+  .nav-searchbox input{ font-size: 13px; }
+}
+@media(max-width:640px){
+  .nav-searchbox{
+    flex: 0 0 auto; width: 34px; height: 34px;
+    padding: 0; justify-content: center;
+    border-radius: 50%;
+  }
+  .nav-searchbox input{ display: none; }
+  .nav-searchbox svg{ width: 17px; height: 17px; }
+  /* 点击后跳搜索页（用 CSS 无法跳转，靠 JS） */
+}
