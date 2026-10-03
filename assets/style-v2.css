@@ -3178,3 +3178,58 @@ a[href]:not(.site-nav a):not(.side-nav a):not(.toc-right a):not(.fab-item):not(.
   .chk-t{ font-size:15.5px; margin-bottom:10px; }
   .chk-btns .tbl-act{ font-size:12.5px; padding:5px 10px; }
 }
+
+/* ============================================================
+   工具可信度组件（tools.html）
+   ------------------------------------------------------------
+   用户要求（2026-10-03）：
+   「每个查询网站你要介绍他 包括优缺点。比如 AVE 其实并不权威，
+     里面的数据都可以花钱改，但有一点 LP 的数据是不能改的，
+     因为有区块链浏览器验证。」
+   ------------------------------------------------------------
+   设计：每个工具标「能信什么 / 不能信什么 / 怎么交叉验证」
+   ============================================================ */
+.trust{
+  margin:14px 0 4px;
+  border-radius:13px; overflow:hidden;
+  border:1px solid var(--line-2);
+}
+.trust-row{
+  display:flex; gap:11px; align-items:flex-start;
+  padding:12px 15px; font-size:14px; line-height:1.75;
+}
+.trust-row + .trust-row{ border-top:1px solid rgba(255,255,255,.06); }
+.trust-row .ti{
+  flex:none; font-size:13px; font-weight:800; letter-spacing:.02em;
+  width:66px; padding-top:1px;
+}
+.trust-ok{ background:rgba(62,207,142,.06); }
+.trust-ok .ti{ color:var(--green); }
+.trust-no{ background:rgba(255,107,107,.06); }
+.trust-no .ti{ color:var(--red); }
+.trust-chk{ background:rgba(224,185,106,.06); }
+.trust-chk .ti{ color:var(--gold); }
+.trust-row .tb{ flex:1; min-width:0; color:var(--text-2); }
+.trust-row .tb b{ color:var(--text); font-weight:640; }
+.trust-row code{
+  background:rgba(34,211,238,.08); color:var(--cyan);
+  padding:2px 6px; border-radius:5px; font-size:12.5px;
+  font-family:"SF Mono",Menlo,Consolas,monospace;
+  word-break:break-all;
+}
+
+/* 工具的「权威度」小标签 */
+.tool-grade{
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:11.5px; font-weight:700; letter-spacing:.02em;
+  padding:3px 9px; border-radius:12px; margin-left:8px;
+  vertical-align:1px;
+}
+.g-high{ background:rgba(62,207,142,.14); color:var(--green); border:1px solid rgba(62,207,142,.3); }
+.g-mid{ background:rgba(224,185,106,.14); color:var(--gold); border:1px solid var(--gold-line); }
+.g-ref{ background:rgba(34,211,238,.12); color:var(--cyan); border:1px solid var(--cyan-line); }
+
+@media(max-width:640px){
+  .trust-row{ padding:11px 13px; font-size:13.5px; }
+  .trust-row .ti{ width:58px; font-size:12px; }
+}
