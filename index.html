@@ -29,7 +29,10 @@
       <a href="path.html">学习路径</a>
       <a href="tools.html">工具</a>
       <a href="news.html">资讯</a>
-      <a href="search.html" class="nav-search">搜索</a>
+            <form class="nav-searchbox" action="search.html" method="get" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+        <input type="search" name="q" placeholder="搜索" aria-label="站内搜索" autocomplete="off">
+      </form>
       <a href="whats-new.html" class="nav-more">更多</a>
     </nav>
   <a href="guest.html" class="nav-guest">客户版</a>
@@ -38,15 +41,27 @@
 <main id="main-content" tabindex="-1">
   <section class="hero"><div class="wrap">
     <span class="hero-tag">ARK DeFAI · 学习指南</span>
-    <h1>从零开始，<br>把 ARK <em>学明白、讲清楚</em>。</h1>
+
+    <h1>学懂 <em>ARK</em>，<br>从这一页开始。</h1>
+
+    <div class="what-is">
+      <div class="wi-label">ARK 是什么？</div>
+      <p class="wi-text">
+        <b>一句话：</b>它是一个把 <b>AI 产品</b>（阿奇 AI）、<b>支付</b>（阿奇支付卡）
+        和 <b>链上资产</b>拼在一起的区块链生态。<br>
+        <span class="wi-sub">运行在 BNB Chain 上，合约和资金池都可以自己上链查证。</span>
+      </p>
+    </div>
 
     <div class="site-def">
-      <p class="site-def-text"><b>把 ARK 讲明白的一站式资料库。</b>从「自己搞懂」到「能给别人讲清楚」，每步都有能照念的话和链上可查的证据。</p>
+      <p class="site-def-text"><b>这个网站做什么：</b>把 ARK 讲明白。从「自己搞懂」到「能给别人讲清楚」，每步都有能照念的话和链上可查的证据。</p>
     </div>
+
     <p>一条清晰的学习路径：先搞懂，再会查，然后能讲，最后能带人。<br>配套演讲稿、话术、链上查询教程，从十五分钟到一小时。</p>
+
     <div class="btns">
-      <a class="btn btn-main" href="#roadmap">开始学习 →</a>
-      <a class="btn btn-ghost" href="lecturer.html">直接看演讲稿</a>
+      <a class="btn btn-main" href="ark-what.html">先看：ARK 到底是什么 →</a>
+      <a class="btn btn-ghost" href="path.html">按七步路径学</a>
     </div>
     <div class="hero-steps">
       <span class="hero-step"><b>01</b> 搞懂</span>
@@ -244,5 +259,6 @@
 <script src="assets/prefetch.min.js?v=1"></script>
 <script src="assets/fab.min.js?v=1"></script>
 <script src="assets/terms.min.js?v=2"></script>
+<script src="assets/navsearch.min.js?v=1"></script>
 </body>
 </html>
