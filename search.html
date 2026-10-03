@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜索 · ARK 学习指南</title>
+<meta name="description" content="站内搜索：找资料、找话术、找工具、找课程回放。">
+<link rel="stylesheet" href="assets/style-v2.min.css?v=101">
+</head>
+<body>
+<a href="#main-content" class="skip-link">跳到主要内容</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="start.html">入门准备</a>
+      <a href="path.html">学习路径</a>
+      <a href="ark-what.html">搞懂 ARK</a>
+      <a href="tools.html">工具</a>
+      <a href="news.html">资讯</a>
+      <a href="recordings.html">空课</a>
+      <a href="lecturer.html">讲师</a>
+      <a href="whats-new.html">更新</a>
+    </nav>
+  <a href="guest.html" class="nav-guest">客户版</a>
+    </div>
+</header>
+<main id="main-content" tabindex="-1"><div class="wrap">
+
+<div class="page-head" style="margin-bottom:28px">
+  <span class="eyebrow">站内搜索</span>
+  <h1>找东西</h1>
+  <p>38 个页面里搜。找资料、找话术、找工具、找课程回放。</p>
+</div>
+
+<div class="search-box">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+  <input type="search" id="q" placeholder="输入关键词，比如：底池、安全、话术、空课…"
+         autocomplete="off" autofocus aria-label="搜索关键词">
+  <button id="clear" type="button" aria-label="清空">✕</button>
+</div>
+
+<div class="hot-tags" id="hot">
+  <span class="hot-label">常见搜索</span>
+  <button class="hot-tag" data-q="底池">底池</button>
+  <button class="hot-tag" data-q="安全性">安全性</button>
+  <button class="hot-tag" data-q="话术">话术</button>
+  <button class="hot-tag" data-q="支付卡">支付卡</button>
+  <button class="hot-tag" data-q="空课">空课回放</button>
+  <button class="hot-tag" data-q="政策">政策</button>
+  <button class="hot-tag" data-q="查询">链上查询</button>
+  <button class="hot-tag" data-q="钱包">钱包</button>
+</div>
+
+<div id="result-info" class="result-info"></div>
+<div id="results" class="results"></div>
+
+<div id="empty" class="empty-state">
+  <div class="es-ico">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+  </div>
+  <p>输入关键词开始搜索</p>
+  <p class="es-sub">比如「底池锁没锁」「怎么讲安全」「支付卡怎么办」</p>
+</div>
+
+</div></main>
+
+<footer class="site-footer"><div class="wrap">
+  <p><b>ARK 学习指南</b> · 站内搜索</p>
+  <p>内容仅供参考，不构成投资建议。</p>
+  <p><a href="index.html">回到首页</a> · <a href="tools.html">查询工具</a> · <a href="whats-new.html">更新日志</a></p>
+</div></footer>
+
+<script src="data/search-index.js?v=1"></script>
+<script src="assets/search.min.js?v=1"></script>
+<script src="assets/fab.min.js?v=1"></script>
+<script src="assets/link-tools.min.js?v=1"></script>
+</body>
+</html>
