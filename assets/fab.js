@@ -9,14 +9,14 @@
    ============================================================ */
 (function(){
   var ITEMS = [
-    {t:'提个建议', href:'https://wj.qq.com/s2/28049534/bw59/', ico:'✏️', ext:true},
-    {t:'看逐字稿', href:'transcripts.html', ico:'📄'},
-    {t:'资讯速览', href:'news.html', ico:'📰'},
-    {t:'空课回放', href:'recordings.html', ico:'🎬'},
-    {t:'查询工具', href:'tools.html', ico:'🔍'},
-    {t:'客户版',   href:'guest.html', ico:'👥'},
-    {t:'更新日志', href:'whats-new.html', ico:'🆕'},
-    {t:'新手指引', action:'tour', ico:'⭐'}
+    {t:'提个建议', href:'https://wj.qq.com/s2/28049534/bw59/', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>', ext:true},
+    {t:'看逐字稿', href:'transcripts.html', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>'},
+    {t:'资讯速览', href:'news.html', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h13a2 2 0 012 2v13a1 1 0 01-1 1H5a2 2 0 01-2-2V5a1 1 0 011-1z"/><path d="M7 8h7M7 12h7M7 16h4"/></svg>'},
+    {t:'空课回放', href:'recordings.html', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>'},
+    {t:'查询工具', href:'tools.html', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>'},
+    {t:'客户版',   href:'guest.html', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>'},
+    {t:'更新日志', href:'whats-new.html', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg>'},
+    {t:'新手指引', action:'tour', svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 4.6 5 .4-3.8 3.3 1.1 4.9L12 13.7 7.8 16.2l1.1-4.9L5.1 8l5-.4z"/></svg>'}
   ];
 
   var dock, ball, menu;
@@ -37,9 +37,10 @@
 
     // 构建菜单项
     menu.innerHTML = ITEMS.map(function(it){
-      if(it.ext) return '<a class="fab-item" href="'+it.href+'" target="_blank" rel="noopener"><span class="fab-ico">'+it.ico+'</span>'+it.t+'</a>';
-      if(it.action) return '<button class="fab-item" type="button" data-action="'+it.action+'"><span class="fab-ico">'+it.ico+'</span>'+it.t+'</button>';
-      return '<a class="fab-item" href="'+it.href+'"><span class="fab-ico">'+it.ico+'</span>'+it.t+'</a>';
+      var ic = '<span class="fab-ico">'+(it.svg||'')+'</span>';
+      if(it.ext) return '<a class="fab-item" href="'+it.href+'" target="_blank" rel="noopener">'+ic+it.t+'</a>';
+      if(it.action) return '<button class="fab-item" type="button" data-action="'+it.action+'">'+ic+it.t+'</button>';
+      return '<a class="fab-item" href="'+it.href+'">'+ic+it.t+'</a>';
     }).join('');
 
     // 恢复位置
