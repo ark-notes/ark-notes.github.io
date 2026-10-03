@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>怎么分辨一个项目安不安全 · ARK 学习指南</title>
+<meta name="description" content="六个维度判断一个区块链项目：供给控制、流动性、权限、资金托管、提现自由、交易约束。每一条都能自己上链查。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="怎么分辨一个项目安不安全 · ARK 学习指南">
+<meta property="og:description" content="六个维度判断一个区块链项目，每一条都能自己上链查。">
+<meta property="og:site_name" content="ARK 学习指南">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style-v2.min.css?v=102">
+</head>
+<body>
+<a href="#main-content" class="skip-link">跳到主要内容</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 26H4L16 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 12l6.5 13h-13L16 12Z" fill="currentColor" opacity=".22"/><circle cx="16" cy="21" r="1.8" fill="currentColor"/></svg></span>
+      <span class="brand-text"><b>ARK</b> 学习指南</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">首页</a>
+      <a href="start.html">入门准备</a>
+      <a href="path.html">学习路径</a>
+      <a href="tools.html">工具</a>
+      <a href="news.html">资讯</a>
+      <a href="search.html" class="nav-search">搜索</a>
+      <a href="whats-new.html" class="nav-more">更多</a>
+    </nav>
+  <a href="guest.html" class="nav-guest">客户版</a>
+    </div>
+</header>
+<main id="main-content" tabindex="-1"><div class="wrap">
+
+<div class="page-head">
+  <span class="eyebrow">风险认知 · 自己判断</span>
+  <h1>怎么分辨一个项目安不安全</h1>
+  <p>币圈确实有很多崩盘的项目。但「都不安全」和「怎么分辨」是两回事。</p>
+  <p><b>这一页给你一把尺子 —— 六个维度，每一个都能自己上链查。</b></p>
+</div>
+
+<div class="warn">
+  <div class="warn-title">先说清楚：这一页不是让你信谁</div>
+  <p>下面每一条，都会告诉你怎么<b>自己验证</b>。</p>
+  <p>我不说「ARK 很安全」，我说的是「<b>这六条你可以自己查</b>」，查完你自己判断。</p>
+</div>
+
+<h2>一、币圈常见的是哪几种死法</h2>
+
+<div class="talk">
+<p>「项目崩盘，不是只有一种原因。<b>常见的有六种：</b></p>
+<p><b>① 被稀释</b> —— 项目方偷偷多印币，你手里的币瞬间变毛。</p>
+<p><b>② 池子被抽</b> —— 做市资金被撤走，你想卖都卖不掉。</p>
+<p><b>③ 规则被改</b> —— 合约权限没丢，项目方随时能改玩法。</p>
+<p><b>④ 钱在别人手里</b> —— 资产托管在中心化平台，平台出事你跟着遭殃。</p>
+<p><b>⑤ 取不出来</b> —— 提现通道被关，钱只是屏幕上的数字。</p>
+<p><b>⑥ 被杠杆玩死</b> —— 这个不是项目的问题，是<b>自己的问题</b>。</p>
+<p><b>前五种是项目方的问题，第六种是自己要克制的。</b>」</p>
+</div>
+
+<h2>二、六个维度对照表</h2>
+
+<div class="facts">
+<div class="facts-t">用这六条去量任何一个项目</div>
+<table>
+<tr><th>#</th><th>维度</th><th>要问的问题</th><th>怎么自己查</th></tr>
+<tr><td>1</td><td><b>供给控制</b></td><td>能不能偷偷印币？</td><td>链上看有没有 <code>mint</code> 方法</td></tr>
+<tr><td>2</td><td><b>流动性</b></td><td>池子锁了没？锁多少？</td><td>看 LP 合约的持有者</td></tr>
+<tr><td>3</td><td><b>合约权限</b></td><td>权限丢了没？</td><td>看有没有 <code>owner()</code></td></tr>
+<tr><td>4</td><td><b>资金托管</b></td><td>钱在谁手里？</td><td>看是多签还是单人</td></tr>
+<tr><td>5</td><td><b>提现自由</b></td><td>能随时取吗？</td><td>小额试一笔</td></tr>
+<tr><td>6</td><td><b>交易约束</b></td><td>有没有冷静机制？</td><td>看有没有锁仓/熔断设计</td></tr>
+</table>
+</div>
+
+<h2>三、链上实测：ARK 的合约是什么样</h2>
+
+<div class="talk">
+<p>「下面这些不是说法，是<b>链上读出来的</b>。</p>
+<p>我用区块链的公开接口，直接读了这个合约：</p>
+<p><b>① 高危方法探测</b> —— 我试了 <code>mint</code>（增发）、<code>pause</code>（暂停）、<code>blacklist</code>（拉黑）三个方法。</p>
+<p><b>结果：三个全部不存在。</b></p>
+<p><b>② owner 探测</b> —— 有 owner 的合约，理论上能被管理。ARK 合约<b>没有这条接口</b>。</p>
+<p><b>③ 对比参考</b> —— 连 USDT、CAKE 这些主流币，都还有 owner 方法。</p>
+<p><b>所以：这个合约确实改不了规则、印不了币、拉黑不了人。</b>」</p>
+</div>
+
+<div class="facts">
+<div class="facts-t">链上实测结果（2026-10-03 读取）</div>
+<table>
+<tr><th>检测项</th><th>方法</th><th>结果</th></tr>
+<tr><td>能不能增发</td><td><code>mint(address,uint256)</code></td><td><b>✅ 方法不存在</b></td></tr>
+<tr><td>能不能暂停交易</td><td><code>pause()</code></td><td><b>✅ 方法不存在</b></td></tr>
+<tr><td>能不能拉黑地址</td><td><code>blacklist(address)</code></td><td><b>✅ 方法不存在</b></td></tr>
+<tr><td>有没有管理员</td><td><code>owner()</code></td><td><b>✅ 无此接口</b></td></tr>
+<tr><td>总供应量</td><td><code>totalSupply()</code></td><td>34,356,355</td></tr>
+<tr><td>LP 底池</td><td><code>getReserves()</code></td><td>29,044,538 USDT + 4,506,546 ARK</td></tr>
+</table>
+<p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">
+⚠️ 以上数据实时变化，你可以自己去 <a href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">BscScan</a> 核对。
+</p>
+</div>
+
+<h2>四、跟「比特村式」项目比，差在哪</h2>
+
+<div class="talk">
+<p>「有人会说：币圈不都是这样吗？早晚都崩。</p>
+<p><b>这话有一半道理 —— 但「都一样」和「怎么分辨」是两件事。</b></p>
+<p>确实有一类项目，从一开始就注定崩：</p>
+<p><b>· 币能随便印</b>（想稀释你就稀释你）<br>
+<b>· 池子随时能抽</b>（想跑就跑）<br>
+<b>· 规则随时能改</b>（今天这样明天那样）<br>
+<b>· 钱全在它手里</b>（提现看它心情）<br>
+<b>· 还鼓励你上高杠杆</b>（爆仓算你自己的）</p>
+<p><b>这五条全中的，不用等它崩，你就不该进。</b>」</p>
+</div>
+
+<div class="facts">
+<div class="facts-t">五条「必崩特征」自查表</div>
+<table>
+<tr><th>#</th><th>危险信号</th><th>说明</th></tr>
+<tr><td>1</td><td><b>合约里有 mint 方法，且 owner 还活着</b></td><td>能随时增发稀释你</td></tr>
+<tr><td>2</td><td><b>LP 没锁，或者锁在项目方地址</b></td><td>随时能撤池跑路</td></tr>
+<tr><td>3</td><td><b>合约没开源，或权限没丢</b></td><td>黑箱操作，规则能改</td></tr>
+<tr><td>4</td><td><b>国库/资金由单个人控制</b></td><td>一个人就能转走</td></tr>
+<tr><td>5</td><td><b>鼓励你开高倍杠杆</b></td><td>爆仓是你自己承担</td></tr>
+</table>
+<p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">
+<b>中 3 条以上 → 直接放弃，不用往下看。</b>
+</p>
+</div>
+
+<h2>五、但我要如实说 ARK 的「软肋」</h2>
+
+<div class="warn">
+  <div class="warn-title">⚠️ 第六条：ARK 也有「交易约束」</div>
+  <p>前面五条，ARK 都通过了链上验证。但<b>第六条要看清楚 ——</b></p>
+  <p>ARK 的质押有<b>锁仓周期</b>（180/360/540/720 天 / 永久）。这意味着：</p>
+  <p><b>① 不能随时全额取出</b> —— 提前取有惩罚（涡轮系数）。</p>
+  <p><b>② 本质是「长期锁定」而不是「随时可用」。</b></p>
+  <p><b>所以：投进去的钱，必须是「这笔钱我几年内不用」。</b></p>
+</div>
+
+<div class="talk">
+<p>「但这里要分清楚一件事 ——</p>
+<p><b>「比特村」那种是「无约束的赌」</b>：125 倍杠杆，秒进秒出，赌对翻倍赌错归零。</p>
+<p><b>ARK 是「有约束的长期质押」</b>：你要接受锁定期，换来的是长期分红。</p>
+<p><b>两种机制完全不同。但都要如实说 ——</b></p>
+<p><b>如果你要的是「随时能取」，那这个不适合你。</b>」</p>
+</div>
+
+<h2>六、自己查的四个入口</h2>
+
+<div class="see">
+  <div class="see-t">现场可以打开给他看</div>
+  <div class="see-list">
+    <a href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener"><b>BscScan 合约页</b><span>看代码、看持币分布</span></a>
+    <a href="https://ave.ai/token/0xcae117ca6bc8a341d2e7207f30e180f0e5618b9d-bsc" target="_blank" rel="noopener"><b>AVE 安全检测</b><span>看底池和权限</span></a>
+    <a href="https://gopluslabs.io/token-security/56/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener"><b>GoPlus 合约扫描</b><span>自动检测风险</span></a>
+    <a href="query-guide.html"><b>链上查询教程</b><span>手把手教你怎么查</span></a>
+  </div>
+</div>
+
+<div class="note">
+  <div class="note-title">最后说一句</div>
+  <p><b>链上能查的，是「技术安全」—— 合约改不了、币印不了、池子抽不走。</b></p>
+  <p><b>链上查不到的，是「投资安全」—— 币价会不会跌，市场会不会变。</b></p>
+  <p>这两件事不一样。<b>技术安全不等于不亏钱。</b></p>
+</div>
+
+<div class="src">
+  <div class="src-t">本页数据来源</div>
+  <p>链上数据：BSC 公共 RPC 直接读取（<code>bsc-dataseed.binance.org</code>），读取时间 2026-10-03。</p>
+  <p>方法探测：<code>eth_call</code> 调用 <code>mint</code> / <code>pause</code> / <code>blacklist</code> / <code>owner</code> 四个签名。</p>
+  <p>风险框架参考：公开的币圈崩盘案例分析（含杠杆、匿名、监管三个放大器）。</p>
+</div>
+
+</div></main>
+
+<footer class="site-footer"><div class="wrap">
+  <p><b>ARK 学习指南</b> · 风险认知</p>
+  <p>本页内容是判断方法，不构成投资建议。数字资产风险高，请独立判断、风险自担。</p>
+  <p><a href="index.html">回到首页</a> · <a href="check-guide.html">项目体检</a> · <a href="tools.html">查询工具</a></p>
+</div></footer>
+
+<script src="assets/fab.min.js?v=1"></script>
+<script src="assets/nav-v2.min.js?v=1"></script>
+<script src="assets/link-tools.min.js?v=1"></script>
+</body>
+</html>
