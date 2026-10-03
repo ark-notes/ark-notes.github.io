@@ -43,17 +43,91 @@
 
 <h2>一、基础信息核验（3 分钟）</h2>
 
-<div class="facts">
-<div class="facts-t">先看这五项</div>
-<table>
-<tr><th>#</th><th>查什么</th><th>怎么查</th><th>危险信号</th></tr>
-<tr><td>1</td><td><b>合约地址</b></td><td>官网 / DexScreener 搜代币名</td><td>搜不到、或多个同名</td></tr>
-<tr><td>2</td><td><b>持币地址数</b></td><td>BscScan → Holders</td><td><b>&lt; 1000</b></td></tr>
-<tr><td>3</td><td><b>上线时间</b></td><td>BscScan → 合约创建时间</td><td>刚上线几天</td></tr>
-<tr><td>4</td><td><b>流动性规模</b></td><td>DexScreener / AVE</td><td><b>&lt; 5 万美金</b></td></tr>
-<tr><td>5</td><td><b>交易所收录</b></td><td>CoinMarketCap / CoinGecko</td><td>未收录 → 谨慎</td></tr>
-</table>
+<div class="note"><div class="note-title">怎么做这一关</div>
+<p>下面<b>每一项都告诉你去哪查、点哪里、看到什么算合格</b>。<br>
+左边的按钮<b>直接点开</b>就能查，不用自己找网址。</p></div>
+
+<div class="chk-list">
+
+  <div class="chk">
+    <div class="chk-n">01</div>
+    <div class="chk-b">
+      <div class="chk-t">先找到它的合约地址</div>
+      <div class="chk-h">去哪查</div>
+      <p>打开下面任一平台，搜项目名（或代币名），就能看到合约地址。</p>
+      <div class="chk-btns">
+        <a class="tbl-act" href="https://dexscreener.com/bsc" target="_blank" rel="noopener">DexScreener</a>
+        <a class="tbl-act" href="https://ave.ai" target="_blank" rel="noopener">AVE</a>
+      </div>
+      <div class="chk-h">怎么判断</div>
+      <p class="chk-ok">✅ 搜得到，而且只有一个同名 → 正常</p>
+      <p class="chk-bad">🔴 搜不到，或者出来好几个同名 → <b>警惕</b></p>
+    </div>
+  </div>
+
+  <div class="chk">
+    <div class="chk-n">02</div>
+    <div class="chk-b">
+      <div class="chk-t">看持币地址有多少个</div>
+      <div class="chk-h">去哪查</div>
+      <p>打开区块浏览器，搜索合约地址 → 点「Holders」（持有人）标签。</p>
+      <div class="chk-btns">
+        <a class="tbl-act" href="https://bscscan.com" target="_blank" rel="noopener">BscScan</a>
+      </div>
+      <div class="chk-h">怎么判断</div>
+      <p class="chk-ok">✅ 几万个以上 → 有人真的在用</p>
+      <p class="chk-bad">🔴 <b>不到 1000 个</b> → 基本是自家人玩，小心</p>
+    </div>
+  </div>
+
+  <div class="chk">
+    <div class="chk-n">03</div>
+    <div class="chk-b">
+      <div class="chk-t">看它上线多久了</div>
+      <div class="chk-h">去哪查</div>
+      <p>在 BscScan 上点「Contract」→ 看「Contract Creator」和创建时间。</p>
+      <div class="chk-h">怎么判断</div>
+      <p class="chk-ok">✅ 上线一年以上、经历过行情起伏 → 相对稳</p>
+      <p class="chk-bad">🔴 <b>刚上线几天、几周</b> → 高度警惕</p>
+    </div>
+  </div>
+
+  <div class="chk">
+    <div class="chk-n">04</div>
+    <div class="chk-b">
+      <div class="chk-t">看池子里有多少钱（流动性）</div>
+      <div class="chk-h">去哪查</div>
+      <p>DexScreener 或 AVE 打开，直接看「Liquidity」（流动性）那一栏。</p>
+      <div class="chk-btns">
+        <a class="tbl-act" href="https://dexscreener.com/bsc" target="_blank" rel="noopener">DexScreener</a>
+        <a class="tbl-act" href="https://ave.ai" target="_blank" rel="noopener">AVE</a>
+      </div>
+      <div class="chk-h">怎么判断</div>
+      <p class="chk-ok">✅ 几十万美金以上 → 买卖不容易被卡</p>
+      <p class="chk-bad">🔴 <b>不到 5 万美金</b> → 一点钱就能砸盘</p>
+    </div>
+  </div>
+
+  <div class="chk">
+    <div class="chk-n">05</div>
+    <div class="chk-b">
+      <div class="chk-t">看有没有被大平台收录</div>
+      <div class="chk-h">去哪查</div>
+      <p>去 CoinMarketCap 或 CoinGecko 搜项目名。</p>
+      <div class="chk-btns">
+        <a class="tbl-act" href="https://coinmarketcap.com" target="_blank" rel="noopener">CoinMarketCap</a>
+        <a class="tbl-act" href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a>
+      </div>
+      <div class="chk-h">怎么判断</div>
+      <p class="chk-ok">✅ 两个都收录了 → 经过了平台审核，可信度更高</p>
+      <p class="chk-bad">🔴 都没收录 → 谨慎，别急</p>
+    </div>
+  </div>
+
 </div>
+
+<div class="note"><div class="note-title">这一关过不了，后面不用看了</div>
+<p>如果上面 5 项里有 <b>3 项以上亮红灯</b>，直接放弃。<b>不用往下查。</b></p></div>
 
 <h2>二、安全第一关：LP 底池锁了吗</h2>
 
