@@ -3125,3 +3125,56 @@ a[href]:not(.site-nav a):not(.side-nav a):not(.toc-right a):not(.fab-item):not(.
 /* vg-ico（教程视频卡）SVG */
 .vg-ico svg{ width:16px; height:16px; }
 .vg-ico{ color:var(--cyan); }
+
+/* ============================================================
+   体检清单组件（check-guide）
+   特点：每项 = 序号 + 标题 + 去哪查（按钮） + 怎么判断
+   ============================================================ */
+.chk-list{ display:flex; flex-direction:column; gap:14px; margin:22px 0; }
+.chk{
+  display:flex; gap:18px; align-items:flex-start;
+  padding:22px 24px; border-radius:var(--radius-lg);
+  background:var(--surface); border:1px solid var(--line);
+  transition:.24s var(--ease);
+}
+.chk:hover{ border-color:var(--cyan-line); background:var(--surface-2); }
+.chk-n{
+  flex:none; width:38px; height:38px; border-radius:11px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; font-weight:800; letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+  background:var(--cyan-soft); color:var(--cyan);
+  border:1px solid var(--cyan-line);
+}
+.chk-b{ flex:1; min-width:0; }
+.chk-t{ font-size:17px; font-weight:680; color:var(--text); margin-bottom:12px; letter-spacing:-.005em; }
+.chk-h{
+  font-size:11.5px; font-weight:750; letter-spacing:.1em;
+  color:var(--text-3); text-transform:uppercase;
+  margin:14px 0 7px;
+}
+.chk-h:first-of-type{ margin-top:0; }
+.chk-b p{ font-size:14.5px; color:var(--text-2); line-height:1.85; margin:0 0 7px; }
+.chk-b p:last-child{ margin-bottom:0; }
+.chk-ok{
+  color:var(--green) !important;
+  background:rgba(62,207,142,.08);
+  border-left:3px solid rgba(62,207,142,.4);
+  border-radius:0 8px 8px 0;
+  padding:8px 12px;
+}
+.chk-bad{
+  color:#ffc9c9 !important;
+  background:rgba(255,107,107,.08);
+  border-left:3px solid rgba(255,107,107,.4);
+  border-radius:0 8px 8px 0;
+  padding:8px 12px;
+}
+.chk-btns{ display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 4px; }
+
+@media(max-width:640px){
+  .chk{ gap:12px; padding:17px 15px; }
+  .chk-n{ width:32px; height:32px; border-radius:9px; font-size:13px; }
+  .chk-t{ font-size:15.5px; margin-bottom:10px; }
+  .chk-btns .tbl-act{ font-size:12.5px; padding:5px 10px; }
+}
