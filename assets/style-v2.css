@@ -818,6 +818,8 @@ body.has-bottombar .bottom-bar{
 }
 .talk p:last-child{ margin-bottom:0; }
 .talk strong{ color:var(--cyan); font-weight:700; }
+/* 说明：.talk 是"可以直接讲"话术块，整块带边框+标签，
+   里面的青色加粗不会跟链接混淆，故保留（用户要求的"强显示"）。 */
 
 /* 出处 */
 .src{
@@ -1306,7 +1308,10 @@ code, .a-val, .src code{
 .ni-sum code, .ni-more code, .facts code, .content code{
   display:inline; max-width:100%;
 }
-.facts b{ color:var(--cyan); font-weight:700; }
+/* ⚠️ 表格里的加粗：用白色，不用青色 —— 青色 = 能点，会误导 */
+.facts b{ color:var(--text); font-weight:700; }
+/* 表格里真正的链接：青色 + 箭头 */
+.facts a b, .facts a{ color:var(--cyan); }
 @media(max-width:520px){
   .facts{ padding:14px 14px; }
   .facts table{ font-size:15px; }
@@ -3027,4 +3032,89 @@ code.hash{
   .term.open .term-pop{ transform:translateY(0); }
   .term-hint{ font-size:13.5px; padding:12px 14px; }
   .term-pop .eg{ font-size:13px; }
+}
+
+
+/* ---------- tools.html 工具卡：分清「能点」和「说明文字」 ---------- */
+/* 「怎么用：」是说明标签，不是链接 → 用金色小标签，不用青色 */
+.tool-how b{
+  color:var(--gold) !important;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.02em;
+}
+/* 工具卡正文里的加粗 → 白色（不是链接） */
+.tool-use b, .tool-how, .tool-desc b{
+  color:var(--text-2);
+}
+.tool-use b{ color:var(--text); font-weight:640; }
+/* 工具卡里真正的可点元素 → 青色 + 箭头（已有 .tool-open） */
+.tool-open{ color:var(--cyan) !important; }
+
+/* ============================================================
+   UI 强化 v2（2026-10-03）
+   用户要求：「尽量做的强显示，让用户看得明白、看得清楚」
+   原则：
+     青色 + 箭头 + 下划线 = 能点，会跳转
+     金色 + 问号          = 能点，会展开
+     白/灰                = 只是文字
+   ============================================================ */
+
+/* ---------- ① 所有外链自动加箭头（明确"点了会走"） ---------- */
+main a[href^="http"]:not(.chan):not(.cq-card):not(.vg-item):not(.addr-inline):not(.rec-item):not(.ni-src-toggle):not(.card):not(.see-list a):not(.tool-open):not(.rstep-cta):not(.nav-side-link){
+  color:var(--cyan);
+  border-bottom:1px dashed rgba(34,211,238,.45);
+  text-decoration:none;
+  transition:.2s var(--ease);
+}
+main a[href^="http"]:not(.chan):not(.cq-card):not(.vg-item):not(.addr-inline):not(.rec-item):not(.ni-src-toggle):not(.card):not(.see-list a):not(.tool-open):not(.rstep-cta):not(.nav-side-link):hover{
+  border-bottom-style:solid;
+  border-bottom-color:var(--cyan);
+  background:rgba(34,211,238,.08);
+}
+main a[href^="http"]:not(.chan):not(.cq-card):not(.vg-item):not(.addr-inline):not(.rec-item):not(.ni-src-toggle):not(.card):not(.see-list a):not(.tool-open):not(.rstep-cta):not(.nav-side-link)::after{
+  content:"↗"; font-size:.82em; margin-left:2px; opacity:.75;
+  display:inline-block; transition:.2s var(--ease);
+}
+main a[href^="http"]:not(.chan):not(.cq-card):not(.vg-item):not(.addr-inline):not(.rec-item):not(.ni-src-toggle):not(.card):not(.see-list a):not(.tool-open):not(.rstep-cta):not(.nav-side-link):hover::after{
+  opacity:1; transform:translate(2px,-2px);
+}
+
+/* ---------- ② 内部链接（跳到本站其它页）也给箭头 ---------- */
+.link-go{
+  color:var(--cyan);
+  border-bottom:1px dashed rgba(34,211,238,.42);
+  text-decoration:none;
+}
+.link-go:hover{ border-bottom-style:solid; }
+
+/* ---------- ③ 表格里的「操作列」改成按钮样式 ---------- */
+.tbl-act{
+  display:inline-flex; align-items:center; gap:5px;
+  padding:5px 12px; border-radius:8px;
+  background:var(--cyan-soft);
+  border:1px solid var(--cyan-line);
+  color:var(--cyan) !important;
+  font-size:13px; font-weight:600;
+  text-decoration:none;
+  transition:.2s var(--ease);
+  white-space:nowrap;
+}
+.tbl-act:hover{
+  background:rgba(34,211,238,.2);
+  transform:translateY(-1px);
+  box-shadow:0 4px 14px rgba(34,211,238,.22);
+}
+.tbl-act::after{ content:"↗"; font-size:.9em; opacity:.8; }
+
+/* ---------- ④ 统一的「点击提示」—— 可点元素有轻微浮动 ---------- */
+a[href]:not(.site-nav a):not(.side-nav a):not(.toc-right a):not(.fab-item):not(.dm-item):not(.fn-col a){
+  transition:transform .18s var(--ease), color .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+}
+
+/* ---------- ⑤ 触摸设备的提示（手机点一下有反馈） ---------- */
+@media(hover:none){
+  .term:active{ background:rgba(224,185,106,.25); }
+  .tbl-act:active{ transform:scale(.97); }
+  .addr-inline:active{ background:rgba(34,211,238,.2); }
 }
