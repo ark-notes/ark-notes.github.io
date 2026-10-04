@@ -10,7 +10,7 @@
 <meta property="og:description" content="六个维度判断一个区块链项目，每一条都能自己上链查。">
 <meta property="og:site_name" content="ARK 学习指南">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/style-v2.min.css?v=102">
+<link rel="stylesheet" href="assets/style-v2.min.css?v=104">
 </head>
 <body>
 <a href="#main-content" class="skip-link">跳到主要内容</a>
@@ -94,15 +94,15 @@
 <div class="facts-t">链上实测结果（2026-10-03 读取）</div>
 <table>
 <tr><th>检测项</th><th>方法</th><th>结果</th></tr>
-<tr><td>能不能增发</td><td><code>mint(address,uint256)</code></td><td><b>✅ 方法不存在</b></td></tr>
-<tr><td>能不能暂停交易</td><td><code>pause()</code></td><td><b>✅ 方法不存在</b></td></tr>
-<tr><td>能不能拉黑地址</td><td><code>blacklist(address)</code></td><td><b>✅ 方法不存在</b></td></tr>
-<tr><td>有没有管理员</td><td><code>owner()</code></td><td><b>✅ 无此接口</b></td></tr>
+<tr><td>能不能增发</td><td><code>mint(address,uint256)</code></td><td><b><svg class="ic-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="14" height="14" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> 方法不存在</b></td></tr>
+<tr><td>能不能暂停交易</td><td><code>pause()</code></td><td><b><svg class="ic-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="14" height="14" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> 方法不存在</b></td></tr>
+<tr><td>能不能拉黑地址</td><td><code>blacklist(address)</code></td><td><b><svg class="ic-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="14" height="14" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> 方法不存在</b></td></tr>
+<tr><td>有没有管理员</td><td><code>owner()</code></td><td><b><svg class="ic-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="14" height="14" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> 无此接口</b></td></tr>
 <tr><td>总供应量</td><td><code>totalSupply()</code></td><td>34,356,355</td></tr>
 <tr><td>LP 底池</td><td><code>getReserves()</code></td><td>29,044,538 USDT + 4,506,546 ARK</td></tr>
 </table>
 <p style="margin:10px 0 0;font-size:13.5px;color:#8e9aae">
-⚠️ 以上数据实时变化，你可以自己去 <a href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">BscScan</a> 核对。
+<svg class="ic-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15" aria-hidden="true"><path d="M12 3l9.5 17H2.5L12 3z"/><path d="M12 10v4M12 17.2v.1"/></svg> 以上数据实时变化，你可以自己去 <a href="https://bscscan.com/token/0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D" target="_blank" rel="noopener">BscScan</a> 核对。
 </p>
 </div>
 
@@ -138,7 +138,7 @@
 <h2>五、ARK 的「约束」到底是什么（如实说）</h2>
 
 <div class="warn">
-  <div class="warn-title">⚠️ 第六条：ARK 有两套「约束」机制</div>
+  <div class="warn-title"><svg class="ic-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15" aria-hidden="true"><path d="M12 3l9.5 17H2.5L12 3z"/><path d="M12 10v4M12 17.2v.1"/></svg> 第六条：ARK 有两套「约束」机制</div>
   <p>前面五条，ARK 都通过了链上验证。但<b>第六条要看清楚 —— ARK 有两套机制限制"随时全额取出"：</b></p>
   <p><b>一是质押周期</b> —— 你选 180 / 360 / 540 / 720 天，或永久。选定的周期内是锁定的。</p>
   <p><b>二是涡轮系数</b> —— 卖出时系统会按市场情况打个系数（比如 0.5），
@@ -161,9 +161,9 @@
 
 <div class="talk">
 <p>「那这到底算不算'取不出来'？<b>不算 —— 但要如实说清楚：</b></p>
-<p><b>✅ 能取</b> —— 不是锁死，不是取不出</p>
-<p><b>⚠️ 但取的时候可能打折</b> —— 市场抛压大的时候，系数降低，你实际拿到手的量会少</p>
-<p><b>✅ 系数是动态的</b> —— 市场恢复正常，系数会回到 1</p>
+<p><b><svg class="ic-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="14" height="14" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> 能取</b> —— 不是锁死，不是取不出</p>
+<p><b><svg class="ic-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15" aria-hidden="true"><path d="M12 3l9.5 17H2.5L12 3z"/><path d="M12 10v4M12 17.2v.1"/></svg> 但取的时候可能打折</b> —— 市场抛压大的时候，系数降低，你实际拿到手的量会少</p>
+<p><b><svg class="ic-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="14" height="14" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> 系数是动态的</b> —— 市场恢复正常，系数会回到 1</p>
 <p><b>所以准确的说法是：不是"几年不能用"，而是"取的时候要看当时的市场系数"。</b>」</p>
 </div>
 
